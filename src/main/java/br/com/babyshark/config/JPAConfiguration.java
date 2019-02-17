@@ -1,34 +1,48 @@
 package br.com.babyshark.config;
 
+import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 @Configuration
 @EnableTransactionManagement
 public class JPAConfiguration {
 	
+	@Bean(destroyMethod = "close")
+	public DataSource getDataSource() throws PropertyVetoException {
+
+		ComboPooledDataSource dataSource = new ComboPooledDataSource();
+		dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
+		dataSource.setUser("root");
+		dataSource.setPassword("12345");
+		dataSource.setJdbcUrl("jdbc:mysql://localhost/babyshark?serverTimezone=UTC");
+
+		dataSource.setMinPoolSize(3);
+		dataSource.setMaxPoolSize(5);
+		dataSource.setIdleConnectionTestPeriod(10);
+
+		return dataSource;
+	}
+	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(vendorAdapter);
-		
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUsername("root");
-		dataSource.setPassword("12345");
-		dataSource.setUrl("jdbc:mysql://localhost/babyshark?serverTimezone=UTC");
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+				
 		factoryBean.setDataSource(dataSource);
 		
 		Properties properties = new Properties();
