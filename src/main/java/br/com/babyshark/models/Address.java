@@ -23,6 +23,9 @@ public class Address {
 
 	@Column(nullable = false)
 	private String district;
+	
+	@Column(nullable = false)
+	private String country;
 
 	private String complement;
 
@@ -82,4 +85,12 @@ public class Address {
 		this.district = district;
 	}
 
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	
 }
