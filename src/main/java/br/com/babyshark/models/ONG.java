@@ -41,7 +41,7 @@ public class ONG implements Serializable {
 	private Address address;
 
 	@OneToMany(mappedBy = "ong")
-	private Set<Event1> events = new HashSet<Event1>();
+	private Set<Event> events = new HashSet<Event>();
 
 	public Integer getId() {
 		return id;
@@ -107,11 +107,11 @@ public class ONG implements Serializable {
 		this.address = address;
 	}
 
-	public Set<Event1> getEvents() {
+	public Set<Event> getEvents() {
 		return events;
 	}
 
-	public void setEvents(Set<Event1> events) {
+	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
 }

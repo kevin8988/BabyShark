@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Event1 implements Serializable {
+public class Event implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
