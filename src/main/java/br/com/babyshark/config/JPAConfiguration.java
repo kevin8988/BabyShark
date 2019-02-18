@@ -29,8 +29,8 @@ public class JPAConfiguration {
 		dataSource.setPassword("12345");
 		dataSource.setJdbcUrl("jdbc:mysql://localhost/babyshark?serverTimezone=UTC");
 
-		dataSource.setMinPoolSize(3);
-		dataSource.setMaxPoolSize(5);
+		dataSource.setMinPoolSize(5);
+		dataSource.setMaxPoolSize(10);
 		dataSource.setIdleConnectionTestPeriod(10);
 
 		return dataSource;
@@ -48,7 +48,7 @@ public class JPAConfiguration {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 		
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.babyshark.models");
