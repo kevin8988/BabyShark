@@ -30,9 +30,6 @@ public class User implements Serializable {
 	private String email;
 
 	@Column(nullable = false)
-	private String login;
-
-	@Column(nullable = false)
 	private String password;
 
 	@Column(nullable = false)
@@ -102,15 +99,7 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
+	}	
 
 	public String getPassword() {
 		return password;
