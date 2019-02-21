@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Product implements Serializable {
+public class Donate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -47,10 +47,10 @@ public class Product implements Serializable {
 	@ManyToMany
 	private Set<Category> categories = new HashSet<Category>();
 
-	public Product() {
+	public Donate() {
 	}
 
-	public Product(String title, User user, Category... categories) {
+	public Donate(String title, User user, Category... categories) {
 		this.title = title;
 		this.user = user;
 		setCategories(categories);

@@ -23,7 +23,7 @@ public class Interest implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "pk_product", insertable = false, updatable = false)
-	private Product product;
+	private Donate product;
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Status status;
@@ -32,7 +32,7 @@ public class Interest implements Serializable {
 
 	}
 
-	public Interest(User user, Product product, Status status) {
+	public Interest(User user, Donate product, Status status) {
 		this.id = new InterestId(user.getId(), product.getId());
 		this.user = user;
 		this.product = product;
@@ -57,11 +57,11 @@ public class Interest implements Serializable {
 		this.status = status;
 	}
 
-	public Product getProduct() {
+	public Donate getProduct() {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(Donate product) {
 		this.product = product;
 	}
 
