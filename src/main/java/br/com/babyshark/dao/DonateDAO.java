@@ -15,5 +15,7 @@ public interface DonateDAO {
 	public List<Donate> getDonatesDonated();
 	
 	public List<Donate> getDonatesByCategories(Category... categories);
+	 
+	public List<Donate> getDonatesByName(String name);
 
 }
