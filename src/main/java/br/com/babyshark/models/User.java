@@ -52,7 +52,7 @@ public class User implements Serializable {
 	private Set<Interest> interests = new HashSet<Interest>();
 
 	@OneToMany(mappedBy = "user")
-	private Set<Donate> products = new HashSet<Donate>();
+	private Set<Donate> donates = new HashSet<Donate>();
 
 	public User() {
 	}
@@ -85,12 +85,12 @@ public class User implements Serializable {
 		this.interests = interests;
 	}
 
-	public Set<Donate> getProducts() {
-		return products;
+	public Set<Donate> getDonates() {
+		return donates;
 	}
 
-	public void setProducts(Set<Donate> products) {
-		this.products = products;
+	public void setDonates(Set<Donate> donates) {
+		this.donates = donates;
 	}
 
 	public String getEmail() {

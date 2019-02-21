@@ -24,7 +24,7 @@ public class Category implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private CategoryName name;
 	@ManyToMany(mappedBy = "categories")
-	private Set<Donate> products = new HashSet<Donate>();
+	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Category() {
 	}
@@ -49,12 +49,12 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Donate> getProducts() {
-		return products;
+	public Set<Donate> getDonates() {
+		return donates;
 	}
 
-	public void setProducts(Set<Donate> products) {
-		this.products = products;
+	public void setDonates(Set<Donate> donates) {
+		this.donates = donates;
 	}
 
 }

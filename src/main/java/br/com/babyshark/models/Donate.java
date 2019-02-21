@@ -41,7 +41,7 @@ public class Donate implements Serializable {
 	@ElementCollection
 	private Set<Photo> photos = new HashSet<Photo>();
 
-	@OneToMany(mappedBy = "product")
+	@OneToMany(mappedBy = "donate")
 	private Set<Interest> interests = new HashSet<Interest>();
 
 	@ManyToMany
@@ -54,7 +54,7 @@ public class Donate implements Serializable {
 		this.title = title;
 		this.user = user;
 		setCategories(categories);
-		user.getProducts().add(this);
+		user.getDonates().add(this);
 	}
 
 	public Integer getId() {

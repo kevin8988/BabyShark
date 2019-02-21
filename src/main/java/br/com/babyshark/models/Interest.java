@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 public class Interest implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@EmbeddedId
 	private InterestId id;
 
@@ -22,8 +23,9 @@ public class Interest implements Serializable {
 	private User user;
 
 	@ManyToOne
-	@JoinColumn(name = "pk_product", insertable = false, updatable = false)
-	private Donate product;
+	@JoinColumn(name = "pk_donate", insertable = false, updatable = false)
+	private Donate donate;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Status status;
@@ -32,13 +34,13 @@ public class Interest implements Serializable {
 
 	}
 
-	public Interest(User user, Donate product, Status status) {
-		this.id = new InterestId(user.getId(), product.getId());
+	public Interest(User user, Donate donate, Status status) {
+		this.id = new InterestId(user.getId(), donate.getId());
 		this.user = user;
-		this.product = product;
+		this.donate = donate;
 		this.status = status;
 		user.getInterests().add(this);
-		product.getInterests().add(this);
+		donate.getInterests().add(this);
 	}
 
 	public User getUser() {
@@ -57,12 +59,12 @@ public class Interest implements Serializable {
 		this.status = status;
 	}
 
-	public Donate getProduct() {
-		return product;
+	public Donate getDonate() {
+		return donate;
 	}
 
-	public void setProduct(Donate product) {
-		this.product = product;
+	public void setDonate(Donate donate) {
+		this.donate = donate;
 	}
 
 }
