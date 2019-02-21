@@ -10,6 +10,5 @@ public interface EventDAO {
 	
 	public List<Event> getEventsByTitle(String title);
 	
-	
 
 }
