@@ -6,25 +6,25 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address {
 
-	@Column(nullable = false)
+	@Column(name = "postal_code")
 	private String postalCode;
 
-	@Column(nullable = false)
+	@Column
 	private String city;
 
-	@Column(nullable = false)
+	@Column
 	private String state;
 
-	@Column(nullable = false)
+	@Column
 	private String address;
 
-	@Column(nullable = false)
+	@Column
 	private String number;
 
-	@Column(nullable = false)
+	@Column
 	private String district;
 	
-	@Column(nullable = false)
+	@Column
 	private String country;
 
 	private String complement;

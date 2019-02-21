@@ -25,7 +25,7 @@ public class ONG implements Serializable {
 	@Column(nullable = false)
 	private String description;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "fantasy_name")
 	private String fantasyName;
 
 	@Column(nullable = false)
@@ -34,7 +34,7 @@ public class ONG implements Serializable {
 	@Column(nullable = false)
 	private String email;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "social_name")
 	private String socialName;
 
 	@Column(nullable = false)

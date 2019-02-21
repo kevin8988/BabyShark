@@ -30,15 +30,15 @@ public class Event implements Serializable {
 	@Column(nullable = false)
 	private String description;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "initial_hour")
 	@Temporal(TemporalType.TIME)
 	private Date initialHour;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "end_hour")
 	@Temporal(TemporalType.TIME)
 	private Date endHour;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "day_of_event")
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfEvent;
 

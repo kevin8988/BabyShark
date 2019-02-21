@@ -32,10 +32,10 @@ public class User implements Serializable {
 	@Column(nullable = false)
 	private String password;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 
-	@Column(nullable = false)
+	@Column(nullable = false, name = "day_of_birth")
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfBirth;
 
