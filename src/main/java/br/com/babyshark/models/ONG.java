@@ -34,6 +34,12 @@ public class ONG implements Serializable {
 	@Column(nullable = false)
 	private String email;
 
+	@Column(nullable = false)
+	private String password;
+
+	@Column(nullable = false, name = "confirm_password")
+	private String confirmPassword;
+
 	@Column(nullable = false, name = "social_name")
 	private String socialName;
 
@@ -105,6 +111,22 @@ public class ONG implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public Set<Event> getEvents() {
