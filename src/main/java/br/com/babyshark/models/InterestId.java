@@ -12,8 +12,8 @@ public class InterestId implements Serializable {
 
 	@Column(name = "pk_user")
 	private Integer userId;
-	@Column(name = "pk_product")
-	private Integer productId;
+	@Column(name = "pk_donate")
+	private Integer donateId;
 
 	public InterestId() {
 
@@ -21,14 +21,14 @@ public class InterestId implements Serializable {
 
 	public InterestId(Integer id, Integer id2) {
 		this.userId = id;
-		this.productId = id2;
+		this.donateId = id2;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
+		result = prime * result + ((donateId == null) ? 0 : donateId.hashCode());
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
@@ -42,10 +42,10 @@ public class InterestId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		InterestId other = (InterestId) obj;
-		if (productId == null) {
-			if (other.productId != null)
+		if (donateId == null) {
+			if (other.donateId != null)
 				return false;
-		} else if (!productId.equals(other.productId))
+		} else if (!donateId.equals(other.donateId))
 			return false;
 		if (userId == null) {
 			if (other.userId != null)
