@@ -11,8 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -41,6 +43,10 @@ public class Event implements Serializable {
 	@Column(nullable = false, name = "day_of_event")
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfEvent;
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	@ManyToOne
 	private User user;
@@ -121,6 +127,14 @@ public class Event implements Serializable {
 
 	public void setParticipants(Set<User> participants) {
 		this.participants = participants;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
