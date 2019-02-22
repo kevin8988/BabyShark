@@ -1,10 +1,17 @@
 package br.com.babyshark.models;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Embeddable
+@Entity
 public class Address {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
 	@Column(name = "postal_code")
 	private String postalCode;
@@ -23,11 +30,20 @@ public class Address {
 
 	@Column
 	private String district;
-	
+
 	@Column
 	private String country;
-
+	
+	@Column
 	private String complement;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getPostalCode() {
 		return postalCode;
@@ -92,5 +108,5 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+
 }
