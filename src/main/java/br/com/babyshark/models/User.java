@@ -44,7 +44,7 @@ public class User implements Serializable {
 
 	@Column(nullable = false)
 	private String fone;
-	
+
 	@Embedded
 	private Address address;
 
@@ -54,10 +54,13 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private Set<Donate> donates = new HashSet<Donate>();
 
+	@OneToMany(mappedBy = "user")
+	private Set<Event> events = new HashSet<Event>();
+
 	public User() {
 	}
 
-	public User(String name) {		
+	public User(String name) {
 		this.name = name;
 	}
 
@@ -99,7 +102,7 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
 
 	public String getPassword() {
 		return password;
@@ -115,14 +118,6 @@ public class User implements Serializable {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
-	}
-
-	public Calendar getBornDay() {
-		return dayOfBirth;
-	}
-
-	public void setBornDay(Calendar dayOfBirth) {
-		this.dayOfBirth = dayOfBirth;
 	}
 
 	public String getCpf() {
@@ -148,7 +143,21 @@ public class User implements Serializable {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
-	
+
+	public Set<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<Event> events) {
+		this.events = events;
+	}
+
+	public Calendar getDayOfBirth() {
+		return dayOfBirth;
+	}
+
+	public void setDayOfBirth(Calendar dayOfBirth) {
+		this.dayOfBirth = dayOfBirth;
+	}
 
 }
