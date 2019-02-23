@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/*----------------------------------------------------------------------
+  author: Vinicius Bartolo Guedes de Sousa;
+  Data:   11/02/2019;
+------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Capriola');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body{
+  background-image: url("../img/footer.jpg");
+  background-color: #C8D0D8;
+  width: 100%;
+  background-size: 100% 30%;
+  background-repeat: no-repeat;
+
+}
+p {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  /*color: #a6a7aa;*/
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+h1,h2,h3{
+  font-family: 'Capriola', sans-serif;
+}
+h1{
+  color: #0386A8;
+}
+a {
+  color: rgba(0,0,0,.7);
+}
+/* visited link */
+a:visited {  
+
+}
+
+/* mouse over link */
+a:hover {
+  color: #0386A8;
+  text-decoration: none; /*sem sublinhar*/
+}
+
+/* selected link */
+a:active {
+
+}
+
+.fundo{
+
+  font-family: 'Capriola', sans-serif;
+  color: #fff;
+  padding-top: 20%;
+  padding-left: 40%;
+
+}
+header .navbar {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  font-family: 'Capriola', sans-serif;
+}
+
+footer{
+  width: 100%;
+  /*background-image: url("../img/footer.jpg");*/
+  background-color: white;
+  border-top: 2px solid #0386A8;
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+}
+.btn{
+  background-color: #0386A8;
+  color: white;
+}
+
+.card{
+
+  border: 0px;
+}
+.card-header{
+  background-color: white;
+}
+.card-footer{
+  background-color: white;
+}
+/*------------MEDIA-----------------*/
+@media (min-width: 992px) {
+  .page-on-scroll .header .navbar {
+    background: #fff;
+    border-bottom-color: #f0f0f0;
+    transition-duration: 300ms;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+  }
+  .fundo{
+
+    font-family: 'Capriola', sans-serif;
+    color: #fff;
+    padding-top: 20%;
+    padding-left: 40%;
+
+  }
+}
