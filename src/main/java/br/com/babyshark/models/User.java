@@ -163,4 +163,19 @@ public class User implements Serializable {
 		this.dayOfBirth = dayOfBirth;
 	}
 
+	public void add(Event event) {
+		this.events.add(event);
+		event.setUser(this);
+	}
+
+	public void add(Donate donate) {
+		this.donates.add(donate);
+		donate.setUser(this);
+	}
+
+	public void add(Interest interest) {
+		this.interests.add(interest);
+		interest.setUser(this);
+	}
+
 }
