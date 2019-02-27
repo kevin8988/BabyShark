@@ -1,10 +1,12 @@
 package br.com.babyshark.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -23,7 +25,7 @@ public class Address {
 	private String state;
 
 	@Column
-	private String address;
+	private String street;
 
 	@Column
 	private String number;
@@ -33,9 +35,16 @@ public class Address {
 
 	@Column
 	private String country;
-	
+
 	@Column
 	private String complement;
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address")
+	private User user;
+
+	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, mappedBy = "address")
+	private Event event;
 
 	public Integer getId() {
 		return id;
@@ -69,12 +78,12 @@ public class Address {
 		this.state = state;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 	public String getNumber() {
@@ -109,4 +118,20 @@ public class Address {
 		this.country = country;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+	
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Event implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfEvent;
 
-	@OneToOne
+	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "address_id")
 	private Address address;
 
@@ -109,7 +110,7 @@ public class Event implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 	public Set<User> getParticipants() {
 		return participants;
 	}
