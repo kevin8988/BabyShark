@@ -24,7 +24,7 @@
 </head>
 
 <body>
-	<form:form cssClass="form-cadastro" modelAttribute="user" method="post">
+	<form:form action="registerProcess" modelAttribute="user" method="post" cssClass="form-cadastro">
 
 		<h1 class="">Faça seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
@@ -46,11 +46,11 @@
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
-			<form:input path="password" cssClass="form-control" />
+			<form:password path="password" cssClass="form-control" />
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confrime a senha</label>
-			<form:input path="confirmPassword" cssClass="form-control" />
+			<form:password path="confirmPassword" cssClass="form-control" />
 		</div>
 
 		<button type="submit" class="btn btn-primary">Registrar</button>
