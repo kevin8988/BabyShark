@@ -50,6 +50,7 @@ public class Event implements Serializable {
 	private Address address;
 
 	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@ManyToMany

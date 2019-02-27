@@ -10,9 +10,9 @@ public class InterestId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "pk_user")
+	@Column(name = "user_id")
 	private Integer userId;
-	@Column(name = "pk_donate")
+	@Column(name = "donate_id")
 	private Integer donateId;
 
 	public InterestId() {
