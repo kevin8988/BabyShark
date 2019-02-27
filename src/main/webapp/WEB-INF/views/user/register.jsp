@@ -24,39 +24,37 @@
 </head>
 
 <body>
-	<form class="form-cadastro">
+	<form:form cssClass="form-cadastro" modelAttribute="user" method="post">
 
 		<h1 class="">Faça seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
-			<label for="nome">Nome</label> <input type="text"
-				class="form-control" id="nome" placeholder="Nome" required>
+			<label for="nome">Nome</label>
+			<form:input path="firstName" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="sobrenome">Sobrenome</label> <input type="text"
-				class="form-control" id="sobrenome" placeholder="Sobrenome" required>
+			<label for="sobrenome">Sobrenome</label>
+			<form:input path="lastName" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="cpf">CPF</label> <input type="text" class="form-control"
-				id="cpf" placeholder="000.000.000-00" required>
+			<label for="cpf">CPF</label>
+			<form:input path="cpf" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="email">Email</label> <input type="email"
-				class="form-control" id="email" placeholder="exemple@exemple.com"
-				required>
+			<label for="email">Email</label>
+			<form:input path="email" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="senha">Senha</label> <input type="password"
-				class="form-control" id="senha" placeholder="******" required>
+			<label for="senha">Senha</label>
+			<form:input path="password" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="confirmSenha">Confrime a senha</label> <input
-				type="password" class="form-control" id="confirmSenha"
-				placeholder="******" required>
+			<label for="confirmSenha">Confrime a senha</label>
+			<form:input path="confirmPassword" cssClass="form-control" />
 		</div>
 
 		<button type="submit" class="btn btn-primary">Registrar</button>
-	</form>
+	</form:form>
 </body>
 
 </html>
