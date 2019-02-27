@@ -25,8 +25,8 @@
 <title>Login</title>
 </head>
 
-<body class="text-center" style= "margin: 50px;">
-	<form class="form-login">
+<body class="text-center" style="margin: 50px;">
+	<form action="loginProcess" method="post" class="form-login">
 
 		<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
 
@@ -35,13 +35,13 @@
 		<div class="form-group">
 
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="email" id="email" class="form-control"
+				type="email" name="email" class="form-control"
 				placeholder="exemple@exemple.com" required autofocus>
 		</div>
 		<div class="form-group">
-			<label for="password" class="sr-only">Senha</label> <input
-				type="password" id="password" class="form-control"
-				placeholder="Senha" required>
+			<label for="password" class="sr-only">Senha</label> <label
+				for="password" class="sr-only">Senha</label> <input type="password"
+				name="password" class="form-control" placeholder="Senha" required>
 		</div>
 		<div class="remember-checkbox">
 			<label> <input type="checkbox" value="remember-me">
