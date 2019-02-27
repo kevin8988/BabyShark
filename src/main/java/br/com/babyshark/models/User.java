@@ -168,4 +168,10 @@ public class User implements Serializable {
 		interest.setUser(this);
 	}
 
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
+				+ ", confirmPassword=" + confirmPassword + ", cpf=" + cpf + "]";
+	}
+
 }
