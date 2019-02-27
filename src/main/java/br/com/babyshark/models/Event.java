@@ -51,9 +51,6 @@ public class Event implements Serializable {
 	@ManyToOne
 	private User user;
 
-	@ManyToOne
-	private ONG ong;
-
 	@ManyToMany
 	private Set<User> participants = new HashSet<User>();
 
@@ -112,15 +109,7 @@ public class Event implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public ONG getOng() {
-		return ong;
-	}
-
-	public void setOng(ONG ong) {
-		this.ong = ong;
-	}
-
+	
 	public Set<User> getParticipants() {
 		return participants;
 	}
