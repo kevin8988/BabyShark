@@ -55,7 +55,7 @@
 				placeholder="******" required>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Entrar</button>
+		<button type="submit" class="btn btn-primary">Registrar</button>
 	</form>
 </body>
 
