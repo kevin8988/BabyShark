@@ -133,5 +133,12 @@ public class Address {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", postalCode=" + postalCode + ", city=" + city + ", state=" + state + ", street="
+				+ street + ", number=" + number + ", district=" + district + ", country=" + country + ", complement="
+				+ complement + "]";
+	}
+
 }
