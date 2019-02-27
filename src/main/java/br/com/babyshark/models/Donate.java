@@ -52,11 +52,9 @@ public class Donate implements Serializable {
 	public Donate() {
 	}
 
-	public Donate(String title, User user, Category... categories) {
+	public Donate(String title, User user) {
 		this.title = title;
-		this.user = user;
-		setCategories(categories);
-		user.getDonates().add(this);
+		this.user = user;		
 	}
 
 	public Integer getId() {
@@ -82,7 +80,7 @@ public class Donate implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public boolean isDonated() {
 		return isDonated;
 	}
@@ -127,10 +125,8 @@ public class Donate implements Serializable {
 		return categories;
 	}
 
-	public void setCategories(Category... categories) {
-		for (Category category : categories) {
-			this.categories.add(category);
-		}
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
 	}
 
 }
