@@ -1,7 +1,6 @@
 package br.com.babyshark.models;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,8 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 public class User implements Serializable {
@@ -25,8 +22,11 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(nullable = false)
-	private String name;
+	@Column(nullable = false, name = "first_name")
+	private String firstName;
+
+	@Column(nullable = false, name = "last_name")
+	private String lastName;
 
 	@Column(nullable = false)
 	private String email;
@@ -37,19 +37,16 @@ public class User implements Serializable {
 	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 
-	@Column(nullable = false, name = "day_of_birth")
-	@Temporal(TemporalType.DATE)
-	private Calendar dayOfBirth;
-
 	@Column(nullable = false)
 	private String cpf;
-
-	@Column(nullable = false)
-	private String fone;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_detail_id")
+	private UserDetail userDetail;
 
 	@OneToMany(mappedBy = "user")
 	private Set<Interest> interests = new HashSet<Interest>();
@@ -60,13 +57,6 @@ public class User implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private Set<Event> events = new HashSet<Event>();
 
-	public User() {
-	}
-
-	public User(String name) {
-		this.name = name;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -75,12 +65,20 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public Set<Interest> getInterests() {
@@ -131,14 +129,6 @@ public class User implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public String getFone() {
-		return fone;
-	}
-
-	public void setFone(String fone) {
-		this.fone = fone;
-	}
-
 	public Address getAddress() {
 		return address;
 	}
@@ -155,12 +145,12 @@ public class User implements Serializable {
 		this.events = events;
 	}
 
-	public Calendar getDayOfBirth() {
-		return dayOfBirth;
+	public UserDetail getUserDetail() {
+		return userDetail;
 	}
 
-	public void setDayOfBirth(Calendar dayOfBirth) {
-		this.dayOfBirth = dayOfBirth;
+	public void setUserDetail(UserDetail userDetail) {
+		this.userDetail = userDetail;
 	}
 
 	public void add(Event event) {
