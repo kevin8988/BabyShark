@@ -19,11 +19,11 @@ public class Interest implements Serializable {
 	private InterestId id;
 
 	@ManyToOne
-	@JoinColumn(name = "pk_user", insertable = false, updatable = false)
+	@JoinColumn(name = "user_id", insertable = false, updatable = false)
 	private User user;
 
 	@ManyToOne
-	@JoinColumn(name = "pk_donate", insertable = false, updatable = false)
+	@JoinColumn(name = "donate_id", insertable = false, updatable = false)
 	private Donate donate;
 
 	@Enumerated(EnumType.STRING)
