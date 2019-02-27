@@ -22,6 +22,12 @@ public class UserController {
 		System.out.println(user);
 		return "home";
 	}
+	
+	@RequestMapping("/loginProcess")
+	public String registerProcess(String email, String password) {
+		System.out.println(email + " " + password);
+		return "home";
+	}
 
 	@RequestMapping("/login")
 	public String login() {
