@@ -28,12 +28,16 @@
 				<ul class="navbar-nav ml-auto mr-3 justify-content-end">
 					<li class="nav-item active"><a class="nav-link" href="#">Home<span
 							class="sr-only">(página atual)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Estoque</a>
+					<li class="nav-item"><a class="nav-link" href="#">Doações</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contato</a>
+					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="#">Ajude-nos</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="user/register">Cadastre-se</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+				<form method = "post" action = "user/login" class="form-inline my-2 my-lg-0">
 					<button class="btn btn-outline-segundary my-2 my-sm-0">
 						<i class="fas fa-sign-in-alt mr-1"></i>Login
 					</button>

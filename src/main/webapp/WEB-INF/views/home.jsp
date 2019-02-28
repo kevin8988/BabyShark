@@ -80,7 +80,6 @@
 	<!--importar Cabeçalho-->
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
-
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
 		<h1 class="slogan">"Como dizer não</h1>
 		<h2 class="slogan">para uma carinha dessas?"</h2>
