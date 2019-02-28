@@ -86,9 +86,9 @@
 		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
 			<a class="nav-link" href="#">Boys</a> <a class="nav-link" href="#">Girls</a>
 			<a class="nav-link" href="#">Unissexs</a>
-			<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0" method = "get" action="${s:mvcUrl('DC#showAllDonates').build() }">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Pesquisar" aria-label="Pesquisar">
+					placeholder="Pesquisar" aria-label="Pesquisar" name="search">
 				<button class="btn my-2 my-sm-0" type="submit">
 					<i class="fas fa-search mr-1"></i> Pesquisar
 				</button>
