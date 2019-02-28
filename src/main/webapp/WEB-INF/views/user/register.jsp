@@ -13,7 +13,7 @@
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 
-<s:url value="/resources/css/bootstrap/style.css" var="style"></s:url>
+<s:url value="/resources/css/register/style.css" var="style"></s:url>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Capriola|Montserrat"

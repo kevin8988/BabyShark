@@ -14,6 +14,8 @@
 
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
+<s:url value="/resources/css/login/style.css"
+	var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -21,6 +23,7 @@
 	rel="stylesheet">
 
 <link href="${bootstrap }" rel="stylesheet" />
+<link href="${style }" rel="stylesheet" />
 
 <title>Login</title>
 </head>
