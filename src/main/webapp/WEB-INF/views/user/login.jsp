@@ -28,7 +28,6 @@
 </head>
 
 <body class="text-center">
-
 	
 		<form action="loginProcess" method="post" class="form-login">
 
@@ -56,8 +55,6 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 		</form>
 	
-	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
-
 </body>
 
 </html>
