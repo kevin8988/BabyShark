@@ -14,8 +14,7 @@
 
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
-<s:url value="/resources/css/login/style.css"
-	var="style"></s:url>
+<s:url value="/resources/css/login/style.css" var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -28,32 +27,36 @@
 <title>Login</title>
 </head>
 
-<body class="text-center" style="margin: 50px;">
-	<form action="loginProcess" method="post" class="form-login">
+<body class="text-center">
 
-		<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
+	
+		<form action="loginProcess" method="post" class="form-login">
 
-		<h1 class="mb-3">Login</h1>
+			<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
 
-		<div class="form-group">
+			<h1 class="mb-3">Login</h1>
 
-			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="email" name="email" class="form-control"
-				placeholder="exemple@exemple.com" required autofocus>
-		</div>
-		<div class="form-group">
-			<label for="password" class="sr-only">Senha</label> <label
-				for="password" class="sr-only">Senha</label> <input type="password"
-				name="password" class="form-control" placeholder="Senha" required>
-		</div>
-		<div class="remember-checkbox">
-			<label> <input type="checkbox" value="remember-me">
-				Mantenha-me Conectado
-			</label>
-		</div>
+			<div class="form-group">
 
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-	</form>
+				<label for="email" class="sr-only">Endereço de e-mail</label> <input
+					type="email" name="email" class="form-control"
+					placeholder="exemple@exemple.com" required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="password" class="sr-only">Senha</label> <label
+					for="password" class="sr-only">Senha</label> <input type="password"
+					name="password" class="form-control" placeholder="Senha" required>
+			</div>
+			<div class="remember-checkbox">
+				<label> <input type="checkbox" value="remember-me">
+					Mantenha-me Conectado
+				</label>
+			</div>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+		</form>
+	
+	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
 
 </body>
 

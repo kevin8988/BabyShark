@@ -19,9 +19,8 @@
 	var="bootstrap"></s:url>
 <s:url value="/resources/img/home/home.jpg" var="home"></s:url>
 <s:url value="/resources/img/home/produto.png" var="produto"></s:url>
-<s:url value="/resources/img/home/uam.png" var="uam"></s:url>
 <s:url value="/resources/img/home/footer.jpg" var="footer"></s:url>
-<s:url value="/resources/img/home/Logo.png" var="logo"></s:url>
+
 
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
@@ -35,22 +34,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-	crossorigin="anonymous">
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 1000);
-	});
-	//Fim do Loader
-</script>
 <style type="text/css">
 .swiper-container {
 	width: 100%;
@@ -76,6 +61,7 @@
 	align-items: center;
 }
 </style>
+
 </head>
 <body>
 	<!-- Pre-Loader -->
@@ -92,35 +78,9 @@
 		</div>
 	</div>
 	<!--importar Cabeçalho-->
-	<header>
-		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
-			<a class="navbar-brand ml-5" href="#"> <img src="${logo }"
-				width="40" height="40" class="align-left" alt="logo"> <a
-				class="h3" href=""><a class="h3" style="color: #018BBE;">BabyShark</a></a>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#conteudoNavbarSuportado"
-				aria-controls="conteudoNavbarSuportado" aria-expanded="false"
-				aria-label="Alterna navegaÃ§Ã£o">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-				<ul class="navbar-nav ml-auto mr-3 justify-content-end">
-					<li class="nav-item active"><a class="nav-link" href="#">Home<span
-							class="sr-only">(página atual)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Estoque</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contato</a>
-					</li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<button class="btn btn-outline-segundary my-2 my-sm-0">
-						<i class="fas fa-sign-in-alt mr-1"></i>Login
-					</button>
-				</form>
-			</div>
-		</nav>
-	</header>
+	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+
+
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
 		<h1 class="slogan">"Como dizer não</h1>
 		<h2 class="slogan">para uma carinha dessas?"</h2>
@@ -188,76 +148,37 @@
 						<a href="#" class="btn btn-primary">Visitar</a>
 					</div>
 					<div class="card-footer text-muted">2 dias atrás</div>
-				</div>			
+				</div>
 			</div>
 		</div>
 	</div>
-	<footer>
-		<div class="container-fluid p-5">
-			<div class="row justify-content-center">
-				<div class="col-lg-4 mb-5 mb-lg-0">
-					<div class="mb-3">
-						<h5>Directory</h5>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing. sit
-						amet, consectetur Lorem ipsum dolor sit amet, conse</p>
 
-				</div>
-				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-					<h5 class="mb-3">Site</h5>
-					<ul class="list-unstyled">
-						<li><a href="index.html" class="text-muted">Sobre </a></li>
-						<li><a href="index.html" class="text-muted">ONGs </a></li>
-						<li><a href="index.html" class="text-muted">Fundadores </a></li>
-						<li><a href="index.html" class="text-muted">Contato </a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 mt-5 mb-lg-0">
-					<ul class="list-inline">
-						<li class="list-inline-item"><a href="#" target="_blank"
-							title="twitter" class="text-hover-primary"
-							style="color: #0386A8;"> <i class="fab fa-2x fa-twitter"></i>
-						</a></li>
-						<li class="list-inline-item"><a href="#" target="_blank"
-							title="facebook" class="text-hover-primary"
-							style="color: #0386A8;"> <i class="fab fa-2x fa-facebook"></i>
-						</a></li>
-						<li class="list-inline-item"><a href="#" target="_blank"
-							title="instagram" class="text-hover-primary"
-							style="color: #0386A8;"> <i class="fab fa-2x fa-instagram"></i>
-						</a></li>
-						<li class="list-inline-item"><a href="#" target="_blank"
-							title="google" class="text-hover-primary" style="color: #0386A8;">
-								<i class="fab fa-2x fa-google"></i>
-						</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-					<img src="${uam }" alt="Univercidade Anhembi Morumbi">
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid p-1 text-center"
-			style="background-color: #0386A8; color: white;">
-			<p style="margin-bottom: 0px;">Â© 2019 Baby Shark. Todos os
-				direitos reservados</p>
-		</div>
-	</footer>
-	<!--<script src="js/bootstrap.min.js" type="text/javascript"></script>
-		<script src="js/layout.min.js" type="text/javascript"></script>-->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		crossorigin="anonymous"></script>
+	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
+
 	<script src="${jquery }" type="text/javascript"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		crossorigin="anonymous"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script>
+		//Loader
+		window.addEventListener('DOMContentLoaded', function() {
+			setTimeout(function() {
+				$('#loading').fadeOut('slow', function() {
+					$(window).scrollTop(0);
+					$(this).remove();
+				});
+			}, 1000);
+		});
+		//Fim do Loader
+	</script>
+
+
 
 	<script>
 		var swiper = new Swiper('.swiper-container', {
