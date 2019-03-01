@@ -20,7 +20,7 @@ public class UserController {
 	@RequestMapping("/registerProcess")
 	public String registerProcess(@ModelAttribute("user") User user) {
 		System.out.println(user);
-		return "home";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/loginProcess")

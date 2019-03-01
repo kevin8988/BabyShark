@@ -47,7 +47,7 @@
 				name="password" class="form-control" placeholder="Senha" required>
 		</div>
 		<div class="remember-checkbox">
-			<label> <a href="register">Cadastre-se</a>
+			<label> <a href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
 			</label>
 		</div>
 
