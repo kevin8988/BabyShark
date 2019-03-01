@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -47,6 +48,7 @@ public class Donate implements Serializable {
 	private Set<Interest> interests = new HashSet<Interest>();
 
 	@ManyToMany
+	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categories = new HashSet<Category>();
 
 	public Donate() {
@@ -54,7 +56,7 @@ public class Donate implements Serializable {
 
 	public Donate(String title, User user) {
 		this.title = title;
-		this.user = user;		
+		this.user = user;
 	}
 
 	public Integer getId() {

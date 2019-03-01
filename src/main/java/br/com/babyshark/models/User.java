@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -56,6 +58,10 @@ public class User implements Serializable {
 
 	@OneToMany(mappedBy = "user")
 	private Set<Event> events = new HashSet<Event>();
+
+	@ManyToMany
+	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
+	private Set<Event> eventInterests = new HashSet<Event>();
 
 	public Integer getId() {
 		return id;
@@ -166,6 +172,14 @@ public class User implements Serializable {
 	public void add(Interest interest) {
 		this.interests.add(interest);
 		interest.setUser(this);
+	}
+
+	public Set<Event> getEventInterests() {
+		return eventInterests;
+	}
+
+	public void setEventInterests(Set<Event> eventInterests) {
+		this.eventInterests = eventInterests;
 	}
 
 	@Override

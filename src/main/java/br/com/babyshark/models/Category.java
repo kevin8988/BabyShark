@@ -11,6 +11,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -20,10 +22,13 @@ public class Category implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private CategoryName name;
-	@ManyToMany(mappedBy = "categories")
+
+	@ManyToMany
+	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
 	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Category() {
