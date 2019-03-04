@@ -23,6 +23,13 @@
 <link href="${bootstrap}" rel="stylesheet" />
 <title>Cadastre uma conta</title>
 
+<style type="text/css">
+.error{
+	background-color: red;
+
+}
+
+</style>
 </head>
 
 <body>
@@ -32,27 +39,27 @@
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<form:input path="firstName" cssClass="form-control"/>
+			<form:input path="firstName" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 		<div class="form-group">
 			<label for="sobrenome">Sobrenome</label>
-			<form:input path="lastName" cssClass="form-control" />
+			<form:input path="lastName" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 		<div class="form-group">
 			<label for="cpf">CPF</label>
-			<form:input path="cpf" cssClass="form-control" />
+			<form:input path="cpf" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
-			<form:input path="email" cssClass="form-control" />
+			<form:input path="email" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
-			<form:password path="password" cssClass="form-control" />
+			<form:password path="password" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confirme a senha</label>
-			<form:password path="confirmPassword" cssClass="form-control" />
+			<form:password path="confirmPassword" cssClass="form-control" cssErrorClass="error"/>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Registrar</button>

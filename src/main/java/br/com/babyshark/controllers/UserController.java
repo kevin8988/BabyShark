@@ -32,6 +32,8 @@ public class UserController {
 	@RequestMapping("/registerProcess")
 	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		if (result.hasErrors()) {
+			System.out.println(user.getFirstName());
+			System.out.println(user.getLastName());
 			System.out.println("erro");
 			return "user/register";
 		}
