@@ -1,8 +1,11 @@
 package br.com.babyshark.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,7 +30,11 @@ public class UserController {
 	}
 
 	@RequestMapping("/registerProcess")
-	public String registerProcess(@ModelAttribute("user") User user) {
+	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if (result.hasErrors()) {
+			System.out.println("erro");
+			return "user/register";
+		}
 		System.out.println(user);
 		return "redirect:/";
 	}

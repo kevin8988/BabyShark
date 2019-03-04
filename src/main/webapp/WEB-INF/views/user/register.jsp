@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="${style}">
 <link href="${bootstrap}" rel="stylesheet" />
 <title>Cadastre uma conta</title>
+
 </head>
 
 <body>
@@ -31,7 +32,7 @@
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<form:input path="firstName" cssClass="form-control" />
+			<form:input path="firstName" cssClass="form-control"/>
 		</div>
 		<div class="form-group">
 			<label for="sobrenome">Sobrenome</label>
@@ -50,7 +51,7 @@
 			<form:password path="password" cssClass="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="confirmSenha">Confrime a senha</label>
+			<label for="confirmSenha">Confirme a senha</label>
 			<form:password path="confirmPassword" cssClass="form-control" />
 		</div>
 
