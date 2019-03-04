@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User implements Serializable {
@@ -24,24 +25,30 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
-
+	
+	@NotNull
 	@Column(nullable = false, name = "last_name")
 	private String lastName;
 
+	@NotNull
 	@Column(nullable = false, unique = true)
 	private String email;
 
+	@NotNull
 	@Column(nullable = false)
 	private String password;
 
+	@NotNull
 	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 
+	@NotNull
 	@Column(nullable = false)
 	private String cpf;
-
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
