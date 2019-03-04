@@ -1,8 +1,8 @@
 package br.com.babyshark.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +12,7 @@ import br.com.babyshark.models.User;
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
-	@Autowired
+	@PersistenceContext
 	private EntityManager em;
 
 	public User getUserById(Integer id) {

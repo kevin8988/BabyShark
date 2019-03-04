@@ -2,6 +2,7 @@ package br.com.babyshark.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +12,16 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.babyshark.dao.UserDAO;
 import br.com.babyshark.models.User;
 import br.com.babyshark.validations.UserValidation;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	private UserDAO dao;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -36,7 +41,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
-		return "redirect:/login";
+		dao.insert(user);
+		return "redirect:user/login";
 	}
 
 	@RequestMapping("/loginProcess")
