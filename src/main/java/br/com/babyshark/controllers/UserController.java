@@ -27,7 +27,7 @@ public class UserController {
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, trimmerEditor);
-		dataBinder.addValidators(new UserValidation());
+		dataBinder.addValidators(new UserValidation(dao));
 	}
 
 	@RequestMapping("/register")

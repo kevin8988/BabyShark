@@ -2,6 +2,7 @@ package br.com.babyshark.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,12 @@ public class UserDAOImpl implements UserDAO {
 		} else {
 			em.merge(user);
 		}
+	}
+
+	public User getUserByEmail(String email) {
+		String jpql = "select u from User u where u.email = :pEmail";
+		TypedQuery<User> query = em.createQuery(jpql, User.class).setParameter("pEmail", email);
+		return query.getSingleResult();
 	}
 
 }
