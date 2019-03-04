@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.babyshark.models.User;
+import br.com.babyshark.validations.UserValidation;
 
 @Controller
 @RequestMapping("/user")
@@ -21,6 +22,7 @@ public class UserController {
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, trimmerEditor);
+		dataBinder.addValidators(new UserValidation());
 	}
 
 	@RequestMapping("/register")
