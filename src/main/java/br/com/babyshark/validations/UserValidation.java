@@ -21,9 +21,13 @@ public class UserValidation implements Validator {
 	public void validate(Object target, Errors errors) {
 		User user = (User) target;
 		User userEmail = dao.getUserByEmail(user.getEmail());
-		if (!user.getPassword().equals(user.getConfirmPassword())) {
-			errors.rejectValue("password", "field.notEqual");
+		
+		if(user.getPassword() != null) {
+			if (!user.getPassword().equals(user.getConfirmPassword())) {
+				errors.rejectValue("password", "field.notEqual");
+			}
 		}
+		
 		if(userEmail != null) {
 			errors.rejectValue("email", "field.emailNotUnique");
 		}

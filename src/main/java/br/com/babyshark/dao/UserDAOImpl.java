@@ -29,9 +29,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByEmail(String email) {
-		String jpql = "select u from User u where u.email = :pEmail";
-		TypedQuery<User> query = em.createQuery(jpql, User.class).setParameter("pEmail", email);
-		return query.getSingleResult();
+		try {
+			String jpql = "select u from User u where u.email = :pEmail";
+			TypedQuery<User> query = em.createQuery(jpql, User.class).setParameter("pEmail", email);
+			return query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 }
