@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -35,7 +35,7 @@
 <body>
 	<form:form action="registerProcess" modelAttribute="user" method="post" cssClass="form-cadastro">
 
-		<h1 class="">Faça seu cadastro</h1>
+		<h1 class="">FaÃ§a seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
 			<label for="nome">Nome</label>

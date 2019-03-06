@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -77,11 +77,11 @@
 			</div>
 		</div>
 	</div>
-	<!--importar Cabeçalho-->
+	<!--importar CabeÃ§alho-->
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
-		<h1 class="slogan">"Como dizer não</h1>
+		<h1 class="slogan">"Como dizer nÃ£o</h1>
 		<h2 class="slogan">para uma carinha dessas?"</h2>
 		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
 			<a class="nav-link" href="#">Boys</a> <a class="nav-link" href="#">Girls</a>
@@ -98,7 +98,7 @@
 	<div class="container shadow rounded mb-5"
 		style="background-color: white; padding: 0px;">
 		<div class="container-fluid p-5">
-			<h1 class="mb-3">Últimas doações</h1>
+			<h1 class="mb-3">Ãšltimas doaÃ§Ãµes</h1>
 			<div class="swiper-container">
 				<div class="swiper-wrapper"
 					style="transition-duration: 0ms; transform: translate3d(-520.75px, 0px, 0px);">
@@ -109,9 +109,9 @@
 									<img class="card-img-top" src="${produto }"
 										alt="Imagem de capa do card">
 									<div class="card-body">
-										<h3 class="card-title">Título do card</h3>
-										<p class="card-text">Um exemplo de texto rápido para
-											construir o título do card e fazer preencher o conteúdo do
+										<h3 class="card-title">TÃ­tulo do card</h3>
+										<p class="card-text">Um exemplo de texto rÃ¡pido para
+											construir o tÃ­tulo do card e fazer preencher o conteÃºdo do
 											card.</p>
 										<a href="#" class="btn btn-primary">Visitar</a>
 									</div>
@@ -133,7 +133,7 @@
 				<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
 					<div class="card-header">Eventos</div>
 					<div class="card-body">
-						<h5 class="card-title">Título especial</h5>
+						<h5 class="card-title">TÃ­tulo especial</h5>
 						<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
 							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 							dolore magna aliqua."</p>
@@ -144,7 +144,7 @@
 							consequat. "</p>
 						<a href="#" class="btn btn-primary">Visitar</a>
 					</div>
-					<div class="card-footer text-muted">2 dias atrás</div>
+					<div class="card-footer text-muted">2 dias atrÃ¡s</div>
 				</div>
 			</div>
 		</div>

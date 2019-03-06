@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -59,7 +59,7 @@
 		</div>
 		<div class="container-fluid p-1 text-center"
 			style="background-color: #0386A8; color: white;">
-			<p style="margin-bottom: 0px;">© 2019 Baby Shark. Todos os
+			<p style="margin-bottom: 0px;">Â© 2019 Baby Shark. Todos os
 				direitos reservados</p>
 		</div>
 	</footer>
