@@ -1,4 +1,4 @@
-package br.com.babyshark.validations;
+package br.com.babyshark.validation;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

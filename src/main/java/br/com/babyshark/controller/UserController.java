@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.babyshark.dao.UserDAO;
 import br.com.babyshark.entity.User;
-import br.com.babyshark.validations.UserValidation;
+import br.com.babyshark.validation.UserValidation;
 
 @Controller
 @RequestMapping("/user")
