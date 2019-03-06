@@ -1,4 +1,4 @@
-package br.com.babyshark.controllers;
+package br.com.babyshark.controller;
 
 import javax.validation.Valid;
 
