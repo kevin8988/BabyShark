@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.babyshark.entity.User;
 
 @Repository
-@Transactional
 public class UserDAOImpl implements UserDAO {
 
 	@PersistenceContext
