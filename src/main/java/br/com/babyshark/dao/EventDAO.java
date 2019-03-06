@@ -2,8 +2,8 @@ package br.com.babyshark.dao;
 
 import java.util.List;
 
-import br.com.babyshark.models.Event;
-import br.com.babyshark.models.User;
+import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.User;
 
 public interface EventDAO {
 	

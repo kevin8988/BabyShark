@@ -1,6 +1,6 @@
 package br.com.babyshark.dao;
 
-import br.com.babyshark.models.User;
+import br.com.babyshark.entity.User;
 
 public interface UserDAO {
 

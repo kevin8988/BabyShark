@@ -2,7 +2,7 @@ package br.com.babyshark.dao;
 
 import java.util.List;
 
-import br.com.babyshark.models.Category;
+import br.com.babyshark.entity.Category;
 
 public interface CategoryDAO {
 	

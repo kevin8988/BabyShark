@@ -4,7 +4,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import br.com.babyshark.dao.UserDAO;
-import br.com.babyshark.models.User;
+import br.com.babyshark.entity.User;
 
 public class UserValidation implements Validator {
 

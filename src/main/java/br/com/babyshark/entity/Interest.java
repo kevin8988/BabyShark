@@ -1,4 +1,4 @@
-package br.com.babyshark.models;
+package br.com.babyshark.entity;
 
 import java.io.Serializable;
 
