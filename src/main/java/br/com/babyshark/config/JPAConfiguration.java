@@ -51,7 +51,7 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 
 		factoryBean.setJpaProperties(properties);
-		factoryBean.setPackagesToScan("br.com.babyshark.models");
+		factoryBean.setPackagesToScan("br.com.babyshark.entity");
 
 		return factoryBean;
 	}

@@ -1,8 +1,9 @@
 package br.com.babyshark.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -26,15 +27,8 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public User getUserByEmail(String email) {
-		try {
-			String jpql = "select u from User u where u.email = :pEmail";
-			TypedQuery<User> query = em.createQuery(jpql, User.class).setParameter("pEmail", email);
-			return query.getSingleResult();
-		} catch (Exception e) {
-			return null;
-		}
-
+	public List<String> getUserEmails() {
+		return em.createQuery("select u.email from User u", String.class).getResultList();
 	}
 
 }

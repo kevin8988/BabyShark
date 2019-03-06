@@ -1,17 +1,18 @@
 package br.com.babyshark.validation;
 
+import java.util.List;
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import br.com.babyshark.dao.UserDAO;
 import br.com.babyshark.entity.User;
 
 public class UserValidation implements Validator {
 
-	private UserDAO dao;
+	private List<String> emails;
 
-	public UserValidation(UserDAO dao) {
-		this.dao = dao;
+	public UserValidation(List<String> emails) {
+		this.emails = emails;
 	}
 
 	public boolean supports(Class<?> clazz) {
@@ -19,17 +20,19 @@ public class UserValidation implements Validator {
 	}
 
 	public void validate(Object target, Errors errors) {
+
 		User user = (User) target;
-		User userEmail = dao.getUserByEmail(user.getEmail());
-		
-		if(user.getPassword() != null) {
+
+		if (user.getPassword() != null) {
 			if (!user.getPassword().equals(user.getConfirmPassword())) {
 				errors.rejectValue("password", "field.notEqual");
 			}
 		}
-		
-		if(userEmail != null) {
-			errors.rejectValue("email", "field.emailNotUnique");
+
+		if (user.getEmail() != null) {
+			if (emails.contains(user.getEmail())) {
+				errors.rejectValue("email", "field.emailNotUnique");
+			}
 		}
 
 	}

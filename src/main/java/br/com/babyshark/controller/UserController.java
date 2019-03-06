@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.babyshark.dao.UserDAO;
 import br.com.babyshark.entity.User;
+import br.com.babyshark.service.UserService;
 import br.com.babyshark.validation.UserValidation;
 
 @Controller
@@ -23,13 +23,13 @@ import br.com.babyshark.validation.UserValidation;
 public class UserController {
 
 	@Autowired
-	private UserDAO dao;
-
+	private UserService userService;
+	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, trimmerEditor);
-		dataBinder.addValidators(new UserValidation(dao));
+		dataBinder.addValidators(new UserValidation(userService.getUserEmails()));
 	}
 
 	@GetMapping("/register")
@@ -43,8 +43,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
-		dao.insert(user);
-		return "redirect:user/login";
+		userService.insert(user);
+		return "redirect:login";
 	}
 
 	@GetMapping("/login")

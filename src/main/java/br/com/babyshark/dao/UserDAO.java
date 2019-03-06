@@ -1,5 +1,7 @@
 package br.com.babyshark.dao;
 
+import java.util.List;
+
 import br.com.babyshark.entity.User;
 
 public interface UserDAO {
@@ -8,6 +10,6 @@ public interface UserDAO {
 
 	public void insert(User user);
 	
-	public User getUserByEmail(String email);
+	public List<String> getUserEmails();
 
 }

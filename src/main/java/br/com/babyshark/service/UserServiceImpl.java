@@ -1,5 +1,7 @@
 package br.com.babyshark.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +12,7 @@ import br.com.babyshark.entity.User;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDAO userDAO;
 
@@ -22,8 +24,8 @@ public class UserServiceImpl implements UserService {
 		userDAO.insert(user);
 	}
 
-	public User getUserByEmail(String email) {
-		return null;
+	public List<String> getUserEmails() {
+		return userDAO.getUserEmails();
 	}
 
 }

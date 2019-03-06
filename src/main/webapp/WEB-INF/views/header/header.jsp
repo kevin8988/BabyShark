@@ -37,7 +37,7 @@
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
 					</li>
 				</ul>
-				<form method = "post" action = "user/login" class="form-inline my-2 my-lg-0">
+				<form method = "get" action = "user/login" class="form-inline my-2 my-lg-0">
 					<button class="btn btn-outline-segundary my-2 my-sm-0">
 						<i class="fas fa-sign-in-alt mr-1"></i>Login
 					</button>
