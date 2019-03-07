@@ -21,9 +21,9 @@ public class UserDAOImpl implements UserDAO {
 
 	public void insert(User user) {
 		if (user.getId() != null) {
-			em.persist(user);
-		} else {
 			em.merge(user);
+		} else {
+			em.persist(user);
 		}
 	}
 
