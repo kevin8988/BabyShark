@@ -87,7 +87,8 @@
 		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
 			<a class="nav-link" href="#">Boys</a> <a class="nav-link" href="#">Girls</a>
 			<a class="nav-link" href="#">Unissexs</a>
-			<form class="form-inline my-2 my-lg-0" method = "get" action="${s:mvcUrl('DC#search').build() }">
+			<form class="form-inline my-2 my-lg-0" method="get"
+				action="${s:mvcUrl('DC#search').build() }">
 				<input class="form-control mr-sm-2" type="search"
 					placeholder="Pesquisar" aria-label="Pesquisar" name="search">
 				<button class="btn my-2 my-sm-0" type="submit">
@@ -106,17 +107,23 @@
 					<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
 						<div class="row">
 							<div class="col">
-								<div class="card shadow" style="width: 18rem;">
-									<img class="card-img-top" src="${produto }"
-										alt="Imagem de capa do card">
-									<div class="card-body">
-										<h3 class="card-title">Título do card</h3>
-										<p class="card-text">Um exemplo de texto rápido para
-											construir o título do card e fazer preencher o conteúdo do
-											card.</p>
-										<a href="#" class="btn btn-primary">Visitar</a>
+								<c:if test="${lastDonates.isEmpty() }">
+									<p>Nenhuma doação</p>
+								</c:if>
+								<c:if test="${!lastDonates.isEmpty() }">
+									<div class="card shadow" style="width: 18rem;">
+										<img class="card-img-top" src="${produto }"
+											alt="Imagem de capa do card">
+										<div class="card-body">
+											<h3 class="card-title">Título do card</h3>
+											<p class="card-text">Um exemplo de texto rápido para
+												construir o título do card e fazer preencher o conteúdo do
+												card.</p>
+											<a href="#" class="btn btn-primary">Visitar</a>
+										</div>
 									</div>
-								</div>
+								</c:if>
+
 							</div>
 						</div>
 					</div>
@@ -131,22 +138,28 @@
 		<div class="container-fluid p-5" style="background-color: #0386A8;">
 			<h1 class="mb-3" style="color: white;">Eventos</h1>
 			<div class="row justify-content-center">
-				<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
-					<div class="card-header">Eventos</div>
-					<div class="card-body">
-						<h5 class="card-title">Título especial</h5>
-						<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua."</p>
+				<c:if test="${events.isEmpty() }">
+					<p>Nenhum Evento</p>
+				</c:if>
+				<c:if test="${!events.isEmpty() }">
+					<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
+						<div class="card-header">Eventos</div>
+						<div class="card-body">
+							<h5 class="card-title">Título especial</h5>
 							<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. "</p>
-						<a href="#" class="btn btn-primary">Visitar</a>
+								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua."</p>
+							<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+								exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. "</p>
+							<a href="#" class="btn btn-primary">Visitar</a>
+						</div>
+						<div class="card-footer text-muted">2 dias atrás</div>
 					</div>
-					<div class="card-footer text-muted">2 dias atrás</div>
-				</div>
+				</c:if>
+
 			</div>
 		</div>
 	</div>
