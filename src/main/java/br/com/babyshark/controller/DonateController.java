@@ -17,7 +17,7 @@ public class DonateController {
 	
 	@GetMapping
 	public String showAllDonates() {
-		return "donate/doacaoe";
+		return "donate/donate";
 	}
 	
 
