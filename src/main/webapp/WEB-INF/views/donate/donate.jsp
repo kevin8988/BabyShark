@@ -12,18 +12,16 @@
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
-<s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>	
-<s:url value="/resources/css/donate/layoutDoacao.css"
-	var="layout"></s:url>
-	
+<s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
+<s:url value="/resources/css/donate/layoutDoacao.css" var="layout"></s:url>
+
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-<link rel="stylesheet" type="text/css"
-	href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
@@ -68,9 +66,9 @@
 		</div>
 	</div>
 	<!--importar Cabeçalho-->
-	
+
 	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
-	
+
 	<div class="container-fluid " style="margin-top: 10%;">
 		<div class="row">
 			<div class="col-lg-3 col-md-12">
@@ -305,102 +303,25 @@
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval One</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval Two</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
+					<c:forEach items="${donates }" var="donate">
+						<div class="col-lg-4 col-md-12 mb-4">
+							<div class="card h-100">
+								<a
+									href="#"><img
+									class="card-img-top" src="#"
+									alt="Imagem de capa do card"></a>
+								<div class="card-body">
+									<h4 class="card-title">${donate.title }</h4>									
+									<p class="card-text">${donate.description }</p>									
+								</div>
+								<div class="card-footer">
+									<button class="btn btn-outline-segundary">Ver mais</button>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval Three</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval Four</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval Five</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-12 mb-4">
-						<div class="card h-100">
-							<a href="#"><img class="card-img-top" src="img\produto.png"
-								alt="Imagem de capa do card"></a>
-							<div class="card-body">
-								<h4 class="card-title">Enchoval Six</h4>
-								<h6>5 Itens</h6>
-								<p class="card-text">Ótimio estado</p>
-								<p class="card-text">9 meses de uso</p>
-								<p class="card-text">+ brinquedos</p>
-							</div>
-							<div class="card-footer">
-								<button class="btn btn-outline-segundary">Interessar-se</button>
-							</div>
-						</div>
-					</div>
+
+
+					</c:forEach>
 				</div>
 			</div>
 		</div>
@@ -416,9 +337,9 @@
 			</ul>
 		</nav>
 	</div>
-	
+
 	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
-	
+
 	<script src="${jquery }" type="text/javascript"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js"></script>
