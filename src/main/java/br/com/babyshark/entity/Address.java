@@ -18,29 +18,14 @@ public class Address implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "postal_code")
-	private String postalCode;
-
-	@Column
+	@Column(nullable = false)
 	private String city;
 
-	@Column
+	@Column(nullable = false)
 	private String state;
 
-	@Column
-	private String street;
-
-	@Column
-	private String number;
-
-	@Column
-	private String district;
-
-	@Column
+	@Column(nullable = false)
 	private String country;
-
-	@Column
-	private String complement;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address")
 	private User user;
@@ -57,14 +42,6 @@ public class Address implements Serializable {
 		this.id = id;
 	}
 
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-
 	public String getCity() {
 		return city;
 	}
@@ -79,38 +56,6 @@ public class Address implements Serializable {
 
 	public void setState(String state) {
 		this.state = state;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getComplement() {
-		return complement;
-	}
-
-	public void setComplement(String complement) {
-		this.complement = complement;
-	}
-
-	public String getDistrict() {
-		return district;
-	}
-
-	public void setDistrict(String district) {
-		this.district = district;
 	}
 
 	public String getCountry() {
@@ -135,13 +80,6 @@ public class Address implements Serializable {
 
 	public void setEvent(Event event) {
 		this.event = event;
-	}
-
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", postalCode=" + postalCode + ", city=" + city + ", state=" + state + ", street="
-				+ street + ", number=" + number + ", district=" + district + ", country=" + country + ", complement="
-				+ complement + "]";
 	}
 
 }

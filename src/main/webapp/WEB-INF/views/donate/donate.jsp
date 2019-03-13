@@ -102,6 +102,18 @@
 											</label>
 										</div>
 									</div>
+									<div class="col mt-1">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input"
+												id="menino"> <label class="custom-control-label"
+												style="display: inline-flex;" for="menino"> Unissex
+												<i class="fas fa-male ml-2"
+												style="color: #0386A8; line-height: 1.5rem;"></i>
+												<i class="fas fa-male ml-2"
+												style="color: #0386A8; line-height: 1.5rem;"></i>
+											</label>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -118,7 +130,7 @@
 										<div class="custom-control custom-checkbox">
 											<input type="checkbox" class="custom-control-input"
 												id="berco"> <label class="custom-control-label"
-												style="display: inline-flex;" for="berco"> Berço <i
+												style="display: inline-flex;" for="berco"> Acessórios <i
 												class="fas fa-bed ml-2"
 												style="color: #0386A8; line-height: 1.5rem;"></i>
 											</label>
@@ -138,7 +150,7 @@
 										<div class="custom-control custom-checkbox">
 											<input type="checkbox" class="custom-control-input"
 												id="comoda"> <label class="custom-control-label"
-												style="display: inline-flex;" for="comoda"> Cômoda <i
+												style="display: inline-flex;" for="comoda"> Outros <i
 												class="fas fa-archive ml-2"
 												style="color: #0386A8; line-height: 1.5rem;"></i>
 											</label>
