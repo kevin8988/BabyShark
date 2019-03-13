@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <s:url value="/resources/img/home/Logo.png" var="logo"></s:url>
 </head>
 <body>
@@ -15,9 +15,8 @@
 	<header>
 		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
 			<a class="navbar-brand ml-5" href="#"> <img src="${logo }"
-				width="40" height="40" class="align-left" alt="logo"> <a
-				class="h3" href=""><a class="h3" style="color: #018BBE;">BabyShark</a></a>
-			</a>
+				width="40" height="40" class="align-left" alt="logo"><a
+				class="h3 mt-1" style="color: #018BBE;">BabyShark</a></a> </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#conteudoNavbarSuportado"
 				aria-controls="conteudoNavbarSuportado" aria-expanded="false"
@@ -26,22 +25,33 @@
 			</button>
 			<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 				<ul class="navbar-nav ml-auto mr-3 justify-content-end">
-					<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('HC#home').build() }">Home<span
+					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+					<li class="nav-item active"><a class="nav-link" href="#">Doações<span
 							class="sr-only">(página atual)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('DC#showAllDonates').build() }">Doações</a>
-					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Ajude-nos</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
-					</li>
+					</li>					
 				</ul>
-				<form method = "get" action = "user/login" class="form-inline my-2 my-lg-0">
-					<button class="btn btn-outline-segundary my-2 my-sm-0">
-						<i class="fas fa-sign-in-alt mr-1"></i>Login
+				<!--<form class="form-inline my-2 my-lg-0">				       
+				       <button class="btn btn-outline-segundary my-2 my-sm-0"><i class="fas fa-sign-in-alt mr-1"></i>Login</button>
+			 	    </form>-->
+				<div class="dropdown">
+					<button
+						class="btn btn-outline-segundary my-2 my-sm-0 dropdown-toggle"
+						data-toggle="dropdown" data-display="static" aria-haspopup="true"
+						aria-expanded="false">
+						<i class="far fa-user-circle fa-lg mr-1"></i> <a>Bem-vindo!
+							Kevin </a>
+
 					</button>
-				</form>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="dropdownMenuButton" style="border: 0;">
+						<a class="dropdown-item" href="#">Perfil</a> <a
+							class="dropdown-item" href="#">Configurações</a> <a
+							class="dropdown-item" href="#">Sair</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 	</header>
