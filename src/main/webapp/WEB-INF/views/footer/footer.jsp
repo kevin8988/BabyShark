@@ -27,7 +27,6 @@
 					<h5 class="mb-3">Site</h5>
 					<ul class="list-unstyled">
 						<li><a href="index.html" class="text-muted">Sobre </a></li>
-						<li><a href="index.html" class="text-muted">ONGs </a></li>
 						<li><a href="index.html" class="text-muted">Fundadores </a></li>
 						<li><a href="index.html" class="text-muted">Contato </a></li>
 					</ul>
