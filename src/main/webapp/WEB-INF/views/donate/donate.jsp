@@ -33,9 +33,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-	integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-	crossorigin="anonymous">
+	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
 
 <script>
@@ -79,7 +77,7 @@
 							<div class="card-header" id="headingOne" data-toggle="collapse"
 								data-target="#collapseSexo" aria-expanded="true"
 								aria-controls="collapseSexo">
-								<span><h5>► Sexo</h5></span>
+								<h5><span>► Sexo</span></h5>
 							</div>
 							<div id="collapseSexo" class="collapse"
 								aria-labelledby="headingOne" data-parent="#containerAcordeon">
@@ -111,7 +109,7 @@
 							<div class="card-header" id="headingTwo" data-toggle="collapse"
 								data-target="#collapseItens" aria-expanded="true"
 								aria-controls="collapseItens">
-								<span><h5>► Itens</h5></span>
+								<h5><span>► Itens</span></h5>
 							</div>
 							<div id="collapseItens" class="collapse"
 								aria-labelledby="headingTwo" data-parent="#containerAcordeon">
@@ -153,7 +151,7 @@
 							<div class="card-header" id="headingThree" data-toggle="collapse"
 								data-target="#collapseCor" aria-expanded="true"
 								aria-controls="collapseCor">
-								<span><h5>► Cor</h5></span>
+								<h5><span>► Cor</span></h5>
 							</div>
 							<div id="collapseCor" class="collapse"
 								aria-labelledby="headingThree" data-parent="#containerAcordeon">
@@ -346,10 +344,8 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		crossorigin="anonymous"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
