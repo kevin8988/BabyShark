@@ -42,4 +42,8 @@ public class DonateDAOImpl implements DonateDAO {
 		return null;
 	}
 
+	public List<Donate> getLastThreeDonates() {
+		return em.createQuery("from Donate d order by d.id desc limit 3", Donate.class).getResultList();
+	}
+
 }
