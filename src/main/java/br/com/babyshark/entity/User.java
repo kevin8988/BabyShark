@@ -28,12 +28,12 @@ public class User implements Serializable {
 	private Integer id;
 
 	@NotNull
-	@Pattern(regexp = "[a-z A-Z]{2,15}")
+	@Pattern(regexp = "[a-zA-Z]{1,15}")
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
 
 	@NotNull
-	@Pattern(regexp = "[a-z A-Z]{2,25}")
+	@Pattern(regexp = "[a-z A-Z]{6,25}")
 	@Column(nullable = false, name = "last_name")
 	private String lastName;
 

@@ -24,43 +24,44 @@
 <link href="${bootstrap}" rel="stylesheet" />
 <title>Cadastre uma conta</title>
 
-<style type="text/css">
-.error{
-	background-color: red;
 
-}
-
-</style>
 </head>
 
 <body>
-	<form:form action="registerProcess" modelAttribute="user" method="post" cssClass="form-cadastro">
+	<form:form action="registerProcess" modelAttribute="user" method="post"
+		cssClass="form-cadastro">
 
 		<h1 class="">Faça seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<form:input path="firstName" cssClass="form-control" cssErrorClass="error"/>
+			<form:input path="firstName" cssClass="form-control" />
+			<form:errors path="firstName" />
 		</div>
 		<div class="form-group">
 			<label for="sobrenome">Sobrenome</label>
-			<form:input path="lastName" cssClass="form-control" cssErrorClass="error"/>
+			<form:input path="lastName" cssClass="form-control" />
+			<form:errors path="lastName" />
 		</div>
 		<div class="form-group">
 			<label for="cpf">CPF</label>
-			<form:input path="cpf" cssClass="form-control" cssErrorClass="error"/>
+			<form:input path="cpf" cssClass="form-control" />
+			<form:errors path="cpf" />
 		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
-			<form:input path="email" cssClass="form-control" cssErrorClass="error"/>
+			<form:input path="email" cssClass="form-control" />
+			<form:errors path="email" />
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
-			<form:password path="password" cssClass="form-control" cssErrorClass="error"/>
+			<form:password path="password" cssClass="form-control" />
+			<form:errors path="password" />
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confirme a senha</label>
-			<form:password path="confirmPassword" cssClass="form-control" cssErrorClass="error"/>
+			<form:password path="confirmPassword" cssClass="form-control" />
+			<form:errors path="confirmPassword" />
 		</div>
 
 		<button type="submit" class="btn btn-primary">Registrar</button>
