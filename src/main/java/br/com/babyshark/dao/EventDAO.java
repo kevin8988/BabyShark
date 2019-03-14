@@ -12,5 +12,7 @@ public interface EventDAO {
 	public List<Event> getEventsByTitle(String title);
 	
 	public List<Event> getEventsByUser(User user);
+	
+	public List<Event> getThreeNearbyEvents();
 
 }
