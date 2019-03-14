@@ -33,7 +33,7 @@ public class User implements Serializable {
 	private String firstName;
 
 	@NotNull
-	@Pattern(regexp = "[a-z A-Z]{6,25}")
+	@Pattern(regexp = "[a-z A-Z]*|[a-zA-Z]*")
 	@Column(nullable = false, name = "last_name")
 	private String lastName;
 
