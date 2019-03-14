@@ -14,7 +14,7 @@
 
 	<header>
 		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
-			<a class="navbar-brand ml-5" href="#"> <img src="${logo }"
+			<a class="navbar-brand ml-5" href="${s:mvcUrl('HC#home').build() }"> <img src="${logo }"
 				width="40" height="40" class="align-left" alt="logo"> <a
 				class="h3" href=""><a class="h3" style="color: #018BBE;">BabyShark</a></a>
 			</a>
