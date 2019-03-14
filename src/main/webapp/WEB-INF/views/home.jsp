@@ -82,15 +82,15 @@
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
 	<c:url var="menino" value="/donate/search">
-		<c:param name="gender" value="menino"></c:param>
+		<c:param name="category" value="meninos"></c:param>
 	</c:url>
 
 	<c:url var="menina" value="/donate/search">
-		<c:param name="gender" value="menina"></c:param>
+		<c:param name="category" value="meninas"></c:param>
 	</c:url>
 
 	<c:url var="unissex" value="/donate/search">
-		<c:param name="gender" value="unissex"></c:param>
+		<c:param name="category" value="unissex"></c:param>
 	</c:url>
 
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">

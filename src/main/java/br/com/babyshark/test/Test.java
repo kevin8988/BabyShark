@@ -73,8 +73,7 @@ public class Test {
 		donate2.add(category);
 
 		event.setUser(user2);
-		event.setAddress(address);
-		
+				
 		event.add(user);
 	}
 

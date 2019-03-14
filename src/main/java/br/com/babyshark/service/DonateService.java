@@ -8,4 +8,6 @@ public interface DonateService {
 
 	public List<Donate> getAllDonates();
 
+	public List<Donate> getDonatesByFilter(List<String> categories, String search);
+
 }

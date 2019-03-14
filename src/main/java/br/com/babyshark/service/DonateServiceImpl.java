@@ -20,4 +20,8 @@ public class DonateServiceImpl implements DonateService {
 		return donateDAO.getAllDonates();
 	}
 
+	public List<Donate> getDonatesByFilter(List<String> categories, String search) {
+		return donateDAO.getDonatesByFilter(categories, search);
+	}
+
 }
