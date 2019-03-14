@@ -63,9 +63,10 @@
 			</div>
 		</div>
 	</div>
-	<!--importar Cabeçalho-->
 
-	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+
+	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+
 
 	<div class="container-fluid " style="margin-top: 10%;">
 		<div class="row">
@@ -273,7 +274,7 @@
 													style="color: red; line-height: 1.5rem;"></i>
 												</label>
 											</div>
-										</div>										
+										</div>
 									</div>
 								</div>
 							</div>
@@ -296,6 +297,8 @@
 								<i class="fas fa-search mr-1"></i> Pesquisar
 							</button>
 						</form>
+
+
 					</div>
 				</div>
 			</div>
@@ -335,17 +338,20 @@
 							</a>
 						</div>
 					</div>
+
 					<c:if test="${donates.isEmpty() }">
 						<div class="col-lg-4 col-md-12 mb-4">
 							<p>Nenhuma doação</p>
 						</div>
 					</c:if>
+
 					<c:if test="${!donates.isEmpty() }">
 						<c:forEach items="${donates }" var="donate">
 							<div class="col-lg-4 col-md-12 mb-4">
 								<div class="card h-100">
-									<a href="#"><img class="card-img-top" src="#"
-										alt="Imagem de capa do card"></a>
+									<img class="card-img-top"
+										src="https://img.itdg.com.br/tdg/images/recipes/000/015/150/126544/126544_original.jpg?"
+										alt="Imagem de capa do card">
 									<div class="card-body">
 										<h4 class="card-title">${donate.title }</h4>
 										<p class="card-text">${donate.description }</p>
@@ -377,7 +383,6 @@
 	</div>
 
 	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
-
 	<script src="${jquery }" type="text/javascript"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js"></script>
