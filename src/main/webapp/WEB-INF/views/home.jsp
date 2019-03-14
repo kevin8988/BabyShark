@@ -104,36 +104,33 @@
 			<div class="swiper-container">
 				<div class="swiper-wrapper"
 					style="transition-duration: 0ms; transform: translate3d(-520.75px, 0px, 0px);">
-					<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
-						<div class="row">
-							<div class="col">
-								<c:if test="${lastDonates.isEmpty() }">
-									<p>Nenhuma doação</p>
-								</c:if>
-								<c:if test="${!lastDonates.isEmpty() }">
-									<div class="card shadow" style="width: 18rem;">
-										<img class="card-img-top" src="${produto }"
-											alt="Imagem de capa do card">
-										<div class="card-body">
-											<h3 class="card-title">Título do card</h3>
-											<p class="card-text">Um exemplo de texto rápido para
-												construir o título do card e fazer preencher o conteúdo do
-												card.</p>
-											<a href="#" class="btn btn-primary">Visitar</a>
+					<c:if test="${lastDonates.isEmpty() }">
+						<p>Nenhuma doação</p>
+					</c:if>
+					<c:if test="${!lastDonates.isEmpty() }">
+						<c:forEach items="${lastDonates }" var="lastDonate">
+							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
+								<div class="row">
+									<div class="col">
+										<div class="card shadow" style="width: 18rem;">
+											<img class="card-img-top" src="${produto }"
+												alt="Imagem de capa do card">
+											<div class="card-body">
+												<h3 class="card-title">${lastDonate.title }</h3>
+												<p class="card-text">${lastDonate.description }</p>
+												<a href="#" class="btn btn-primary">Ver mais</a>
+											</div>
 										</div>
 									</div>
-								</c:if>
-
+								</div>
 							</div>
-						</div>
-					</div>
+						</c:forEach>
+					</c:if>
 				</div>
 				<!-- Add Pagination -->
 				<div class="swiper-button-next"></div>
 				<div class="swiper-button-prev"></div>
-
 			</div>
-
 		</div>
 		<div class="container-fluid p-5" style="background-color: #0386A8;">
 			<h1 class="mb-3" style="color: white;">Eventos</h1>
@@ -142,22 +139,18 @@
 					<p>Nenhum Evento</p>
 				</c:if>
 				<c:if test="${!events.isEmpty() }">
-					<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
-						<div class="card-header">Eventos</div>
-						<div class="card-body">
-							<h5 class="card-title">Título especial</h5>
-							<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua."</p>
-							<p class="card-text">"Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. "</p>
-							<a href="#" class="btn btn-primary">Visitar</a>
+					<c:forEach items="${events }" var="event">
+						<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
+							<div class="card-header">Eventos</div>
+							<div class="card-body">
+								<h5 class="card-title">${event.title }</h5>
+								<p class="card-text">${event.description }</p>
+								<p class="card-text">${event.dayOfEvent }</p>
+								<a href="#" class="btn btn-primary">Visitar</a>
+							</div>
+							<div class="card-footer text-muted">2 dias atrás</div>
 						</div>
-						<div class="card-footer text-muted">2 dias atrás</div>
-					</div>
+					</c:forEach>
 				</c:if>
 
 			</div>
