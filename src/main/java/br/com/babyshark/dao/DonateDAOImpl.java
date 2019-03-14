@@ -45,7 +45,7 @@ public class DonateDAOImpl implements DonateDAO {
 		CriteriaQuery<Donate> query = builder.createQuery(Donate.class);
 		Root<Donate> root = query.from(Donate.class);
 
-		Path<String> pathTitle = root.<String>get("title");		
+		Path<String> pathTitle = root.<String>get("title");
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 
@@ -53,7 +53,7 @@ public class DonateDAOImpl implements DonateDAO {
 			Predicate pNome = builder.like(pathTitle, "%" + search + "%");
 			predicates.add(pNome);
 		}
-		
+
 		query.where((Predicate[]) predicates.toArray(new Predicate[0]));
 
 		TypedQuery<Donate> tp = em.createQuery(query);

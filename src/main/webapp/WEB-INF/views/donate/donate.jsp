@@ -72,7 +72,7 @@
 			<div class="col-lg-3 col-md-12">
 				<div class="menu-pesquisa shadow rounded pt-2 m-2">
 					<div class="col-2">
-						<form:form method="get" action="${s:mvcUrl('DC#search').build() }">
+						<form method="get" action="${s:mvcUrl('DC#search').build() }">
 							<div class="form-row align-items-center py-3"
 								style="width: max-content;">
 								<div class="col-9 my-1">
@@ -295,7 +295,7 @@
 							<button class="btn my-2 my-sm-0 m-3" type="submit">
 								<i class="fas fa-search mr-1"></i> Pesquisar
 							</button>
-						</form:form>
+						</form>
 					</div>
 				</div>
 			</div>

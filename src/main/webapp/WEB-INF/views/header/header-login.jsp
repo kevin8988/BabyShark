@@ -26,7 +26,7 @@
 			<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 				<ul class="navbar-nav ml-auto mr-3 justify-content-end">
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('HC#home').build() }">Home</a></li>
-					<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('DC#showAllDonates').build() }">Doações<span
+					<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('DC#search').build() }">Doações<span
 							class="sr-only">(página atual)</span></a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
 					</li>

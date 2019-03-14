@@ -19,21 +19,21 @@ public class DonateController {
 	@Autowired
 	private DonateService donateService;
 
-	@GetMapping("/search")
-	public String search(@RequestParam(value = "category", defaultValue = "") List<String> categories,
-			@RequestParam(value = "search", defaultValue = "") String search, Model model) {
-		System.out.println(search);
-		System.out.println(categories);
-		List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, search);
-		model.addAttribute("donates", donatesByFilter);
-		return "donate/donate";
-	}
-
 	@GetMapping
-	public String showAllDonates(Model model) {
-		List<Donate> donates = donateService.getAllDonates();
-		model.addAttribute("donates", donates);
-		return "donate/donate";
-	}
+	public String search(Model model, @RequestParam(value = "category", defaultValue = "") List<String> categories,
+			@RequestParam(value = "search", defaultValue = "") String search) {
+		
+		if (categories.isEmpty() && search.equals("")) {
+			List<Donate> donates = donateService.getAllDonates();
+			model.addAttribute("donates", donates);
+			System.out.println("1");
+		} else {
+			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, search);
+			model.addAttribute("donates", donatesByFilter);
+			System.out.println("2");
+		}
 
+		return "donate/donate";
+	}		
+	
 }

@@ -31,7 +31,7 @@
 						href="${s:mvcUrl('HC#home').build() }">Home<span
 							class="sr-only">(página atual)</span></a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="${s:mvcUrl('DC#showAllDonates').build() }">Doações</a></li>
+						href="${s:mvcUrl('DC#search').build() }">Doações</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Ajude-nos</a>
