@@ -80,15 +80,15 @@
 	</div>
 	<!--importar Cabeçalho-->
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
-	
+
 	<c:url var="menino" value="/donate/search">
 		<c:param name="gender" value="menino"></c:param>
 	</c:url>
-	
+
 	<c:url var="menina" value="/donate/search">
 		<c:param name="gender" value="menina"></c:param>
 	</c:url>
-	
+
 	<c:url var="unissex" value="/donate/search">
 		<c:param name="gender" value="unissex"></c:param>
 	</c:url>
@@ -97,8 +97,8 @@
 		<h1 class="slogan">"Como dizer não</h1>
 		<h2 class="slogan">para uma carinha dessas?"</h2>
 		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
-			<a class="nav-link" href="${menino}">Meninos</a> <a class="nav-link" href="${menina}">Meninas</a>
-			<a class="nav-link" href="${unissex}">Unissex</a>
+			<a class="nav-link" href="${menino}">Meninos</a> <a class="nav-link"
+				href="${menina}">Meninas</a> <a class="nav-link" href="${unissex}">Unissex</a>
 			<form class="form-inline my-2 my-lg-0" method="get"
 				action="${s:mvcUrl('DC#search').build() }">
 				<input class="form-control mr-sm-2" type="search"
