@@ -76,6 +76,18 @@ public class User implements Serializable {
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private Set<Event> eventInterests = new HashSet<Event>();
 
+	public User() {
+	}
+
+	public User(String firstName, String lastName, String email, String password, String confirmPassword, String cpf) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+		this.cpf = cpf;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -180,11 +192,6 @@ public class User implements Serializable {
 	public void add(Donate donate) {
 		this.donates.add(donate);
 		donate.setUser(this);
-	}
-
-	public void add(Interest interest) {
-		this.interests.add(interest);
-		interest.setUser(this);
 	}
 
 	public Set<Event> getEventInterests() {

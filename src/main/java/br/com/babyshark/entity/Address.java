@@ -34,6 +34,15 @@ public class Address implements Serializable {
 			CascadeType.REFRESH }, mappedBy = "address")
 	private Event event;
 
+	public Address() {
+	}
+
+	public Address(String city, String state, String country) {
+		this.city = city;
+		this.state = state;
+		this.country = country;
+	}
+
 	public Integer getId() {
 		return id;
 	}

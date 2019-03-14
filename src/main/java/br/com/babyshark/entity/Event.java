@@ -58,6 +58,17 @@ public class Event implements Serializable {
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<User> participants = new HashSet<User>();
 
+	public Event() {
+	}
+
+	public Event(String title, String description, Date initialHour, Date endHour, Calendar dayOfEvent) {
+		this.title = title;
+		this.description = description;
+		this.initialHour = initialHour;
+		this.endHour = endHour;
+		this.dayOfEvent = dayOfEvent;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -128,6 +139,10 @@ public class Event implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public void add(User user) {
+		this.participants.add(user);
 	}
 
 }

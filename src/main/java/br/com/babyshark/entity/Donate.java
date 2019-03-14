@@ -54,9 +54,11 @@ public class Donate implements Serializable {
 	public Donate() {
 	}
 
-	public Donate(String title, User user) {
+	public Donate(String title, String description, String informations) {
 		this.title = title;
-		this.user = user;
+		this.description = description;
+		this.informations = informations;
+		this.isDonated = false;
 	}
 
 	public Integer getId() {
@@ -129,6 +131,14 @@ public class Donate implements Serializable {
 
 	public void setCategories(Set<Category> categories) {
 		this.categories = categories;
+	}
+
+	public void add(Category category) {
+		this.categories.add(category);
+	}
+
+	public void add(Photo photo) {
+		this.photos.add(photo);
 	}
 
 }
