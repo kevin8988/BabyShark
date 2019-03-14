@@ -29,7 +29,7 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	public List<Event> getThreeNearbyEvents() {
-		return em.createQuery("from Donate d order by d.id desc limit 3", Event.class).getResultList();
+		return em.createQuery("from Event e order by e.id desc", Event.class).setMaxResults(3).getResultList();
 	}
 
 }
