@@ -297,9 +297,8 @@
 									data-parent="#containerAcordeon">
 									<div class="card-body">
 										<div class="col mt-1">
-											<div class="custom-control custom-checkbox">												
-											</div>
-										</div>																				
+											<div class="custom-control custom-checkbox"></div>
+										</div>
 									</div>
 								</div>
 							</div>

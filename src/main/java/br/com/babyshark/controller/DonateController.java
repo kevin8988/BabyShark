@@ -24,8 +24,9 @@ public class DonateController {
 	@GetMapping("/search")
 	public String search(@RequestParam(value = "gender", defaultValue = "") List<String> genders, 
 			@RequestParam(value = "item", defaultValue = "") List<String> itens, 
-			@RequestParam(value = "color", defaultValue = "") List<String> colors) {
+			@RequestParam(value = "color", defaultValue = "") List<String> colors, @RequestParam(value = "search", defaultValue = "") String search) {
 		System.out.println(genders);
+		System.out.println(search);
 		return "donate/donate";
 	}
 	
