@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,11 +28,11 @@ public class Address implements Serializable {
 	@Column(nullable = false)
 	private String country;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address", fetch = FetchType.LAZY)
 	private User user;
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, mappedBy = "address")
+			CascadeType.REFRESH }, mappedBy = "address", fetch = FetchType.LAZY)
 	private Event event;
 
 	public Address() {

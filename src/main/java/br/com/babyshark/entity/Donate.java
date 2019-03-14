@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,17 +38,17 @@ public class Donate implements Serializable {
 	@Column(nullable = false, columnDefinition = "boolean default false")
 	private boolean isDonated;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.LAZY)
 	private Set<Photo> photos = new HashSet<Photo>();
 
-	@OneToMany(mappedBy = "donate")
+	@OneToMany(mappedBy = "donate", fetch = FetchType.LAZY)
 	private Set<Interest> interests = new HashSet<Interest>();
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categories = new HashSet<Category>();
 
