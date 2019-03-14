@@ -20,5 +20,7 @@ public interface DonateDAO {
 	public List<Donate> getDonatesByName(String name);
 
 	public List<Donate> getDonatesByAddress(Address adress);
+	
+	public List<Donate> getLastThreeDonates();
 
 }
