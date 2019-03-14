@@ -7,7 +7,6 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Event;
 import br.com.babyshark.entity.User;
 
