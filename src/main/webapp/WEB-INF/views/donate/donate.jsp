@@ -274,6 +274,22 @@
 									</div>
 								</div>
 							</div>
+							<div class="card m-3">
+								<div class="card-header" id="headingOne">
+									<h5>
+										<span>► Localização</span>
+									</h5>
+								</div>
+								<div aria-labelledby="headingFour"
+									data-parent="#containerAcordeon">
+									<div class="card-body">
+										<div class="col mt-1">
+											<div class="custom-control custom-checkbox">												
+											</div>
+										</div>																				
+									</div>
+								</div>
+							</div>
 							<button class="btn my-2 my-sm-0 m-3" type="submit">
 								<i class="fas fa-search mr-1"></i> Pesquisar
 							</button>
