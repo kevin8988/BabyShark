@@ -50,7 +50,7 @@ public class DonateDAOImpl implements DonateDAO {
 		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
-		
+
 		if (!search.equals("")) {
 			Predicate pNome = builder.like(pathTitle, "%" + search + "%");
 			predicates.add(pNome);
@@ -60,9 +60,9 @@ public class DonateDAOImpl implements DonateDAO {
 			Predicate nomeCategories = pathCategory.in(categories);
 			predicates.add(nomeCategories);
 		}
-
-		query.where((Predicate[]) predicates.toArray(new Predicate[0]));
-
+	
+		query.where(builder.and(predicates.toArray(new Predicate[0])));
+		
 		TypedQuery<Donate> tp = em.createQuery(query);
 
 		return tp.getResultList();
