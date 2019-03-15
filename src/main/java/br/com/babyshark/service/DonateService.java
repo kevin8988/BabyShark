@@ -9,7 +9,7 @@ public interface DonateService {
 
 	public List<Donate> getAllDonates();
 
-	public List<Donate> getDonatesByFilter(List<String> categories, String search);
+	public List<Donate> getDonatesByFilter(List<Integer> categories, String search);
 
 	public List<Category> getAllCategories();
 	

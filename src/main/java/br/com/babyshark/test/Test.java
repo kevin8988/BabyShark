@@ -48,32 +48,54 @@ public class Test {
 
 		em.persist(event);
 
-		Category category = new Category(CategoryName.ACESSÓRIOS);
+		Category category = new Category(CategoryName.MENINOS);
 		Category category2 = new Category(CategoryName.MENINAS);
-		Category category3 = new Category(CategoryName.MENINOS);
-		Category category4 = new Category(CategoryName.OUTROS);
-		Category category5 = new Category(CategoryName.UNISSEX);
-		
+		Category category3 = new Category(CategoryName.UNISSEX);
+		Category category4 = new Category(CategoryName.ACESSÓRIOS);
+		Category category5 = new Category(CategoryName.ROUPAS);
+		Category category6 = new Category(CategoryName.OUTROS);
+		Category category7 = new Category(CategoryName.AMARELO);
+		Category category8 = new Category(CategoryName.AZUL);
+		Category category9 = new Category(CategoryName.BEGE);
+		Category category10 = new Category(CategoryName.BRANCO);
+		Category category11 = new Category(CategoryName.CINZA);
+		Category category12 = new Category(CategoryName.MARROM);
+		Category category13 = new Category(CategoryName.ROSA);
+		Category category14 = new Category(CategoryName.VERDE);
+		Category category15 = new Category(CategoryName.VERMELHO);
+		Category category16 = new Category(CategoryName.PRETO);
+
 		em.persist(category);
 		em.persist(category2);
 		em.persist(category3);
 		em.persist(category4);
 		em.persist(category5);
+		em.persist(category6);
+		em.persist(category7);
+		em.persist(category8);
+		em.persist(category9);
+		em.persist(category10);
+		em.persist(category11);
+		em.persist(category12);
+		em.persist(category13);
+		em.persist(category14);
+		em.persist(category15);
+		em.persist(category16);
 
 		user.setAddress(address);
 		user2.setAddress(address);
 
 		user.add(donate);
 		user2.add(donate2);
-		
+
 		donate.add(category4);
 		donate.add(category3);
-		
+
 		donate2.add(category5);
 		donate2.add(category);
 
 		event.setUser(user2);
-				
+
 		event.add(user);
 	}
 

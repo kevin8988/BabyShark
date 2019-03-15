@@ -39,19 +39,26 @@ public class DonateDAOImpl implements DonateDAO {
 		return em.createQuery("from Donate d order by d.id desc", Donate.class).setMaxResults(3).getResultList();
 	}
 
-	public List<Donate> getDonatesByFilter(List<String> categories, String search) {
+	public List<Donate> getDonatesByFilter(List<Integer> categories, String search) {
 
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Donate> query = builder.createQuery(Donate.class);
+		query.distinct(true);
 		Root<Donate> root = query.from(Donate.class);
 
 		Path<String> pathTitle = root.<String>get("title");
+		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
-
-		if (!search.isEmpty()) {
+		
+		if (!search.equals("")) {
 			Predicate pNome = builder.like(pathTitle, "%" + search + "%");
 			predicates.add(pNome);
+		}
+
+		if (!categories.isEmpty()) {
+			Predicate nomeCategories = pathCategory.in(categories);
+			predicates.add(nomeCategories);
 		}
 
 		query.where((Predicate[]) predicates.toArray(new Predicate[0]));

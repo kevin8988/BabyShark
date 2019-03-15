@@ -15,6 +15,6 @@ public interface DonateDAO {
 
 	public List<Donate> getLastThreeDonates();
 
-	public List<Donate> getDonatesByFilter(List<String> categories, String search);
+	public List<Donate> getDonatesByFilter(List<Integer> categories, String search);
 
 }
