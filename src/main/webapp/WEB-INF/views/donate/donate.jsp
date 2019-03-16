@@ -97,14 +97,14 @@
 								<div aria-labelledby="headingOne"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${categories }" var="category">
+										<c:forEach items="${genders }" var="gender">
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${category.name }" value="${category.id }"
-														name="category"> <label
+														id="${gender.name }" value="${gender.id }"
+														name="gender"> <label
 														class="custom-control-label" style="display: inline-flex;"
-														for="${category.name }"> ${category.name } 
+														for="${gender.name }"> ${gender.name } 
 													</label>
 												</div>
 											</div>
@@ -121,14 +121,14 @@
 								<div aria-labelledby="headingTwo"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${genders }" var="gender">
+										<c:forEach items="${categories }" var="category">
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${gender.name }" value="${gender.id }"
+														id="${category.name }" value="${category.id }"
 														name="category"> <label
 														class="custom-control-label" style="display: inline-flex;"
-														for="${gender.name }"> ${gender.name } 
+														for="${category.name }"> ${category.name } 
 													</label>
 												</div>
 											</div>

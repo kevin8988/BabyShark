@@ -28,7 +28,7 @@ public class DonateController {
 		model.addAttribute("categories", donateService.getAllCategories());
 		model.addAttribute("genders", donateService.getAllGenders());
 
-		if (categories.isEmpty() && search.equals("")) {
+		if (categories.isEmpty() && genders.isEmpty() && colors.isEmpty() &&search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();
 			model.addAttribute("donates", donates);
 		} else {

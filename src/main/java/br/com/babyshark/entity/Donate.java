@@ -53,11 +53,11 @@ public class Donate implements Serializable {
 	private Set<Category> categories = new HashSet<Category>();
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
+	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
 	private Set<Color> colors = new HashSet<Color>();
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "gender_id"))
+	@JoinTable(name = "donate_gender", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "gender_id"))
 	private Set<Gender> genders = new HashSet<Gender>();
 
 	public Donate() {
