@@ -28,7 +28,7 @@ public class Gender implements Serializable {
 	private GenderName name;
 
 	@ManyToMany
-	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
+	@JoinTable(name = "donate_gender", joinColumns = @JoinColumn(name = "gender"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
 	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Gender() {

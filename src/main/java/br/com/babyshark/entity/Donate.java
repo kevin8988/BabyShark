@@ -52,6 +52,14 @@ public class Donate implements Serializable {
 	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categories = new HashSet<Category>();
 
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
+	private Set<Color> colors = new HashSet<Color>();
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "gender_id"))
+	private Set<Gender> genders = new HashSet<Gender>();
+
 	public Donate() {
 	}
 
@@ -134,12 +142,36 @@ public class Donate implements Serializable {
 		this.categories = categories;
 	}
 
+	public Set<Color> getColors() {
+		return colors;
+	}
+
+	public void setColors(Set<Color> colors) {
+		this.colors = colors;
+	}
+
+	public Set<Gender> getGenders() {
+		return genders;
+	}
+
+	public void setGenders(Set<Gender> genders) {
+		this.genders = genders;
+	}
+
 	public void add(Category category) {
 		this.categories.add(category);
 	}
 
 	public void add(Photo photo) {
 		this.photos.add(photo);
+	}
+
+	public void add(Color color) {
+		this.colors.add(color);
+	}
+
+	public void add(Gender gender) {
+		this.genders.add(gender);
 	}
 
 }
