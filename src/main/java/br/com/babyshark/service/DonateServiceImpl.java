@@ -10,13 +10,14 @@ import br.com.babyshark.dao.CategoryDAO;
 import br.com.babyshark.dao.DonateDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.Gender;
 
 @Service
 public class DonateServiceImpl implements DonateService {
 
 	@Autowired
 	private DonateDAO donateDAO;
-	
+
 	@Autowired
 	private CategoryDAO categoryDAO;
 
@@ -26,13 +27,19 @@ public class DonateServiceImpl implements DonateService {
 	}
 
 	@Transactional
-	public List<Donate> getDonatesByFilter(List<Integer> categories, String search) {
-		return donateDAO.getDonatesByFilter(categories, search);
+	public List<Category> getAllCategories() {
+		return categoryDAO.getAllCategories();
 	}
 
 	@Transactional
-	public List<Category> getAllCategories() {
-		return categoryDAO.getAllCategories();
+	public List<Gender> getAllGenders() {
+		return donateDAO.getAllGenders();
+	}
+
+	@Transactional
+	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
+			String search) {
+		return donateDAO.getDonatesByFilter(categories, genders, colors, search);
 	}
 
 }

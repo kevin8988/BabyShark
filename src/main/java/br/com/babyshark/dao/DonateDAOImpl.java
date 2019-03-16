@@ -15,6 +15,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
 
 @Repository
@@ -39,8 +40,13 @@ public class DonateDAOImpl implements DonateDAO {
 		return em.createQuery("from Donate d order by d.id desc", Donate.class).setMaxResults(3).getResultList();
 	}
 
-	public List<Donate> getDonatesByFilter(List<Integer> categories, String search) {
+	public List<Gender> getAllGenders() {
+		return em.createQuery("from Gender", Gender.class).getResultList();
+	}
 
+	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
+			String search) {
+		
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Donate> query = builder.createQuery(Donate.class);
 		query.distinct(true);

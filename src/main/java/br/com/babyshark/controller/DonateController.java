@@ -21,18 +21,19 @@ public class DonateController {
 
 	@GetMapping
 	public String search(Model model, @RequestParam(value = "category", defaultValue = "") List<Integer> categories,
+			@RequestParam(value = "color", defaultValue = "") List<Integer> colors,
+			@RequestParam(value = "gender", defaultValue = "") List<Integer> genders,
 			@RequestParam(value = "search", defaultValue = "") String search) {
 
 		model.addAttribute("categories", donateService.getAllCategories());
+		model.addAttribute("genders", donateService.getAllGenders());
 
 		if (categories.isEmpty() && search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();
 			model.addAttribute("donates", donates);
-			System.out.println("1");
 		} else {
-			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, search);
+			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, genders, colors, search);
 			model.addAttribute("donates", donatesByFilter);
-			System.out.println("2");
 		}
 
 		return "donate/donate";

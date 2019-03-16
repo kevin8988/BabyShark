@@ -97,8 +97,7 @@
 								<div aria-labelledby="headingOne"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${categories }" var="category" begin="0"
-											end="2" varStatus="index">
+										<c:forEach items="${categories }" var="category">
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
@@ -122,15 +121,14 @@
 								<div aria-labelledby="headingTwo"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${categories }" var="category" begin="3"
-											end="5" varStatus="index">
+										<c:forEach items="${genders }" var="gender">
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${category.name }" value="${category.id }"
+														id="${gender.name }" value="${gender.id }"
 														name="category"> <label
 														class="custom-control-label" style="display: inline-flex;"
-														for="${category.name }"> ${category.name } 
+														for="${gender.name }"> ${gender.name } 
 													</label>
 												</div>
 											</div>
@@ -150,7 +148,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="amarelo" name="category" value="7"> <label
+													id="amarelo" name="color" value="1"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="amarelo"> Amarelo <i
 													class="fas fa-square ml-2"
@@ -161,7 +159,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="azul" name="category" value="8"> <label
+													id="azul" name="color" value="2"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="azul"> Azul <i class="fas fa-square ml-2"
 													style="color: blue; line-height: 1.5rem;"></i>
@@ -171,7 +169,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="bege" name="category" value="9"> <label
+													id="bege" name="color" value="3"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="bege"> Bege <i class="fas fa-square ml-2"
 													style="color: #EAEAB4; line-height: 1.5rem;"></i>
@@ -181,7 +179,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="branco" name="category" value="10"> <label
+													id="branco" name="color" value="4"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="branco"> Branco <i class="far fa-square ml-2"
 													style="color: gray; line-height: 1.5rem;"></i>
@@ -191,7 +189,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="cinza" name="category" value="11"> <label
+													id="cinza" name="color" value="5"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="cinza"> Cinza <i class="fas fa-square ml-2"
 													style="color: grey; line-height: 1.5rem;"></i>
@@ -201,7 +199,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="marrom" name="category" value="12"> <label
+													id="marrom" name="color" value="6"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="marron"> Marrom <i class="fas fa-square ml-2"
 													style="color: #bf8040; line-height: 1.5rem;"></i>
@@ -211,7 +209,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="rosa" name="category" value="13"> <label
+													id="rosa" name="color" value="7"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="rosa"> Rosa <i class="fas fa-square ml-2"
 													style="color: pink; line-height: 1.5rem;"></i>
@@ -221,7 +219,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="verde" name="category" value="14"> <label
+													id="verde" name="color" value="8"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="verde"> Verde <i class="fas fa-square ml-2"
 													style="color: green; line-height: 1.5rem;"></i>
@@ -231,7 +229,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="vermelho" name="category" value="15"> <label
+													id="vermelho" name="color" value="9"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="vermelho"> Vermelho <i
 													class="fas fa-square ml-2"
@@ -242,7 +240,7 @@
 										<div class="col mt-1">
 											<div class="custom-control custom-checkbox">
 												<input type="checkbox" class="custom-control-input"
-													id="preto" name="category" value="16"> <label
+													id="preto" name="color" value="10"> <label
 													class="custom-control-label" style="display: inline-flex;"
 													for="preto"> Preto <i
 													class="fas fa-square ml-2"

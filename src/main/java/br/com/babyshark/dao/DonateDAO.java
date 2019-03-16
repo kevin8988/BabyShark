@@ -3,6 +3,7 @@ package br.com.babyshark.dao;
 import java.util.List;
 
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
 
 public interface DonateDAO {
@@ -15,6 +16,8 @@ public interface DonateDAO {
 
 	public List<Donate> getLastThreeDonates();
 
-	public List<Donate> getDonatesByFilter(List<Integer> categories, String search);
+	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
+			String search);
 
+	public List<Gender> getAllGenders();
 }
