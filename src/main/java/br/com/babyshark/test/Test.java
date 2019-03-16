@@ -12,8 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.babyshark.entity.Address;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.CategoryName;
+import br.com.babyshark.entity.Color;
+import br.com.babyshark.entity.ColorName;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.GenderName;
 import br.com.babyshark.entity.User;
 
 @Repository
@@ -49,39 +53,43 @@ public class Test {
 
 		em.persist(event);
 
-		Category category = new Category(CategoryName.MENINOS);
-		Category category2 = new Category(CategoryName.MENINAS);
-		Category category3 = new Category(CategoryName.UNISSEX);
-		Category category4 = new Category(CategoryName.ACESSÓRIOS);
-		Category category5 = new Category(CategoryName.ROUPAS);
-		Category category6 = new Category(CategoryName.OUTROS);
-		Category category7 = new Category(CategoryName.AMARELO);
-		Category category8 = new Category(CategoryName.AZUL);
-		Category category9 = new Category(CategoryName.BEGE);
-		Category category10 = new Category(CategoryName.BRANCO);
-		Category category11 = new Category(CategoryName.CINZA);
-		Category category12 = new Category(CategoryName.MARROM);
-		Category category13 = new Category(CategoryName.ROSA);
-		Category category14 = new Category(CategoryName.VERDE);
-		Category category15 = new Category(CategoryName.VERMELHO);
-		Category category16 = new Category(CategoryName.PRETO);
+		Category category = new Category(CategoryName.ACESSÓRIOS);
+		Category category2 = new Category(CategoryName.ROUPAS);
+		Category category3 = new Category(CategoryName.OUTROS);
 
 		em.persist(category);
 		em.persist(category2);
 		em.persist(category3);
-		em.persist(category4);
-		em.persist(category5);
-		em.persist(category6);
-		em.persist(category7);
-		em.persist(category8);
-		em.persist(category9);
-		em.persist(category10);
-		em.persist(category11);
-		em.persist(category12);
-		em.persist(category13);
-		em.persist(category14);
-		em.persist(category15);
-		em.persist(category16);
+
+		Gender gender = new Gender(GenderName.MENINOS);
+		Gender gender2 = new Gender(GenderName.MENINAS);
+		Gender gender3 = new Gender(GenderName.UNISSEX);
+
+		em.persist(gender);
+		em.persist(gender2);
+		em.persist(gender3);
+
+		Color color = new Color(ColorName.AMARELO);
+		Color color2 = new Color(ColorName.AZUL);
+		Color color3 = new Color(ColorName.BEGE);
+		Color color4 = new Color(ColorName.BRANCO);
+		Color color5 = new Color(ColorName.CINZA);
+		Color color6 = new Color(ColorName.MARROM);
+		Color color7 = new Color(ColorName.ROSA);
+		Color color8 = new Color(ColorName.VERDE);
+		Color color9 = new Color(ColorName.VERMELHO);
+		Color color10 = new Color(ColorName.PRETO);
+
+		em.persist(color);
+		em.persist(color2);
+		em.persist(color3);
+		em.persist(color4);
+		em.persist(color5);
+		em.persist(color6);
+		em.persist(color7);
+		em.persist(color8);
+		em.persist(color9);
+		em.persist(color10);
 
 		user.setAddress(address);
 		user2.setAddress(address);
@@ -89,11 +97,13 @@ public class Test {
 		user.add(donate);
 		user2.add(donate2);
 
-		donate.add(category4);
-		donate.add(category3);
+		donate.add(category);		
+		donate.add(color);
+		donate.add(gender);
 
-		donate2.add(category5);
-		donate2.add(category);
+		donate2.add(category2);
+		donate2.add(color2);
+		donate2.add(gender2);
 
 		event.setUser(user2);
 

@@ -28,7 +28,7 @@ public class Color implements Serializable {
 	private ColorName name;
 
 	@ManyToMany
-	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
+	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "color_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
 	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Color() {
