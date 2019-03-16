@@ -1,0 +1,9 @@
+package br.com.babyshark.entity;
+
+public enum ColorName {
+
+	MENINOS, MENINAS, UNISSEX, ROUPAS, ACESSÓRIOS, OUTROS, 
+	AMARELO, AZUL, BEGE, BRANCO, CINZA, MARROM, ROSA, VERDE,
+	VERMELHO, PRETO
+
+}

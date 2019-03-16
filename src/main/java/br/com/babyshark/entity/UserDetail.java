@@ -33,7 +33,7 @@ public class UserDetail implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	@Column
-	private Gender gender;
+	private GenderName gender;
 
 	@OneToOne(mappedBy = "userDetail")
 	private User user;
@@ -54,11 +54,11 @@ public class UserDetail implements Serializable {
 		this.dayOfBirth = dayOfBirth;
 	}
 
-	public Gender getGender() {
+	public GenderName getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(GenderName gender) {
 		this.gender = gender;
 	}
 

@@ -16,7 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Gender implements Serializable {
+public class Color implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -25,16 +25,16 @@ public class Gender implements Serializable {
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
-	private GenderName name;
+	private ColorName name;
 
 	@ManyToMany
 	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
 	private Set<Donate> donates = new HashSet<Donate>();
 
-	public Gender() {
+	public Color() {
 	}
 
-	public Gender(GenderName name) {
+	public Color(ColorName name) {
 		this.name = name;
 	}
 
@@ -46,11 +46,11 @@ public class Gender implements Serializable {
 		this.id = id;
 	}
 
-	public GenderName getName() {
+	public ColorName getName() {
 		return name;
 	}
 
-	public void setName(GenderName name) {
+	public void setName(ColorName name) {
 		this.name = name;
 	}
 

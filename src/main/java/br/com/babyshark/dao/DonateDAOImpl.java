@@ -56,13 +56,19 @@ public class DonateDAOImpl implements DonateDAO {
 			predicates.add(pNome);
 		}
 
+		System.out.println(search);
+		System.out.println(categories);
+
 		if (!categories.isEmpty()) {
-			Predicate nomeCategories = pathCategory.in(categories);
-			predicates.add(nomeCategories);
+			for (Integer category : categories) {
+				Predicate nomeCategories = builder.equal(pathCategory, category);
+				predicates.add(nomeCategories);
+			}
+
 		}
-	
+
 		query.where(builder.and(predicates.toArray(new Predicate[0])));
-		
+
 		TypedQuery<Donate> tp = em.createQuery(query);
 
 		return tp.getResultList();
