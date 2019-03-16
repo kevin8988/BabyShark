@@ -1,7 +1,6 @@
 package br.com.babyshark.entity;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -45,7 +44,7 @@ public class Event implements Serializable {
 
 	@Column(nullable = false, name = "day_of_event")
 	@Temporal(TemporalType.DATE)
-	private Calendar dayOfEvent;
+	private Date dayOfEvent;
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
@@ -63,7 +62,7 @@ public class Event implements Serializable {
 	public Event() {
 	}
 
-	public Event(String title, String description, Date initialHour, Date endHour, Calendar dayOfEvent) {
+	public Event(String title, String description, Date initialHour, Date endHour, Date dayOfEvent) {
 		this.title = title;
 		this.description = description;
 		this.initialHour = initialHour;
@@ -111,11 +110,11 @@ public class Event implements Serializable {
 		this.endHour = endHour;
 	}
 
-	public Calendar getDayOfEvent() {
+	public Date getDayOfEvent() {
 		return dayOfEvent;
 	}
 
-	public void setDayOfEvent(Calendar dayOfEvent) {
+	public void setDayOfEvent(Date dayOfEvent) {
 		this.dayOfEvent = dayOfEvent;
 	}
 

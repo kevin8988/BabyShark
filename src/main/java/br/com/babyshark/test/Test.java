@@ -1,6 +1,6 @@
 package br.com.babyshark.test;
 
-import java.util.Calendar;
+import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -43,8 +43,9 @@ public class Test {
 		em.persist(donate);
 		em.persist(donate2);
 
+		new Date();
 		Event event = new Event("Tarde das Crianças", "Bazar de graça de roupas para bebês", new Date(), new Date(),
-				Calendar.getInstance());
+				Date.from(Instant.now()));
 
 		em.persist(event);
 

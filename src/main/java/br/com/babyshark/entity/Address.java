@@ -28,6 +28,21 @@ public class Address implements Serializable {
 	@Column(nullable = false)
 	private String country;
 
+	@Column
+	private String number;
+
+	@Column
+	private String street;
+
+	@Column
+	private String district;
+
+	@Column(name = "postal_code")
+	private String postalCode;
+
+	@Column
+	private String complement;
+
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address", fetch = FetchType.LAZY)
 	private User user;
 
@@ -74,6 +89,46 @@ public class Address implements Serializable {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getComplement() {
+		return complement;
+	}
+
+	public void setComplement(String complement) {
+		this.complement = complement;
 	}
 
 	public User getUser() {

@@ -153,7 +153,7 @@
 				<c:if test="${!events.isEmpty() }">
 					<c:forEach items="${events }" var="event">
 						<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
-							<div class="card-header">Eventos</div>
+							<div class="card-header">Evento</div>
 							<div class="card-body">
 								<h5 class="card-title">${event.title }</h5>
 								<p class="card-text">${event.description }</p>
