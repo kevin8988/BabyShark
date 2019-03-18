@@ -2,9 +2,11 @@ package br.com.babyshark.dao;
 
 import java.util.List;
 
+import br.com.babyshark.entity.Address;
+
 public interface AddressDAO {
 	
 	
-	public List<String> getAllStates();
+	public List<Address> getAllAddressDonate();
 
 }
