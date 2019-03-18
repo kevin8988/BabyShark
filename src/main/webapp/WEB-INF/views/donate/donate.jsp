@@ -168,13 +168,13 @@
 								<div aria-labelledby="headingFour"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${states }" var="state">
+										<c:forEach items="${addresses }" var="address">
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${state }" value="${state }" name="state"> <label
+														id="${address.state }" value="${address.state }" name="state"> <label
 														class="custom-control-label" style="display: inline-flex;"
-														for="${state }"> ${state } </label>
+														for="${address.state }"> ${address.state } </label>
 												</div>
 											</div>
 										</c:forEach>
