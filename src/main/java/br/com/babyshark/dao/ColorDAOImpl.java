@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import br.com.babyshark.entity.Color;
 
 @Repository
-public class ColoDAOImpl implements ColorDAO {
+public class ColorDAOImpl implements ColorDAO {
 
 	@PersistenceContext
 	private EntityManager em;
