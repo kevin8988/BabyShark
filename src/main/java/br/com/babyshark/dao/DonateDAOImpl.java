@@ -28,7 +28,7 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getDonatesByUser(User user) {
-		return null;
+		return em.createQuery("from Donate d where d.user = :pUser", Donate.class).setParameter("pUser", user).getResultList();
 	}
 
 	public List<Donate> getDonatesDonated() {
