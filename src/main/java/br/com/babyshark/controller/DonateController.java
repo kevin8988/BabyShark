@@ -19,10 +19,7 @@ public class DonateController {
 
 	@Autowired
 	private DonateService donateService;
-
-	@Autowired
-	private AddressService addressService;
-
+	
 	@GetMapping
 	public String search(Model model, @RequestParam(value = "category", defaultValue = "") List<Integer> categories,
 			@RequestParam(value = "color", defaultValue = "") List<Integer> colors,
@@ -31,8 +28,7 @@ public class DonateController {
 
 		model.addAttribute("categories", donateService.getAllCategories());
 		model.addAttribute("genders", donateService.getAllGenders());
-		model.addAttribute("states", addressService.getAllStates());
-
+	
 		if (categories.isEmpty() && genders.isEmpty() && colors.isEmpty() && search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();
 			model.addAttribute("donates", donates);
