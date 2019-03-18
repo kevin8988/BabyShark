@@ -74,7 +74,7 @@ public class DonateDAOImpl implements DonateDAO {
 		if (!categories.isEmpty()) {
 			for (Integer category : categories) {
 				Predicate nomeCategories = builder.equal(pathCategory, category);
-				predicates.add(builder.or(nomeCategories));
+				predicates.add(nomeCategories);
 			}
 			Predicate or1 = builder.or(predicates.toArray(new Predicate[0]));
 			final1.add(or1);
@@ -83,7 +83,7 @@ public class DonateDAOImpl implements DonateDAO {
 		if (!genders.isEmpty()) {
 			for (Integer gender : genders) {
 				Predicate nomeGenders = builder.equal(pathGender, gender);
-				predicates2.add(builder.or(nomeGenders));
+				predicates2.add(nomeGenders);
 			}
 			Predicate or2 = builder.or(predicates2.toArray(new Predicate[0]));
 			final1.add(or2);
@@ -92,7 +92,7 @@ public class DonateDAOImpl implements DonateDAO {
 		if (!colors.isEmpty()) {
 			for (Integer color : colors) {
 				Predicate nomeColors = builder.equal(pathColor, color);
-				predicates3.add(builder.or(nomeColors));
+				predicates3.add(nomeColors);
 			}
 			Predicate or3 = builder.or(predicates3.toArray(new Predicate[0]));
 			final1.add(or3);
