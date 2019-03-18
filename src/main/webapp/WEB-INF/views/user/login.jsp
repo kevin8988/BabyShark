@@ -42,7 +42,7 @@
 
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
 				type="email" name="email" class="form-control"
-				placeholder="example@example.com" required autofocus>
+				placeholder="Login" required autofocus>
 		</div>
 		<div class="form-group">
 			<label for="password" class="sr-only">Senha</label> <label
