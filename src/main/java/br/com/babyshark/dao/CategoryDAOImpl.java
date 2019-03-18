@@ -16,7 +16,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	private EntityManager em;
 
 	public List<Category> getAllCategoriesDonate() {
-		return em.createQuery("select distinct c from Category c join fetch c.donates d where d.isDonated = false", Category.class).getResultList();
+		return em.createQuery("select distinct c from Category c join fetch c.donates d where d.isDonated = false", Category.class).setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
 }

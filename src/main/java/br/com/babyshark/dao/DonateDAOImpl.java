@@ -25,7 +25,7 @@ public class DonateDAOImpl implements DonateDAO {
 	private EntityManager em;
 
 	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d where d.isDonated = false", Donate.class).getResultList();
+		return em.createQuery("from Donate d where d.isDonated = false", Donate.class).setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
 	public List<Donate> getDonatesByUser(User user) {

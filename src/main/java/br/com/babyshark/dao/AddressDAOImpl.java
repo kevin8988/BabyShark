@@ -16,7 +16,7 @@ public class AddressDAOImpl implements AddressDAO {
 	private EntityManager em;
 
 	public List<Address> getAllAddressDonate() {
-		return em.createQuery("select distinct a from Address a join fetch a.user u join fetch u.donates d where d.isDonated = false", Address.class)
+		return em.createQuery("select distinct a from Address a join fetch a.user u join fetch u.donates d where d.isDonated = false", Address.class).setHint("org.hibernate.cacheable", true)
 				.getResultList();
 	}
 
