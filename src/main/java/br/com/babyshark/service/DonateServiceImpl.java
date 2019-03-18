@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.babyshark.dao.CategoryDAO;
+import br.com.babyshark.dao.ColorDAO;
 import br.com.babyshark.dao.DonateDAO;
 import br.com.babyshark.dao.GenderDAO;
 import br.com.babyshark.entity.Category;
+import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
 
@@ -25,6 +27,9 @@ public class DonateServiceImpl implements DonateService {
 	@Autowired
 	private GenderDAO genderDAO;
 
+	@Autowired
+	private ColorDAO colorDAO;
+
 	@Transactional
 	public List<Donate> getAllDonates() {
 		return donateDAO.getAllDonates();
@@ -38,6 +43,11 @@ public class DonateServiceImpl implements DonateService {
 	@Transactional
 	public List<Gender> getAllGendersDonate() {
 		return genderDAO.getAllGendersDonate();
+	}
+
+	@Transactional
+	public List<Color> getAllColorsDonate() {
+		return colorDAO.getAllColorsDonate();
 	}
 
 	@Transactional
