@@ -6,6 +6,6 @@ import br.com.babyshark.entity.Category;
 
 public interface CategoryDAO {
 	
-	public List<Category> getAllCategories();
+	public List<Category> getAllCategoriesDonate();
 
 }

@@ -25,8 +25,8 @@ public class DonateController {
 			@RequestParam(value = "gender", defaultValue = "") List<Integer> genders,
 			@RequestParam(value = "search", defaultValue = "") String search) {
 
-		model.addAttribute("categories", donateService.getAllCategories());
-		model.addAttribute("genders", donateService.getAllGenders());
+		model.addAttribute("categories", donateService.getAllCategoriesDonate());
+		model.addAttribute("genders", donateService.getAllGendersDonate());
 	
 		if (categories.isEmpty() && genders.isEmpty() && colors.isEmpty() && search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();

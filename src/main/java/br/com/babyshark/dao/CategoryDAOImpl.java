@@ -15,7 +15,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Category> getAllCategories() {
+	public List<Category> getAllCategoriesDonate() {
 		return em.createQuery("select distinct c from Category c join fetch c.donates", Category.class).getResultList();
 	}
 

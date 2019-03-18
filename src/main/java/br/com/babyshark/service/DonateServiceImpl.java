@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.babyshark.dao.CategoryDAO;
 import br.com.babyshark.dao.DonateDAO;
+import br.com.babyshark.dao.GenderDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
@@ -21,19 +22,22 @@ public class DonateServiceImpl implements DonateService {
 	@Autowired
 	private CategoryDAO categoryDAO;
 
+	@Autowired
+	private GenderDAO genderDAO;
+
 	@Transactional
 	public List<Donate> getAllDonates() {
 		return donateDAO.getAllDonates();
 	}
 
 	@Transactional
-	public List<Category> getAllCategories() {
-		return categoryDAO.getAllCategories();
+	public List<Category> getAllCategoriesDonate() {
+		return categoryDAO.getAllCategoriesDonate();
 	}
 
 	@Transactional
-	public List<Gender> getAllGenders() {
-		return donateDAO.getAllGenders();
+	public List<Gender> getAllGendersDonate() {
+		return genderDAO.getAllGendersDonate();
 	}
 
 	@Transactional

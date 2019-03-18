@@ -13,8 +13,8 @@ public interface DonateService {
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			String search);
 
-	public List<Category> getAllCategories();
+	public List<Category> getAllCategoriesDonate();
 
-	public List<Gender> getAllGenders();
+	public List<Gender> getAllGendersDonate();
 
 }
