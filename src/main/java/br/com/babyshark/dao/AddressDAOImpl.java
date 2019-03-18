@@ -11,12 +11,13 @@ import br.com.babyshark.entity.Address;
 
 @Repository
 public class AddressDAOImpl implements AddressDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
 	public List<Address> getAllAddressDonate() {
-		return null;
+		return em.createQuery("select distinct a from Address a join fetch a.user u join fetch u.donate", Address.class)
+				.getResultList();
 	}
 
 }
