@@ -13,6 +13,7 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.babyshark.entity.Address;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
@@ -46,7 +47,7 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
-			List<String> state, String search) {
+			List<String> states, String search) {
 
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 
@@ -60,12 +61,14 @@ public class DonateDAOImpl implements DonateDAO {
 		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
 		Path<Integer> pathColor = root.join("colors").<Integer>get("id");
 		Path<Integer> pathGender = root.join("genders").<Integer>get("id");
+		Path<String> pathState = root.<User>get("user").<Address>get("address").<String>get("state");
 		Path<Boolean> pathIsDonated = root.<Boolean>get("isDonated");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		List<Predicate> predicates2 = new ArrayList<Predicate>();
 		List<Predicate> predicates3 = new ArrayList<Predicate>();
+		List<Predicate> predicates4 = new ArrayList<Predicate>();
 
 		final1.add(builder.equal(pathIsDonated, false));
 
@@ -99,6 +102,15 @@ public class DonateDAOImpl implements DonateDAO {
 			}
 			Predicate or3 = builder.or(predicates3.toArray(new Predicate[0]));
 			final1.add(or3);
+		}
+
+		if (!states.isEmpty()) {
+			for (String state : states) {
+				Predicate nameStates = builder.equal(pathState, state);
+				predicates4.add(nameStates);
+			}
+			Predicate or4 = builder.or(predicates4.toArray(new Predicate[0]));
+			final1.add(or4);
 		}
 
 		query.where(final1.toArray(new Predicate[0]));

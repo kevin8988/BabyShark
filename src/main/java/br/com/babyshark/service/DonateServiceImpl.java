@@ -62,8 +62,8 @@ public class DonateServiceImpl implements DonateService {
 
 	@Transactional
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
-			List<String> state, String search) {
-		return donateDAO.getDonatesByFilter(categories, genders, colors, state, search);
+			List<String> states, String search) {
+		return donateDAO.getDonatesByFilter(categories, genders, colors, states, search);
 	}
 
 }
