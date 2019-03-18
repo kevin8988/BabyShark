@@ -49,6 +49,10 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.cache.use_second_level_cache", "true");
+		properties.setProperty("hibernate.cache.region.factory_class",
+				"org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory");
+		properties.setProperty("hibernate.cache.use_query_cache", "true");
 
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.babyshark.entity");

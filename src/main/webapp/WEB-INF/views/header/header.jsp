@@ -40,7 +40,7 @@
 						href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a></li>
 				</ul>
 				<div class="form-inline my-2 my-lg-0">
-					<button onclick="window.location.href='user/login';return false;" class="btn btn-outline-segundary my-2 my-sm-0">
+					<button onclick="window.location.href='${pageContext.servletContext.contextPath}/user/login';return false;" class="btn btn-outline-segundary my-2 my-sm-0">
 						<i class="fas fa-sign-in-alt mr-1"></i>Login
 					</button>
 				</div>
