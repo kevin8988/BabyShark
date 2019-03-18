@@ -14,7 +14,7 @@ public class AddressDAOImpl implements AddressDAO {
 	private EntityManager em;
 
 	public List<String> getAllStates() {
-		return em.createQuery("select distinct a.state from Address a").getResultList();
+		return null;
 	}
 
 }

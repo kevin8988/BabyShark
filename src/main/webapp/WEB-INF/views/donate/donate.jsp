@@ -252,7 +252,7 @@
 								</div>
 							</div>
 							<div class="card m-3">
-								<div class="card-header" id="headingOne">
+								<div class="card-header" id="headingFour">
 									<h5>
 										<span>► Localização</span>
 									</h5>
@@ -260,9 +260,18 @@
 								<div aria-labelledby="headingFour"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<div class="col mt-1">
-											<div class="custom-control custom-checkbox"></div>
-										</div>
+										<c:forEach items="${states }" var="state">
+											<div class="col mt-1">
+												<div class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input"
+														id="${state }" value="${state }"
+														name="state"> <label
+														class="custom-control-label" style="display: inline-flex;"
+														for="${state }"> ${state } 
+													</label>
+												</div>
+											</div>
+										</c:forEach>
 									</div>
 								</div>
 							</div>

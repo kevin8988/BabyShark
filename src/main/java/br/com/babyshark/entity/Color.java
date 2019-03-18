@@ -31,6 +31,10 @@ public class Color implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private ColorName name;
 
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private String nameHexa;
+
 	@ManyToMany
 	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "color_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
 	private Set<Donate> donates = new HashSet<Donate>();
@@ -38,8 +42,9 @@ public class Color implements Serializable {
 	public Color() {
 	}
 
-	public Color(ColorName name) {
+	public Color(ColorName name, String nameHexa) {
 		this.name = name;
+		this.nameHexa = nameHexa;
 	}
 
 	public Integer getId() {
@@ -56,6 +61,14 @@ public class Color implements Serializable {
 
 	public void setName(ColorName name) {
 		this.name = name;
+	}
+
+	public String getNameHexa() {
+		return nameHexa;
+	}
+
+	public void setNameHexa(String nameHexa) {
+		this.nameHexa = nameHexa;
 	}
 
 	public Set<Donate> getDonates() {

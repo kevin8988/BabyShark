@@ -69,16 +69,16 @@ public class Test {
 		em.persist(gender2);
 		em.persist(gender3);
 
-		Color color = new Color(ColorName.AMARELO);
-		Color color2 = new Color(ColorName.AZUL);
-		Color color3 = new Color(ColorName.BEGE);
-		Color color4 = new Color(ColorName.BRANCO);
-		Color color5 = new Color(ColorName.CINZA);
-		Color color6 = new Color(ColorName.MARROM);
-		Color color7 = new Color(ColorName.ROSA);
-		Color color8 = new Color(ColorName.VERDE);
-		Color color9 = new Color(ColorName.VERMELHO);
-		Color color10 = new Color(ColorName.PRETO);
+		Color color = new Color(ColorName.AMARELO, "#FFFF00	");
+		Color color2 = new Color(ColorName.AZUL, "#0000FF");
+		Color color3 = new Color(ColorName.BEGE, "#EAEAB4");
+		Color color4 = new Color(ColorName.BRANCO, "#FFFFFF");
+		Color color5 = new Color(ColorName.CINZA, "#808080");
+		Color color6 = new Color(ColorName.MARROM, "#bf8040");
+		Color color7 = new Color(ColorName.ROSA, "#FF69B4");
+		Color color8 = new Color(ColorName.VERDE, "#008000");
+		Color color9 = new Color(ColorName.VERMELHO, "#FF0000");
+		Color color10 = new Color(ColorName.PRETO, "#000000");
 
 		em.persist(color);
 		em.persist(color2);
