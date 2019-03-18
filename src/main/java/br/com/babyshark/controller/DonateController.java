@@ -23,6 +23,7 @@ public class DonateController {
 	public String search(Model model, @RequestParam(value = "category", defaultValue = "") List<Integer> categories,
 			@RequestParam(value = "color", defaultValue = "") List<Integer> colors,
 			@RequestParam(value = "gender", defaultValue = "") List<Integer> genders,
+			@RequestParam(value = "state", defaultValue = "") List<String> state,
 			@RequestParam(value = "search", defaultValue = "") String search) {
 
 		model.addAttribute("categories", donateService.getAllCategoriesDonate());
@@ -30,11 +31,11 @@ public class DonateController {
 		model.addAttribute("colors", donateService.getAllColorsDonate());
 		model.addAttribute("addresses", donateService.getAllAddressesDonate());
 
-		if (categories.isEmpty() && genders.isEmpty() && colors.isEmpty() && search.equals("")) {
+		if (categories.isEmpty() && state.isEmpty() && genders.isEmpty() && colors.isEmpty() && search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();
 			model.addAttribute("donates", donates);
 		} else {
-			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, genders, colors, search);
+			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, genders, colors, state, search);
 			model.addAttribute("donates", donatesByFilter);
 		}
 
