@@ -42,7 +42,7 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Gender> getAllGenders() {
-		return em.createQuery("from Gender", Gender.class).setHint("org.hibernate.cacheable", true).getResultList();
+		return em.createQuery("from Gender", Gender.class).getResultList();
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
