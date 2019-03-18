@@ -32,7 +32,6 @@ public class Color implements Serializable {
 	private ColorName name;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
 	private String nameHexa;
 
 	@ManyToMany

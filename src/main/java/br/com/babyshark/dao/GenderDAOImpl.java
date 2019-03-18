@@ -7,16 +7,16 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.babyshark.entity.Category;
+import br.com.babyshark.entity.Gender;
 
 @Repository
-public class CategoryDAOImpl implements CategoryDAO {
+public class GenderDAOImpl implements GenderDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Category> getAllCategories() {
-		return em.createQuery("select distinct c from Category c join fetch c.donates", Category.class).getResultList();
+	public List<Gender> getAllGendersDonate() {
+		return em.createQuery("select distinct g from Gender g join fetch g.donates", Gender.class).getResultList();
 	}
 
 }
