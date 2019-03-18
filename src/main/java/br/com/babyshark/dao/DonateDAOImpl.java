@@ -28,7 +28,8 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getDonatesByUser(User user) {
-		return em.createQuery("from Donate d where d.user = :pUser", Donate.class).setParameter("pUser", user).getResultList();
+		return em.createQuery("from Donate d where d.user = :pUser and d.isDonated = false", Donate.class)
+				.setParameter("pUser", user).getResultList();
 	}
 
 	public List<Donate> getDonatesDonated() {
@@ -36,7 +37,8 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d order by d.id desc", Donate.class).setMaxResults(3).getResultList();
+		return em.createQuery("from Donate d where d.isDonated = false order by d.id desc", Donate.class)
+				.setMaxResults(3).getResultList();
 	}
 
 	public List<Gender> getAllGenders() {
@@ -45,8 +47,6 @@ public class DonateDAOImpl implements DonateDAO {
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			String search) {
-
-		System.out.println("=====>>>>Query");
 
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 
@@ -60,11 +60,14 @@ public class DonateDAOImpl implements DonateDAO {
 		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
 		Path<Integer> pathColor = root.join("colors").<Integer>get("id");
 		Path<Integer> pathGender = root.join("genders").<Integer>get("id");
+		Path<Boolean> pathIsDonated = root.<Boolean>get("isDonated");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		List<Predicate> predicates2 = new ArrayList<Predicate>();
 		List<Predicate> predicates3 = new ArrayList<Predicate>();
+
+		final1.add(builder.equal(pathIsDonated, false));
 
 		if (!search.equals("")) {
 			Predicate pNome = builder.like(pathTitle, "%" + search + "%");
