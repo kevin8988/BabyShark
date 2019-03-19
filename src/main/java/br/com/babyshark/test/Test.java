@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.babyshark.entity.Address;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.CategoryName;
 import br.com.babyshark.entity.Color;
@@ -34,7 +34,7 @@ public class Test {
 		em.persist(user);
 		em.persist(user2);
 
-		Address address = new Address("São Paulo", "São Paulo", "Brasil");
+		EventAddress address = new EventAddress("São Paulo", "São Paulo", "Brasil");
 
 		em.persist(address);
 

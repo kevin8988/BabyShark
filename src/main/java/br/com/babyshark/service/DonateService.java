@@ -2,7 +2,7 @@ package br.com.babyshark.service;
 
 import java.util.List;
 
-import br.com.babyshark.entity.Address;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
@@ -21,6 +21,6 @@ public interface DonateService {
 
 	public List<Color> getAllColorsDonate();
 	
-	public List<Address> getAllAddressesDonate();
+	public List<EventAddress> getAllAddressesDonate();
 
 }

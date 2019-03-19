@@ -52,8 +52,8 @@ public class Event implements Serializable {
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
-	@JoinColumn(name = "address_id")
-	private Address address;
+	@JoinColumn(name = "event_address_id")
+	private EventAddress eventAddress;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
@@ -138,12 +138,12 @@ public class Event implements Serializable {
 		this.participants = participants;
 	}
 
-	public Address getAddress() {
-		return address;
+	public EventAddress getEventAddress() {
+		return eventAddress;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setEventAddress(EventAddress eventAddress) {
+		this.eventAddress = eventAddress;
 	}
 
 	public void add(User user) {

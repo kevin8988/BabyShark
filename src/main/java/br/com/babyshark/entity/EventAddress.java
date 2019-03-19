@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Address implements Serializable {
+public class EventAddress implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -32,32 +32,29 @@ public class Address implements Serializable {
 	@Column(nullable = false)
 	private String country;
 
-	@Column
+	@Column(nullable = false)
 	private String number;
 
-	@Column
+	@Column(nullable = false)
 	private String street;
 
-	@Column
+	@Column(nullable = false)
 	private String district;
 
-	@Column(name = "postal_code")
+	@Column(name = "postal_code", nullable = false)
 	private String postalCode;
 
 	@Column
 	private String complement;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "address", fetch = FetchType.LAZY)
-	private User user;
-
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH }, mappedBy = "address", fetch = FetchType.LAZY)
+			CascadeType.REFRESH }, mappedBy = "eventAddress", fetch = FetchType.LAZY)
 	private Event event;
 
-	public Address() {
+	public EventAddress() {
 	}
 
-	public Address(String city, String state, String country) {
+	public EventAddress(String city, String state, String country) {
 		this.city = city;
 		this.state = state;
 		this.country = country;
@@ -133,14 +130,6 @@ public class Address implements Serializable {
 
 	public void setComplement(String complement) {
 		this.complement = complement;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public Event getEvent() {
