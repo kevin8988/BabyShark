@@ -61,7 +61,7 @@ public class User implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_address_id")
-	private UserAddress userAdddress;
+	private UserAddress userAddress;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_detail_id")
@@ -164,12 +164,12 @@ public class User implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public UserAddress getUserAdddress() {
-		return userAdddress;
+	public UserAddress getUserAddress() {
+		return userAddress;
 	}
 
-	public void setUserAdddress(UserAddress userAdddress) {
-		this.userAdddress = userAdddress;
+	public void setUserAddress(UserAddress userAddress) {
+		this.userAddress = userAddress;
 	}
 
 	public Set<Event> getEvents() {

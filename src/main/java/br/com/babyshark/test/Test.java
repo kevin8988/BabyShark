@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.CategoryName;
 import br.com.babyshark.entity.Color;
@@ -19,6 +18,7 @@ import br.com.babyshark.entity.Event;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.GenderName;
 import br.com.babyshark.entity.User;
+import br.com.babyshark.entity.UserAddress;
 
 @Repository
 public class Test {
@@ -34,9 +34,9 @@ public class Test {
 		em.persist(user);
 		em.persist(user2);
 
-		EventAddress address = new EventAddress("São Paulo", "São Paulo", "Brasil");
+		UserAddress userAddress = new UserAddress("São Paulo", "São Paulo", "Brasil");
 
-		em.persist(address);
+		em.persist(userAddress);
 
 		Donate donate = new Donate("Short Doll Manga Curta Baby Feminino Azul",
 				"Olha que fofo este pijama baby. Muito divertido para que os pequenos possam brincar e dormir", "Novo");
@@ -91,8 +91,8 @@ public class Test {
 		em.persist(color9);
 		em.persist(color10);
 
-		user.setAddress(address);
-		user2.setAddress(address);
+		user.setUserAddress(userAddress);
+		user2.setUserAddress(userAddress);
 
 		user.add(donate);
 		user2.add(donate2);
