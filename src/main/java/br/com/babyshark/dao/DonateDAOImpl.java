@@ -13,10 +13,10 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
+import br.com.babyshark.entity.UserAddress;
 
 @Repository
 public class DonateDAOImpl implements DonateDAO {
@@ -61,7 +61,7 @@ public class DonateDAOImpl implements DonateDAO {
 		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
 		Path<Integer> pathColor = root.join("colors").<Integer>get("id");
 		Path<Integer> pathGender = root.join("genders").<Integer>get("id");
-		Path<String> pathState = root.<User>get("user").<EventAddress>get("address").<String>get("state");
+		Path<String> pathState = root.<User>get("user").<UserAddress>get("userAddress").<String>get("state");
 		Path<Boolean> pathIsDonated = root.<Boolean>get("isDonated");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
