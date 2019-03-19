@@ -54,10 +54,15 @@ public class EventAddress implements Serializable {
 	public EventAddress() {
 	}
 
-	public EventAddress(String city, String state, String country) {
+	public EventAddress(String city, String state, String country, String number, String street, String district,
+			String postalCode) {
 		this.city = city;
 		this.state = state;
 		this.country = country;
+		this.number = number;
+		this.street = street;
+		this.district = district;
+		this.postalCode = postalCode;
 	}
 
 	public Integer getId() {
