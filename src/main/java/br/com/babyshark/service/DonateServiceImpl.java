@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.babyshark.dao.AddressDAO;
 import br.com.babyshark.dao.CategoryDAO;
 import br.com.babyshark.dao.ColorDAO;
 import br.com.babyshark.dao.DonateDAO;
 import br.com.babyshark.dao.GenderDAO;
-import br.com.babyshark.entity.EventAddress;
+import br.com.babyshark.dao.UserAddressDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Gender;
 
 @Service
@@ -33,7 +33,7 @@ public class DonateServiceImpl implements DonateService {
 	private ColorDAO colorDAO;
 
 	@Autowired
-	private AddressDAO addressDAO;
+	private UserAddressDAO userAddressDAO;
 
 	@Transactional
 	public List<Donate> getAllDonates() {
@@ -57,7 +57,7 @@ public class DonateServiceImpl implements DonateService {
 
 	@Transactional
 	public List<EventAddress> getAllAddressesDonate() {
-		return addressDAO.getAllAddressDonate();
+		return userAddressDAO.getAllAddressDonate();
 	}
 
 	@Transactional

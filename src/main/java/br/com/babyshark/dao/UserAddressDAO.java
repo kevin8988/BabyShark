@@ -4,8 +4,7 @@ import java.util.List;
 
 import br.com.babyshark.entity.EventAddress;
 
-public interface AddressDAO {
-	
+public interface UserAddressDAO {	
 	
 	public List<EventAddress> getAllAddressDonate();
 
