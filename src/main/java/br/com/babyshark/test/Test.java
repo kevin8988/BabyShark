@@ -15,6 +15,7 @@ import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.ColorName;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.GenderName;
 import br.com.babyshark.entity.User;
@@ -37,6 +38,9 @@ public class Test {
 		UserAddress userAddress = new UserAddress("São Paulo", "São Paulo", "Brasil");
 
 		em.persist(userAddress);
+
+		EventAddress eventAddress = new EventAddress("São Paulo", "São Paulo", "Brasil", "106", "Rua Amaro Rodrigues",
+				"Horto Florestal", "02377050");
 
 		Donate donate = new Donate("Short Doll Manga Curta Baby Feminino Azul",
 				"Olha que fofo este pijama baby. Muito divertido para que os pequenos possam brincar e dormir", "Novo");
@@ -97,7 +101,7 @@ public class Test {
 		user.add(donate);
 		user2.add(donate2);
 
-		donate.add(category);		
+		donate.add(category);
 		donate.add(color);
 		donate.add(gender);
 
@@ -106,8 +110,9 @@ public class Test {
 		donate2.add(gender2);
 
 		event.setUser(user2);
-
+		event.setEventAddress(eventAddress);
 		event.add(user);
+
 	}
 
 }
