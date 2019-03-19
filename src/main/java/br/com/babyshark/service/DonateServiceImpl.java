@@ -14,8 +14,8 @@ import br.com.babyshark.dao.UserAddressDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
-import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.UserAddress;
 
 @Service
 public class DonateServiceImpl implements DonateService {
@@ -56,7 +56,7 @@ public class DonateServiceImpl implements DonateService {
 	}
 
 	@Transactional
-	public List<EventAddress> getAllAddressesDonate() {
+	public List<UserAddress> getAllAddressesDonate() {
 		return userAddressDAO.getAllAddressDonate();
 	}
 
