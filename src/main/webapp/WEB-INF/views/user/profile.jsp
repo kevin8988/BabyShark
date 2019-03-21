@@ -85,17 +85,17 @@
 					<div class="card-body m-3">
 						<div class="row">
 							<a href=""><h4>
-									<span>►Dados</span> <i class="fas fa-database"></i>
+									<i class="fas fa-database"></i>Dados
 								</h4></a>
 						</div>
 						<div class="row">
 							<a href=""><h4>
-									<span>►Doações</span> <i class="fas fa-gifts"></i>
+									<i class="fas fa-gifts"></i>Doações
 								</h4></a>
 						</div>
 						<div class="row">
 							<a href=""><h4>
-									<span>►Interesses</span> <i class="fas fa-heart"></i>
+									<i class="fas fa-heart"></i>Interesses
 								</h4></a>
 						</div>
 						<div class="row mt-3">
