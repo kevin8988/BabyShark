@@ -47,7 +47,7 @@
 					</button>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="dropdownMenuButton" style="border: 0;">
-						<a class="dropdown-item" href="#">Perfil</a> <a
+						<a class="dropdown-item" href="${s:mvcUrl('UC#profile').build() }">Perfil</a> <a
 							class="dropdown-item" href="#">Configurações</a> <a
 							class="dropdown-item" href="#">Sair</a>
 					</div>

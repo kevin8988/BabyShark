@@ -65,7 +65,7 @@
 	</div>
 
 
-	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 
 
 	<div class="container-fluid " style="margin-top: 10%;">
