@@ -24,7 +24,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
@@ -56,5 +56,10 @@ public class UserController {
 	public String registerProcess(String email, String password) {
 		System.out.println(email + " " + password);
 		return "home";
+	}
+
+	@GetMapping("/profile")
+	public String profile() {
+		return "user/profile";
 	}
 }

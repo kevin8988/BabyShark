@@ -31,10 +31,6 @@ a {
   color: rgba(0,0,0,.7);
   font-family: 'Montserrat', sans-serif;
 }
-/* visited link */
-a:visited {  
-
-}
 
 /* mouse over link */
 a:hover {
@@ -42,10 +38,6 @@ a:hover {
   text-decoration: none; /*sem sublinhar*/
 }
 
-/* selected link */
-a:active {
-
-}
 
 .fundo{
   font-family: 'Capriola', sans-serif;
@@ -75,6 +67,11 @@ footer{
   background-position: bottom;
 
 }
+.container-perfil{
+	margin-top: 7%;
+	margin-bottom: 5%;
+}
+
 .btn{
   background-color: #0386A8;
   color: white;
