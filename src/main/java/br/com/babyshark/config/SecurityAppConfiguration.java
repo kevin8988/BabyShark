@@ -16,7 +16,7 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.inMemoryAuthentication().withUser("john").password(passwordEncoder().encode("test123")).roles("EMPLOYEE");
+		auth.inMemoryAuthentication().withUser("kevsilva07@gmail.com").password(passwordEncoder().encode("test123")).roles("EMPLOYEE");
 
 	}
 
@@ -30,7 +30,5 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests().antMatchers("/user/profile").authenticated().and().formLogin().loginPage("/user/login")
 				.loginProcessingUrl("/loginProcess").permitAll();
-
 	}
-
 }

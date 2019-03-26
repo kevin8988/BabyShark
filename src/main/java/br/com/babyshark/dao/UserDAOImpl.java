@@ -28,7 +28,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<String> getUserEmails() {
-		return em.createQuery("select u.email from User u", String.class).setHint("org.hibernate.cacheable", true).getResultList();
+		return em.createQuery("select u.email from User u", String.class).setHint("org.hibernate.cacheable", true)
+				.getResultList();
+	}
+
+	public User getUserByEmail(String email) {
+		return em.createQuery("select u from User u where u.email = :pEmail", User.class).setParameter("pEmail", email)
+				.getSingleResult();
 	}
 
 }
