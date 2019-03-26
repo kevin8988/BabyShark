@@ -31,8 +31,9 @@ public class HomeController {
 		List<Event> threeNearbyEvents = homeService.getThreeNearbyEvents();
 		model.addAttribute("lastDonates", lastThreeDonates);
 		model.addAttribute("events", threeNearbyEvents);
+		System.out.println(session.getAttribute("Dog"));
 		String g = SecurityContextHolder.getContext().getAuthentication().getName();
-		if (session.getAttribute("user") == null && !g.equals("anonymousUser")) {
+		if (!g.equals("anonymousUser")) {
 			User userByEmail = homeService.getUserByEmail(g);
 			System.out.println(userByEmail.getLastName());
 		}		
