@@ -32,7 +32,7 @@
 
 <body class="text-center">
 
-	<form action="loginProcess" method="post" class="form-login">
+	<form:form action="${pageContext.request.contextPath}/loginProcess" method="POST" class="form-login">
 
 		<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
 
@@ -41,7 +41,7 @@
 		<div class="form-group">
 
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="email" name="email" class="form-control"
+				type="text" name="username" class="form-control"
 				placeholder="Login" required autofocus>
 		</div>
 		<div class="form-group">
@@ -55,7 +55,7 @@
 		</div>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-	</form>
+	</form:form>
 
 </body>
 

@@ -52,12 +52,6 @@ public class UserController {
 		return "user/login";
 	}
 
-	@PostMapping("/loginProcess")
-	public String registerProcess(String email, String password) {
-		System.out.println(email + " " + password);
-		return "home";
-	}
-
 	@GetMapping("/profile")
 	public String profile() {
 		return "user/profile";
