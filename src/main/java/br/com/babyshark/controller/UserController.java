@@ -1,5 +1,6 @@
 package br.com.babyshark.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private HttpSession session;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -53,7 +57,8 @@ public class UserController {
 	}
 
 	@GetMapping("/profile")
-	public String profile() {
+	public String profile(Model model) {
+		model.addAttribute("user", session.getAttribute("user"));
 		return "user/profile";
 	}
 }
