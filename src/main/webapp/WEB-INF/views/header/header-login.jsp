@@ -48,8 +48,10 @@
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="dropdownMenuButton" style="border: 0;">
 						<a class="dropdown-item" href="${s:mvcUrl('UC#profile').build() }">Perfil</a> <a
-							class="dropdown-item" href="#">Configurações</a> <a
-							class="dropdown-item" href="#">Sair</a>
+							class="dropdown-item" href="#">Configurações</a> 
+							<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+								<input type="submit" class="dropdown-item" value = "Logout">
+							</form:form>
 					</div>
 				</div>
 			</div>

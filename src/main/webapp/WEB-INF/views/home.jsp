@@ -79,13 +79,13 @@
 		</div>
 	</div>
 	<!--importar Cabeçalho-->
-	<c:if test="${user == null }" >
+	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 	</c:if>
-	<c:if test="${user != null }" >
+	<c:if test="${user != null }">
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
-	
+
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
 		<h1 class="slogan">"Como dizer não</h1>
 		<h2 class="slogan">para uma carinha dessas?"</h2>
