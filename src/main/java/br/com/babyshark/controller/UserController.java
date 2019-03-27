@@ -60,5 +60,5 @@ public class UserController {
 	public String profile(Model model) {
 		model.addAttribute("user", session.getAttribute("user"));
 		return "user/profile";
-	}
+	}		
 }

@@ -65,7 +65,12 @@
 	</div>
 
 
-	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+	<c:if test="${user == null }">
+		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+	</c:if>
+	<c:if test="${user != null }">
+		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+	</c:if>
 
 
 	<div class="container-fluid " style="margin-top: 10%;">
@@ -172,9 +177,10 @@
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${address.state }" value="${address.state }" name="state"> <label
-														class="custom-control-label" style="display: inline-flex;"
-														for="${address.state }"> ${address.state } </label>
+														id="${address.state }" value="${address.state }"
+														name="state"> <label class="custom-control-label"
+														style="display: inline-flex;" for="${address.state }">
+														${address.state } </label>
 												</div>
 											</div>
 										</c:forEach>

@@ -115,7 +115,7 @@
 					</div>
 					<div class="card-body">
 						<form:form class="needs-validation" modelAttribute="user"
-							method="POST" action="registerProcess">
+							method="POST" action="test">							
 							<div class="form-group">
 								<label for="inputEmail">Email:</label>
 								<form:input class="form-control" id="inputEmail4"
@@ -125,17 +125,7 @@
 								<label for="inputCPF">CPF:</label>
 								<form:input class="form-control" id="inputCPF"
 									onchange="verifica_valor(this)" path="cpf" />
-							</div>
-							<div class="form-group">
-								<label for="inputPassword">Senha:</label>
-								<form:password class="form-control" id="inputPassword"
-									onchange="verifica_valor(this)" path="password" />
-							</div>
-							<div class="form-group">
-								<label for="inputConfirmPassword">Confime a senha:</label>
-								<form:password class="form-control" id="inputConfirmPassword"
-									onchange="verifica_valor(this)" path="confirmPassword" />
-							</div>
+							</div>							
 							<button class="btn" id="Alterar" style="float: right;" disabled>
 								<h6 style="margin-bottom: 0px;">Alterar</h6>
 							</button>
