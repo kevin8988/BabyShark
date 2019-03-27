@@ -32,17 +32,21 @@
 
 <body class="text-center">
 
-	<form:form action="${pageContext.request.contextPath}/loginProcess" method="POST" class="form-login">
+	<form:form action="${pageContext.request.contextPath}/loginProcess"
+		method="POST" class="form-login">
 
 		<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
 
 		<h1 class="mb-3">Login</h1>
 
-		<div class="form-group">
+		<c:if test="${param.error != null }">
+			<i>Você inseriu um e-mail/senha inválido</i>
+		</c:if>
 
+		<div class="form-group">
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="text" name="username" class="form-control"
-				placeholder="Login" required autofocus>
+				type="text" name="username" class="form-control" placeholder="Login"
+				required autofocus>
 		</div>
 		<div class="form-group">
 			<label for="password" class="sr-only">Senha</label> <label
