@@ -111,29 +111,35 @@
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>Kevin</h1>
+						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<div class="card-body">
-						<form class="needs-validation" novalidate>
+						<form:form class="needs-validation" modelAttribute="user"
+							method="POST" action="registerProcess">
 							<div class="form-group">
-								<label for="inputEmail">Email:</label> <input type="email"
-									class="form-control" id="inputEmail4"
-									onchange="verifica_valor(this)" value="35cmduro@suamulher.com">
+								<label for="inputEmail">Email:</label>
+								<form:input class="form-control" id="inputEmail4"
+									onchange="verifica_valor(this)" path="email" />
 							</div>
 							<div class="form-group">
-								<label for="inputCPF">CPF:</label> <input type="text"
-									class="form-control" id="inputCPF"
-									onchange="verifica_valor(this)" value="111.666.244-69">
+								<label for="inputCPF">CPF:</label>
+								<form:input class="form-control" id="inputCPF"
+									onchange="verifica_valor(this)" path="cpf" />
 							</div>
 							<div class="form-group">
-								<label for="inputData">Data de Nascimento:</label> <input
-									id="inputData" class="form-control" type="date"
-									onchange="verifica_valor(this)" value="30/04/2018">
+								<label for="inputPassword">Senha:</label>
+								<form:password class="form-control" id="inputPassword"
+									onchange="verifica_valor(this)" path="password" />
+							</div>
+							<div class="form-group">
+								<label for="inputConfirmPassword">Confime a senha:</label>
+								<form:password class="form-control" id="inputConfirmPassword"
+									onchange="verifica_valor(this)" path="confirmPassword" />
 							</div>
 							<button class="btn" id="Alterar" style="float: right;" disabled>
 								<h6 style="margin-bottom: 0px;">Alterar</h6>
 							</button>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

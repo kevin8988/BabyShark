@@ -42,7 +42,7 @@
 						data-toggle="dropdown" data-display="static" aria-haspopup="true"
 						aria-expanded="false">
 						<i class="far fa-user-circle fa-lg mr-1"></i> <a>Bem-vindo!
-							Kevin </a>
+							${user.firstName } </a>
 
 					</button>
 					<div class="dropdown-menu dropdown-menu-right"
