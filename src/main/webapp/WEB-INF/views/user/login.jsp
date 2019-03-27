@@ -15,7 +15,7 @@
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
-<s:url value="/resources/css/login/style.css" var="style"></s:url>
+<s:url value="/resources/css/login/loginStyle.css" var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
@@ -53,13 +53,17 @@
 
 		<div class="form-group">
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="text" name="username" class="form-control" placeholder="E-mail"
-				required autofocus>
+				type="text" name="username" class="form-control"
+				placeholder="E-mail" required autofocus>
 		</div>
 		<div class="form-group">
 			<label for="password" class="sr-only">Senha</label> <label
 				for="password" class="sr-only">Senha</label> <input type="password"
 				name="password" class="form-control" placeholder="Senha" required>
+		</div>
+		<div class="remember-checkbox">
+			<label> <a href="${s:mvcUrl('HC#home').build() }">Home</a>
+			</label>
 		</div>
 		<div class="remember-checkbox">
 			<label> <a href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
