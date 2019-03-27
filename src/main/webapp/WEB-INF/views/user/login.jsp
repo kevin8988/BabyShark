@@ -40,12 +40,20 @@
 		<h1 class="mb-3">Login</h1>
 
 		<c:if test="${param.error != null }">
-			<i>Você inseriu um e-mail/senha inválido</i>
+			<div class="alert alert-danger">
+				<i>Você inseriu um e-mail/senha inválido</i>
+			</div>
+		</c:if>
+
+		<c:if test="${param.logout != null }">
+			<div class="alert alert-success">
+				<i>Você foi desconectado</i>
+			</div>
 		</c:if>
 
 		<div class="form-group">
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="text" name="username" class="form-control" placeholder="Login"
+				type="text" name="username" class="form-control" placeholder="E-mail"
 				required autofocus>
 		</div>
 		<div class="form-group">
