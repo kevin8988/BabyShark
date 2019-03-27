@@ -38,8 +38,11 @@ public class UserController {
 
 	@GetMapping("/register")
 	public String register(Model model) {
-		model.addAttribute("user", new User());
-		return "user/register";
+		if (session.getAttribute("user") == null) {
+			model.addAttribute("user", new User());
+			return "user/register";
+		}
+		return profile(model);
 	}
 
 	@PostMapping("/registerProcess")
@@ -52,13 +55,16 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public String login() {
-		return "user/login";
+	public String login(Model model) {
+		if (session.getAttribute("user") == null) {
+			return "user/login";
+		}
+		return profile(model);
 	}
 
 	@GetMapping("/profile")
 	public String profile(Model model) {
 		model.addAttribute("user", session.getAttribute("user"));
 		return "user/profile";
-	}		
+	}
 }

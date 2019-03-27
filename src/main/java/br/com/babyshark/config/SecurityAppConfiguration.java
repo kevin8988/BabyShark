@@ -30,5 +30,7 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests().antMatchers("/user/profile").authenticated().and().formLogin().loginPage("/user/login")
 				.loginProcessingUrl("/loginProcess").permitAll().and().logout().permitAll();
+		
+		
 	}
 }
