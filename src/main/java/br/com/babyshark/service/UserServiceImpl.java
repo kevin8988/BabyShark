@@ -21,11 +21,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	private UserDAO userDAO;
 
 	@Transactional
+	@Override
 	public User getUserById(Integer id) {
 		return null;
 	}
 
 	@Transactional
+	@Override
 	public void insert(User user) {
 		String novaSenha = user.getPassword().substring(6);
 		String encode = new BCryptPasswordEncoder().encode(novaSenha);
@@ -37,6 +39,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	@Transactional
+	@Override
 	public List<String> getUserEmails() {
 		return userDAO.getUserEmails();
 	}
