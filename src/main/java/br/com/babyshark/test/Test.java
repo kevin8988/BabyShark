@@ -6,7 +6,8 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,10 +28,13 @@ public class Test {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Autowired
+	private PasswordEncoder passwordEnconder;
 
 	@Transactional
 	public void popula() {
-		User user = new User("kev", "silva", "kevsilva07@gmail.com", new BCryptPasswordEncoder().encode("kevin98"), "kevin98", "50169525821");
+		User user = new User("kev", "silva", "kevsilva07@gmail.com", passwordEnconder.encode("kevin98"), "kevin98", "50169525821");
 		user.setUsername(user.getEmail());
 		User user2 = new User("luck", "tes", "luck@gmail.com", "luck98", "luck98", "50169525821");
 		user2.setUsername(user2.getEmail());

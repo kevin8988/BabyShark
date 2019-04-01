@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	@Transactional
 	public void insert(User user) {
+		String novaSenha = user.getPassword().substring(6);
+		String encode = new BCryptPasswordEncoder().encode(novaSenha);
+		user.setEnabled(true);
+		user.setUsername(user.getEmail());
+		user.setPassword(encode);
+		user.setConfirmPassword(encode);
 		userDAO.insert(user);
 	}
 
@@ -38,7 +45,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userDAO.getUserByUsername(username);
-		
+
 		UserBuilder builder = null;
 		if (user != null) {
 			builder = org.springframework.security.core.userdetails.User.withUsername(username);
