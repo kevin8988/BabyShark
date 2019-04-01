@@ -21,6 +21,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "user")
@@ -55,7 +56,7 @@ public class User implements Serializable {
 	private String confirmPassword;
 
 	@NotNull(message = "Por favor, informe um cpf.")
-	@Pattern(regexp = "([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}?[0-9]{2})", message = "Por favor, informe um cpf válido.")
+	@CPF(message = "Por favor, informe um cpf válido.")
 	@Column(nullable = false)
 	private String cpf;
 
