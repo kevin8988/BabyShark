@@ -65,6 +65,9 @@ public class User implements Serializable {
 	@Column(nullable = false)
 	private String cpf;
 
+	@Column
+	private boolean enabled;
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_address_id")
 	private UserAddress userAddress;
@@ -128,6 +131,14 @@ public class User implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public Set<Interest> getInterests() {
