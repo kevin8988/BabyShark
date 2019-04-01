@@ -48,7 +48,7 @@ public class JPAConfiguration {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.cache.region.factory_class",
 				"org.hibernate.cache.ehcache.EhCacheRegionFactory");
 		properties.setProperty("hibernate.cache.use_second_level_cache", "true");

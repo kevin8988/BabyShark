@@ -49,7 +49,7 @@ public class User implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String email;
 
-	@Column(nullable = false, unique = true)
+	@Column
 	private String username;
 
 	@NotNull(message = "Por favor, informe uma senha.")
