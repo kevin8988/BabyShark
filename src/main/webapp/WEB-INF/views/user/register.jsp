@@ -49,7 +49,7 @@
 			<div class="form-group">
 				<label for="nome">Nome</label>
 				<form:input path="firstName" cssClass="form-control" />
-				<form:errors path="firstName" />
+				<form:errors path="firstName"/>
 			</div>
 			<div class="form-group">
 				<label for="sobrenome">Sobrenome</label>
