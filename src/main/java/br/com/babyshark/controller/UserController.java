@@ -50,6 +50,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
+		user.setPassword("{noop}" + user.getPassword());
+		user.setConfirmPassword("{noop}" + user.getConfirmPassword());
 		userService.insert(user);
 		return "redirect:login";
 	}

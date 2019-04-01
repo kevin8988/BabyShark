@@ -65,7 +65,7 @@ public class User implements Serializable {
 	@Column(nullable = false)
 	private String cpf;
 
-	@Column
+	@Column(nullable = false, columnDefinition = "boolean default true")
 	private boolean enabled;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -77,7 +77,7 @@ public class User implements Serializable {
 	private UserDetail userDetail;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private Authority authority;
+	private Set<Authority> authorities = new HashSet<Authority>();
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<Interest> interests = new HashSet<Interest>();
@@ -234,12 +234,12 @@ public class User implements Serializable {
 		this.eventInterests = eventInterests;
 	}
 
-	public Authority getAuthority() {
-		return authority;
+	public Set<Authority> getAuthorities() {
+		return authorities;
 	}
 
-	public void setAuthority(Authority authority) {
-		this.authority = authority;
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 	@Override

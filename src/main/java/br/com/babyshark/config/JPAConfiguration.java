@@ -20,7 +20,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 public class JPAConfiguration {
 
-	@Bean(destroyMethod = "close")
+	@Bean(name = "dataSource", destroyMethod = "close")
 	public DataSource getDataSource() throws PropertyVetoException {
 
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
@@ -54,7 +54,7 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.cache.use_second_level_cache", "true");
 		properties.setProperty("hibernate.cache.use_query_cache", "true");
 		properties.setProperty("net.sf.ehcache.configurationResourceName", "myehcache.xml");
-		
+
 		factoryBean.setJpaProperties(properties);
 		factoryBean.setPackagesToScan("br.com.babyshark.entity");
 

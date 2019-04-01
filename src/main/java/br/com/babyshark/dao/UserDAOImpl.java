@@ -37,4 +37,9 @@ public class UserDAOImpl implements UserDAO {
 				.getSingleResult();
 	}
 
+	public User getUserByUsername(String username) {
+		return em.createQuery("select u from User u where u.username = :pUsername", User.class)
+				.setParameter("pUsername", username).getSingleResult();
+	}
+
 }
