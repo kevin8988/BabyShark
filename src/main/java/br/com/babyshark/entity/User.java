@@ -35,7 +35,7 @@ public class User implements Serializable {
 	private Integer id;
 
 	@NotNull(message = "Por favor, informe um nome.")
-	@Pattern(regexp = "[a-zA-Z]{3,15}", message = "Por favor, informe um nome com mais de 2 caracteres.")
+	@Pattern(regexp = "[a-zA-Z]{3,}", message = "Por favor, informe um nome válido com mais de 2 caracteres.")
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
 
