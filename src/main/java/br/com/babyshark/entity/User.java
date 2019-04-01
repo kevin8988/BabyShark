@@ -76,7 +76,7 @@ public class User implements Serializable {
 	@JoinColumn(name = "user_detail_id")
 	private UserDetail userDetail;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Authority> authorities = new HashSet<Authority>();
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -216,16 +216,6 @@ public class User implements Serializable {
 		this.userDetail = userDetail;
 	}
 
-	public void add(Event event) {
-		this.events.add(event);
-		event.setUser(this);
-	}
-
-	public void add(Donate donate) {
-		this.donates.add(donate);
-		donate.setUser(this);
-	}
-
 	public Set<Event> getEventInterests() {
 		return eventInterests;
 	}
@@ -240,6 +230,20 @@ public class User implements Serializable {
 
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
+	}
+	
+	public void add(Event event) {
+		this.events.add(event);
+		event.setUser(this);
+	}
+
+	public void add(Donate donate) {
+		this.donates.add(donate);
+		donate.setUser(this);
+	}
+	
+	public void add(Authority role) {
+		this.authorities.add(role);
 	}
 
 	@Override

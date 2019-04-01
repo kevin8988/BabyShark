@@ -46,10 +46,11 @@
 
 			<h1 class="">Faça seu cadastro</h1>
 			<h3 class="">Preencha os campos abaixo</h3>
+			<form:hidden path="enabled" value="true" />
 			<div class="form-group">
 				<label for="nome">Nome</label>
 				<form:input path="firstName" cssClass="form-control" />
-				<form:errors path="firstName"/>
+				<form:errors path="firstName" />
 			</div>
 			<div class="form-group">
 				<label for="sobrenome">Sobrenome</label>
