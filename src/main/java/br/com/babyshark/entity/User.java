@@ -77,6 +77,9 @@ public class User implements Serializable {
 	private UserDetail userDetail;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private Authority authority;
+
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private Set<Interest> interests = new HashSet<Interest>();
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -229,6 +232,14 @@ public class User implements Serializable {
 
 	public void setEventInterests(Set<Event> eventInterests) {
 		this.eventInterests = eventInterests;
+	}
+
+	public Authority getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(Authority authority) {
+		this.authority = authority;
 	}
 
 	@Override
