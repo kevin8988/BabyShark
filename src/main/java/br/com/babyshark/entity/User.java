@@ -26,7 +26,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "users")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "user")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "users")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;

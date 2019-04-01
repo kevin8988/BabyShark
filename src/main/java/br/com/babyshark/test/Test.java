@@ -30,8 +30,10 @@ public class Test {
 	@Transactional
 	public void popula() {
 		User user = new User("kev", "silva", "kevsilva07@gmail.com", "kevin98", "kevin98", "50169525821");
+		user.setUsername(user.getEmail());
 		User user2 = new User("luck", "tes", "luck@gmail.com", "luck98", "luck98", "50169525821");
-
+		user2.setUsername(user2.getEmail());
+		
 		em.persist(user);
 		em.persist(user2);
 
