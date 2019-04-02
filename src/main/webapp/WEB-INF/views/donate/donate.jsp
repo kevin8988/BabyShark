@@ -243,9 +243,11 @@
 						<c:forEach items="${donates }" var="donate">
 							<div class="col-lg-4 col-md-12 mb-4">
 								<div class="card h-100">
-									<img class="card-img-top"
-										src="https://img.itdg.com.br/tdg/images/recipes/000/015/150/126544/126544_original.jpg?"
-										alt="Imagem de capa do card">
+									<c:forEach items="${donate.photos }" var="photo" begin="0" end="1">
+										<img class="card-img-top"
+											src="${photo.path }"
+											alt="Imagem de capa do card">
+									</c:forEach>
 									<div class="card-body">
 										<h4 class="card-title">${donate.title }</h4>
 										<p class="card-text">${donate.description }</p>

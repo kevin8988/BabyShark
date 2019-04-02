@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		Authority authority = new Authority();
 		authority.setUser(user);
 		authority.setAuthority(Role.ROLE_USER.toString());
+		user.add(authority);
 		user.setUsername(user.getEmail());
 		user.setPassword(encode);
 		user.setConfirmPassword(encode);

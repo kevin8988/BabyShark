@@ -6,8 +6,7 @@ import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +19,7 @@ import br.com.babyshark.entity.Event;
 import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.GenderName;
+import br.com.babyshark.entity.Photo;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 
@@ -29,15 +29,14 @@ public class Test {
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Autowired
-	private PasswordEncoder passwordEnconder;
-
 	@Transactional
 	public void popula() {
-		User user = new User("kev", "silva", "kevsilva07@gmail.com", passwordEnconder.encode("kevin98"), "kevin98", "50169525821");
+		User user = new User("kev", "silva", "kevsilva07@gmail.com", new BCryptPasswordEncoder().encode("kevin98"), "kevin98", "50169525821");
 		user.setUsername(user.getEmail());
-		User user2 = new User("luck", "tes", "luck@gmail.com", passwordEnconder.encode("luck98"), "luck98", "50169525821");
+		user.setEnabled(true);
+		User user2 = new User("luck", "tes", "luck@gmail.com", new BCryptPasswordEncoder().encode("luck98"), "luck98", "50169525821");
 		user2.setUsername(user2.getEmail());
+		user2.setEnabled(true);
 		
 		em.persist(user);
 		em.persist(user2);
@@ -51,10 +50,20 @@ public class Test {
 
 		Donate donate = new Donate("Short Doll Manga Curta Baby Feminino Azul",
 				"Olha que fofo este pijama baby. Muito divertido para que os pequenos possam brincar e dormir", "Novo");
-
+		
+		Photo donatePhoto = new Photo();
+		donatePhoto.setPath("https://ae01.alicdn.com/kf/HTB1GV9aQVXXXXa.XXXXq6xXFXXX4/Crian-as-meninas-do-beb-roupas-crian-a-pouco-coelho-ver-o-bonito-casual-party-dress.jpg_640x640.jpg");
+		donatePhoto.setDonate(donate);
+		donate.add(donatePhoto);
+		
 		Donate donate2 = new Donate("Short Doll Manga Curta Baby Masculino Azul",
 				"Olha que fofo este pijama baby. Muito divertido para que os pequenos possam brincar e dormir", "Novo");
 
+		Photo donatePhoto2 = new Photo();
+		donatePhoto2.setPath("https://ae01.alicdn.com/kf/HTB1FHTsXjDuK1Rjy1zjq6zraFXay/Crian-as-Cavalheiro-Roupas-Crian-a-Fatos-de-treino-Crian-as-Outono-Conjuntos-de-Roupas-de.jpg_640x640.jpg");
+		donatePhoto2.setDonate(donate2);
+		donate2.add(donatePhoto2);
+		
 		em.persist(donate);
 		em.persist(donate2);
 
@@ -110,11 +119,11 @@ public class Test {
 
 		donate.add(category);
 		donate.add(color);
-		donate.add(gender);
+		donate.add(gender2);
 
 		donate2.add(category2);
 		donate2.add(color2);
-		donate2.add(gender2);
+		donate2.add(gender);
 
 		event.setUser(user2);
 		event.setEventAddress(eventAddress);

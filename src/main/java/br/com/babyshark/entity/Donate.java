@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -46,7 +46,8 @@ public class Donate implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ElementCollection(fetch = FetchType.LAZY)
+	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "donate")
 	private Set<Photo> photos = new HashSet<Photo>();
 
 	@OneToMany(mappedBy = "donate", fetch = FetchType.LAZY)
