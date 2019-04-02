@@ -25,12 +25,13 @@ public class DonateDAOImpl implements DonateDAO {
 	private EntityManager em;
 
 	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
+				.getResultList();
 	}
 
 	public List<Donate> getDonatesByUser(User user) {
-		return em.createQuery("from Donate d join fetch d.photos where d.user = :pUser and d.isDonated = false", Donate.class)
-				.setParameter("pUser", user).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.user = :pUser and d.isDonated = false",
+				Donate.class).setParameter("pUser", user).getResultList();
 	}
 
 	public List<Donate> getDonatesDonated() {
@@ -38,9 +39,9 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc", Donate.class)
-				.setMaxResults(3).getResultList();
-	}	
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc",
+				Donate.class).getResultList();
+	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			List<String> states, String search) {
@@ -67,7 +68,7 @@ public class DonateDAOImpl implements DonateDAO {
 		List<Predicate> predicates3 = new ArrayList<Predicate>();
 		List<Predicate> predicates4 = new ArrayList<Predicate>();
 
-		final1.add(builder.equal(pathIsDonated, false));		
+		final1.add(builder.equal(pathIsDonated, false));
 
 		if (!search.equals("")) {
 			Predicate pNome = builder.like(pathTitle, "%" + search + "%");
@@ -109,7 +110,7 @@ public class DonateDAOImpl implements DonateDAO {
 			Predicate or4 = builder.or(predicates4.toArray(new Predicate[0]));
 			final1.add(or4);
 		}
-		
+
 		query.where(final1.toArray(new Predicate[0]));
 
 		return em.createQuery(query).getResultList();

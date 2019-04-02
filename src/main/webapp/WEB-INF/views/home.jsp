@@ -111,13 +111,16 @@
 						<p>Nenhuma doação</p>
 					</c:if>
 					<c:if test="${!lastDonates.isEmpty() }">
-						<c:forEach items="${lastDonates }" var="lastDonate">
+						<c:forEach items="${lastDonates }" var="lastDonate" begin="0" end="3">
 							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
 								<div class="row">
 									<div class="col">
 										<div class="card shadow" style="width: 18rem;">
-											<img class="card-img-top" src="${produto }"
-												alt="Imagem de capa do card">
+											<c:forEach items="${lastDonate.photos }" var="photo" begin="0"
+												end="1">
+												<img class="card-img-top" src="${photo.path }"
+													alt="Imagem de capa do card">
+											</c:forEach>
 											<div class="card-body">
 												<h3 class="card-title">${lastDonate.title }</h3>
 												<p class="card-text">${lastDonate.description }</p>
@@ -142,7 +145,7 @@
 					<p>Nenhum Evento</p>
 				</c:if>
 				<c:if test="${!events.isEmpty() }">
-					<c:forEach items="${events }" var="event">
+					<c:forEach items="${events }" var="event" begin="0" end="2">
 						<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
 							<div class="card-header">Evento</div>
 							<div class="card-body">
