@@ -1,18 +1,66 @@
+@charset "UTF-8";
 body{
-    width: 80%;
-    background-color: aliceblue;
-    margin: auto;
-    font-family: 'montserrat', sans-serif;
+  width: 100%;
+  background-color: aliceblue;
+  font-family: 'montserrat', sans-serif;
+}
+
+.header p{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.header h1{
+  color: #0386A8;
+}
+
+.logo_link{
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.logo_link:hover{
+  text-decoration: none;
+}
+
+.header .navbar {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  font-family: 'Capriola', sans-serif;
+}
+.header .navbar a {
+  font-family: 'Capriola', sans-serif;
+}
+
+.header .btn{
+  background-color: #0386A8;
+  color: white;
 }
 
 .form-cadastro{
-    max-width: 400px;
-    margin: auto;
-    width: 100%;
-    padding-top: 50px;
-    height: 200px;
+  max-width: 60em;
+  margin: 5em auto;
+  align-items: center;
+  width: 80%;  
+  font-family: 'capriola', sans-serif;
 }
 
-.form-cadastro label{
-    font-family: 'capriola', sans-serif;
+.form-cadastro h3{
+  font-family: 'capriola', sans-serif;
+  color: #0386A8;
+}
+
+.footer{
+  width: 100%;
+  background-color: white;
+  border-top: 2px solid #0386A8;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.footer a:hover{
+  text-decoration: none;
 }
