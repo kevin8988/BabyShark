@@ -2,6 +2,8 @@ package br.com.babyshark.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class HomeController {
 
 	@Autowired
 	private Test test;
+	
+	@Autowired
+	private HttpSession session;
 
 	@RequestMapping("/")
 	public String home(Model model) {
@@ -27,6 +32,7 @@ public class HomeController {
 		List<Event> threeNearbyEvents = homeService.getThreeNearbyEvents();
 		model.addAttribute("lastDonates", lastThreeDonates);
 		model.addAttribute("events", threeNearbyEvents);
+		model.addAttribute("user", session.getAttribute("user"));
 		return "home";
 	}
 

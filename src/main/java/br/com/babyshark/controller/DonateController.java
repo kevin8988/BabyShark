@@ -38,7 +38,7 @@ public class DonateController {
 			List<Donate> donatesByFilter = donateService.getDonatesByFilter(categories, genders, colors, states, search);
 			model.addAttribute("donates", donatesByFilter);
 		}
-
+		
 		return "donate/donate";
 	}
 

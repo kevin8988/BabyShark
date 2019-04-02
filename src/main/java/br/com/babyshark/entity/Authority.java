@@ -2,20 +2,26 @@ package br.com.babyshark.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
+@Table(name = "authorities",  
+	uniqueConstraints = @UniqueConstraint(
+		columnNames = { "authority", "username" }))
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Photo implements Serializable {
+public class Authority implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -23,19 +29,12 @@ public class Photo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(nullable = false)
-	private String path;
+	@Column
+	private String authority;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Donate donate;
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
+	@JoinColumn(name = "username")
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 
 	public Integer getId() {
 		return id;
@@ -45,12 +44,20 @@ public class Photo implements Serializable {
 		this.id = id;
 	}
 
-	public Donate getDonate() {
-		return donate;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setDonate(Donate donate) {
-		this.donate = donate;
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

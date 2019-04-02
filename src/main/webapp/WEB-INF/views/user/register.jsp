@@ -77,6 +77,7 @@
 			<input type="password" class="form-control" id="confirmSenha" placeholder="******" required>
 		</div>
 
+<<<<<<< HEAD
 		<button type="submit" class="btn btn-primary">Entrar</button>
 	</form>
 
@@ -121,6 +122,40 @@
 				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
 					<img src="${uam }" alt="Universidade Anhembi Morumbi">
 				</div>
+=======
+			<h1 class="">Faça seu cadastro</h1>
+			<h3 class="">Preencha os campos abaixo</h3>
+			<form:hidden path="enabled" value="true" />
+			<div class="form-group">
+				<label for="nome">Nome</label>
+				<form:input path="firstName" cssClass="form-control" />
+				<form:errors path="firstName" />
+			</div>
+			<div class="form-group">
+				<label for="sobrenome">Sobrenome</label>
+				<form:input path="lastName" cssClass="form-control" />
+				<form:errors path="lastName" />
+			</div>
+			<div class="form-group">
+				<label for="cpf">CPF</label>
+				<form:input path="cpf" cssClass="form-control" />
+				<form:errors path="cpf" />
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<form:input path="email" cssClass="form-control" />
+				<form:errors path="email" />
+			</div>
+			<div class="form-group">
+				<label for="senha">Senha</label>
+				<form:password path="password" cssClass="form-control" />
+				<form:errors path="password" />
+			</div>
+			<div class="form-group">
+				<label for="confirmSenha">Confirme a senha</label>
+				<form:password path="confirmPassword" cssClass="form-control" />
+				<form:errors path="confirmPassword" />
+>>>>>>> 6065b57948673d168b6bf1b439efc7873bd91a23
 			</div>
 		</div>
 		<div class="container-fluid p-1 text-center" style="background-color: #0386A8; color: white;">

@@ -11,5 +11,9 @@ public interface UserDAO {
 	public void insert(User user);
 	
 	public List<String> getUserEmails();
+	
+	public User getUserByUsername(String username);
+
+	public User getUserByEmail(String email);
 
 }

@@ -15,7 +15,7 @@
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
-<s:url value="/resources/css/login/style.css" var="style"></s:url>
+<s:url value="/resources/css/login/loginStyle.css" var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
@@ -32,17 +32,29 @@
 
 <body class="text-center">
 
-	<form action="loginProcess" method="post" class="form-login">
+	<form:form action="${pageContext.request.contextPath}/loginProcess"
+		method="POST" class="form-login">
 
 		<img src="${logo}" alt="Ícone Baby Shark" width="80px" height="80px">
 
 		<h1 class="mb-3">Login</h1>
 
-		<div class="form-group">
+		<c:if test="${param.error != null }">
+			<div class="alert alert-danger">
+				<i>Você inseriu um e-mail/senha inválido</i>
+			</div>
+		</c:if>
 
+		<c:if test="${param.logout != null }">
+			<div class="alert alert-success">
+				<i>Você foi desconectado</i>
+			</div>
+		</c:if>
+
+		<div class="form-group">
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
-				type="email" name="email" class="form-control"
-				placeholder="Login" required autofocus>
+				type="text" name="username" class="form-control"
+				placeholder="E-mail" required autofocus>
 		</div>
 		<div class="form-group">
 			<label for="password" class="sr-only">Senha</label> <label
@@ -50,12 +62,16 @@
 				name="password" class="form-control" placeholder="Senha" required>
 		</div>
 		<div class="remember-checkbox">
+			<label> <a href="${s:mvcUrl('HC#home').build() }">Home</a>
+			</label>
+		</div>
+		<div class="remember-checkbox">
 			<label> <a href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
 			</label>
 		</div>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-	</form>
+	</form:form>
 
 </body>
 

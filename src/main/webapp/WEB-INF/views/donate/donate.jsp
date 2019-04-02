@@ -65,7 +65,12 @@
 	</div>
 
 
-	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+	<c:if test="${user == null }">
+		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+	</c:if>
+	<c:if test="${user != null }">
+		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+	</c:if>
 
 
 	<div class="container-fluid " style="margin-top: 10%;">
@@ -172,9 +177,10 @@
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${address.state }" value="${address.state }" name="state"> <label
-														class="custom-control-label" style="display: inline-flex;"
-														for="${address.state }"> ${address.state } </label>
+														id="${address.state }" value="${address.state }"
+														name="state"> <label class="custom-control-label"
+														style="display: inline-flex;" for="${address.state }">
+														${address.state } </label>
 												</div>
 											</div>
 										</c:forEach>
@@ -237,9 +243,11 @@
 						<c:forEach items="${donates }" var="donate">
 							<div class="col-lg-4 col-md-12 mb-4">
 								<div class="card h-100">
-									<img class="card-img-top"
-										src="https://img.itdg.com.br/tdg/images/recipes/000/015/150/126544/126544_original.jpg?"
-										alt="Imagem de capa do card">
+									<c:forEach items="${donate.photos }" var="photo" begin="0" end="1">
+										<img class="card-img-top"
+											src="${photo.path }"
+											alt="Imagem de capa do card">
+									</c:forEach>
 									<div class="card-body">
 										<h4 class="card-title">${donate.title }</h4>
 										<p class="card-text">${donate.description }</p>

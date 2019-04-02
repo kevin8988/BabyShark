@@ -79,7 +79,12 @@
 		</div>
 	</div>
 	<!--importar Cabeçalho-->
-	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+	<c:if test="${user == null }">
+		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
+	</c:if>
+	<c:if test="${user != null }">
+		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
+	</c:if>
 
 	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
 		<h1 class="slogan">"Como dizer não</h1>
@@ -87,7 +92,7 @@
 		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
 			<form class="form-inline my-2 my-lg-0" method="get"
 				action="${s:mvcUrl('DC#search').build() }">
-				<input class="form-control mr-sm-2" type="search"
+				<input class="form-control mr-sm-2 " type="search"
 					placeholder="Pesquisar" aria-label="Pesquisar" name="search">
 				<button class="btn my-2 my-sm-0" type="submit">
 					<i class="fas fa-search mr-1"></i> Pesquisar
@@ -106,13 +111,16 @@
 						<p>Nenhuma doação</p>
 					</c:if>
 					<c:if test="${!lastDonates.isEmpty() }">
-						<c:forEach items="${lastDonates }" var="lastDonate">
+						<c:forEach items="${lastDonates }" var="lastDonate" begin="0" end="3">
 							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
 								<div class="row">
 									<div class="col">
 										<div class="card shadow" style="width: 18rem;">
-											<img class="card-img-top" src="${produto }"
-												alt="Imagem de capa do card">
+											<c:forEach items="${lastDonate.photos }" var="photo" begin="0"
+												end="1">
+												<img class="card-img-top" src="${photo.path }"
+													alt="Imagem de capa do card">
+											</c:forEach>
 											<div class="card-body">
 												<h3 class="card-title">${lastDonate.title }</h3>
 												<p class="card-text">${lastDonate.description }</p>
@@ -137,7 +145,7 @@
 					<p>Nenhum Evento</p>
 				</c:if>
 				<c:if test="${!events.isEmpty() }">
-					<c:forEach items="${events }" var="event">
+					<c:forEach items="${events }" var="event" begin="0" end="2">
 						<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
 							<div class="card-header">Evento</div>
 							<div class="card-body">

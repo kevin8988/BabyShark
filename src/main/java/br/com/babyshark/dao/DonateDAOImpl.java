@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -14,7 +15,6 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import br.com.babyshark.entity.Donate;
-import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 
@@ -25,12 +25,13 @@ public class DonateDAOImpl implements DonateDAO {
 	private EntityManager em;
 
 	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d where d.isDonated = false", Donate.class).setHint("org.hibernate.cacheable", true).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
+				.getResultList();
 	}
 
 	public List<Donate> getDonatesByUser(User user) {
-		return em.createQuery("from Donate d where d.user = :pUser and d.isDonated = false", Donate.class)
-				.setParameter("pUser", user).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.user = :pUser and d.isDonated = false",
+				Donate.class).setParameter("pUser", user).getResultList();
 	}
 
 	public List<Donate> getDonatesDonated() {
@@ -38,12 +39,8 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d where d.isDonated = false order by d.id desc", Donate.class)
-				.setMaxResults(3).getResultList();
-	}
-
-	public List<Gender> getAllGenders() {
-		return em.createQuery("from Gender", Gender.class).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc",
+				Donate.class).getResultList();
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
@@ -63,6 +60,7 @@ public class DonateDAOImpl implements DonateDAO {
 		Path<Integer> pathGender = root.join("genders").<Integer>get("id");
 		Path<String> pathState = root.<User>get("user").<UserAddress>get("userAddress").<String>get("state");
 		Path<Boolean> pathIsDonated = root.<Boolean>get("isDonated");
+		root.fetch("photos", JoinType.INNER);
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
 		List<Predicate> predicates = new ArrayList<Predicate>();

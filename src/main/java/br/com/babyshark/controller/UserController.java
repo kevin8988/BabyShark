@@ -1,5 +1,6 @@
 package br.com.babyshark.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private HttpSession session;
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
@@ -34,8 +38,11 @@ public class UserController {
 
 	@GetMapping("/register")
 	public String register(Model model) {
-		model.addAttribute("user", new User());
-		return "user/register";
+		if (session.getAttribute("user") == null) {
+			model.addAttribute("user", new User());
+			return "user/register";
+		}
+		return profile(model);
 	}
 
 	@PostMapping("/registerProcess")
@@ -43,23 +50,23 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
+		user.setPassword("{noop}" + user.getPassword());
+		user.setConfirmPassword("{noop}" + user.getConfirmPassword());
 		userService.insert(user);
 		return "redirect:login";
 	}
 
 	@GetMapping("/login")
-	public String login() {
-		return "user/login";
-	}
-
-	@PostMapping("/loginProcess")
-	public String registerProcess(String email, String password) {
-		System.out.println(email + " " + password);
-		return "home";
+	public String login(Model model) {
+		if (session.getAttribute("user") == null) {
+			return "user/login";
+		}
+		return profile(model);
 	}
 
 	@GetMapping("/profile")
-	public String profile() {
+	public String profile(Model model) {
+		model.addAttribute("user", session.getAttribute("user"));
 		return "user/profile";
 	}
 }

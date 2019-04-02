@@ -42,14 +42,16 @@
 						data-toggle="dropdown" data-display="static" aria-haspopup="true"
 						aria-expanded="false">
 						<i class="far fa-user-circle fa-lg mr-1"></i> <a>Bem-vindo!
-							Kevin </a>
+							${user.firstName } </a>
 
 					</button>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="dropdownMenuButton" style="border: 0;">
 						<a class="dropdown-item" href="${s:mvcUrl('UC#profile').build() }">Perfil</a> <a
-							class="dropdown-item" href="#">Configurações</a> <a
-							class="dropdown-item" href="#">Sair</a>
+							class="dropdown-item" href="#">Configurações</a> 
+							<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+								<input type="submit" class="dropdown-item" value = "Logout">
+							</form:form>
 					</div>
 				</div>
 			</div>
