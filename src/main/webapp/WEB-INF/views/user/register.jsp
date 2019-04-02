@@ -50,34 +50,39 @@
 	</header>
 
 	<form class="form-cadastro">
-		<h1 class="">Faça seu cadastro</h1>
-		<h3 class="">Preencha os campos abaixo</h3>
+		<h1>Faça seu cadastro</h1>
+		<h3>Preencha os campos abaixo</h3>
+		<form:hidden path="enabled" value="true" />
 		<div class="form-group">
 			<label for="nome">Nome</label>
-			<input type="text" class="form-control" id="nome" placeholder="Nome" required>
+			<form:input path="firstName" cssClass="form-control" />
+			<form:errors path="firstName" />
 		</div>
 		<div class="form-group">
 			<label for="sobrenome">Sobrenome</label>
-			<input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome" required>
+			<form:input path="lastName" cssClass="form-control" />
+			<form:errors path="lastName" />
 		</div>
 		<div class="form-group">
 			<label for="cpf">CPF</label>
-			<input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
+			<form:input path="cpf" cssClass="form-control" />
+			<form:errors path="cpf" />
 		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
-			<input type="email" class="form-control" id="email" placeholder="exemple@exemple.com" required>
+			<form:input path="email" cssClass="form-control" />
+			<form:errors path="email" />
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
-			<input type="password" class="form-control" id="senha" placeholder="******" required>
+			<form:password path="password" cssClass="form-control" />
+			<form:errors path="password" />
 		</div>
 		<div class="form-group">
-			<label for="confirmSenha">Confrime a senha</label>
-			<input type="password" class="form-control" id="confirmSenha" placeholder="******" required>
+			<label for="confirmSenha">Confirme a senha</label>
+			<form:password path="confirmPassword" cssClass="form-control" />
+			<form:errors path="confirmPassword" />
 		</div>
-
-<<<<<<< HEAD
 		<button type="submit" class="btn btn-primary">Entrar</button>
 	</form>
 
@@ -102,60 +107,26 @@
 				</div>
 				<div class="col-lg-2 col-md-6 mt-5 mb-lg-0">
 					<ul class="list-inline">
-                        <li class="list-inline-item"><a href="#" target="_blank" title="twitter"
-                                class="text-hover-primary" style="color: #0386A8;"> <i class="fab fa-2x fa-twitter"></i>
-                            </a></li>
-                        <li class="list-inline-item"><a href="#" target="_blank" title="facebook"
-                                class="text-hover-primary" style="color: #0386A8;"> <i
-                                    class="fab fa-2x fa-facebook"></i>
-                            </a></li>
-                        <li class="list-inline-item"><a href="#" target="_blank" title="instagram"
-                                class="text-hover-primary" style="color: #0386A8;"> <i
-                                    class="fab fa-2x fa-instagram"></i>
-                            </a></li>
-                        <li class="list-inline-item"><a href="#" target="_blank" title="google"
-                                class="text-hover-primary" style="color: #0386A8;">
-                                <i class="fab fa-2x fa-google"></i>
-                            </a></li>
-                    </ul>
+						<li class="list-inline-item"><a href="#" target="_blank" title="twitter"
+								class="text-hover-primary" style="color: #0386A8;"> <i class="fab fa-2x fa-twitter"></i>
+							</a></li>
+						<li class="list-inline-item"><a href="#" target="_blank" title="facebook"
+								class="text-hover-primary" style="color: #0386A8;"> <i
+									class="fab fa-2x fa-facebook"></i>
+							</a></li>
+						<li class="list-inline-item"><a href="#" target="_blank" title="instagram"
+								class="text-hover-primary" style="color: #0386A8;"> <i
+									class="fab fa-2x fa-instagram"></i>
+							</a></li>
+						<li class="list-inline-item"><a href="#" target="_blank" title="google"
+								class="text-hover-primary" style="color: #0386A8;">
+								<i class="fab fa-2x fa-google"></i>
+							</a></li>
+					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
 					<img src="${uam }" alt="Universidade Anhembi Morumbi">
 				</div>
-=======
-			<h1 class="">Faça seu cadastro</h1>
-			<h3 class="">Preencha os campos abaixo</h3>
-			<form:hidden path="enabled" value="true" />
-			<div class="form-group">
-				<label for="nome">Nome</label>
-				<form:input path="firstName" cssClass="form-control" />
-				<form:errors path="firstName" />
-			</div>
-			<div class="form-group">
-				<label for="sobrenome">Sobrenome</label>
-				<form:input path="lastName" cssClass="form-control" />
-				<form:errors path="lastName" />
-			</div>
-			<div class="form-group">
-				<label for="cpf">CPF</label>
-				<form:input path="cpf" cssClass="form-control" />
-				<form:errors path="cpf" />
-			</div>
-			<div class="form-group">
-				<label for="email">Email</label>
-				<form:input path="email" cssClass="form-control" />
-				<form:errors path="email" />
-			</div>
-			<div class="form-group">
-				<label for="senha">Senha</label>
-				<form:password path="password" cssClass="form-control" />
-				<form:errors path="password" />
-			</div>
-			<div class="form-group">
-				<label for="confirmSenha">Confirme a senha</label>
-				<form:password path="confirmPassword" cssClass="form-control" />
-				<form:errors path="confirmPassword" />
->>>>>>> 6065b57948673d168b6bf1b439efc7873bd91a23
 			</div>
 		</div>
 		<div class="container-fluid p-1 text-center" style="background-color: #0386A8; color: white;">
