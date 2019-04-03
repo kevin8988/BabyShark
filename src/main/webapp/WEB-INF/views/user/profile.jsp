@@ -115,7 +115,7 @@
 					</div>
 					<div class="card-body">
 						<form:form class="needs-validation" modelAttribute="user"
-							method="POST" action="test">							
+							method="POST" action="${s:mvcUrl('UC#registerProcess').build() }">							
 							<div class="form-group">
 								<label for="inputEmail">Email:</label>
 								<form:input class="form-control" id="inputEmail4"
