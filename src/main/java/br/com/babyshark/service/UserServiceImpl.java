@@ -31,8 +31,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Transactional
 	@Override
 	public void insert(User user) {
-		String novaSenha = user.getPassword().substring(6);
-		String encode = new BCryptPasswordEncoder().encode(novaSenha);
+		String encode = new BCryptPasswordEncoder().encode(user.getPassword());
 		Authority authority = new Authority();
 		authority.setUser(user);
 		authority.setAuthority(Role.ROLE_USER.toString());

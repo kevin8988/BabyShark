@@ -22,7 +22,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "users")
@@ -60,11 +59,6 @@ public class User implements Serializable {
 	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 
-	@NotNull(message = "Por favor, informe um cpf.")
-	@CPF(message = "Por favor, informe um cpf válido.")
-	@Column(nullable = false)
-	private String cpf;
-
 	@Column(nullable = false, columnDefinition = "boolean default true")
 	private boolean enabled;
 
@@ -95,13 +89,12 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String firstName, String lastName, String email, String password, String confirmPassword, String cpf) {
+	public User(String firstName, String lastName, String email, String password, String confirmPassword) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-		this.cpf = cpf;
 	}
 
 	public Integer getId() {
@@ -184,14 +177,6 @@ public class User implements Serializable {
 		this.confirmPassword = confirmPassword;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
 	public UserAddress getUserAddress() {
 		return userAddress;
 	}
@@ -249,7 +234,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + ", cpf=" + cpf + "]";
+				+ ", confirmPassword=" + confirmPassword + "]";
 	}
 
 }

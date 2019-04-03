@@ -31,10 +31,10 @@ public class Test {
 	
 	@Transactional
 	public void popula() {
-		User user = new User("kev", "silva", "kevsilva07@gmail.com", new BCryptPasswordEncoder().encode("kevin98"), "kevin98", "50169525821");
+		User user = new User("kev", "silva", "kevsilva07@gmail.com", new BCryptPasswordEncoder().encode("kevin98"), "kevin98");
 		user.setUsername(user.getEmail());
 		user.setEnabled(true);
-		User user2 = new User("luck", "tes", "luck@gmail.com", new BCryptPasswordEncoder().encode("luck98"), "luck98", "50169525821");
+		User user2 = new User("luck", "tes", "luck@gmail.com", new BCryptPasswordEncoder().encode("luck98"), "luck98");
 		user2.setUsername(user2.getEmail());
 		user2.setEnabled(true);
 		

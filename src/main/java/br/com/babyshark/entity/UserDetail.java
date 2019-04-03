@@ -35,6 +35,9 @@ public class UserDetail implements Serializable {
 	@Column
 	private String fone;
 
+	@Column
+	private String cpf;
+
 	@Enumerated(EnumType.STRING)
 	@Column
 	private GenderName gender;
@@ -72,6 +75,14 @@ public class UserDetail implements Serializable {
 
 	public void setFone(String fone) {
 		this.fone = fone;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public User getUser() {
