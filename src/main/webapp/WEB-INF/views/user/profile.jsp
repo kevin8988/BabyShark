@@ -120,12 +120,7 @@
 								<label for="inputEmail">Email:</label>
 								<form:input class="form-control" id="inputEmail4"
 									onchange="verifica_valor(this)" path="email" />
-							</div>
-							<div class="form-group">
-								<label for="inputCPF">CPF:</label>
-								<form:input class="form-control" id="inputCPF"
-									onchange="verifica_valor(this)" path="cpf" />
-							</div>							
+							</div>											
 							<button class="btn" id="Alterar" style="float: right;" disabled>
 								<h6 style="margin-bottom: 0px;">Alterar</h6>
 							</button>
