@@ -24,9 +24,12 @@ public class UserValidation implements Validator {
 		User user = (User) target;
 
 		if (user.getPassword() != null) {
-			if (!user.getPassword().equals(user.getConfirmPassword())) {
+			if (user.getPassword().length() < 5) {
+				errors.rejectValue("password", "field.minSize");
+			} else if (user.getConfirmPassword() != null && !user.getPassword().equals(user.getConfirmPassword())) {
 				errors.rejectValue("password", "field.notEqual");
 			}
+
 		}
 
 		if (user.getEmail() != null) {

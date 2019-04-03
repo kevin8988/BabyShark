@@ -97,7 +97,7 @@
 			<form:errors path="lastName" cssClass="alert-danger"/>
 		</div>
 		<div class="form-group">
-			<label for="email">Email</label>
+			<label for="email">E-mail</label>
 			<form:input path="email" cssClass="form-control" />
 			<form:errors path="email" cssClass="alert-danger"/>
 		</div>
