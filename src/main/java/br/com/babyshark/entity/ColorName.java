@@ -2,6 +2,6 @@ package br.com.babyshark.entity;
 
 public enum ColorName {
 
-	AMARELO, AZUL, BEGE, BRANCO, CINZA, MARROM, ROSA, VERDE, VERMELHO, PRETO
+	Amarelo, Azul, Bege, Branco, Cinza, Marrom, Rosa, Verde, Vermelho, Preto
 
 }

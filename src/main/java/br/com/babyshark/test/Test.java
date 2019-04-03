@@ -73,32 +73,32 @@ public class Test {
 
 		em.persist(event);
 
-		Category category = new Category(CategoryName.ACESSÓRIOS);
-		Category category2 = new Category(CategoryName.ROUPAS);
-		Category category3 = new Category(CategoryName.OUTROS);
+		Category category = new Category(CategoryName.Acessórios);
+		Category category2 = new Category(CategoryName.Roupas);
+		Category category3 = new Category(CategoryName.Outros);
 
 		em.persist(category);
 		em.persist(category2);
 		em.persist(category3);
 
-		Gender gender = new Gender(GenderName.MENINOS);
-		Gender gender2 = new Gender(GenderName.MENINAS);
-		Gender gender3 = new Gender(GenderName.UNISSEX);
+		Gender gender = new Gender(GenderName.Meninos);
+		Gender gender2 = new Gender(GenderName.Meninas);
+		Gender gender3 = new Gender(GenderName.Unissex);
 
 		em.persist(gender);
 		em.persist(gender2);
 		em.persist(gender3);
 
-		Color color = new Color(ColorName.AMARELO, "#FFFF00	");
-		Color color2 = new Color(ColorName.AZUL, "#0000FF");
-		Color color3 = new Color(ColorName.BEGE, "#EAEAB4");
-		Color color4 = new Color(ColorName.BRANCO, "#FFFFFF");
-		Color color5 = new Color(ColorName.CINZA, "#808080");
-		Color color6 = new Color(ColorName.MARROM, "#bf8040");
-		Color color7 = new Color(ColorName.ROSA, "#FF69B4");
-		Color color8 = new Color(ColorName.VERDE, "#008000");
-		Color color9 = new Color(ColorName.VERMELHO, "#FF0000");
-		Color color10 = new Color(ColorName.PRETO, "#000000");
+		Color color = new Color(ColorName.Amarelo, "#FFFF00	");
+		Color color2 = new Color(ColorName.Azul, "#0000FF");
+		Color color3 = new Color(ColorName.Bege, "#EAEAB4");
+		Color color4 = new Color(ColorName.Branco, "#FFFFFF");
+		Color color5 = new Color(ColorName.Cinza, "#808080");
+		Color color6 = new Color(ColorName.Marrom, "#bf8040");
+		Color color7 = new Color(ColorName.Rosa, "#FF69B4");
+		Color color8 = new Color(ColorName.Verde, "#008000");
+		Color color9 = new Color(ColorName.Vermelho, "#FF0000");
+		Color color10 = new Color(ColorName.Preto, "#000000");
 
 		em.persist(color);
 		em.persist(color2);
