@@ -103,12 +103,12 @@
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
-			<form:input path="password" cssClass="form-control" />
+			<form:password path="password" cssClass="form-control" />
 			<form:errors path="password" cssClass="alert-danger"/>
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confirme a senha</label>
-			<form:input path="confirmPassword" cssClass="form-control" />
+			<form:password path="confirmPassword" cssClass="form-control" />
 			<form:errors path="confirmPassword" cssClass="alert-danger"/>
 		</div>
 
