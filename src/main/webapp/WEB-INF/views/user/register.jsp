@@ -65,20 +65,18 @@
 
 </head>
 <body>
-	<!-- Pre-Loader -->
-
+	<!--  
 	<div class="pre-loader" id="loading">
 		<div id="loading-center">
 			<div id="loading-center-absolute">
 				<div class="object" id="object_four"></div>
-				<!-- nome do gif -->
 				<div class="object" id="object_three"></div>
 				<div class="object" id="object_two"></div>
 				<div class="object" id="object_one"></div>
 			</div>
 		</div>
 	</div>
-	<!--importar Cabeçalho-->
+-->
 
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
@@ -89,27 +87,27 @@
 		<div class="form-group">
 			<label for="nome">Nome</label>
 			<form:input path="firstName" cssClass="form-control" />
-			<form:errors path="firstName" cssClass="alert-danger"/>
+			<form:errors path="firstName" cssClass="alert-danger" />
 		</div>
 		<div class="form-group">
 			<label for="sobrenome">Sobrenome</label>
 			<form:input path="lastName" cssClass="form-control" />
-			<form:errors path="lastName" cssClass="alert-danger"/>
+			<form:errors path="lastName" cssClass="alert-danger" />
 		</div>
 		<div class="form-group">
 			<label for="email">E-mail</label>
 			<form:input path="email" cssClass="form-control" />
-			<form:errors path="email" cssClass="alert-danger"/>
+			<form:errors path="email" cssClass="alert-danger" />
 		</div>
 		<div class="form-group">
 			<label for="senha">Senha</label>
 			<form:password path="password" cssClass="form-control" />
-			<form:errors path="password" cssClass="alert-danger"/>
+			<form:errors path="password" cssClass="alert-danger" />
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confirme a senha</label>
 			<form:password path="confirmPassword" cssClass="form-control" />
-			<form:errors path="confirmPassword" cssClass="alert-danger"/>
+			<form:errors path="confirmPassword" cssClass="alert-danger" />
 		</div>
 
 		<form:hidden path="enabled" value="true" />

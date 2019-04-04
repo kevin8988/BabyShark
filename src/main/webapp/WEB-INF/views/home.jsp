@@ -65,20 +65,18 @@
 
 </head>
 <body>
-	<!-- Pre-Loader -->
-
+	<!--  
 	<div class="pre-loader" id="loading">
 		<div id="loading-center">
 			<div id="loading-center-absolute">
 				<div class="object" id="object_four"></div>
-				<!-- nome do gif -->
 				<div class="object" id="object_three"></div>
 				<div class="object" id="object_two"></div>
 				<div class="object" id="object_one"></div>
 			</div>
 		</div>
 	</div>
-	<!--importar Cabeçalho-->
+-->
 	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 	</c:if>
@@ -111,13 +109,14 @@
 						<p>Nenhuma doação</p>
 					</c:if>
 					<c:if test="${!lastDonates.isEmpty() }">
-						<c:forEach items="${lastDonates }" var="lastDonate" begin="0" end="3">
+						<c:forEach items="${lastDonates }" var="lastDonate" begin="0"
+							end="3">
 							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
 								<div class="row">
 									<div class="col">
 										<div class="card shadow" style="width: 18rem;">
-											<c:forEach items="${lastDonate.photos }" var="photo" begin="0"
-												end="1">
+											<c:forEach items="${lastDonate.photos }" var="photo"
+												begin="0" end="1">
 												<img class="card-img-top" src="${photo.path }"
 													alt="Imagem de capa do card">
 											</c:forEach>

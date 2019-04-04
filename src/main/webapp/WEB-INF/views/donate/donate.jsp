@@ -51,18 +51,18 @@
 
 </head>
 <body>
-	<!-- Pre-Loader -->
+	<!--  
 	<div class="pre-loader" id="loading">
 		<div id="loading-center">
 			<div id="loading-center-absolute">
 				<div class="object" id="object_four"></div>
-				<!-- nome do gif -->
 				<div class="object" id="object_three"></div>
 				<div class="object" id="object_two"></div>
 				<div class="object" id="object_one"></div>
 			</div>
 		</div>
 	</div>
+-->
 
 
 	<c:if test="${user == null }">
