@@ -42,4 +42,11 @@ public class UserDAOImpl implements UserDAO {
 				.setParameter("pUsername", username).getSingleResult();
 	}
 
+	@Override
+	public void update(User user, String email) {
+		em.createQuery("update User u set u.email = :pEmail, u.username = :pEmail where u.id = :pId")
+				.setParameter("pEmail", email).setParameter("pId", user.getId()).executeUpdate();
+
+	}
+
 }

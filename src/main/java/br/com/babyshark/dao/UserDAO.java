@@ -10,6 +10,8 @@ public interface UserDAO {
 
 	public void insert(User user);
 	
+	public void update(User user, String email);
+	
 	public List<String> getUserEmails();
 	
 	public User getUserByUsername(String username);

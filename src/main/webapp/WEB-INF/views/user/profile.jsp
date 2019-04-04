@@ -115,11 +115,17 @@
 					</div>
 					<div class="card-body">
 						<form:form class="needs-validation" modelAttribute="user"
-							method="POST" action="${s:mvcUrl('UC#registerProcess').build() }">							
+							method="POST" action="${s:mvcUrl('UC#updateProcess').build() }">							
 							<div class="form-group">
-								<label for="inputEmail">Email:</label>
+								<label for="inputEmail">Email:</label>	
+								<form:hidden path="id"/>
+								<form:hidden path="firstName" />	
+								<form:hidden path="lastName" />
+								<form:hidden path="password" value = "*******"/>
+								<form:hidden path="confirmPassword" value = "*******"/>	
 								<form:input class="form-control" id="inputEmail4"
 									onchange="verifica_valor(this)" path="email" />
+								<form:errors path="email" cssClass="alert-danger"/>
 							</div>											
 							<button class="btn" id="Alterar" style="float: right;" disabled>
 								<h6 style="margin-bottom: 0px;">Alterar</h6>

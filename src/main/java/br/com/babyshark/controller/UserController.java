@@ -38,8 +38,8 @@ public class UserController {
 
 	@GetMapping("/register")
 	public String register(Model model) {
-		if (session.getAttribute("user") == null) {	
-			model.addAttribute("user" , new User());
+		if (session.getAttribute("user") == null) {
+			model.addAttribute("user", new User());
 			return "user/register";
 		}
 		return profile(model);
@@ -49,7 +49,7 @@ public class UserController {
 	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		if (result.hasErrors()) {
 			return "user/register";
-		}		
+		}
 		userService.insert(user);
 		return "redirect:login";
 	}
@@ -65,6 +65,15 @@ public class UserController {
 	@GetMapping("/profile")
 	public String profile(Model model) {
 		model.addAttribute("user", session.getAttribute("user"));
+		return "user/profile";
+	}
+
+	@PostMapping("/updateProcess")
+	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/profile";
+		}
+		userService.update(user, user.getEmail());
 		return "user/profile";
 	}
 }

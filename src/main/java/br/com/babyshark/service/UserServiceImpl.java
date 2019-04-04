@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setConfirmPassword(encode);
 		userDAO.insert(user);
 	}
+	
+	@Transactional
+	public void update(User user, String email) {
+		userDAO.update(user, email);
+	}
 
 	@Transactional
 	@Override
