@@ -13,7 +13,7 @@
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
-<s:url value="/resources/css/donate/layoutDoacao.css" var="layout"></s:url>
+<s:url value="/resources/css/donate/donatelayout.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 
@@ -198,6 +198,7 @@
 			</div>
 			<div class="col-lg-9 col-md-12">
 				<div class="row">
+					<!--  
 					<div class="col-lg-12 col-md-12">
 						<div id="carouselExampleIndicators" class="carousel slide my-4"
 							data-ride="carousel">
@@ -232,7 +233,7 @@
 							</a>
 						</div>
 					</div>
-
+-->
 					<c:if test="${donates.isEmpty() }">
 						<div class="col-lg-4 col-md-12 mb-4">
 							<p>Nenhuma doação</p>
@@ -243,9 +244,9 @@
 						<c:forEach items="${donates }" var="donate">
 							<div class="col-lg-4 col-md-12 mb-4">
 								<div class="card h-100">
-									<c:forEach items="${donate.photos }" var="photo" begin="0" end="1">
-										<img class="card-img-top"
-											src="${photo.path }"
+									<c:forEach items="${donate.photos }" var="photo" begin="0"
+										end="1">
+										<img class="card-img-top" src="${photo.path }"
 											alt="Imagem de capa do card">
 									</c:forEach>
 									<div class="card-body">

@@ -9,14 +9,19 @@
 <head>
 <meta charset="utf-8">
 <s:url value="/resources/img/home/Logo.png" var="logo"></s:url>
+<s:url value="/resources/css/header/header.css" var="layout"></s:url>
+
+<link rel="stylesheet" type="text/css" href="${layout}">
 </head>
 <body>
 
 	<header>
 		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
-			<a class="navbar-brand ml-5" href="${s:mvcUrl('HC#home').build() }"> <img src="${logo }"
-				width="40" height="40" class="align-left" alt="logo"><a
-				class="h3 mt-1" style="color: #018BBE;">BabyShark</a></a> </a>
+			<a class="navbar-brand ml-5" href="${s:mvcUrl('HC#test').build() }">
+				<img src="${logo }" width="40" height="40" class="align-left"
+				alt="logo">
+			</a> 
+			<a class="logo_link" href="#">BabyShark</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#conteudoNavbarSuportado"
 				aria-controls="conteudoNavbarSuportado" aria-expanded="false"

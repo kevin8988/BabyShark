@@ -1,0 +1,14 @@
+.logo_link {
+	font-size: 2em;
+	text-decoration: none;
+	color: #0386a8;
+}
+
+.logo_link:hover {
+	text-decoration: none;
+}
+
+header .btn:hover{
+	background-color: #fa6c96;
+	color: white;
+}
