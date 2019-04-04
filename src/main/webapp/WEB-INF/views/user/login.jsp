@@ -54,12 +54,12 @@
 		<div class="form-group">
 			<label for="email" class="sr-only">Endereço de e-mail</label> <input
 				type="text" name="username" class="form-control"
-				placeholder="E-mail" required autofocus>
+				placeholder="E-mail" autofocus>
 		</div>
 		<div class="form-group">
 			<label for="password" class="sr-only">Senha</label> <label
 				for="password" class="sr-only">Senha</label> <input type="password"
-				name="password" class="form-control" placeholder="Senha" required>
+				name="password" class="form-control" placeholder="Senha">
 		</div>
 		<div class="remember-checkbox">
 			<label> <a href="${s:mvcUrl('HC#home').build() }">Home</a>

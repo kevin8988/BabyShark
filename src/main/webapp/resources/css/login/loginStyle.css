@@ -1,64 +1,73 @@
-html, body{
-    height: 100%;;
+html, body {
+	height: 100%;;
 }
 
-body{
-    background-color: aliceblue;    
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-bottom: 60px;
-    font-family: 'montserrat', sans-serif;
+body {
+	background-color: aliceblue;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	padding-bottom: 60px;
+	font-family: 'montserrat', sans-serif;
 }
 
 .form-login {
-    width: 100%;
-    max-width: 340px;
-    padding: 15px;
-    margin: auto;
+	width: 100%;
+	max-width: 340px;
+	padding: 15px;
+	margin: auto;
 }
 
-.form-login h1{
-    font-family: 'Capriola', sans-serif;
-    font-size: 30px;
-    margin-bottom: 15px;
+.form-login h1 {
+	font-family: 'Capriola', sans-serif;
+	font-size: 30px;
+	margin-bottom: 15px;
 }
 
 .form-login .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
 }
 
 .form-login input[type="email"] {
-    margin-bottom: 2px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;  
+	margin-bottom: 2px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
-.form-login input[type="email"]:hover{
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-bottom: 1px rgb(50, 127, 214) solid;
-    box-sizing: border-box;
+.form-login input[type="email"]:hover {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border-bottom: 1px rgb(50, 127, 214) solid;
+	box-sizing: border-box;
 }
 
 .form-login input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
-.form-login input[type="password"]:hover{
-    border-bottom: 1px rgb(50, 127, 214) solid;
-    box-sizing: border-box;
+.form-login input[type="password"]:hover {
+	border-bottom: 1px rgb(50, 127, 214) solid;
+	box-sizing: border-box;
 }
 
-.form-login button{
-    width: 100%;
-    margin: auto;
-    max-width: 200px;  
- }   
+.form-login button {
+	width: 100%;
+	margin: auto;
+	max-width: 200px;
+	border: 0px;
+	box-sizing: border-box;
+}
+
+.btn:hover {
+	background-color: #fa6c96;
+	color: white;
+	border: 0px;
+	box-sizing: border-box;
+}
