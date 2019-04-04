@@ -39,6 +39,14 @@
 
 		<h1 class="mb-3">Login</h1>
 
+
+		<c:if test="${message != null }">
+			<div class="alert alert-success">
+				<i>${message }</i>
+			</div>
+		</c:if>
+
+
 		<c:if test="${param.error != null }">
 			<div class="alert alert-danger">
 				<i>Você inseriu um e-mail/senha inválido</i>

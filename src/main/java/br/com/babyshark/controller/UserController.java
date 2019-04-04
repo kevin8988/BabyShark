@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.User;
 import br.com.babyshark.service.UserService;
@@ -46,10 +47,11 @@ public class UserController {
 	}
 
 	@PostMapping("/registerProcess")
-	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
+		redirectAttrs.addFlashAttribute("message", "Cadastro realizado com sucesso.");
 		userService.insert(user);
 		return "redirect:login";
 	}
@@ -57,6 +59,7 @@ public class UserController {
 	@GetMapping("/login")
 	public String login(Model model) {
 		if (session.getAttribute("user") == null) {
+			model.addAttribute("message", model.asMap().get("message"));
 			return "user/login";
 		}
 		return profile(model);
