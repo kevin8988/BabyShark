@@ -110,23 +110,28 @@
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName } ${user.lastName }</h1>
+						<h1>${user.firstName }${user.lastName }</h1>
 					</div>
 					<div class="card-body">
-						<form:form class="needs-validation" modelAttribute="user"
-							method="POST" action="${s:mvcUrl('UC#updateProcess').build() }">							
+						<form:form modelAttribute="user" method="POST"
+							action="${s:mvcUrl('UC#updateProcess').build() }">
 							<div class="form-group">
-								<label for="inputEmail">Email:</label>	
-								<form:hidden path="id"/>
-								<form:hidden path="firstName" />	
+								<label for="inputEmail">Email:</label>
+								<form:hidden path="id" />
+								<form:hidden path="firstName" />
 								<form:hidden path="lastName" />
-								<form:hidden path="password" value = "*******"/>
-								<form:hidden path="confirmPassword" value = "*******"/>	
-								<form:input class="form-control" id="inputEmail4"
-									onchange="verifica_valor(this)" path="email" />
-								<form:errors path="email" cssClass="alert-danger"/>
-							</div>											
-							<button class="btn" id="Alterar" style="float: right;" disabled>
+								<form:input class="form-control" id="inputEmail4" path="email" />
+								<form:errors class="form-control" path="email" cssClass="alert-danger" />
+								<label for="inputEmail">Senha:</label>
+								<form:password class="form-control" path="password"
+									value="" />
+								<form:errors class="form-control" path="password" cssClass="alert-danger" />
+								<label for="inputEmail">Confirme a senha:</label>
+								<form:password class="form-control" path="confirmPassword"
+									value="" />
+								<form:errors class="form-control" path="confirmPassword" cssClass="alert-danger" />
+							</div>
+							<button class="btn" id="Alterar" style="float: right;" >
 								<h6 style="margin-bottom: 0px;">Alterar</h6>
 							</button>
 						</form:form>

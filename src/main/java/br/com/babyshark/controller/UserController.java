@@ -34,7 +34,7 @@ public class UserController {
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, trimmerEditor);
-		dataBinder.addValidators(new UserValidation(userService.getUserEmails()));
+		dataBinder.addValidators(new UserValidation(userService.getUserEmails(), session));
 	}
 
 	@GetMapping("/register")
@@ -76,6 +76,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "user/profile";
 		}
+		System.out.println(user);
 		userService.update(user, user.getEmail());
 		return "user/profile";
 	}
