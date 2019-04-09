@@ -16,7 +16,7 @@ public interface UserService {
 	
 	public void insert(UserDetail userDetail);
 	
-	public void update(User user, String email);
+	public void update(User user, String email, String password);
 
 	public List<String> getUserEmails();
 

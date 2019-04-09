@@ -18,4 +18,6 @@ public interface UserDAO {
 
 	public User getUserByEmail(String email);
 
+	public void update(User user, String email, String password);
+
 }

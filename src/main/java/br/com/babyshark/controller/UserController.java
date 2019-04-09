@@ -26,7 +26,7 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private HttpSession session;
 
@@ -47,7 +47,8 @@ public class UserController {
 	}
 
 	@PostMapping("/registerProcess")
-	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result, RedirectAttributes redirectAttrs) {
+	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result,
+			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			return "user/register";
 		}
@@ -69,36 +70,43 @@ public class UserController {
 	public String profile(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+		model.addAttribute("message", model.asMap().get("message"));
 		return "user/profile";
 	}
 
 	@PostMapping("/updateProcess")
-	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-		if(result.hasErrors()) {
-			model.addAttribute("erro", "Erro - Principal");
+	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
+			RedirectAttributes redirectAttrs) {
+		if (result.hasErrors()) {
+			model.addAttribute("error", "Erro - Principal");
 			return "user/profile";
 		}
-		userService.update(user, user.getEmail());
+		userService.update(user, user.getEmail(), user.getPassword());
+		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
-	
+
 	@PostMapping("/updateUserAddress")
-	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-		if(result.hasErrors()) {
-			model.addAttribute("erro", "Erro - Endereço");
+	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
+			RedirectAttributes redirectAttrs) {
+		if (result.hasErrors()) {
+			model.addAttribute("error", "Erro - Endereço");
 			return "user/profile";
 		}
 		userService.insert(user.getUserAddress());
+		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
-	
+
 	@PostMapping("/updateUserDetail")
-	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-		if(result.hasErrors()) {
-			model.addAttribute("erro", "Erro - Meus Dados");
+	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
+			RedirectAttributes redirectAttrs) {
+		if (result.hasErrors()) {
+			model.addAttribute("error", "Erro - Meus Dados.");
 			return "user/profile";
 		}
 		userService.insert(user.getUserDetail());
+		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
 }

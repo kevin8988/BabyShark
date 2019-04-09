@@ -112,8 +112,11 @@
 					<div class="card-head p-3">
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
-					<c:if test="${erro != null }">
+					<c:if test="${error != null }">
 						<i class="alert-danger">${erro}</i>
+					</c:if>
+					<c:if test="${success != null }">
+						<i class="alert-success">${success}</i>
 					</c:if>
 					<div class="card-body">
 						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">

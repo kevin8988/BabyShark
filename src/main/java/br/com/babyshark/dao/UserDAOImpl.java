@@ -33,13 +33,15 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByEmail(String email) {
-		return em.createQuery("select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.email = :pEmail", User.class).setParameter("pEmail", email)
-				.getSingleResult();
+		return em.createQuery(
+				"select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.email = :pEmail",
+				User.class).setParameter("pEmail", email).getSingleResult();
 	}
 
 	public User getUserByUsername(String username) {
-		return em.createQuery("select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.username = :pUsername", User.class)
-				.setParameter("pUsername", username).getSingleResult();
+		return em.createQuery(
+				"select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.username = :pUsername",
+				User.class).setParameter("pUsername", username).getSingleResult();
 	}
 
 	@Override
@@ -47,6 +49,14 @@ public class UserDAOImpl implements UserDAO {
 		em.createQuery("update User u set u.email = :pEmail, u.username = :pEmail where u.id = :pId")
 				.setParameter("pEmail", email).setParameter("pId", user.getId()).executeUpdate();
 
+	}
+
+	@Override
+	public void update(User user, String email, String password) {
+		em.createQuery(
+				"update User u set u.email = :pEmail, u.username = :pEmail, u.password = :pPassword, u.confirmPassword = :pPassword where u.id = :pId")
+				.setParameter("pEmail", email).setParameter("pId", user.getId()).setParameter("pPassword", password)
+				.executeUpdate();
 	}
 
 }

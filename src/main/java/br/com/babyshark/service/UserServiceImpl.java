@@ -64,11 +64,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	}
 
 	@Transactional
-	public void update(User user, String email) {
-		userDAO.update(user, email);
-	}
-
-	@Transactional
 	@Override
 	public List<String> getUserEmails() {
 		return userDAO.getUserEmails();
@@ -102,6 +97,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 			throw new UsernameNotFoundException("User not found.");
 		}
 		return builder.build();
+	}
+
+	@Override
+	@Transactional
+	public void update(User user, String email, String password) {
+		if (password == null) {
+			userDAO.update(user, email);
+		} else {
+			String encode = new BCryptPasswordEncoder().encode(password);
+			userDAO.update(user, email, encode);
+		}
 	}
 
 }
