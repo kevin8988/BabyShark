@@ -81,7 +81,7 @@
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
 	<form:form action="${s:mvcUrl('UC#registerProcess').build() }"
-		class="form-cadastro" method="POST" modelAttribute="user">
+		class="form-cadastro" method="POST" modelAttribute="user" acceptCharset="utf-8">
 		<h1 class="">Faça seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">

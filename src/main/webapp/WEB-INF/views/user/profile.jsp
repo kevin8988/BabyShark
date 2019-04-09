@@ -131,7 +131,7 @@
 								role="tabpanel" aria-labelledby="Principal-tab">
 								<form:form modelAttribute="user" method="POST"
 									action="${s:mvcUrl('UC#updateProcess').build() }">
-									<div class="form-group">
+									<div class="form-group" acceptCharset="utf-8">
 										<label for="inputEmail">Email:</label>
 										<form:hidden path="id" />
 										<form:hidden path="firstName" />
@@ -157,7 +157,7 @@
 							<div class="tab-pane fade" id="Meus_dados" role="tabpanel"
 								aria-labelledby="Meus_dados-tab">
 								<form:form class="needs-validation" modelAttribute="user"
-									method="POST">
+									method="POST" acceptCharset="utf-8">
 									<div class="form-group">
 										<label for="inputEmail">Telefone:</label>
 										<form:input class="form-control" path="userDetail.fone"
@@ -187,7 +187,7 @@
 							<div class="tab-pane fade" id="Endereço" role="tabpanel"
 								aria-labelledby="Endereço-tab">
 								<form:form method="POST" action="${s:mvcUrl('UC#updateUserAddress').build() }" modelAttribute="user"
-									>
+									acceptCharset="utf-8">
 									<form:hidden path="id" />
 									<form:hidden path="firstName" />
 									<form:hidden path="lastName" />

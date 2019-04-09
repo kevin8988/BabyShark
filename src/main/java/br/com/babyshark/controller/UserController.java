@@ -1,5 +1,6 @@
 package br.com.babyshark.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -26,6 +27,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private HttpServletRequest request;
 
 	@Autowired
 	private HttpSession session;
