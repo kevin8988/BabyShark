@@ -29,9 +29,6 @@ public class UserController {
 	private UserService userService;
 	
 	@Autowired
-	private HttpServletRequest request;
-
-	@Autowired
 	private HttpSession session;
 
 	@InitBinder
@@ -87,6 +84,15 @@ public class UserController {
 	
 	@PostMapping("/updateUserAddress")
 	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/profile";
+		}
+		userService.insert(user.getUserAddress());
+		return "redirect:profile";
+	}
+	
+	@PostMapping("/updateUserDetail")
+	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		if(result.hasErrors()) {
 			return "user/profile";
 		}
