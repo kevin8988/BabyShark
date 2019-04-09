@@ -25,18 +25,18 @@ public class UserAddress implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(nullable = false)
+	@Column
 	private String city;
 
-	@Column(nullable = false)
+	@Column
 	private String state;
 
-	@Column(nullable = false)
+	@Column
 	private String country;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "userAddress", fetch = FetchType.LAZY)
 	private User user;
-	
+
 	public UserAddress() {
 	}
 
@@ -77,5 +77,13 @@ public class UserAddress implements Serializable {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
 }

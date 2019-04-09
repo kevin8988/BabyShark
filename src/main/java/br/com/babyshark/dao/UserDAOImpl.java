@@ -33,12 +33,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByEmail(String email) {
-		return em.createQuery("select u from User u where u.email = :pEmail", User.class).setParameter("pEmail", email)
+		return em.createQuery("select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.email = :pEmail", User.class).setParameter("pEmail", email)
 				.getSingleResult();
 	}
 
 	public User getUserByUsername(String username) {
-		return em.createQuery("select u from User u where u.username = :pUsername", User.class)
+		return em.createQuery("select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.username = :pUsername", User.class)
 				.setParameter("pUsername", username).getSingleResult();
 	}
 

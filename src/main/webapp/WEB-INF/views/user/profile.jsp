@@ -179,15 +179,15 @@
 										<form:errors class="form-control" path="userDetail.dayOfBirth"
 											cssClass="alert-danger" />
 									</div>
-									<button class="btn" id="Alterar" style="float: right;" disabled>
+									<button class="btn" id="Alterar" style="float: right;">
 										<h6 style="margin-bottom: 0px;">Alterar</h6>
 									</button>
 								</form:form>
 							</div>
 							<div class="tab-pane fade" id="Endereço" role="tabpanel"
 								aria-labelledby="Endereço-tab">
-								<form:form class="needs-validation" modelAttribute="user"
-									method="POST">
+								<form:form method="POST" action="${s:mvcUrl('UC#updateUserAddress').build() }" modelAttribute="user"
+									>
 									<div class="form-group">
 										<label for="inputEmail">Cidade:</label>
 										<form:input class="form-control" path="userAddress.city"
@@ -202,7 +202,7 @@
 										<form:errors class="form-control" path="userAddress.state"
 											cssClass="alert-danger" />
 									</div>
-									<button class="btn" id="Alterar" style="float: right;" disabled>
+									<button class="btn" id="Alterar" style="float: right;">
 										<h6 style="margin-bottom: 0px;">Alterar</h6>
 									</button>
 								</form:form>

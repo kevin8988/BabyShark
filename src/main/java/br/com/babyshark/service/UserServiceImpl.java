@@ -11,16 +11,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.babyshark.dao.UserAddressDAO;
 import br.com.babyshark.dao.UserDAO;
 import br.com.babyshark.entity.Authority;
 import br.com.babyshark.entity.Role;
 import br.com.babyshark.entity.User;
+import br.com.babyshark.entity.UserAddress;
+import br.com.babyshark.entity.UserDetail;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private UserAddressDAO userAddressDAO;
 
 	@Transactional
 	@Override
@@ -31,14 +37,26 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Transactional
 	@Override
 	public void insert(User user) {
+		
 		String encode = new BCryptPasswordEncoder().encode(user.getPassword());
 		Authority authority = new Authority();
 		authority.setUser(user);
 		authority.setAuthority(Role.ROLE_USER.toString());
+		
+		UserDetail userDetail = new UserDetail();
+		userDetail.setUser(user);
+		
+		UserAddress userAddress = new UserAddress();
+		userAddress.setUser(user);
+		
 		user.add(authority);
+		user.setUserAddress(userAddress);
+		user.setUserDetail(userDetail);
 		user.setUsername(user.getEmail());
 		user.setPassword(encode);
 		user.setConfirmPassword(encode);
+		
+	
 		userDAO.insert(user);
 	}
 	
@@ -69,5 +87,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 			throw new UsernameNotFoundException("User not found.");
 		}
 		return builder.build();
+	}
+
+	@Override
+	@Transactional
+	public void insert(UserAddress userAddress) {
+		userAddressDAO.insert(userAddress);
 	}
 }

@@ -69,6 +69,8 @@ public class UserController {
 	public String profile(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+		//model.addAttribute("userAddress", user.getUserAddress());
+//		model.addAttribute("userDetail", user.getUserDetail());
 		return "user/profile";
 	}
 
@@ -79,6 +81,13 @@ public class UserController {
 		}
 		System.out.println(user);
 		userService.update(user, user.getEmail());
+		return "user/profile";
+	}
+	
+	@PostMapping("/updateUserAddress")
+	public String updateUserAddress(@ModelAttribute("user") User user) {
+		System.out.println(user.getEmail());			
+		System.out.println(user.getUserAddress().getCity());
 		return "user/profile";
 	}
 }
