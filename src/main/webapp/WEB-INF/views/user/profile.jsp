@@ -110,22 +110,25 @@
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName }${user.lastName }</h1>
+						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<div class="card-body">
 						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-						  	<li class="nav-item">
-						    	<a  class="nav-link active" id="Principal-tab" data-toggle="tab" href="#Principal" role="tab" aria-controls="Principal" aria-selected="true">Principal</a>
-						  	</li>
-						  	<li class="nav-item">
-						    	<a class="nav-link" id="Meus_dados-tab" data-toggle="tab" href="#Meus_dados" role="tab" aria-controls="Meus_dados" aria-selected="false">Meus dados</a>
-						  	</li>
-						  	<li class="nav-item">
-						    	<a class="nav-link" id="Endereço-tab" data-toggle="tab" href="#Endereço" role="tab" aria-controls="Endereço" aria-selected="false">Endereço</a>
-						  	</li>
+							<li class="nav-item"><a class="nav-link active"
+								id="Principal-tab" data-toggle="tab" href="#Principal"
+								role="tab" aria-controls="Principal" aria-selected="true">Principal</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" id="Meus_dados-tab"
+								data-toggle="tab" href="#Meus_dados" role="tab"
+								aria-controls="Meus_dados" aria-selected="false">Meus dados</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" id="Endereço-tab"
+								data-toggle="tab" href="#Endereço" role="tab"
+								aria-controls="Endereço" aria-selected="false">Endereço</a></li>
 						</ul>
 						<div class="tab-content container" id="myTabContent">
-							<div class="tab-pane fade show active" id="Principal" role="tabpanel" aria-labelledby="Principal-tab">
+							<div class="tab-pane fade show active" id="Principal"
+								role="tabpanel" aria-labelledby="Principal-tab">
 								<form:form modelAttribute="user" method="POST"
 									action="${s:mvcUrl('UC#updateProcess').build() }">
 									<div class="form-group">
@@ -134,50 +137,75 @@
 										<form:hidden path="firstName" />
 										<form:hidden path="lastName" />
 										<form:input class="form-control" id="inputEmail4" path="email" />
-										<form:errors class="form-control" path="email" cssClass="alert-danger" />
+										<form:errors class="form-control" path="email"
+											cssClass="alert-danger" />
 										<label for="inputEmail">Senha:</label>
-										<form:password class="form-control" path="password"
-											value="" />
-										<form:errors class="form-control" path="password" cssClass="alert-danger" />
+										<form:password class="form-control" path="password" value="" />
+										<form:errors class="form-control" path="password"
+											cssClass="alert-danger" />
 										<label for="inputEmail">Confirme a senha:</label>
 										<form:password class="form-control" path="confirmPassword"
 											value="" />
-										<form:errors class="form-control" path="confirmPassword" cssClass="alert-danger" />
+										<form:errors class="form-control" path="confirmPassword"
+											cssClass="alert-danger" />
 									</div>
-									<button class="btn" id="Alterar" style="float: right;" >
+									<button class="btn" id="Alterar" style="float: right;">
 										<h6 style="margin-bottom: 0px;">Alterar</h6>
 									</button>
 								</form:form>
 							</div>
-							<div class="tab-pane fade" id="Meus_dados" role="tabpanel" aria-labelledby="Meus_dados-tab">
-								<form class="needs-validation" novalidate>
+							<div class="tab-pane fade" id="Meus_dados" role="tabpanel"
+								aria-labelledby="Meus_dados-tab">
+								<form:form class="needs-validation" modelAttribute="user"
+									method="POST">
 									<div class="form-group">
 										<label for="inputEmail">Telefone:</label>
-			      						<input type="email" class="form-control" id="inputTel" onchange="verifica_valor(this)" value="(11)11111-1111">
+										<form:input class="form-control" path="userDetail.fone"
+											value="" />
+										<form:errors class="form-control" path="userDetail.fone"
+											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputCPF">CPF:</label>
-			      						<input type="text" class="form-control" id="inputCPF" onchange="verifica_valor(this)" value="111.666.244-69">					
+										<form:input class="form-control" path="userDetail.cpf"
+											value="" />
+										<form:errors class="form-control" path="userDetail.cpf"
+											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputData">Data de Nascimento:</label>
-			  							<input id="inputData" class="form-control" type="date" onchange="verifica_valor(this)" value="30/04/2018">			
+										<form:input class="form-control" path="userDetail.dayOfBirth"
+											value="" />
+										<form:errors class="form-control" path="userDetail.dayOfBirth"
+											cssClass="alert-danger" />
 									</div>
-									<button class="btn" id="Alterar" style="float: right;" disabled><h6 style="margin-bottom: 0px;">Alterar</h6></button>							
-								</form>
+									<button class="btn" id="Alterar" style="float: right;" disabled>
+										<h6 style="margin-bottom: 0px;">Alterar</h6>
+									</button>
+								</form:form>
 							</div>
-							<div class="tab-pane fade" id="Endereço" role="tabpanel" aria-labelledby="Endereço-tab">
-								<form class="needs-validation" novalidate>
+							<div class="tab-pane fade" id="Endereço" role="tabpanel"
+								aria-labelledby="Endereço-tab">
+								<form:form class="needs-validation" modelAttribute="user"
+									method="POST">
 									<div class="form-group">
 										<label for="inputEmail">Cidade:</label>
-		      							<input type="email" class="form-control" id="inputCidade" onchange="verifica_valor(this)" value="São Paulo">				
+										<form:input class="form-control" path="userAddress.city"
+											value="" />
+										<form:errors class="form-control" path="userAddress.city"
+											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputCPF">Estado:</label>
-		      							<input type="text" class="form-control" id="inputEstado" onchange="verifica_valor(this)" value="São Paulo">					
-									</div>										
-									<button class="btn" id="Alterar" style="float: right;" disabled><h6 style="margin-bottom: 0px;">Alterar</h6></button>							
-								</form>
+										<form:input class="form-control" path="userAddress.state"
+											value="" />
+										<form:errors class="form-control" path="userAddress.state"
+											cssClass="alert-danger" />
+									</div>
+									<button class="btn" id="Alterar" style="float: right;" disabled>
+										<h6 style="margin-bottom: 0px;">Alterar</h6>
+									</button>
+								</form:form>
 							</div>
 						</div>
 					</div>

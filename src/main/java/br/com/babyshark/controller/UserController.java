@@ -67,7 +67,8 @@ public class UserController {
 
 	@GetMapping("/profile")
 	public String profile(Model model) {
-		model.addAttribute("user", session.getAttribute("user"));
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
 		return "user/profile";
 	}
 
