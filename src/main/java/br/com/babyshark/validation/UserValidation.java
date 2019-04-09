@@ -20,10 +20,12 @@ public class UserValidation implements Validator {
 		this.session = session;
 	}
 
+	@Override
 	public boolean supports(Class<?> clazz) {
 		return User.class.isAssignableFrom(clazz);
 	}
-
+	
+	@Override
 	public void validate(Object target, Errors errors) {
 
 		User user = (User) target;
@@ -38,6 +40,18 @@ public class UserValidation implements Validator {
 			}
 
 		}		
+		
+		if(user.getPassword() == null) {
+			if(userSession.getPassword() == null) {
+				errors.rejectValue("password", "field.notNullPassword");
+			}			
+		}
+		
+		if(user.getConfirmPassword() == null) {
+			if(userSession.getConfirmPassword() == null) {
+				errors.rejectValue("confirmPassword", "field.notNullConfirmPassword");
+			}	
+		}
 		
 		if (user.getEmail() != null) {
 			if (emails.contains(user.getEmail()) && !userSession.getEmail().equals(user.getEmail())) {

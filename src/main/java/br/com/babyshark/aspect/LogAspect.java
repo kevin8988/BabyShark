@@ -16,7 +16,7 @@ public class LogAspect {
 	@Before("pointcutAllMethods()")
 	public void beforeAllMethods(JoinPoint joinPoint) {
 		
-		System.out.println("Executando método:" + joinPoint.getSignature().getName());
+		System.out.println("Executando mÃ©todo:" + joinPoint.getSignature().getName());
 	}
 	
 

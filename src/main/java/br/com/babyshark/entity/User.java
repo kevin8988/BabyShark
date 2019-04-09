@@ -34,7 +34,7 @@ public class User implements Serializable {
 	private Integer id;
 
 	@NotNull(message = "Por favor, informe um nome.")
-	@Pattern(regexp = "[a-zA-Z]{3,}", message = "Por favor, informe um nome válido com mais de 2 caracteres.")
+	@Pattern(regexp = "[a-zA-Z]{3,}", message = "Por favor, informe um nome vï¿½lido com mais de 2 caracteres.")
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
 
@@ -44,18 +44,16 @@ public class User implements Serializable {
 	private String lastName;
 
 	@NotNull(message = "Por favor, informe um e-mail.")
-	@Pattern(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", message = "Por favor, informe um e-mail válido.")
+	@Pattern(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", message = "Por favor, informe um e-mail vï¿½lido.")
 	@Column(nullable = false, unique = true)
 	private String email;
 
 	@Column
 	private String username;
 
-	@NotNull(message = "Por favor, informe uma senha.")
 	@Column(nullable = false)
 	private String password;
 
-	@NotNull(message = "Por favor, confirme sua senha.")
 	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 

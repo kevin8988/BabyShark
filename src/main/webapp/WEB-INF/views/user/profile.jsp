@@ -188,6 +188,10 @@
 								aria-labelledby="Endereço-tab">
 								<form:form method="POST" action="${s:mvcUrl('UC#updateUserAddress').build() }" modelAttribute="user"
 									>
+									<form:hidden path="id" />
+									<form:hidden path="firstName" />
+									<form:hidden path="lastName" />
+									<form:hidden path="email"/>
 									<div class="form-group">
 										<label for="inputEmail">Cidade:</label>
 										<form:input class="form-control" path="userAddress.city"
@@ -202,6 +206,7 @@
 										<form:errors class="form-control" path="userAddress.state"
 											cssClass="alert-danger" />
 									</div>
+									<form:hidden path="userAddress.id"/>
 									<button class="btn" id="Alterar" style="float: right;">
 										<h6 style="margin-bottom: 0px;">Alterar</h6>
 									</button>

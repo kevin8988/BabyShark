@@ -69,8 +69,6 @@ public class UserController {
 	public String profile(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
-		//model.addAttribute("userAddress", user.getUserAddress());
-//		model.addAttribute("userDetail", user.getUserDetail());
 		return "user/profile";
 	}
 
@@ -79,15 +77,16 @@ public class UserController {
 		if(result.hasErrors()) {
 			return "user/profile";
 		}
-		System.out.println(user);
 		userService.update(user, user.getEmail());
-		return "user/profile";
+		return "redirect:profile";
 	}
 	
 	@PostMapping("/updateUserAddress")
-	public String updateUserAddress(@ModelAttribute("user") User user) {
-		System.out.println(user.getEmail());			
-		System.out.println(user.getUserAddress().getCity());
-		return "user/profile";
+	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if(result.hasErrors()) {
+			return "user/profile";
+		}
+		userService.insert(user.getUserAddress());
+		return "redirect:profile";
 	}
 }

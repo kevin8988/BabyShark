@@ -41,11 +41,11 @@ public class Test {
 		em.persist(user);
 		em.persist(user2);
 		
-		UserAddress userAddress = new UserAddress("São Paulo", "São Paulo", "Brasil");
+		UserAddress userAddress = new UserAddress("Sï¿½o Paulo", "Sï¿½o Paulo", "Brasil");
 
 		em.persist(userAddress);
 
-		EventAddress eventAddress = new EventAddress("São Paulo", "São Paulo", "Brasil", "106", "Rua Amaro Rodrigues",
+		EventAddress eventAddress = new EventAddress("Sï¿½o Paulo", "Sï¿½o Paulo", "Brasil", "106", "Rua Amaro Rodrigues",
 				"Horto Florestal", "02377050");
 
 		Donate donate = new Donate("Short Doll Manga Curta Baby Feminino Azul",
@@ -68,12 +68,12 @@ public class Test {
 		em.persist(donate2);
 
 		new Date();
-		Event event = new Event("Tarde das Crianças", "Bazar de graça de roupas para bebês", new Date(), new Date(),
+		Event event = new Event("Tarde das Crianï¿½as", "Bazar de graï¿½a de roupas para bebï¿½s", new Date(), new Date(),
 				Date.from(Instant.now()));
 
 		em.persist(event);
 
-		Category category = new Category(CategoryName.Acessórios);
+		Category category = new Category(CategoryName.AcessÃ³rios);
 		Category category2 = new Category(CategoryName.Roupas);
 		Category category3 = new Category(CategoryName.Outros);
 

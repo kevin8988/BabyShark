@@ -31,7 +31,7 @@ public class SecurityAspect {
 
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
-		if (session.getAttribute("user") == null && !email.equals("anonymousUser")) {
+		if (!email.equals("anonymousUser")) {
 			User user = homeService.getUserByEmail(email);
 			session.setAttribute("user", user);
 		}

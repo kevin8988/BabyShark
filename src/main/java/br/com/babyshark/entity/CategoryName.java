@@ -2,6 +2,6 @@ package br.com.babyshark.entity;
 
 public enum CategoryName {
 
-	Roupas, Acessórios, Outros
+	Roupas, AcessÃ³rios, Outros
 
 }
