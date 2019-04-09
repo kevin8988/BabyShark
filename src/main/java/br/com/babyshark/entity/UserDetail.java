@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user_detail")
@@ -30,6 +31,7 @@ public class UserDetail implements Serializable {
 	private Integer id;
 
 	@Column(name = "day_of_birth")
+	@DateTimeFormat
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfBirth;
 
@@ -37,7 +39,7 @@ public class UserDetail implements Serializable {
 	private String fone;
 
 	@Column
-	@CPF(message = "Por favor, informe um CPF v·lido")
+	@CPF(message = "Por favor, informe um CPF v√°lido")
 	private String cpf;
 
 	@Enumerated(EnumType.STRING)

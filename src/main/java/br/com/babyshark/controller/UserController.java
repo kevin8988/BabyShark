@@ -1,6 +1,5 @@
 package br.com.babyshark.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -74,8 +73,9 @@ public class UserController {
 	}
 
 	@PostMapping("/updateProcess")
-	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			model.addAttribute("erro", "Erro - Principal");
 			return "user/profile";
 		}
 		userService.update(user, user.getEmail());
@@ -83,8 +83,9 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateUserAddress")
-	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			model.addAttribute("erro", "Erro - Endereço");
 			return "user/profile";
 		}
 		userService.insert(user.getUserAddress());
@@ -92,11 +93,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateUserDetail")
-	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		if(result.hasErrors()) {
+			model.addAttribute("erro", "Erro - Meus Dados");
 			return "user/profile";
 		}
-		userService.insert(user.getUserAddress());
+		userService.insert(user.getUserDetail());
 		return "redirect:profile";
 	}
 }

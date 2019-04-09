@@ -58,6 +58,10 @@ public class UserValidation implements Validator {
 				errors.rejectValue("email", "field.emailNotUnique");
 			}
 		}
+		
+		if(user.getUserDetail().getCpf() == null) {
+			System.out.println("opa");
+		}
 
 	}
 

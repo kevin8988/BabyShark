@@ -112,6 +112,9 @@
 					<div class="card-head p-3">
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
+					<c:if test="${erro != null }">
+						<i class="alert-danger">${erro}</i>
+					</c:if>
 					<div class="card-body">
 						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 							<li class="nav-item"><a class="nav-link active"
@@ -136,6 +139,12 @@
 										<form:hidden path="id" />
 										<form:hidden path="firstName" />
 										<form:hidden path="lastName" />
+										<form:hidden path="userDetail.fone" />
+										<form:hidden path="userDetail.cpf" />
+										<form:hidden path="userDetail.dayOfBirth" />
+										<form:hidden path="userAddress.city" />
+										<form:hidden path="userAddress.state" />
+
 										<form:input class="form-control" id="inputEmail4" path="email" />
 										<form:errors class="form-control" path="email"
 											cssClass="alert-danger" />
@@ -156,26 +165,31 @@
 							</div>
 							<div class="tab-pane fade" id="Meus_dados" role="tabpanel"
 								aria-labelledby="Meus_dados-tab">
-								<form:form class="needs-validation" modelAttribute="user"
-									method="POST" acceptCharset="utf-8">
+								<form:form modelAttribute="user" method="POST"
+									acceptCharset="utf-8"
+									action="${s:mvcUrl('UC#updateUserDetail').build() }">
+									<form:hidden path="id" />
+									<form:hidden path="firstName" />
+									<form:hidden path="lastName" />
+									<form:hidden path="email" />
+									<form:hidden path="userAddress.city" />
+									<form:hidden path="userAddress.state" />
+									<form:hidden path="userDetail.id" />
 									<div class="form-group">
 										<label for="inputEmail">Telefone:</label>
-										<form:input class="form-control" path="userDetail.fone"
-											value="" />
+										<form:input class="form-control" path="userDetail.fone" />
 										<form:errors class="form-control" path="userDetail.fone"
 											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputCPF">CPF:</label>
-										<form:input class="form-control" path="userDetail.cpf"
-											value="" />
+										<form:input class="form-control" path="userDetail.cpf" />
 										<form:errors class="form-control" path="userDetail.cpf"
 											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputData">Data de Nascimento:</label>
-										<form:input class="form-control" path="userDetail.dayOfBirth"
-											value="" />
+										<form:input class="form-control" path="userDetail.dayOfBirth" />
 										<form:errors class="form-control" path="userDetail.dayOfBirth"
 											cssClass="alert-danger" />
 									</div>
@@ -186,27 +200,29 @@
 							</div>
 							<div class="tab-pane fade" id="Endereço" role="tabpanel"
 								aria-labelledby="Endereço-tab">
-								<form:form method="POST" action="${s:mvcUrl('UC#updateUserAddress').build() }" modelAttribute="user"
-									acceptCharset="utf-8">
+								<form:form method="POST"
+									action="${s:mvcUrl('UC#updateUserAddress').build() }"
+									modelAttribute="user" acceptCharset="utf-8">
 									<form:hidden path="id" />
 									<form:hidden path="firstName" />
 									<form:hidden path="lastName" />
-									<form:hidden path="email"/>
+									<form:hidden path="email" />
+									<form:hidden path="userDetail.fone" />
+									<form:hidden path="userDetail.cpf" />
+									<form:hidden path="userDetail.dayOfBirth" />
+									<form:hidden path="userAddress.id" />
 									<div class="form-group">
 										<label for="inputEmail">Cidade:</label>
-										<form:input class="form-control" path="userAddress.city"
-											value="" />
+										<form:input class="form-control" path="userAddress.city" />
 										<form:errors class="form-control" path="userAddress.city"
 											cssClass="alert-danger" />
 									</div>
 									<div class="form-group">
 										<label for="inputCPF">Estado:</label>
-										<form:input class="form-control" path="userAddress.state"
-											value="" />
+										<form:input class="form-control" path="userAddress.state" />
 										<form:errors class="form-control" path="userAddress.state"
 											cssClass="alert-danger" />
 									</div>
-									<form:hidden path="userAddress.id"/>
 									<button class="btn" id="Alterar" style="float: right;">
 										<h6 style="margin-bottom: 0px;">Alterar</h6>
 									</button>
