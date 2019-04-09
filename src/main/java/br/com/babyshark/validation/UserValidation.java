@@ -8,11 +8,12 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import br.com.babyshark.entity.User;
+import br.com.caelum.stella.validation.CPFValidator;
 
 public class UserValidation implements Validator {
 
 	private List<String> emails;
-	
+
 	private HttpSession session;
 
 	public UserValidation(List<String> emails, HttpSession session) {
@@ -24,13 +25,24 @@ public class UserValidation implements Validator {
 	public boolean supports(Class<?> clazz) {
 		return User.class.isAssignableFrom(clazz);
 	}
-	
+
 	@Override
 	public void validate(Object target, Errors errors) {
 
 		User user = (User) target;
 		User userSession = (User) session.getAttribute("user");
-		System.out.println(user);
+
+		if (user.getPassword() == null) {
+			if (userSession == null) {
+				errors.rejectValue("password", "field.notNullPassword");
+			}
+		}
+
+		if (user.getConfirmPassword() == null) {
+			if (userSession == null) {
+				errors.rejectValue("confirmPassword", "field.notNullConfirmPassword");
+			}
+		}
 
 		if (user.getPassword() != null) {
 			if (user.getPassword().length() < 5) {
@@ -39,28 +51,22 @@ public class UserValidation implements Validator {
 				errors.rejectValue("password", "field.notEqual");
 			}
 
-		}		
-		
-		if(user.getPassword() == null) {
-			if(userSession == null) {
-				errors.rejectValue("password", "field.notNullPassword");
-			}			
 		}
-		
-		if(user.getConfirmPassword() == null) {
-			if(userSession == null) {
-				errors.rejectValue("confirmPassword", "field.notNullConfirmPassword");
-			}	
-		}
-		
+
 		if (user.getEmail() != null) {
 			if (emails.contains(user.getEmail()) && !userSession.getEmail().equals(user.getEmail())) {
 				errors.rejectValue("email", "field.emailNotUnique");
 			}
 		}
-		
-		if(user.getUserDetail().getCpf() == null) {
-			System.out.println("opa");
+
+		if (user.getUserDetail().getCpf() != null) {
+			CPFValidator cpfValidator = new CPFValidator();
+			try {
+				cpfValidator.assertValid(user.getUserDetail().getCpf());
+			} catch (Exception e) {
+				errors.rejectValue("userDetail.cpf", "field.cpfError");
+			}
+
 		}
 
 	}

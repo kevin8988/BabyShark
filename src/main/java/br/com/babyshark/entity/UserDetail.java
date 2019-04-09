@@ -17,7 +17,6 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -39,7 +38,6 @@ public class UserDetail implements Serializable {
 	private String fone;
 
 	@Column
-	@CPF(message = "Por favor, informe um CPF válido")
 	private String cpf;
 
 	@Enumerated(EnumType.STRING)
