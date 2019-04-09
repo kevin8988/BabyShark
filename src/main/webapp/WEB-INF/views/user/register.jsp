@@ -106,7 +106,7 @@
 		</div>
 		<div class="form-group">
 			<label for="confirmSenha">Confirme a senha</label>
-			<form:password path="confirmPassword" value = "******" cssClass="form-control" />
+			<form:password path="confirmPassword" cssClass="form-control" />
 			<form:errors path="confirmPassword" cssClass="alert-danger" />
 		</div>
 

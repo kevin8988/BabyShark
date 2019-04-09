@@ -42,13 +42,13 @@ public class UserValidation implements Validator {
 		}		
 		
 		if(user.getPassword() == null) {
-			if(userSession.getPassword() == null) {
+			if(userSession == null) {
 				errors.rejectValue("password", "field.notNullPassword");
 			}			
 		}
 		
 		if(user.getConfirmPassword() == null) {
-			if(userSession.getConfirmPassword() == null) {
+			if(userSession == null) {
 				errors.rejectValue("confirmPassword", "field.notNullConfirmPassword");
 			}	
 		}
