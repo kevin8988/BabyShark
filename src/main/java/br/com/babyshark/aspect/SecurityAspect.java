@@ -1,5 +1,7 @@
 package br.com.babyshark.aspect;
 
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.aspectj.lang.annotation.Aspect;
@@ -33,6 +35,11 @@ public class SecurityAspect {
 
 		if (!email.equals("anonymousUser")) {
 			User user = homeService.getUserByEmail(email);
+			if(user.getUserDetail() != null && user.getUserDetail().getDayOfBirth() != null) {
+				Calendar dayOfBirth = user.getUserDetail().getDayOfBirth();
+				dayOfBirth.add(Calendar.DATE, 1);
+				user.getUserDetail().setDayOfBirth(dayOfBirth);
+			}
 			session.setAttribute("user", user);
 		}
 	}

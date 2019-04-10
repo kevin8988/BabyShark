@@ -47,7 +47,7 @@ public class WebAppConfiguration implements WebMvcConfigurer {
 	@Bean
 	public FormattingConversionService mvcConversionService() {
 		DefaultFormattingConversionService conversionService = 
-				new DefaultFormattingConversionService();
+				new DefaultFormattingConversionService(false);
 		DateFormatterRegistrar registrar = new DateFormatterRegistrar();
 		registrar.setFormatter(new DateFormatter("dd/MM/yyyy"));
 		registrar.registerFormatters(conversionService);

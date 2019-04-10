@@ -59,14 +59,16 @@ public class UserValidation implements Validator {
 			}
 		}
 
-		if (user.getUserDetail().getCpf() != null) {
-			CPFValidator cpfValidator = new CPFValidator();
-			try {
-				cpfValidator.assertValid(user.getUserDetail().getCpf());
-			} catch (Exception e) {
-				errors.rejectValue("userDetail.cpf", "field.cpfError");
-			}
+		if (user.getUserDetail() != null) {
+			if (user.getUserDetail().getCpf() != null) {
+				CPFValidator cpfValidator = new CPFValidator();
+				try {
+					cpfValidator.assertValid(user.getUserDetail().getCpf());
+				} catch (Exception e) {
+					errors.rejectValue("userDetail.cpf", "field.cpfError");
+				}
 
+			}
 		}
 
 	}

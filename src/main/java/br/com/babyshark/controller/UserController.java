@@ -105,6 +105,7 @@ public class UserController {
 			model.addAttribute("error", "Erro - Meus Dados.");
 			return "user/profile";
 		}
+		
 		userService.insert(user.getUserDetail());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
