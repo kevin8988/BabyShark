@@ -78,7 +78,8 @@ public class UserController {
 	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
-			model.addAttribute("error", "Erro - Principal");
+			System.out.println("erro");
+			model.addAttribute("error", "Erro.");
 			return "user/profile";
 		}
 		userService.update(user, user.getEmail(), user.getPassword());
@@ -90,7 +91,7 @@ public class UserController {
 	public String updateUserAddress(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
-			model.addAttribute("error", "Erro - Endereço");
+			model.addAttribute("error", "Erro.");
 			return "user/profile";
 		}
 		userService.insert(user.getUserAddress());
@@ -102,7 +103,7 @@ public class UserController {
 	public String updateUserDetail(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
-			model.addAttribute("error", "Erro - Meus Dados.");
+			model.addAttribute("error", "Erro.");
 			return "user/profile";
 		}
 		

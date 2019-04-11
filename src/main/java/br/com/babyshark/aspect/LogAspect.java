@@ -17,6 +17,7 @@ public class LogAspect {
 	public void beforeAllMethods(JoinPoint joinPoint) {
 		
 		System.out.println("Executando método:" + joinPoint.getSignature().getName());
+		
 	}
 	
 

@@ -15,10 +15,14 @@ public class UserDAOImpl implements UserDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	public User getUserById(Integer id) {
-		return null;
+		return em.createQuery(
+				"select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.id = :pId",
+				User.class).setParameter("pId", id).getSingleResult();
 	}
 
+	@Override
 	public void insert(User user) {
 		if (user.getId() != null) {
 			em.merge(user);
@@ -27,17 +31,20 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	@Override
 	public List<String> getUserEmails() {
 		return em.createQuery("select u.email from User u", String.class).setHint("org.hibernate.cacheable", true)
 				.getResultList();
 	}
 
+	@Override
 	public User getUserByEmail(String email) {
 		return em.createQuery(
 				"select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.email = :pEmail",
 				User.class).setParameter("pEmail", email).getSingleResult();
 	}
 
+	@Override
 	public User getUserByUsername(String username) {
 		return em.createQuery(
 				"select u from User u join fetch u.userAddress a join fetch u.userDetail d where u.username = :pUsername",

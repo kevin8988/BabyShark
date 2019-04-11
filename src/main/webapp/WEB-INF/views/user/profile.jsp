@@ -113,7 +113,7 @@
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<c:if test="${error != null }">
-						<i class="alert-danger">${erro}</i>
+						<i class="alert-danger">${error}</i>
 					</c:if>
 					<c:if test="${success != null }">
 						<i class="alert-success">${success}</i>
@@ -135,9 +135,9 @@
 						<div class="tab-content container" id="myTabContent">
 							<div class="tab-pane fade show active" id="Principal"
 								role="tabpanel" aria-labelledby="Principal-tab">
-								<form:form modelAttribute="user" method="POST"
+								<form:form modelAttribute="user" method="POST" acceptCharset="utf-8"
 									action="${s:mvcUrl('UC#updateProcess').build() }">
-									<div class="form-group" acceptCharset="utf-8">
+									<div class="form-group">
 										<label for="inputEmail">Email:</label>
 										<form:hidden path="id" />
 										<form:hidden path="firstName" />
@@ -150,11 +150,11 @@
 
 										<form:input class="form-control" id="inputEmail4" path="email" />
 										<form:errors class="form-control" path="email"
-											cssClass="alert-danger" />
+											cssClass="alert-danger" /><br/>
 										<label for="inputEmail">Senha:</label>
 										<form:password class="form-control" path="password" value="" />
 										<form:errors class="form-control" path="password"
-											cssClass="alert-danger" />
+											cssClass="alert-danger" /><br/>
 										<label for="inputEmail">Confirme a senha:</label>
 										<form:password class="form-control" path="confirmPassword"
 											value="" />
