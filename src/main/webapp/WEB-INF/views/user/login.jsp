@@ -70,6 +70,10 @@
 				name="password" class="form-control" placeholder="Senha">
 		</div>
 		<div class="remember-checkbox">
+			<label> <input type="checkbox" name="remember-me" value="Mantenha-me conectado"/>
+			</label>
+		</div>
+		<div class="remember-checkbox">
 			<label> <a href="${s:mvcUrl('HC#home').build() }">Home</a>
 			</label>
 		</div>

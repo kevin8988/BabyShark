@@ -43,7 +43,8 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests().antMatchers("/user/profile").authenticated().and().formLogin().loginPage("/user/login")
-				.loginProcessingUrl("/loginProcess").permitAll().and().logout().permitAll();
+				.loginProcessingUrl("/loginProcess").defaultSuccessUrl("/").permitAll().and().logout().permitAll().and().rememberMe()
+				.key("uniqueAndSecret").userDetailsService(userDetailsService).tokenValiditySeconds(86400);
 
 	}
 
