@@ -21,7 +21,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "donate")
 public class Donate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -46,8 +46,8 @@ public class Donate implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "donate")
+	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "photos")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "donate", fetch = FetchType.EAGER)
 	private Set<Photo> photos = new HashSet<Photo>();
 
 	@OneToMany(mappedBy = "donate", fetch = FetchType.LAZY)

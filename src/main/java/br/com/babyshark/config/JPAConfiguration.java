@@ -25,9 +25,9 @@ public class JPAConfiguration {
 
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-		dataSource.setUser("root");
-		dataSource.setPassword("12345");
-		dataSource.setJdbcUrl("jdbc:mysql://localhost/babyshark?serverTimezone=UTC");
+		dataSource.setUser("kevchips");
+		dataSource.setPassword("3006kevinsilva");
+		dataSource.setJdbcUrl("jdbc:mysql://babyshark.cbobdbrwkviu.us-east-2.rds.amazonaws.com/babyshark?serverTimezone=UTC");
 
 		dataSource.setMinPoolSize(3);
 		dataSource.setMaxPoolSize(10);

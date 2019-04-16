@@ -53,9 +53,17 @@ public class UserValidation implements Validator {
 
 		}
 
-		if (user.getEmail() != null) {
-			if (emails.contains(user.getEmail()) && !userSession.getEmail().equals(user.getEmail())) {
-				errors.rejectValue("email", "field.emailNotUnique");
+		if (userSession != null) {
+			if (user.getEmail() != null) {
+				if (emails.contains(user.getEmail()) && !userSession.getEmail().equals(user.getEmail())) {
+					errors.rejectValue("email", "field.emailNotUnique");
+				}
+			}
+		} else {
+			if (user.getEmail() != null) {
+				if (emails.contains(user.getEmail())) {
+					errors.rejectValue("email", "field.emailNotUnique");
+				}
 			}
 		}
 

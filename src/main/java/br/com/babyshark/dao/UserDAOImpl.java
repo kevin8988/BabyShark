@@ -33,8 +33,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<String> getUserEmails() {
-		return em.createQuery("select u.email from User u", String.class).setHint("org.hibernate.cacheable", true)
-				.getResultList();
+		return em.createQuery("select u.email from User u", String.class).getResultList();
 	}
 
 	@Override

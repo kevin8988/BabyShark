@@ -6,14 +6,44 @@
 	<diskStore path="java.io.tmpdir/ehcache" />
 
 	<defaultCache maxEntriesLocalHeap="10000" eternal="false"
-		timeToIdleSeconds="120" timeToLiveSeconds="120" diskSpoolBufferSizeMB="30"
-		maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+		timeToIdleSeconds="400" timeToLiveSeconds="400" diskSpoolBufferSizeMB="30"
+		maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="400"
 		memoryStoreEvictionPolicy="LRU" statistics="true">
 		<persistence strategy="localTempSwap" />
 	</defaultCache>
 
 	<cache name="user" maxEntriesLocalHeap="10000" eternal="false"
 		timeToIdleSeconds="5" timeToLiveSeconds="10">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="donate" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="400" timeToLiveSeconds="400">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="event" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="400" timeToLiveSeconds="400">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="color" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="1000" timeToLiveSeconds="400">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="category" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="1000" timeToLiveSeconds="400">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="gender" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="1000" timeToLiveSeconds="400">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+	<cache name="photos" maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="1000" timeToLiveSeconds="400">
 		<persistence strategy="localTempSwap" />
 	</cache>
 

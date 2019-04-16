@@ -24,8 +24,8 @@ public class DonateDAOImpl implements DonateDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
+	public List<Donate> getAllDonates() {		
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class).setHint("org.hibernate.cacheable", true)
 				.getResultList();
 	}
 
@@ -40,7 +40,7 @@ public class DonateDAOImpl implements DonateDAO {
 
 	public List<Donate> getLastThreeDonates() {
 		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc",
-				Donate.class).getResultList();
+				Donate.class).setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,

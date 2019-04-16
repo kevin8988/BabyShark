@@ -111,4 +111,10 @@ public class UserController {
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
+	
+	@RequestMapping("/loginProcess")
+	public String loginProcess() {
+		System.out.println("aqui");
+		return "redirect:profile";
+	}
 }
