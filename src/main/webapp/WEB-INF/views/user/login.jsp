@@ -15,7 +15,7 @@
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
-<s:url value="/resources/css/login/loginStyle.css" var="style"></s:url>
+<s:url value="/resources/css/login/login.css" var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
