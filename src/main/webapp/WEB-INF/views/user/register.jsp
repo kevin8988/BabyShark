@@ -37,7 +37,7 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<style type="text/css">
+<style type="register/css">
 .swiper-container {
 	width: 100%;
 	height: 100%;

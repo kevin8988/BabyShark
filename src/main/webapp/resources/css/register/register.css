@@ -1,0 +1,113 @@
+@charset "UTF-8";
+.content-body{
+  width: 100%;
+  font-family: 'montserrat', sans-serif;
+  background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);
+  /* background-color: rgba(228, 227, 227, 0.432); */
+}
+
+.header{
+  background-color: rgba(202, 202, 202, 0.952);
+}
+
+.header p{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.header h1{
+  color: #0386A8;
+}
+
+.logo_link{
+  font-size: 2em;
+  text-decoration: none;
+}
+
+.logo_link:hover{
+  text-decoration: none;
+}
+
+.header .navbar {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  font-family: 'Capriola', sans-serif;  
+}
+
+.header .navbar a {
+  font-family: 'Capriola', sans-serif;
+}
+
+.header .btn{
+  background-color: #2980B9;
+  color: white;
+  transition: .3s;
+}
+
+.header .btn:hover{
+  background-color: #6DD5FA;
+  box-shadow: 2px 2px 6px #7a7878cb;
+}
+
+.header .btn:active{
+  background-color: #3d86a0;
+  box-shadow: none;
+}
+
+.form-cadastro{
+  max-width: 60em;
+  padding-top: 3em; 
+  margin: 5em auto;
+  align-items: center;
+  width: 40%;  
+  font-family: 'capriola', sans-serif;
+  color: #e0e0e0;
+}
+
+.form-cadastro h3{
+  font-family: 'capriola', sans-serif;
+  color: #dae0e6;
+}
+
+.form-cadastro h1{
+  color: #dae0e6;
+
+}
+
+.form-cadastro .btn{
+  background-color: #2980B9;
+  color: white;
+  transition: .3s;
+}
+
+.form-cadastro .btn:hover{
+  background-color: #6DD5FA;
+  box-shadow: 2px 2px 6px #7a7878cb;
+  border: 1px #6DD5FA solid;
+}
+
+.form-cadastro .btn:active{
+  background-color: #3d86a0;
+  box-shadow: none;
+}
+
+.form-control{
+  border: none;
+  box-shadow: 4px 4px #8686867c;
+}
+
+
+.footer{
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-top: 2px solid #0386A8;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.footer a:hover{
+  text-decoration: none;
+}
