@@ -226,6 +226,7 @@
 									<div class="form-group">
 										<label for="inputCPF">Estado:</label>										
 										<form:select path="userAddress.state" class="custom-select">
+											<form:option value="" label="Selecione"/>
 											<form:option value="Acre" label="Acre"/>
 											<form:option value="Alagoas" label="Alagoas"/>
 											<form:option value="Amapá" label="Amapá"/>
