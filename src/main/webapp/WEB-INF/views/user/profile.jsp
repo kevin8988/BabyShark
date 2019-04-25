@@ -100,7 +100,8 @@
 						<div class="row mt-3">
 							<button class="btn">
 								<h4 style="margin-bottom: 0px;">
-									Quero Doar <i class="fas fa-gifts"></i>
+								<a href="${s:mvcUrl('DC#register').build() }">Quero Doar</a>
+									 <i class="fas fa-gifts"></i>
 								</h4>
 							</button>
 						</div>

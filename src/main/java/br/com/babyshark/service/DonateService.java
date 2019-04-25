@@ -9,6 +9,8 @@ import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.UserAddress;
 
 public interface DonateService {
+	
+	public void add(Donate donate);
 
 	public List<Donate> getAllDonates();
 

@@ -4,16 +4,14 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -28,18 +26,13 @@ public class Gender implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private GenderName name;
+	private String name;
 
-	@ManyToMany
-	@JoinTable(name = "donate_gender", joinColumns = @JoinColumn(name = "gender_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
+	@OneToMany(mappedBy = "gender", fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Gender() {
-	}
-
-	public Gender(GenderName name) {
-		this.name = name;
 	}
 
 	public Integer getId() {
@@ -50,11 +43,11 @@ public class Gender implements Serializable {
 		this.id = id;
 	}
 
-	public GenderName getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(GenderName name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -64,6 +57,11 @@ public class Gender implements Serializable {
 
 	public void setDonates(Set<Donate> donates) {
 		this.donates = donates;
+	}
+
+	@Override
+	public String toString() {
+		return "Gender [id=" + id + ", name=" + name + "]";
 	}
 
 }

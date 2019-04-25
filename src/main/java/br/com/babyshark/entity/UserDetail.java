@@ -5,8 +5,6 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,9 +38,8 @@ public class UserDetail implements Serializable {
 	@Column
 	private String cpf;
 
-	@Enumerated(EnumType.STRING)
 	@Column
-	private GenderName gender;
+	private String gender;
 
 	@OneToOne(mappedBy = "userDetail")
 	private User user;
@@ -63,11 +60,11 @@ public class UserDetail implements Serializable {
 		this.dayOfBirth = dayOfBirth;
 	}
 
-	public GenderName getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(GenderName gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

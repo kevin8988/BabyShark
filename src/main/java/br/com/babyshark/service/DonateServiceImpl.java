@@ -66,4 +66,9 @@ public class DonateServiceImpl implements DonateService {
 		return donateDAO.getDonatesByFilter(categories, genders, colors, states, search);
 	}
 
+	@Override
+	public void add(Donate donate) {
+		donateDAO.add(donate);
+	}
+
 }

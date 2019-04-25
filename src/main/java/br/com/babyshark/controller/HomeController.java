@@ -12,16 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Event;
 import br.com.babyshark.service.HomeService;
-import br.com.babyshark.test.Test;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private HomeService homeService;
-
-	@Autowired
-	private Test test;
 
 	@Autowired
 	private HttpSession session;
@@ -33,12 +29,6 @@ public class HomeController {
 		model.addAttribute("lastDonates", lastThreeDonates);
 		model.addAttribute("events", threeNearbyEvents);
 		model.addAttribute("user", session.getAttribute("user"));
-		return "home";
-	}
-
-	@RequestMapping("/test")
-	public String test() {
-		test.popula();
 		return "home";
 	}
 
