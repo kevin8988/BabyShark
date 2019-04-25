@@ -1,8 +1,8 @@
 .content-body {
     width: 100%;
     font-family: 'montserrat', sans-serif;
-    background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);
-    /* background-color: rgba(245, 245, 245, 0.678); */
+    /*background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);*/
+    background-color: #F7FFF2;
 }
 
 header {
@@ -64,12 +64,10 @@ header {
 
 .content-main h1 {
     padding-bottom: 0.5em;
-    color: #ddddddd7;
-    font-family: 'Capriola', sans-serif;
-    font-weight: 500px;
+    color: #0386A8;
+    font-family: 'capriola', sans-serif;
     font-size: 60px;
-    text-shadow: 2px 2px 4px #7a7878cb;
-    border-bottom: 2px solid #FFF;
+    border-bottom: 2px solid #0386A8;
     border-spacing: 10px;
 }
 

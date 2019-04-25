@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<footer>
+	<footer class = "footer">
 		<div class="container-fluid p-5">
 			<div class="row justify-content-center">
 				<div class="col-lg-4 mb-5 mb-lg-0">
@@ -26,7 +26,7 @@
 				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
 					<h5 class="mb-3">Site</h5>
 					<ul class="list-unstyled">
-						<li><a href="index.html" class="text-muted">Sobre </a></li>
+						<li><a href="${s:mvcUrl('AUC#aboutUs').build() }" class="text-muted">Sobre </a></li>
 						<li><a href="index.html" class="text-muted">Fundadores </a></li>
 						<li><a href="index.html" class="text-muted">Contato </a></li>
 					</ul>

@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<header>
+	<header class = "header">
 		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
 			<a class="navbar-brand ml-5" href="${s:mvcUrl('HC#home').build() }">
 				<img src="${logo }" width="40" height="40" class="align-left"
@@ -37,7 +37,7 @@
 						href="${s:mvcUrl('DC#search').build() }">Doações</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Ajude-nos</a>
+					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('CC#colabore').build() }">Colabore</a>
 					</li>
 					<li class="nav-item"><a class="nav-link"
 						href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a></li>

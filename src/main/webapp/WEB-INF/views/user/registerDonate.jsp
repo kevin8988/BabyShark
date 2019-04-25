@@ -164,7 +164,7 @@
 									<form:checkbox path="categories[${status.index}].id"
 										value="${category.id }" />
 									<label>${category.name }</label>
-								</c:forEach>
+								</c:forEach><br/>
 								<form:errors path="categories" cssClass="alert-danger" />
 							</div>
 						</div>
@@ -174,10 +174,10 @@
 						    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
 						    <div class="invalid-feedback">Fotos do enxoval</div>
 						  </div>-->
-						<div class="input-default-wrapper mt-5">
+						<div class="input-default-wrapper ">
 							<input name="foto" type="file">
 						</div>
-						<button id="activate-step-3" class="btn">Cadastrar</button>
+						<button id="activate-step-3" class="btn mt-4">Cadastrar</button>
 					</form:form>
 
 				</div>

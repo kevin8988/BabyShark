@@ -49,29 +49,36 @@ public class DonateControllerRegister {
 
 	@GetMapping("/registerDonate")
 	public String registerDonate(Model model) {
+
+		if (session.getAttribute("user") == null) {
+			return "user/login";
+		}
 		model.addAttribute("donate", new Donate());
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
+
 		return "user/registerDonate";
 	}
 
 	@PostMapping("/registerProcessDonate")
 	public String registerProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
-			BindingResult result) {
-		System.out.println("Oi");
+			BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			model.addAttribute("colors", userService.getAllColors());
+			model.addAttribute("genders", userService.getAllGenders());
+			model.addAttribute("categories", userService.getAllCategories());
 			return "user/registerDonate";
 		}
-		System.out.println("ola");
 		String path = fileSaver.write(foto);
-		System.out.println(path);
 		donate.setUser((User) session.getAttribute("user"));
 		Photo photo = new Photo();
 		photo.setPath(path);
 		photo.setDonate(donate);
 		donate.add(photo);
 		donateService.add(donate);
-		return "redirect:donate";
+		return "redirect:/";
 	}
+	
+	
 }

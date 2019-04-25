@@ -177,7 +177,7 @@
 											<div class="col mt-1">
 												<div class="custom-control custom-checkbox">
 													<input type="checkbox" class="custom-control-input"
-														id="${address.state }" value="${address.state }"
+														id="${address.state}" value="${address.state}"
 														name="state"> <label class="custom-control-label"
 														style="display: inline-flex;" for="${address.state }">
 														${address.state } </label>
