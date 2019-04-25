@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Capriola|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/colabore.css">
+
+    <title>Colabore Conosco</title>
+</head>
+
+<body class="content-body">
+
+    <header class="header">
+        <nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
+            <a class="navbar-brand ml-5" href="${s:mvcUrl('HC#test').build() }">
+                <img src="img/favicon.ico" width="40" height="40" class="align-left" alt="logo">
+            </a>
+            <a class="logo_link" style="color: #018BBE" href="#">BabyShark</a>
+            <button class="navbar-toggler btn" type="button" data-toggle="collapse"
+                data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+                aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+                <ul class="navbar-nav ml-auto mr-3 justify-content-end">
+                    <li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('HC#home').build() }">Home<span
+                                class="sr-only">(página atual)</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="${s:mvcUrl('DC#search').build() }">Doações</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Eventos</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ajude-nos</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="${s:mvcUrl('UC#register').build() }">Cadastre-se</a>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <button
+                        onclick="window.location.href='${pageContext.servletContext.contextPath}/user/login';return false;"
+                        class="btn btn-outline-segundary my-2 my-sm-0">
+                        <i class="fas fa-sign-in-alt mr-1"></i>Login
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-main">
+        <div class="title">
+            <h1>Colabore conosco</h1>
+            <h3>Isso nos serve de incentivo</h3>
+        </div>
+
+        <div>
+            <h5>Participe! Essa é uma forma de você contriubuir para o desenvolvimento do projeto.</h5>
+            <p>Uma forma rápida, simples e segura de ser um colaborador do BabyShark</p>
+        </div>
+        <ol>
+            <li>
+                <p>Para ajudar, você primeiro precisa clicar nesse botãozinho, ele vai te redirecionar direto para a
+                    nossa página do paypal, fazendo que seja uma colaboração segura.
+                </p>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input type="hidden" name="hosted_button_id" value="45TNWY2WP66VQ" />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0"
+                        name="submit" title="PayPal - The safer, easier way to pay online!"
+                        alt="Donate with PayPal button" />
+                    <img alt="" border="0" src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+            </li>
+
+            <li>
+                <p>Depois é simples, basta escolher o valor que deseja doar para nós.</p>
+            </li>
+        </ol>
+    </main>
+
+    <footer class="footer">
+        <div class="container-fluid p-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="mb-3">
+                        <h5>Directory</h5>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing. sit
+                        amet, consectetur Lorem ipsum dolor sit amet, conse</p>
+
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h5 class="mb-3">Site</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">Sobre </a></li>
+                        <li><a href="index.html" class="text-muted">Fundadores </a></li>
+                        <li><a href="index.html" class="text-muted">Contato </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mt-5 mb-lg-0">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" title="twitter" class="text-hover-primary"
+                                style="color: #0386A8">
+                                <i class="fab fa-2x fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" title="facebook" class="text-hover-primary"
+                                style="color: #0386A8">
+                                <i class="fab fa-2x fa-facebook" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" title="instagram" class="text-hover-primary"
+                                style="color: #0386A8">
+                                <i class="fab fa-2x fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" title="google" class="text-hover-primary"
+                                style="color: #0386A8"><i class="fab fa-2x fa-google" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <img src="img/6TPLCrbh_400x400.jpg" style="height: 150px; width: 150px;"
+                        alt="Universidade Anhembi Morumbi">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-1 text-center" style="background-color: #0386A8; color: white;">
+            <p style="margin-bottom: 0px;">© 2019 Baby Shark. Todos os
+                direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
