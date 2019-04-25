@@ -7,5 +7,7 @@ import br.com.babyshark.entity.Color;
 public interface ColorDAO {
 	
 	public List<Color> getAllColorsDonate();
+	
+	public List<Color> getAllColors();
 
 }

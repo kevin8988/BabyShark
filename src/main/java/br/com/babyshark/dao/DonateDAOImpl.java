@@ -14,7 +14,10 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.babyshark.entity.Category;
+import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 
@@ -25,7 +28,7 @@ public class DonateDAOImpl implements DonateDAO {
 	private EntityManager em;
 
 	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
+		return em.createQuery("from Donate d join fetch d.photos", Donate.class)
 				.setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
@@ -39,7 +42,8 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc",
+		return em.createQuery(
+				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false order by d.id desc",
 				Donate.class).setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
@@ -56,8 +60,8 @@ public class DonateDAOImpl implements DonateDAO {
 
 		Path<String> pathTitle = root.<String>get("title");
 		Path<Integer> pathCategory = root.join("categories").<Integer>get("id");
-		Path<Integer> pathColor = root.join("colors").<Integer>get("id");
-		Path<Integer> pathGender = root.join("genders").<Integer>get("id");
+		Path<Integer> pathColor = root.<Color>get("color").<Integer>get("id");
+		Path<Integer> pathGender = root.<Gender>get("gender").<Integer>get("id");
 		Path<String> pathState = root.<User>get("user").<UserAddress>get("userAddress").<String>get("state");
 		Path<Boolean> pathIsDonated = root.<Boolean>get("isDonated");
 		root.fetch("photos", JoinType.INNER);
@@ -119,11 +123,34 @@ public class DonateDAOImpl implements DonateDAO {
 	@Override
 	public void add(Donate donate) {
 		if (donate.getId() == null) {
+
+			Color color = em.find(Color.class, donate.getColor().getId());
+			donate.setColor(color);
+
+			Gender gender = em.find(Gender.class, donate.getGender().getId());
+			donate.setGender(gender);
+
+			List<Category> categories = donate.getCategories();
+			List<Category> newList = new ArrayList<>();
+			for (Category category : categories) {
+				if (category.getId() != null) {
+					Category merge = em.find(Category.class, category.getId());
+					newList.add(merge);
+				}
+			}
+
+			donate.setCategories(newList);
+
 			em.persist(donate);
 		} else {
 			em.merge(donate);
 		}
 
+	}
+
+	@Override
+	public List<Donate> find() {
+		return em.createQuery("from Donate d", Donate.class).getResultList();
 	}
 
 }

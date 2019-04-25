@@ -11,6 +11,8 @@ import br.com.babyshark.entity.UserAddress;
 public interface DonateService {
 	
 	public void add(Donate donate);
+	
+	public List<Donate> find();
 
 	public List<Donate> getAllDonates();
 

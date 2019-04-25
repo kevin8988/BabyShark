@@ -67,8 +67,15 @@ public class DonateServiceImpl implements DonateService {
 	}
 
 	@Override
+	@Transactional
 	public void add(Donate donate) {
 		donateDAO.add(donate);
+	}
+
+	@Override
+	@Transactional
+	public List<Donate> find() {
+		return donateDAO.find();
 	}
 
 }

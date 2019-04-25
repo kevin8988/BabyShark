@@ -183,8 +183,7 @@ public class Donate implements Serializable {
 	@Override
 	public String toString() {
 		return "Donate [id=" + id + ", title=" + title + ", description=" + description + ", informations="
-				+ informations + ", isDonated=" + isDonated + ", color=" + color + ", gender=" + gender
-				+ ", categories=" + categories + "]";
+				+ informations + ", isDonated=" + isDonated + "]";
 	}
 
 }

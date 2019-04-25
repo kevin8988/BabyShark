@@ -7,6 +7,8 @@ import br.com.babyshark.entity.User;
 
 public interface DonateDAO {
 	
+	public List<Donate> find();
+	
 	public void add(Donate donate);
 
 	public List<Donate> getAllDonates();

@@ -62,7 +62,7 @@
 				</ul>
 			</div>
 		</div>
-			<!--
+		<!--
 		<div class="row setup-content p-4" id="step-1">
 			<div class="col-12">
 				<div class="col-md-12 well text-center">
@@ -101,106 +101,96 @@
 			</div>
 		</div>
 		  -->
-	<div class="row setup-content p-4" id="step-2">
-		<div class="col-12">
-			<div class="col-md-12 well ">
-				<h2>Descreva sobre o enxoval que está doando</h2>
-				<p>Lorem ipsum dolor sit amet.</p>
-				<form:form action="${s:mvcUrl('DC#registerProcess').build() }"
-					method="POST" modelAttribute="donate">
-					<div class="mb-3">
-						<label for="validationTextarea">Título:</label>
-						<form:input path="title" cssClass="form-control" />
-						<form:errors path="title" cssClass="alert-danger" />
-					</div>
-
-					<div class="mb-3">
-						<label for="validationDescription">Descrição:</label>
-						<form:textarea path="description" cssClass="form-control"
-							id="validationDescription" />
-						<form:errors path="description" cssClass="alert-danger" />
-					</div>
-
-					<div class="mb-3">
-						<label for="validationInformation">Informações Adicionais:</label>
-						<form:textarea path="informations" cssClass="form-control"
-							id="validationInformation" />
-						<form:errors path="informations" cssClass="alert-danger" />
-					</div>
-
-					<div class="mb-3">
-						<label for="validationSexo">Sexo:</label>
-						<div class="form-group">
-							<form:select path="gender.id" cssClass="custom-select">
-								<form:option value="">Selecione</form:option>
-								<form:option value="1">Meninos</form:option>
-								<form:option value="2">Meninas</form:option>
-								<option value="3">Unissex</option>
-							</form:select>
-							<form:errors path="gender" cssClass="alert-danger" />
+		<div class="row setup-content p-4" id="step-2">
+			<div class="col-12">
+				<div class="col-md-12 well ">
+					<h2>Descreva sobre o enxoval que está doando</h2>
+					<p>Lorem ipsum dolor sit amet.</p>
+					<form:form
+						action="${s:mvcUrl('DCR#registerProcessDonate').build() }"
+						method="POST" modelAttribute="donate"
+						enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="validationTextarea">Título:</label>
+							<form:input path="title" cssClass="form-control" />
+							<form:errors path="title" cssClass="alert-danger" />
 						</div>
-					</div>
-					<div class="mb-3">
-						<label for="validationCor">Cor:</label>
-						<div class="form-group">
-							<form:select class="custom-select" path="color.id">
-								<form:option value="">Selecione</form:option>
-								<form:option value="1">Amarelo</form:option>
-								<form:option value="2">Azul</form:option>
-								<form:option value="3">Vermelho</form:option>
-								<form:option value="4">Verde</form:option>
-								<form:option value="5">Preto</form:option>
-								<form:option value="6">Branco</form:option>
-								<form:option value="7">Marrom</form:option>
-								<form:option value="8">Roxo</form:option>
-								<form:option value="9">Rosa</form:option>
-							</form:select>
 
-							<form:errors path="color" cssClass="alert-danger" />
+						<div class="mb-3">
+							<label for="validationDescription">Descrição:</label>
+							<form:textarea path="description" cssClass="form-control"
+								id="validationDescription" />
+							<form:errors path="description" cssClass="alert-danger" />
 						</div>
-					</div>
 
-					<div class="mb-3">
-						<label for="validationCategoria">Categorias:</label>
-						<div class="form-group">
-							<form:checkbox path="categories[0].id" value="1" />
-							<label>Acessórios</label>
-							<form:checkbox path="categories[1].id" value="2" />
-							<label>Roupas</label>
-							<form:checkbox path="categories[2].id" value="3" />
-							<label>Outros</label><br/>
-							<form:errors path="categories" cssClass="alert-danger" />
+						<div class="mb-3">
+							<label for="validationInformation">Informações
+								Adicionais:</label>
+							<form:textarea path="informations" cssClass="form-control"
+								id="validationInformation" />
+							<form:errors path="informations" cssClass="alert-danger" />
 						</div>
-					</div>
 
-					<!--<div class="custom-file mb-3">
+						<div class="mb-3">
+							<label for="validationSexo">Sexo:</label>
+							<div class="form-group">
+								<form:select path="gender.id" cssClass="custom-select">
+									<form:option value="">Selecione</form:option>
+									<c:forEach items="${genders }" var="gender">
+										<form:option value="${gender.id }">${gender.name }</form:option>
+									</c:forEach>
+								</form:select>
+								<form:errors path="gender" cssClass="alert-danger" />
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="validationCor">Cor:</label>
+							<div class="form-group">
+								<form:select class="custom-select" path="color.id">
+									<form:option value="">Selecione</form:option>
+									<c:forEach items="${colors }" var="color">
+										<form:option value="${color.id }">${color.name }</form:option>
+									</c:forEach>
+								</form:select>
+								<form:errors path="color" cssClass="alert-danger" />
+							</div>
+						</div>
+
+						<div class="mb-3">
+							<label for="validationCategoria">Categorias:</label>
+							<div class="form-group">
+								<c:forEach items="${categories }" var="category"
+									varStatus="status">
+									<form:checkbox path="categories[${status.index}].id"
+										value="${category.id }" />
+									<label>${category.name }</label>
+								</c:forEach>
+								<form:errors path="categories" cssClass="alert-danger" />
+							</div>
+						</div>
+
+						<!--<div class="custom-file mb-3">
 						    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
 						    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
 						    <div class="invalid-feedback">Fotos do enxoval</div>
 						  </div>-->
-					<div class="input-default-wrapper mt-5">
-						<label class="label-for-default-js rounded-right mb-3"
-							for="file-with-multi-file"> <span
-							class="span-choose-file">Choose file</span> <input type="file"
-							id="file-with-multi-file" class="input-default-js"
-							data-multiple-target="{target} files selected" multiple>
-							<div class="float-right span-browse">Browse</div>
-						</label>
-					</div>
-					<button id="activate-step-3" class="btn">Cadastrar</button>
-				</form:form>
+						<div class="input-default-wrapper mt-5">
+							<input name="foto" type="file">
+						</div>
+						<button id="activate-step-3" class="btn">Cadastrar</button>
+					</form:form>
 
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row setup-content p-4" id="step-3">
-		<div class="col-12">
-			<div class="col-md-12 well">
-				<h1 class="text-center">Conclusão</h1>
+		<div class="row setup-content p-4" id="step-3">
+			<div class="col-12">
+				<div class="col-md-12 well">
+					<h1 class="text-center">Conclusão</h1>
 
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 
