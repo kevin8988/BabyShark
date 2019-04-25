@@ -30,6 +30,7 @@ public class DonateController {
 		model.addAttribute("genders", donateService.getAllGendersDonate());
 		model.addAttribute("colors", donateService.getAllColorsDonate());
 		model.addAttribute("addresses", donateService.getAllAddressesDonate());
+		
 
 		if (categories.isEmpty() && states.isEmpty() && genders.isEmpty() && colors.isEmpty() && search.equals("")) {
 			List<Donate> donates = donateService.getAllDonates();

@@ -49,10 +49,7 @@ public class DonateControllerRegister {
 
 	@GetMapping("/registerDonate")
 	public String registerDonate(Model model) {
-
-		if (session.getAttribute("user") == null) {
-			return "user/login";
-		}
+		
 		model.addAttribute("donate", new Donate());
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());

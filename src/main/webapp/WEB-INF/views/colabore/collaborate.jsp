@@ -36,7 +36,7 @@
 
 
 </head>
-<body class = "content-body">
+<body class="content-body">
 
 	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>

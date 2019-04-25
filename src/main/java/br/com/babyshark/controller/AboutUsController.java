@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/about")
 public class AboutUsController {
 	
+	
 	@GetMapping("/")
 	public String aboutUs() {
 		return "sobrenos/about-us";

@@ -1,6 +1,8 @@
 package br.com.babyshark.service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +58,13 @@ public class DonateServiceImpl implements DonateService {
 	}
 
 	@Transactional
-	public List<UserAddress> getAllAddressesDonate() {
-		return userAddressDAO.getAllAddressDonate();
+	public Set<String> getAllAddressesDonate() {
+		List<UserAddress> donate = userAddressDAO.getAllAddressDonate();
+		Set<String> state = new HashSet<>();
+		for (UserAddress address : donate) {
+			state.add(address.getState());
+		}
+		return state;
 	}
 
 	@Transactional

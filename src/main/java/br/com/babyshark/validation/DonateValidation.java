@@ -28,6 +28,24 @@ public class DonateValidation implements Validator {
 			errors.rejectValue("gender", "field.gender");
 		}
 
+		if (donate.getDescription() != null) {
+			if (donate.getDescription().length() > 240) {
+				errors.rejectValue("description", "field.description");
+			}
+		}
+		
+		if (donate.getInformations() != null) {
+			if (donate.getInformations().length() > 240) {
+				errors.rejectValue("informations", "field.informations");
+			}
+		}
+		
+		if (donate.getTitle() != null) {
+			if (donate.getTitle().length() > 30) {
+				errors.rejectValue("title", "field.title");
+			}
+		}
+
 		List<Category> categories = donate.getCategories();
 		int i = 0;
 		for (Category category : categories) {

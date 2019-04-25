@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setUsername(user.getEmail());
 		user.setPassword(encode);
 		user.setConfirmPassword(encode);
+		user.setBeginDate(Calendar.getInstance());
 
 		userDAO.insert(user);
 	}

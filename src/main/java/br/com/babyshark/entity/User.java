@@ -1,6 +1,7 @@
 package br.com.babyshark.entity;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +18,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -59,6 +62,10 @@ public class User implements Serializable {
 
 	@Column(nullable = false, columnDefinition = "boolean default true")
 	private boolean enabled;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
+	private Calendar beginDate;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_address_id")
@@ -175,6 +182,14 @@ public class User implements Serializable {
 		this.confirmPassword = confirmPassword;
 	}
 
+	public Calendar getBeginDate() {
+		return beginDate;
+	}
+
+	public void setBeginDate(Calendar beginDate) {
+		this.beginDate = beginDate;
+	}
+
 	public UserAddress getUserAddress() {
 		return userAddress;
 	}
@@ -214,7 +229,7 @@ public class User implements Serializable {
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
-	
+
 	public void add(Event event) {
 		this.events.add(event);
 		event.setUser(this);
@@ -224,7 +239,7 @@ public class User implements Serializable {
 		this.donates.add(donate);
 		donate.setUser(this);
 	}
-	
+
 	public void add(Authority role) {
 		this.authorities.add(role);
 	}
