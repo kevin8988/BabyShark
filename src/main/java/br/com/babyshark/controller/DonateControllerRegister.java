@@ -49,7 +49,7 @@ public class DonateControllerRegister {
 
 	@GetMapping("/registerDonate")
 	public String registerDonate(Model model) {
-		
+
 		model.addAttribute("donate", new Donate());
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());
@@ -61,12 +61,17 @@ public class DonateControllerRegister {
 	@PostMapping("/registerProcessDonate")
 	public String registerProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
 			BindingResult result, Model model) {
+		String content = foto.getContentType();
 		if (result.hasErrors()) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
+			if (foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg") || !content.equals("image/png")) {
+				model.addAttribute("erroPhoto", "Por favor, insira uma imagem.");
+			}
 			return "user/registerDonate";
 		}
+
 		String path = fileSaver.write(foto);
 		donate.setUser((User) session.getAttribute("user"));
 		Photo photo = new Photo();
@@ -76,6 +81,5 @@ public class DonateControllerRegister {
 		donateService.add(donate);
 		return "redirect:/";
 	}
-	
-	
+
 }

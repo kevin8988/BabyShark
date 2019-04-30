@@ -176,6 +176,10 @@
 						  </div>-->
 						<div class="input-default-wrapper ">
 							<input name="foto" type="file">
+							<c:if test="${erroPhoto != null }">
+								<br/>
+								<label class="alert-danger">${erroPhoto }</label>
+							</c:if>
 						</div>
 						<button id="activate-step-3" class="btn mt-4">Cadastrar</button>
 					</form:form>

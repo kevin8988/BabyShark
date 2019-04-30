@@ -173,17 +173,19 @@
 								<div aria-labelledby="headingFour"
 									data-parent="#containerAcordeon">
 									<div class="card-body">
-										<c:forEach items="${addresses }" var="address">
-											<div class="col mt-1">
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input"
-														id="${address}" value="${address}"
-														name="state"> <label class="custom-control-label"
-														style="display: inline-flex;" for="${address}">
-														${address} </label>
+										<c:if test="${!addresses.isEmpty() }">
+											<c:forEach items="${addresses }" var="address">
+												<div class="col mt-1">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input"
+															id="${address}" value="${address}" name="state">
+														<label class="custom-control-label"
+															style="display: inline-flex;" for="${address}">
+															${address} </label>
+													</div>
 												</div>
-											</div>
-										</c:forEach>
+											</c:forEach>
+										</c:if>
 									</div>
 								</div>
 							</div>
