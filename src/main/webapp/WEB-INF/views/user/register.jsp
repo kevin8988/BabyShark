@@ -15,7 +15,7 @@
 
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
-<s:url value="/resources/css/register/test.css" var="layout"></s:url>
+<s:url value="/resources/css/register/register.css" var="layout"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 <s:url value="/resources/img/home/home.jpg" var="home"></s:url>

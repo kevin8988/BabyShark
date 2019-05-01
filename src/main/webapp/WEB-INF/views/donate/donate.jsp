@@ -170,10 +170,11 @@
 										<span>► Localização</span>
 									</h5>
 								</div>
-								<div aria-labelledby="headingFour"
-									data-parent="#containerAcordeon">
-									<div class="card-body">
-										<c:if test="${!addresses.isEmpty() }">
+								<c:if test="${!addresses.isEmpty() }">
+									<div aria-labelledby="headingFour"
+										data-parent="#containerAcordeon">
+										<div class="card-body">
+
 											<c:forEach items="${addresses }" var="address">
 												<div class="col mt-1">
 													<div class="custom-control custom-checkbox">
@@ -185,9 +186,10 @@
 													</div>
 												</div>
 											</c:forEach>
-										</c:if>
+
+										</div>
 									</div>
-								</div>
+								</c:if>
 							</div>
 							<button class="btn my-2 my-sm-0 m-3" type="submit">
 								<i class="fas fa-search mr-1"></i> Pesquisar
