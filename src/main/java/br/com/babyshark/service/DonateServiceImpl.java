@@ -62,7 +62,9 @@ public class DonateServiceImpl implements DonateService {
 		List<UserAddress> donate = userAddressDAO.getAllAddressDonate();
 		Set<String> state = new HashSet<>();
 		for (UserAddress address : donate) {
-			state.add(address.getState());
+			if (address.getState() != null) {
+				state.add(address.getState());
+			}
 		}
 		return state;
 	}
