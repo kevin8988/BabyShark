@@ -14,7 +14,7 @@ public class UserAddressDAOImpl implements UserAddressDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	public void insert(UserAddress userAddress) {
 		if (userAddress.getId() != null) {
 			em.merge(userAddress);
@@ -24,10 +24,9 @@ public class UserAddressDAOImpl implements UserAddressDAO {
 	}
 
 	public List<UserAddress> getAllAddressDonate() {
-		return em.createQuery("select distinct a from UserAddress a join fetch a.user u join fetch u.donates d where d.isDonated = false", UserAddress.class)
-				.getResultList();
+		return em.createQuery(
+				"select distinct a from UserAddress a join fetch a.user u join fetch u.donates d where d.isDonated = false",
+				UserAddress.class).getResultList();
 	}
-	
-	
 
 }

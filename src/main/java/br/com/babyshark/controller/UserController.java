@@ -106,12 +106,12 @@ public class UserController {
 			model.addAttribute("error", "Erro.");
 			return "user/profile";
 		}
-		
+
 		userService.insert(user.getUserDetail());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
-	
+
 	@RequestMapping("/loginProcess")
 	public String loginProcess() {
 		System.out.println("aqui");

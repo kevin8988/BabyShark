@@ -79,6 +79,12 @@ public class UserValidation implements Validator {
 			}
 		}
 
+		if (user.getUserAddress() != null) {
+			if (user.getUserAddress().getState() == null) {
+				errors.rejectValue("userAddress.state", "field.state");
+			}
+		}
+
 	}
 
 }

@@ -11,7 +11,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
@@ -83,7 +82,7 @@
 					</div>
 					<div class="card-body m-3">
 						<div class="row">
-							<a href=""><h4>
+							<a href="${s:mvcUrl('UC#profile').build() }"><h4>
 									<i class="fas fa-database"></i>Dados
 								</h4></a>
 						</div>
@@ -100,7 +99,8 @@
 						<div class="row mt-3">
 							<button class="btn">
 								<h4 style="margin-bottom: 0px;">
-									Quero Doar <i class="fas fa-gifts"></i>
+								<a href="${s:mvcUrl('DCR#registerDonate').build() }">Quero Doar</a>
+									 <i class="fas fa-gifts"></i>
 								</h4>
 							</button>
 						</div>
@@ -145,7 +145,7 @@
 										<form:hidden path="userDetail.fone" />
 										<form:hidden path="userDetail.cpf" />
 										<form:hidden path="userDetail.dayOfBirth" />
-										<form:hidden path="userAddress.city" />
+										<!-- <form:hidden path="userAddress.city" /> -->
 										<form:hidden path="userAddress.state" />
 
 										<form:input class="form-control" id="inputEmail4" path="email" />
@@ -175,7 +175,7 @@
 									<form:hidden path="firstName" />
 									<form:hidden path="lastName" />
 									<form:hidden path="email" />
-									<form:hidden path="userAddress.city" />
+									<!-- <form:hidden path="userAddress.city" /> -->
 									<form:hidden path="userAddress.state" />
 									<form:hidden path="userDetail.id" />
 									<div class="form-group">
@@ -214,15 +214,44 @@
 									<form:hidden path="userDetail.cpf" />
 									<form:hidden path="userDetail.dayOfBirth" />
 									<form:hidden path="userAddress.id" />
+									<!--  
 									<div class="form-group">
 										<label for="inputEmail">Cidade:</label>
 										<form:input class="form-control" path="userAddress.city" />
 										<form:errors class="form-control" path="userAddress.city"
 											cssClass="alert-danger" />
 									</div>
+									-->
 									<div class="form-group">
-										<label for="inputCPF">Estado:</label>
-										<form:input class="form-control" path="userAddress.state" />
+										<label for="inputCPF">Estado:</label>										
+										<form:select path="userAddress.state" class="custom-select">
+											<form:option value="" label="Selecione"/>
+											<form:option value="Acre" label="Acre"/>
+											<form:option value="Alagoas" label="Alagoas"/>
+											<form:option value="Amapá" label="Amapá"/>
+											<form:option value="Amazonas" label="Amazonas"/>
+											<form:option value="Bahia" label="Bahia"/>
+											<form:option value="Ceará" label="Ceará"/>
+											<form:option value="Espírito Santo" label="Espírito Santo"/>
+											<form:option value="Goiás" label="Goiás"/>
+											<form:option value="Maranhão" label="Maranhão"/>
+											<form:option value="Mato Grosso" label="Mato Grosso"/>
+											<form:option value="Mato Grosso do Sul" label="Mato Grosso do Sul"/>
+											<form:option value="Minas Gerais" label="Minas Gerais"/>
+											<form:option value="Pará" label="Pará"/>
+											<form:option value="Paraíba" label="Paraíba"/>
+											<form:option value="Paraná" label="Paraná"/>
+											<form:option value="Pernambuco" label="Pernambuco"/>
+											<form:option value="Rio de Janeiro" label="Rio de Janeiro"/>
+											<form:option value="Rio Grande do Norte" label="Rio Grande do Norte"/>
+											<form:option value="Rio Grander do Sul" label="Rio Grander do Sul"/>
+											<form:option value="Rondônia" label="Rondônia"/>
+											<form:option value="Roraima" label="Roraima"/>
+											<form:option value="Santa Catarina" label="Santa Catarina"/>
+											<form:option value="São Paulo" label="São Paulo"/>
+											<form:option value="Sergipe" label="Sergipe"/>
+											<form:option value="Tocantins" label="Tocantins"/>
+										</form:select>
 										<form:errors class="form-control" path="userAddress.state"
 											cssClass="alert-danger" />
 									</div>

@@ -5,7 +5,6 @@
   background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);
   /* background-color: rgba(228, 227, 227, 0.432); */
 }
-
 .header{
   background-color: rgba(202, 202, 202, 0.952);
 }
@@ -20,6 +19,7 @@
 .header h1{
   color: #0386A8;
 }
+
 
 .logo_link{
   font-size: 2em;

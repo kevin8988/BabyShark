@@ -39,7 +39,7 @@
 
 		<h1 class="mb-3">Login</h1>
 
-
+  
 		<c:if test="${message != null }">
 			<div class="alert alert-success">
 				<i>${message }</i>
@@ -70,8 +70,8 @@
 				name="password" class="form-control" placeholder="Senha">
 		</div>
 		<div class="remember-checkbox">
-			<label> <input type="checkbox" name="remember-me" value="Mantenha-me conectado"/>
-			</label>
+			<input type="checkbox" name="remember-me" id="rm" /> <label for="rm">Mantenha-me
+				conectado</label>
 		</div>
 		<div class="remember-checkbox">
 			<label> <a href="${s:mvcUrl('HC#home').build() }">Home</a>
