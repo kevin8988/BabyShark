@@ -11,7 +11,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
@@ -83,7 +82,7 @@
 					</div>
 					<div class="card-body m-3">
 						<div class="row">
-							<a href=""><h4>
+							<a href="${s:mvcUrl('UC#profile').build() }"><h4>
 									<i class="fas fa-database"></i>Dados
 								</h4></a>
 						</div>
