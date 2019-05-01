@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<footer>
+	<footer class="footer">
 		<div class="container-fluid p-5">
 			<div class="row justify-content-center">
 				<div class="col-lg-4 mb-5 mb-lg-0">
