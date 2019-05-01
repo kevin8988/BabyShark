@@ -17,6 +17,7 @@ import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 
 @Service
@@ -86,5 +87,25 @@ public class DonateServiceImpl implements DonateService {
 	public List<Donate> find() {
 		return donateDAO.find();
 	}
+
+	@Override
+	@Transactional
+	public List<Donate> getDonatesByUser(User user) {
+		return donateDAO.getDonatesByUser(user);
+	}
+
+	@Override
+	@Transactional
+	public void delete(User user, Integer id) {
+		donateDAO.delete(user, id);
+	}
+
+	@Override
+	@Transactional 
+	public Donate getDonateById(Integer id) {
+		return donateDAO.getDonateById(id);
+	}
+	
+	
 
 }

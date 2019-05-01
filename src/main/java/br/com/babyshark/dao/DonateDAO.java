@@ -21,5 +21,9 @@ public interface DonateDAO {
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			List<String> states, String search);
+	
+	public void delete(User user, Integer id);
+	
+	public Donate getDonateById(Integer id);
 
 }

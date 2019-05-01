@@ -7,6 +7,7 @@ import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.User;
 
 public interface DonateService {
 	
@@ -26,5 +27,11 @@ public interface DonateService {
 	public List<Color> getAllColorsDonate();
 	
 	public Set<String> getAllAddressesDonate();
+	
+	public List<Donate> getDonatesByUser(User user);
+
+	public void delete(User user, Integer id);
+
+	public Donate getDonateById(Integer id);
 
 }

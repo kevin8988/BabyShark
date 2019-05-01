@@ -12,11 +12,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.User;
+import br.com.babyshark.service.DonateService;
 import br.com.babyshark.service.UserService;
 import br.com.babyshark.validation.UserValidation;
 
@@ -26,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private DonateService donateService;
 
 	@Autowired
 	private HttpSession session;
@@ -117,4 +122,22 @@ public class UserController {
 		System.out.println("aqui");
 		return "redirect:profile";
 	}
+
+	@GetMapping("/profile/donates")
+	public String profileDonates(Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("donates", donateService.getDonatesByUser(user));
+		return "user/profileDonates";
+	}
+
+	@PostMapping("/profile/donates/delete/{id}")
+	public String profileDonatesDelete(@PathVariable("id") Integer id, Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		donateService.delete(user, id);
+		return "redirect:/user/profile";
+	}
+
+	
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -61,12 +62,16 @@ public class DonateControllerRegister {
 	@PostMapping("/registerProcessDonate")
 	public String registerProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
 			BindingResult result, Model model) {
+		System.out.println(donate.getCategories());
+		System.out.println(donate.getColor());
+		System.out.println(donate.getGender());
 		String content = foto.getContentType();
 		if (result.hasErrors()) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
-			if (foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg") || !content.equals("image/png")) {
+			if (foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg")
+					|| !content.equals("image/png")) {
 				model.addAttribute("erroPhoto", "Por favor, insira uma imagem.");
 			}
 			return "user/registerDonate";
@@ -80,6 +85,16 @@ public class DonateControllerRegister {
 		donate.add(photo);
 		donateService.add(donate);
 		return "redirect:/";
+	}
+
+	@PostMapping("/update/{id}")
+	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model) {
+		Donate donateById = donateService.getDonateById(id);
+		model.addAttribute("donate", donateById);
+		model.addAttribute("colors", userService.getAllColors());
+		model.addAttribute("genders", userService.getAllGenders());
+		model.addAttribute("categories", userService.getAllCategories());
+		return "user/registerDonate";
 	}
 
 }

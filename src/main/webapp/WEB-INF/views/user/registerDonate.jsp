@@ -181,6 +181,7 @@
 								<label class="alert-danger">${erroPhoto }</label>
 							</c:if>
 						</div>
+						<form:hidden path="id"/>
 						<button id="activate-step-3" class="btn mt-4">Cadastrar</button>
 					</form:form>
 

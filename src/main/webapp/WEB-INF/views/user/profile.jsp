@@ -87,7 +87,7 @@
 								</h4></a>
 						</div>
 						<div class="row">
-							<a href=""><h4>
+							<a href="${s:mvcUrl('UC#profileDonates').build() }"><h4>
 									<i class="fas fa-gifts"></i>Doações
 								</h4></a>
 						</div>

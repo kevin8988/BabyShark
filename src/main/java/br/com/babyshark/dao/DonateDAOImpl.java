@@ -153,4 +153,18 @@ public class DonateDAOImpl implements DonateDAO {
 		return em.createQuery("from Donate d", Donate.class).getResultList();
 	}
 
+	@Override
+	public void delete(User user, Integer id) {
+		em.createQuery("delete from Photo p where p.donate.id = :pId").setParameter("pId", id).executeUpdate();
+		em.createQuery("delete from Donate d where d.id = :pId and d.user = :pUser").setParameter("pId", id)
+				.setParameter("pUser", user).executeUpdate();
+	}
+
+	@Override
+	public Donate getDonateById(Integer id) {
+		return em.createQuery(
+				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false and d.id = :pId",
+				Donate.class).setParameter("pId", id).getSingleResult();
+	}
+
 }
