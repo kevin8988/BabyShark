@@ -12,7 +12,11 @@
 </head>
 <body>
 
+<<<<<<< HEAD
+	<footer class="footer">
+=======
 	<footer class = "footer">
+>>>>>>> ad298f61ca7d57abd2d0aaac907838529a9b3cc1
 		<div class="container-fluid p-5">
 			<div class="row justify-content-center">
 				<div class="col-lg-4 mb-5 mb-lg-0">

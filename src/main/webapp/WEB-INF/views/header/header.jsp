@@ -15,7 +15,11 @@
 </head>
 <body>
 
+<<<<<<< HEAD
+	<header class="header">
+=======
 	<header class = "header">
+>>>>>>> ad298f61ca7d57abd2d0aaac907838529a9b3cc1
 		<nav class="navbar fixed-top navbar-light navbar-expand-sm bg-light">
 			<a class="navbar-brand ml-5" href="${s:mvcUrl('HC#home').build() }">
 				<img src="${logo }" width="40" height="40" class="align-left"
