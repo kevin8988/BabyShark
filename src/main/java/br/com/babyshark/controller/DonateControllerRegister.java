@@ -62,18 +62,14 @@ public class DonateControllerRegister {
 	@PostMapping("/registerProcessDonate")
 	public String registerProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
 			BindingResult result, Model model) {
-		System.out.println(donate.getCategories());
-		System.out.println(donate.getColor());
-		System.out.println(donate.getGender());
 		String content = foto.getContentType();
-		if (result.hasErrors()) {
+
+		if (result.hasErrors() || foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg")) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
-			if (foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg")
-					|| !content.equals("image/png")) {
-				model.addAttribute("erroPhoto", "Por favor, insira uma imagem.");
-			}
+			model.addAttribute("erroPhoto", "Por favor, insira uma imagem.");
+
 			return "user/registerDonate";
 		}
 
@@ -87,6 +83,23 @@ public class DonateControllerRegister {
 		return "redirect:/";
 	}
 
+	@PostMapping("/registerProcessDonate/update")
+	public String updateProcessDonate(@Valid @ModelAttribute("donate") Donate donate,
+			BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("colors", userService.getAllColors());
+			model.addAttribute("genders", userService.getAllGenders());
+			model.addAttribute("categories", userService.getAllCategories());
+
+			return "user/profileDonatesUpdate";
+		}
+
+		donate.setUser((User) session.getAttribute("user"));
+		donateService.add(donate);
+		return "redirect:/";
+
+	}
+
 	@PostMapping("/update/{id}")
 	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model) {
 		Donate donateById = donateService.getDonateById(id);
@@ -94,7 +107,7 @@ public class DonateControllerRegister {
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
-		return "user/registerDonate";
+		return "user/profileDonatesUpdate";
 	}
 
 }

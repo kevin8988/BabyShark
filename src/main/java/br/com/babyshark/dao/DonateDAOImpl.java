@@ -143,6 +143,23 @@ public class DonateDAOImpl implements DonateDAO {
 
 			em.persist(donate);
 		} else {
+			Color color = em.find(Color.class, donate.getColor().getId());
+			donate.setColor(color);
+
+			Gender gender = em.find(Gender.class, donate.getGender().getId());
+			donate.setGender(gender);
+
+			List<Category> categories = donate.getCategories();
+			List<Category> newList = new ArrayList<>();
+			for (Category category : categories) {
+				if (category.getId() != null) {
+					Category merge = em.find(Category.class, category.getId());
+					newList.add(merge);
+				}
+			}
+
+			donate.setCategories(newList);
+
 			em.merge(donate);
 		}
 
