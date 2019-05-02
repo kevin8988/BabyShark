@@ -92,7 +92,7 @@
 								</h4></a>
 						</div>
 						<div class="row">
-							<a href=""><h4>
+							<a href="${s:mvcUrl('UC#profileInterests').build() }"><h4>
 									<i class="fas fa-heart"></i>Interesses
 								</h4></a>
 						</div>

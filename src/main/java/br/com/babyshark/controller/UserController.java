@@ -130,6 +130,13 @@ public class UserController {
 		model.addAttribute("donates", donateService.getDonatesByUser(user));
 		return "user/profileDonates";
 	}
+	
+	@GetMapping("/profile/interests")
+	public String profileInterests(Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		return "user/profileInterests";
+	}
 
 	@PostMapping("/profile/donates/delete/{id}")
 	public String profileDonatesDelete(@PathVariable("id") Integer id, Model model) {

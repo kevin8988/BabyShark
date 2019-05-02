@@ -107,34 +107,31 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-9" id="doacoes">
+			<div class="col-lg-9" id="Interesses">
 				<div class="card shadow">
 					<div class="card-head p-3">
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
-					<div class="card-body">
-						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
-							<c:forEach items="${donates }" var="donate">
-
+					<div class="row">
+						<div class="col-lg-4 col-md-12 p-5 mb-4">
+							<div class="card h-100">
+							<!--  
+								<a href="#"><img class="card-img-top" src="img\produto.png"
+									alt="Imagem de capa do card"></a>
 								<div class="card-body">
-									<h5 class="card-title">${donate.title }</h5>
-									<p class="card-text">${donate.description }</p>
-									<div class="row">
-										<form:form
-											action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
-											method="POST">
-											<button class="btn btn-outline-segundary">Editar</button>
-										</form:form>
-										<form:form
-											action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
-											method="POST">
-											<button class="btn btn-danger">Excluir</button>
-										</form:form>
-									</div>
+									<h4 class="card-title">Enchoval Two</h4>
+									<h6>5 Itens</h6>
+									<p class="card-text">Ótimio estado</p>
+									<p class="card-text">9 meses de uso</p>
+									<p class="card-text">+ brinquedos</p>
 								</div>
-
-							</c:forEach>
+								<div class="card-footer">
+									<button class="btn btn-outline-segundary">Interessar-se</button>
+								</div>
+							</div>
+							-->
 						</div>
+
 					</div>
 				</div>
 			</div>
