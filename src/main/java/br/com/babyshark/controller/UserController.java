@@ -140,10 +140,11 @@ public class UserController {
 	}
 
 	@PostMapping("/profile/donates/delete/{id}")
-	public String profileDonatesDelete(@PathVariable("id") Integer id, Model model) {
+	public String profileDonatesDelete(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		donateService.delete(user, id);
+		redirectAttrs.addFlashAttribute("success", "Doação removida com Sucesso.");
 		return "redirect:/user/profile";
 	}
 

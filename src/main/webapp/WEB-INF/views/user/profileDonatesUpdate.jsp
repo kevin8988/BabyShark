@@ -170,7 +170,7 @@
 						</div>
 
 						<form:hidden path="id" />
-						<button id="activate-step-3" class="btn mt-4">Cadastrar</button>
+						<button id="activate-step-3" class="btn mt-4">Atualizar</button>
 					</form:form>
 
 				</div>

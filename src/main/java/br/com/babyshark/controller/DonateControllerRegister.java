@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Photo;
@@ -61,10 +62,11 @@ public class DonateControllerRegister {
 
 	@PostMapping("/registerProcessDonate")
 	public String registerProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
-			BindingResult result, Model model) {
+			BindingResult result, Model model, RedirectAttributes redirectAttrs) {
 		String content = foto.getContentType();
 
-		if (result.hasErrors() || foto.getOriginalFilename().length() == 0 && (!content.equals("image/jpeg") || !content.equals("image/png"))) {
+		if (result.hasErrors() || foto.getOriginalFilename().length() == 0
+				&& (!content.equals("image/jpeg") || !content.equals("image/png"))) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
@@ -80,12 +82,13 @@ public class DonateControllerRegister {
 		photo.setDonate(donate);
 		donate.add(photo);
 		donateService.add(donate);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Doação removida com Sucesso.");
+		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/registerProcessDonate/update")
-	public String updateProcessDonate(@Valid @ModelAttribute("donate") Donate donate,
-			BindingResult result, Model model) {
+	public String updateProcessDonate(@Valid @ModelAttribute("donate") Donate donate, BindingResult result, Model model,
+			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
@@ -96,7 +99,8 @@ public class DonateControllerRegister {
 
 		donate.setUser((User) session.getAttribute("user"));
 		donateService.add(donate);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Doação atualizada com Sucesso.");
+		return "redirect:/user/profile";
 
 	}
 
