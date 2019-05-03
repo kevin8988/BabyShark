@@ -12,13 +12,16 @@ import br.com.babyshark.dao.CategoryDAO;
 import br.com.babyshark.dao.ColorDAO;
 import br.com.babyshark.dao.DonateDAO;
 import br.com.babyshark.dao.GenderDAO;
+import br.com.babyshark.dao.PhotoDAO;
 import br.com.babyshark.dao.UserAddressDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.Photo;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
+import br.com.babyshark.infra.FileSaver;
 
 @Service
 public class DonateServiceImpl implements DonateService {
@@ -37,12 +40,20 @@ public class DonateServiceImpl implements DonateService {
 
 	@Autowired
 	private UserAddressDAO userAddressDAO;
+	
+	@Autowired
+	private PhotoDAO photoDAO;
 
+	@Autowired
+	private FileSaver fileSaver;
+
+	@Override
 	@Transactional
 	public List<Donate> getAllDonates() {
 		return donateDAO.getAllDonates();
 	}
 
+	@Override
 	@Transactional
 	public List<Category> getAllCategoriesDonate() {
 		return categoryDAO.getAllCategoriesDonate();
@@ -53,11 +64,13 @@ public class DonateServiceImpl implements DonateService {
 		return genderDAO.getAllGendersDonate();
 	}
 
+	@Override
 	@Transactional
 	public List<Color> getAllColorsDonate() {
 		return colorDAO.getAllColorsDonate();
 	}
 
+	@Override
 	@Transactional
 	public Set<String> getAllAddressesDonate() {
 		List<UserAddress> donate = userAddressDAO.getAllAddressDonate();
@@ -70,6 +83,7 @@ public class DonateServiceImpl implements DonateService {
 		return state;
 	}
 
+	@Override
 	@Transactional
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			List<String> states, String search) {
@@ -97,15 +111,21 @@ public class DonateServiceImpl implements DonateService {
 	@Override
 	@Transactional
 	public void delete(User user, Integer id) {
+		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
 		donateDAO.delete(user, id);
+		fileSaver.delete(photosByDonate);
 	}
 
 	@Override
-	@Transactional 
+	@Transactional
 	public Donate getDonateById(Integer id) {
 		return donateDAO.getDonateById(id);
 	}
-	
-	
+
+	@Override
+	@Transactional
+	public List<Donate> getDonatesInterest(User user) {
+		return donateDAO.getDonatesInterest(user);
+	}
 
 }

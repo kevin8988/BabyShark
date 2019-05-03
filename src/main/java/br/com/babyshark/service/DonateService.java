@@ -33,5 +33,7 @@ public interface DonateService {
 	public void delete(User user, Integer id);
 
 	public Donate getDonateById(Integer id);
+	
+	public List<Donate> getDonatesInterest(User user);
 
 }

@@ -64,7 +64,7 @@ public class DonateControllerRegister {
 			BindingResult result, Model model) {
 		String content = foto.getContentType();
 
-		if (result.hasErrors() || foto.getOriginalFilename().length() == 0 || !content.equals("image/jpeg")) {
+		if (result.hasErrors() || foto.getOriginalFilename().length() == 0 && (!content.equals("image/jpeg") || !content.equals("image/png"))) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());

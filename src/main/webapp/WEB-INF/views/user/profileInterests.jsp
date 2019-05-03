@@ -107,36 +107,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-9" id="Interesses">
+			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-12 p-5 mb-4">
-							<div class="card h-100">
-							<!--  
-								<a href="#"><img class="card-img-top" src="img\produto.png"
-									alt="Imagem de capa do card"></a>
-								<div class="card-body">
-									<h4 class="card-title">Enchoval Two</h4>
-									<h6>5 Itens</h6>
-									<p class="card-text">Ótimio estado</p>
-									<p class="card-text">9 meses de uso</p>
-									<p class="card-text">+ brinquedos</p>
-								</div>
-								<div class="card-footer">
-									<button class="btn btn-outline-segundary">Interessar-se</button>
-								</div>
-							</div>
-							-->
+					<div class="card-body">
+						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
+							<c:if test="${interests.isEmpty() }">
+								<p>Nenhum interesse.</p>
+							</c:if>							
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 
 	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
 

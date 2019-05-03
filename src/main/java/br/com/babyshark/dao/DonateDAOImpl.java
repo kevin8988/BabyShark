@@ -28,7 +28,7 @@ public class DonateDAOImpl implements DonateDAO {
 	private EntityManager em;
 
 	public List<Donate> getAllDonates() {
-		return em.createQuery("from Donate d join fetch d.photos", Donate.class)
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
 				.setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
@@ -42,9 +42,8 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery(
-				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false order by d.id desc",
-				Donate.class).setHint("org.hibernate.cacheable", true).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos order by d.id desc", Donate.class)
+				.setHint("org.hibernate.cacheable", true).getResultList();
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
@@ -122,47 +121,28 @@ public class DonateDAOImpl implements DonateDAO {
 
 	@Override
 	public void add(Donate donate) {
-		if (donate.getId() == null) {
+		Color color = em.find(Color.class, donate.getColor().getId());
+		donate.setColor(color);
 
-			Color color = em.find(Color.class, donate.getColor().getId());
-			donate.setColor(color);
+		Gender gender = em.find(Gender.class, donate.getGender().getId());
+		donate.setGender(gender);
 
-			Gender gender = em.find(Gender.class, donate.getGender().getId());
-			donate.setGender(gender);
-
-			List<Category> categories = donate.getCategories();
-			List<Category> newList = new ArrayList<>();
-			for (Category category : categories) {
-				if (category.getId() != null) {
-					Category merge = em.find(Category.class, category.getId());
-					newList.add(merge);
-				}
+		List<Category> categories = donate.getCategories();
+		List<Category> newList = new ArrayList<>();
+		for (Category category : categories) {
+			if (category.getId() != null) {
+				Category merge = em.find(Category.class, category.getId());
+				newList.add(merge);
 			}
-
-			donate.setCategories(newList);
-
-			em.persist(donate);
-		} else {
-			Color color = em.find(Color.class, donate.getColor().getId());
-			donate.setColor(color);
-
-			Gender gender = em.find(Gender.class, donate.getGender().getId());
-			donate.setGender(gender);
-
-			List<Category> categories = donate.getCategories();
-			List<Category> newList = new ArrayList<>();
-			for (Category category : categories) {
-				if (category.getId() != null) {
-					Category merge = em.find(Category.class, category.getId());
-					newList.add(merge);
-				}
-			}
-
-			donate.setCategories(newList);
-
-			em.merge(donate);
 		}
 
+		donate.setCategories(newList);
+		
+		if (donate.getId() == null) {
+			em.persist(donate);
+		} else {
+			em.merge(donate);
+		}
 	}
 
 	@Override
@@ -182,6 +162,12 @@ public class DonateDAOImpl implements DonateDAO {
 		return em.createQuery(
 				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false and d.id = :pId",
 				Donate.class).setParameter("pId", id).getSingleResult();
+	}
+
+	@Override
+	public List<Donate> getDonatesInterest(User user) {
+		return em.createQuery("from Donate d join fetch d.interests i join fetch i.user u where u = :pUser",
+				Donate.class).setParameter("pUser", user).getResultList();
 	}
 
 }

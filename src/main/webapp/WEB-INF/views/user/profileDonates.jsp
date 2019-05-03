@@ -114,26 +114,31 @@
 					</div>
 					<div class="card-body">
 						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
-							<c:forEach items="${donates }" var="donate">
+							<c:if test="${donates.isEmpty() }">
+								<p>Nenhuma doação.</p>
+							</c:if>
+							<c:if test="${!donates.isEmpty() }">
+								<c:forEach items="${donates }" var="donate">
 
-								<div class="card-body">
-									<h5 class="card-title">${donate.title }</h5>
-									<p class="card-text">${donate.description }</p>
-									<div class="row">
-										<form:form
-											action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
-											method="POST">
-											<button class="btn btn-outline-segundary">Editar</button>
-										</form:form>
-										<form:form
-											action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
-											method="POST">
-											<button class="btn btn-danger">Excluir</button>
-										</form:form>
+									<div class="card-body">
+										<h5 class="card-title">${donate.title }</h5>
+										<p class="card-text">${donate.description }</p>
+										<div class="row">
+											<form:form
+												action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
+												method="POST" class = "mr-2">
+												<button class="btn btn-outline-segundary">Editar</button>
+											</form:form>
+											<form:form
+												action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
+												method="POST" class = "mr-2">
+												<button class="btn btn-outline-segundary">Excluir</button>
+											</form:form>
+										</div>
 									</div>
-								</div>
 
-							</c:forEach>
+								</c:forEach>
+							</c:if>
 						</div>
 					</div>
 				</div>

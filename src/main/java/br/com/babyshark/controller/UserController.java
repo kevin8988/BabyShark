@@ -135,6 +135,7 @@ public class UserController {
 	public String profileInterests(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
+		model.addAttribute("interests", donateService.getDonatesInterest(user));
 		return "user/profileInterests";
 	}
 
