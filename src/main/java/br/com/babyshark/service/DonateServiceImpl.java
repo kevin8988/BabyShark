@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,7 +41,7 @@ public class DonateServiceImpl implements DonateService {
 
 	@Autowired
 	private UserAddressDAO userAddressDAO;
-	
+
 	@Autowired
 	private PhotoDAO photoDAO;
 
@@ -59,6 +60,7 @@ public class DonateServiceImpl implements DonateService {
 		return categoryDAO.getAllCategoriesDonate();
 	}
 
+	@Override
 	@Transactional
 	public List<Gender> getAllGendersDonate() {
 		return genderDAO.getAllGendersDonate();
@@ -126,6 +128,16 @@ public class DonateServiceImpl implements DonateService {
 	@Transactional
 	public List<Donate> getDonatesInterest(User user) {
 		return donateDAO.getDonatesInterest(user);
+	}
+
+	@Override
+	public List<String> getPathPhotos(Donate donate) {
+		List<String> path = new ArrayList<String>();
+		for (Photo photo : donate.getPhotos()) {
+			String newPath = photo.getPath().replace("http://s3.amazonaws.com/imagens-donates/", "");
+			path.add(newPath);
+		}
+		return path;
 	}
 
 }

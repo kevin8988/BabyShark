@@ -83,7 +83,6 @@ public class UserController {
 	public String updateProcess(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
-			System.out.println("erro");
 			model.addAttribute("error", "Erro.");
 			return "user/profile";
 		}

@@ -168,7 +168,12 @@
 								<form:errors path="categories" cssClass="alert-danger" />
 							</div>
 						</div>
-
+						
+						<c:forEach items="${path }" var = "path">
+							<p>${path}</p>
+							<input type = "hidden" name = "path" value = "${path }"/>
+						</c:forEach>
+						
 						<form:hidden path="id" />
 						<button id="activate-step-3" class="btn mt-4">Atualizar</button>
 					</form:form>

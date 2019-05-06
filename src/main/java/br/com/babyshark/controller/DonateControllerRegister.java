@@ -82,18 +82,18 @@ public class DonateControllerRegister {
 		photo.setDonate(donate);
 		donate.add(photo);
 		donateService.add(donate);
-		redirectAttrs.addFlashAttribute("success", "Doação removida com Sucesso.");
+		redirectAttrs.addFlashAttribute("success", "Doação cadastrado com Sucesso.");
 		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/registerProcessDonate/update")
 	public String updateProcessDonate(@Valid @ModelAttribute("donate") Donate donate, BindingResult result, Model model,
-			RedirectAttributes redirectAttrs) {
+			RedirectAttributes redirectAttrs, String path) {
 		if (result.hasErrors()) {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
-
+			model.addAttribute("path", path);
 			return "user/profileDonatesUpdate";
 		}
 
@@ -105,12 +105,14 @@ public class DonateControllerRegister {
 	}
 
 	@PostMapping("/update/{id}")
-	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model) {
+	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
 		Donate donateById = donateService.getDonateById(id);
 		model.addAttribute("donate", donateById);
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
+		model.addAttribute("path", donateService.getPathPhotos(donateById));
+		redirectAttrs.addFlashAttribute("paths", donateService.getPathPhotos(donateById));
 		return "user/profileDonatesUpdate";
 	}
 

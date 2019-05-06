@@ -110,7 +110,7 @@
 					</c:if>
 					<c:if test="${!lastDonates.isEmpty() }">
 						<c:forEach items="${lastDonates }" var="lastDonate" begin="0"
-							end="3">
+							end="2">
 							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
 								<div class="row">
 									<div class="col">
