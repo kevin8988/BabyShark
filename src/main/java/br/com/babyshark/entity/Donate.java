@@ -63,7 +63,8 @@ public class Donate implements Serializable {
 	private Gender gender;
 
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "photos")
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "donate", fetch = FetchType.EAGER)
+	@OneToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, mappedBy = "donate", fetch = FetchType.EAGER)
 	private Set<Photo> photos = new HashSet<Photo>();
 
 	@OneToMany(mappedBy = "donate", fetch = FetchType.LAZY)

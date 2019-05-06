@@ -7,5 +7,7 @@ import br.com.babyshark.entity.Photo;
 public interface PhotoDAO {
 	
 	public List<Photo> getPhotosByDonate(Integer id);
+	
+	public void deletePhotoByDonate(Integer id);
 
 }

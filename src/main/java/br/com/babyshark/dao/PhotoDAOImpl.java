@@ -21,4 +21,9 @@ public class PhotoDAOImpl implements PhotoDAO {
 				.getResultList();
 	}
 
+	@Override
+	public void deletePhotoByDonate(Integer id) {
+		em.createQuery("delete from Photo p where p.donate.id = :pId").setParameter("pId", id).executeUpdate();
+	}
+
 }

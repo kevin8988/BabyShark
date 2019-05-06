@@ -168,12 +168,23 @@
 								<form:errors path="categories" cssClass="alert-danger" />
 							</div>
 						</div>
-						
-						<c:forEach items="${path }" var = "path">
-							<p>${path}</p>
-							<input type = "hidden" name = "path" value = "${path }"/>
+
+						<p>Excluir:</p>
+						<c:forEach items="${path }" var="path">
+							<input type="checkbox" name="value" value="true" />
+							<label>${path }</label>
+
+							<input type="hidden" name="path" value="${path }" />
 						</c:forEach>
-						
+
+						<div class="input-default-wrapper ">
+							<input name="foto" type="file">
+							<c:if test="${erroPhoto != null }">
+								<br />
+								<label class="alert-danger">${erroPhoto }</label>
+							</c:if>
+						</div>
+
 						<form:hidden path="id" />
 						<button id="activate-step-3" class="btn mt-4">Atualizar</button>
 					</form:form>

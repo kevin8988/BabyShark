@@ -37,5 +37,7 @@ public interface DonateService {
 	public List<Donate> getDonatesInterest(User user);
 	
 	public List<String> getPathPhotos(Donate donate);
+	
+	public void deletePhotoByDonate(Integer id);
 
 }

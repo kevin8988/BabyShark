@@ -131,6 +131,12 @@ public class DonateServiceImpl implements DonateService {
 	}
 
 	@Override
+	@Transactional
+	public void deletePhotoByDonate(Integer id) {
+		photoDAO.deletePhotoByDonate(id);
+	}
+
+	@Override
 	public List<String> getPathPhotos(Donate donate) {
 		List<String> path = new ArrayList<String>();
 		for (Photo photo : donate.getPhotos()) {

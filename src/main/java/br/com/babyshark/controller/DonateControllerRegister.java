@@ -87,9 +87,27 @@ public class DonateControllerRegister {
 	}
 
 	@PostMapping("/registerProcessDonate/update")
-	public String updateProcessDonate(@Valid @ModelAttribute("donate") Donate donate, BindingResult result, Model model,
-			RedirectAttributes redirectAttrs, String path) {
+	public String updateProcessDonate(MultipartFile foto, @Valid @ModelAttribute("donate") Donate donate,
+			BindingResult result, Model model, RedirectAttributes redirectAttrs, String path, String value) {
 		if (result.hasErrors()) {
+			model.addAttribute("colors", userService.getAllColors());
+			model.addAttribute("genders", userService.getAllGenders());
+			model.addAttribute("categories", userService.getAllCategories());
+			model.addAttribute("path", path);
+			return "user/profileDonatesUpdate";
+		}
+
+		String content = foto.getContentType();
+
+		if (value.equals(",true") && foto.getOriginalFilename().length() > 0
+				&& (content.equals("image/jpeg") || content.equals("image/png"))) {
+			donateService.deletePhotoByDonate(donate.getId());
+			String photoPath = fileSaver.write(foto);
+			Photo photo = new Photo();
+			photo.setPath(photoPath);
+			photo.setDonate(donate);
+			donate.add(photo);
+		} else {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
@@ -112,8 +130,6 @@ public class DonateControllerRegister {
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
 		model.addAttribute("path", donateService.getPathPhotos(donateById));
-		redirectAttrs.addFlashAttribute("paths", donateService.getPathPhotos(donateById));
 		return "user/profileDonatesUpdate";
 	}
-
 }
