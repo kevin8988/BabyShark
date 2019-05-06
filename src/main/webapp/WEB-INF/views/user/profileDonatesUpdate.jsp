@@ -169,25 +169,31 @@
 							</div>
 						</div>
 
-						<label>Excluir Foto:</label>
-						<c:forEach items="${path }" var="path">
-							<input type="checkbox" name="value" value="true" />
-							<label>${path }</label>
+						<div class="mb-3">
+							<label>Excluir Foto:</label>
+							<c:forEach items="${path }" var="path">
+								<input type="checkbox" name="value" value="true" id="checkbox"
+									onclick="mostraFile()" />
+								<label>${path }</label>
 
-							<input type="hidden" name="path" value="${path }" />
-						</c:forEach>
-
-						<div class="input-default-wrapper ">
-							<input name="foto" type="file">
-							
-							<c:if test="${invalida != null }">
-								<br />
-								<label class="alert-danger">${invalida }</label>
-							</c:if>
+								<input type="hidden" name="path" value="${path }" />
+							</c:forEach>
 						</div>
 
+						<div class="mb-3">
+							<div class="input-default-wrapper " id="file"
+								style="display: none;">
+								<input name="foto" type="file">
+
+								<c:if test="${invalida != null }">
+									<br />
+									<label class="alert-danger">${invalida }</label>
+								</c:if>
+							</div>
+						</div>
+						
 						<form:hidden path="id" />
-						<button id="activate-step-3" class="btn mt-4">Atualizar</button>
+						<button id="activate-step-3" class="btn">Atualizar</button>
 					</form:form>
 
 				</div>
@@ -215,6 +221,19 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		function mostraFile() {
+			var checkBox = document.getElementById('checkbox');
+			var file = document.getElementById('file');
+
+			if (checkBox.checked == true) {
+				file.style.display = 'block';
+			} else {
+				file.style.display = 'none';
+			}
+		}
+	</script>
 
 </body>
 </html>
