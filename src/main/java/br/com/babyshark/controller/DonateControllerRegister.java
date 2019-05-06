@@ -99,7 +99,7 @@ public class DonateControllerRegister {
 
 		String content = foto.getContentType();
 
-		if (value.equals(",true") && foto.getOriginalFilename().length() > 0
+		if (value != null && value.equals(",true") && foto.getOriginalFilename().length() > 0
 				&& (content.equals("image/jpeg") || content.equals("image/png"))) {
 			donateService.deletePhotoByDonate(donate.getId());
 			String photoPath = fileSaver.write(foto);
@@ -107,7 +107,11 @@ public class DonateControllerRegister {
 			photo.setPath(photoPath);
 			photo.setDonate(donate);
 			donate.add(photo);
-		} else {
+		} else if (value == null && foto.getOriginalFilename().length() == 0) {
+
+		}
+
+		else {
 			model.addAttribute("colors", userService.getAllColors());
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
