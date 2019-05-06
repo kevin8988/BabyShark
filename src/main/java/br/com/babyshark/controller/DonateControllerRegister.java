@@ -112,6 +112,7 @@ public class DonateControllerRegister {
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
 			model.addAttribute("path", path);
+			model.addAttribute("invalida", "Opção inválida");
 			return "user/profileDonatesUpdate";
 		}
 

@@ -169,7 +169,7 @@
 							</div>
 						</div>
 
-						<p>Excluir:</p>
+						<label>Excluir Foto:</label>
 						<c:forEach items="${path }" var="path">
 							<input type="checkbox" name="value" value="true" />
 							<label>${path }</label>
@@ -179,9 +179,10 @@
 
 						<div class="input-default-wrapper ">
 							<input name="foto" type="file">
-							<c:if test="${erroPhoto != null }">
+							
+							<c:if test="${invalida != null }">
 								<br />
-								<label class="alert-danger">${erroPhoto }</label>
+								<label class="alert-danger">${invalida }</label>
 							</c:if>
 						</div>
 
@@ -196,7 +197,6 @@
 			<div class="col-12">
 				<div class="col-md-12 well">
 					<h1 class="text-center">Conclusão</h1>
-
 				</div>
 			</div>
 		</div>
