@@ -133,7 +133,9 @@ public class DonateServiceImpl implements DonateService {
 	@Override
 	@Transactional
 	public void deletePhotoByDonate(Integer id) {
+		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
 		photoDAO.deletePhotoByDonate(id);
+		fileSaver.delete(photosByDonate);
 	}
 
 	@Override
