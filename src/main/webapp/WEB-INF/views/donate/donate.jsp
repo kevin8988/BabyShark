@@ -250,7 +250,7 @@
 								<div class="card h-100">
 									<c:forEach items="${donate.photos }" var="photo" begin="0"
 										end="0">
-										<img class="card-img-top" src="${photo.path }"
+										<img class="card-img-top img-detail" src="${photo.path }"
 											alt="Imagem de capa do card">
 									</c:forEach>
 									<div class="card-body">
