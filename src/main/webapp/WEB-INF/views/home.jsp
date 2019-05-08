@@ -123,7 +123,9 @@
 											<div class="card-body">
 												<h3 class="card-title">${lastDonate.title }</h3>
 												<p class="card-text">${lastDonate.description }</p>
-												<a href="#" class="btn btn-primary">Ver mais</a>
+												<a
+													href="${s:mvcUrl('DC#donateDetail').arg(0, lastDonate.id).build() }"
+													class="btn btn-primary">Ver mais</a>
 											</div>
 										</div>
 									</div>

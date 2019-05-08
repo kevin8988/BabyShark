@@ -137,7 +137,7 @@ public class DonateDAOImpl implements DonateDAO {
 		}
 
 		donate.setCategories(newList);
-		
+
 		if (donate.getId() == null) {
 			em.persist(donate);
 		} else {
@@ -158,16 +158,23 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	@Override
-	public Donate getDonateById(Integer id) {
+	public Donate getDonateById(User user, Integer id) {
 		return em.createQuery(
-				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false and d.id = :pId",
-				Donate.class).setParameter("pId", id).getSingleResult();
+				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false and d.id = :pId and d.user = :pUser",
+				Donate.class).setParameter("pUser", user).setParameter("pId", id).getSingleResult();
 	}
 
 	@Override
 	public List<Donate> getDonatesInterest(User user) {
 		return em.createQuery("from Donate d join fetch d.interests i join fetch i.user u where u = :pUser",
 				Donate.class).setParameter("pUser", user).getResultList();
+	}
+
+	@Override
+	public Donate getDonateDetail(Integer id) {
+		return em.createQuery(
+				"from Donate d join fetch d.photos p join fetch d.categories c join fetch d.color o join fetch d.gender g join fetch d.user u join fetch u.userAddress ua where d.id = :pId",
+				Donate.class).setParameter("pId", id).getSingleResult();
 	}
 
 }

@@ -129,7 +129,7 @@ public class DonateControllerRegister {
 
 	@PostMapping("/update/{id}")
 	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
-		Donate donateById = donateService.getDonateById(id);
+		Donate donateById = donateService.getDonateById((User) session.getAttribute("user"), id);
 		model.addAttribute("donate", donateById);
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());

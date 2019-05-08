@@ -109,11 +109,12 @@ footer {
 	box-sizing: border-box;
 }
 
-.container img {
-    max-width:350px;
-    max-height:290px;
-    width: auto;
-    height: auto;
+.container-fluid img {
+	max-width: 350px;
+	max-height: 290px;
+	min-height: 290px;
+	width: auto;
+	height: auto;
 }
 
 /*------------MEDIA-----------------*/

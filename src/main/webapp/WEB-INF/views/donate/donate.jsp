@@ -258,7 +258,9 @@
 										<p class="card-text">${donate.description }</p>
 									</div>
 									<div class="card-footer">
-										<button class="btn btn-outline-segundary">Ver mais</button>
+										<a
+											href="${s:mvcUrl('DC#donateDetail').arg(0, donate.id).build() }"
+											class="btn btn-primary">Ver mais</a>
 									</div>
 								</div>
 							</div>

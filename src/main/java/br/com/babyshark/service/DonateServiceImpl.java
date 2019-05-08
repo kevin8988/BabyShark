@@ -120,8 +120,8 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public Donate getDonateById(Integer id) {
-		return donateDAO.getDonateById(id);
+	public Donate getDonateById(User user, Integer id) {
+		return donateDAO.getDonateById(user, id);
 	}
 
 	@Override
@@ -136,6 +136,17 @@ public class DonateServiceImpl implements DonateService {
 		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
 		photoDAO.deletePhotoByDonate(id);
 		fileSaver.delete(photosByDonate);
+	}
+
+	@Override
+	@Transactional
+	public Donate getDonateDetail(Integer id) {
+		try {
+			return donateDAO.getDonateDetail(id);
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 	@Override

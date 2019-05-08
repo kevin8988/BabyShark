@@ -32,12 +32,14 @@ public interface DonateService {
 
 	public void delete(User user, Integer id);
 
-	public Donate getDonateById(Integer id);
+	public Donate getDonateById(User user, Integer id);
 	
 	public List<Donate> getDonatesInterest(User user);
 	
 	public List<String> getPathPhotos(Donate donate);
 	
 	public void deletePhotoByDonate(Integer id);
+	
+	public Donate getDonateDetail(Integer id);
 
 }
