@@ -10,13 +10,17 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<title>Sobre Nós</title>
+<title>Colabore Conosco</title>
 
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
-<s:url value="/resources/css/colabore/colabore.css" var="layout"></s:url>
+<s:url value="/resources/img/colabore/img1.png" var="img1"></s:url>
+<s:url value="/resources/img/colabore/img2.png" var="img2"></s:url>
+<s:url value="/resources/img/colabore/img3.png" var="img3"></s:url>
+<s:url value="/resources/img/colabore/btn.png" var="btn"></s:url>
+<s:url value="/resources/css/colabore/new_colabore.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 
@@ -52,36 +56,40 @@
 		<h3>Isso nos serve de incentivo</h3>
 	</div>
 
-	<div>
-		<h5>Participe! Essa é uma forma de você contriubuir para o
-			desenvolvimento do projeto.</h5>
-		<p>Uma forma rápida, simples e segura de ser um colaborador do
-			BabyShark</p>
-	</div>
-	<ol>
-		<li>
-			<p>Para ajudar, você primeiro precisa clicar nesse botãozinho,
-				ele vai te redirecionar direto para a nossa página do paypal,
-				fazendo que seja uma colaboração segura.</p>
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
-				target="_top">
-				<input type="hidden" name="cmd" value="_s-xclick" /> <input
-					type="hidden" name="hosted_button_id" value="45TNWY2WP66VQ" /> <input
-					type="image"
-					src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-					border="0" name="submit"
-					title="PayPal - The safer, easier way to pay online!"
-					alt="Donate with PayPal button" /> <img alt="" border="0"
-					src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1"
-					height="1" />
-			</form>
-		</li>
+	<div class="donate-description">
+		<h5>Participe! Essa é uma forma de você contribuir para o
+			desenvolvimento do projeto. Uma forma rápida, simples e segura de ser
+			um colaborador do BabyShark</h5>
 
-		<li>
-			<p>Depois é simples, basta escolher o valor que deseja doar para
-				nós.</p>
-		</li>
-	</ol>
+		<img src="${img1 }" class="img-pass" alt="primeiro passo">
+
+		<p>Para ajudar, você primeiro precisa clicar no botãozinho azul,
+			ele vai te redirecionar direto para a nossa página do paypal, fazendo
+			que seja uma colaboração segura.</p>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+			target="_blank">
+			<input type="hidden" name="cmd" value="_s-xclick" /> <input
+				type="hidden" name="hosted_button_id" value="45TNWY2WP66VQ" /> <input
+				type="image" src="${btn }" border="0" name="submit"
+				title="PayPal - The safer, easier way to pay online!"
+				alt="Donate with PayPal button" /> <img alt="" border="0"
+				src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1"
+				height="1" />
+		</form>
+
+		<img src="${img2 }" class="img-pass" alt="segundo passo">
+		<p>Depois é simples, basta escolher o valor que deseja doar, a
+			forma de pagamento e realizar a doação para o projeto.</p>
+
+		<img src="${img3 }" class="img-pass" alt="terceiro passo">
+		<p>Pronto, viu como foi fácil? Isso faz com que você nos ajude e
+			nos incentive de uma maneira enorme. OBRIGADO!!</p>
+
+
+
+
+	</div>
+
 	</main>
 
 
