@@ -29,7 +29,7 @@ public class DonateDAOImpl implements DonateDAO {
 
 	public List<Donate> getAllDonates() {
 		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false", Donate.class)
-				.setHint("org.hibernate.cacheable", true).getResultList();
+				.getResultList();
 	}
 
 	public List<Donate> getDonatesByUser(User user) {
@@ -42,8 +42,7 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d join fetch d.photos order by d.id desc", Donate.class)
-				.setHint("org.hibernate.cacheable", true).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos order by d.id desc", Donate.class).getResultList();
 	}
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,

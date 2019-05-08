@@ -13,13 +13,16 @@ import br.com.babyshark.dao.CategoryDAO;
 import br.com.babyshark.dao.ColorDAO;
 import br.com.babyshark.dao.DonateDAO;
 import br.com.babyshark.dao.GenderDAO;
+import br.com.babyshark.dao.InterestDAO;
 import br.com.babyshark.dao.PhotoDAO;
 import br.com.babyshark.dao.UserAddressDAO;
 import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.Photo;
+import br.com.babyshark.entity.Status;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 import br.com.babyshark.infra.FileSaver;
@@ -32,6 +35,9 @@ public class DonateServiceImpl implements DonateService {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
+
+	@Autowired
+	private InterestDAO interestDAO;
 
 	@Autowired
 	private GenderDAO genderDAO;
@@ -147,6 +153,19 @@ public class DonateServiceImpl implements DonateService {
 			return null;
 		}
 
+	}
+
+	@Override
+	@Transactional
+	public void add(Interest interest) {
+		interest.setStatus(Status.PENDENTE);
+		interestDAO.add(interest);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		interestDAO.delete(id);
 	}
 
 	@Override

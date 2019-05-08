@@ -26,7 +26,8 @@ public class Photo implements Serializable {
 	@Column(nullable = false)
 	private String path;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	private Donate donate;
 
 	public String getPath() {

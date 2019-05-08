@@ -7,6 +7,7 @@ import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.User;
 
 public interface DonateService {
@@ -41,5 +42,9 @@ public interface DonateService {
 	public void deletePhotoByDonate(Integer id);
 	
 	public Donate getDonateDetail(Integer id);
+	
+	public void add(Interest interest);
+
+	public void delete(Integer id);
 
 }

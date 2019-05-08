@@ -128,23 +128,27 @@
 					</div>
 					<c:if test="${user != null }">
 						<div class="row justify-content-center p-3">
-							<div class="col-lg-12 my-3">
-								<div>
-									<h5>Solicitação</h5>
-									<p>Nós da BabyShark® gostariamos que redigisse uma carta
-										para o doador deste produto. Explicando o porquê do seu
-										interesse, qual a sua situação e o porque está precisando
-										desta doação. Tente ser o mais claro e sincero possível.</p>
-								</div>
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Carta para o Doador</span>
+							<form:form method="POST" modelAttribute="interest"
+								action="${s:mvcUrl('DC#donateInterest').build() }">
+								<div class="col-lg-12 my-3">
+									<div>
+										<h5>Solicitação</h5>
+										<p>Nós da BabyShark® gostariamos que redigisse uma carta
+											para o doador deste produto. Explicando o porquê do seu
+											interesse, qual a sua situação e o porque está precisando
+											desta doação. Tente ser o mais claro e sincero possível.</p>
 									</div>
-									<textarea class="form-control" rows="8"
-										aria-label="With textarea"></textarea>
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Carta para o Doador</span>
+										</div>
+										<form:textarea cssClass= "form-control" rows="8" path="message" />
+										<form:hidden path="user.id" value = "${user.id }"/>
+										<form:hidden path="donate.id" value = "${donateDetail.id }"/>
+									</div>
 								</div>
-							</div>
-							<button class="btn btn-outline-segundary">Enviar</button>
+								<button class="btn btn-outline-segundary">Enviar</button>
+							</form:form>
 						</div>
 					</c:if>
 				</div>
