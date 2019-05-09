@@ -123,7 +123,7 @@
 									<c:forEach items="${interest.donate.photos }" var="photo"
 										begin="0" end="0">
 										<a
-											href="${s:mvcUrl('IC#donateDetail').arg(0, interest.donate.id).build() }"><img
+											href="${s:mvcUrl('DC#donateDetail').arg(0, interest.donate.id).build() }"><img
 											class="card-img-top img-detail-2" src="${photo.path }"
 											alt="Imagem de capa do card"></a>
 									</c:forEach>

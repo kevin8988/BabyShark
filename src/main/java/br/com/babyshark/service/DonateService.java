@@ -35,6 +35,8 @@ public interface DonateService {
 
 	public Donate getDonateById(User user, Integer id);
 	
+	public Donate getDonateById(Integer id);
+	
 	public List<Interest> getDonatesInterest(User user);
 	
 	public List<String> getPathPhotos(Donate donate);

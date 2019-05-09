@@ -179,4 +179,10 @@ public class DonateDAOImpl implements DonateDAO {
 				Donate.class).setParameter("pId", id).getSingleResult();
 	}
 
+	@Override
+	public Donate getDonateById(Integer id) {
+		return em.createQuery("from Donate d where d.id = :pId", Donate.class).setParameter("pId", id)
+				.getSingleResult();
+	}
+
 }

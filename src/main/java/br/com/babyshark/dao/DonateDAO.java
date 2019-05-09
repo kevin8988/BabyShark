@@ -26,6 +26,8 @@ public interface DonateDAO {
 	public void delete(User user, Integer id);
 
 	public Donate getDonateById(User user, Integer id);
+	
+	public Donate getDonateById(Integer id);
 
 	public List<Interest> getDonatesInterest(User user);
 

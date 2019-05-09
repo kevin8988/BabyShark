@@ -42,12 +42,12 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests()
-		        .antMatchers("/user/profile").authenticated().and().authorizeRequests()
+		http.authorizeRequests().antMatchers("/user/profile").authenticated().and().authorizeRequests()
 				.antMatchers("/user/donate/**").authenticated().and().authorizeRequests()
-				.antMatchers("/user/profile/**").authenticated().and().formLogin().loginPage("/user/login")
-				.loginProcessingUrl("/loginProcess").defaultSuccessUrl("/").permitAll().and().logout().permitAll().and()
-				.rememberMe().key("uniqueAndSecret").userDetailsService(userDetailsService).tokenValiditySeconds(86400);
+				.antMatchers("/user/profile/**").authenticated().antMatchers("/interest/**").authenticated().and()
+				.authorizeRequests().and().formLogin().loginPage("/user/login").loginProcessingUrl("/loginProcess")
+				.defaultSuccessUrl("/").permitAll().and().logout().permitAll().and().rememberMe().key("uniqueAndSecret")
+				.userDetailsService(userDetailsService).tokenValiditySeconds(86400);
 
 	}
 

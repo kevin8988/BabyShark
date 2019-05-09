@@ -1,44 +1,50 @@
 package br.com.babyshark.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.User;
 import br.com.babyshark.service.DonateService;
 
 @Controller
+@RequestMapping("/interest")
 public class InterestController {
 
 	@Autowired
 	private DonateService donateService;
 
-	@InitBinder
-	public void initBinder(WebDataBinder dataBinder) {
-		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
-		dataBinder.registerCustomEditor(String.class, trimmerEditor);
+	@Autowired
+	private HttpSession session;
+
+	@PostMapping("/{id}")
+	public String donateInterest(@PathVariable("id") Integer id, Model model) {
+		Donate donate = donateService.getDonateById(id);
+		model.addAttribute("donateId", donate.getId());
+		return "donate/interest";
 	}
 
-	@GetMapping("donate/detail/{id}")
-	public String donateDetail(@PathVariable("id") Integer id, Model model) {
-		Donate donateDetail = donateService.getDonateDetail(id);
-		model.addAttribute("donateDetail", donateDetail);
-		model.addAttribute("interest", new Interest());
-		return "donate/detail";
-	}
+	@PostMapping("/interestProcess/{id}")
+	public String donateInterestProcess(@PathVariable("id") Integer id, Model model, String message) {
+		Donate donate = donateService.getDonateById(id);
+		User user = (User) session.getAttribute("user");
 
-	@PostMapping("donate/interest")
-	public String donateInterest(@ModelAttribute("interest") Interest interest) {
-		donateService.add(interest, interest.getUser(), interest.getDonate());
+		if (user.getId() == donate.getUser().getId()) {
+			model.addAttribute("donateId", donate.getId());
+			model.addAttribute("error", "Não pode se interessar pela própria doação!");
+			return "donate/interest";
+		}
+
+		Interest interest = new Interest();
+		interest.setMessage(message.replace(",", ""));
+		donateService.add(interest, user, donate);
 		return "redirect:/";
 	}
-
 }
