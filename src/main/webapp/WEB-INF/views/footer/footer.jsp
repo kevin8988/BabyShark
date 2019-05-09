@@ -30,7 +30,7 @@
 						<li><a href="${s:mvcUrl('AUC#aboutUs').build() }"
 							class="text-muted">Sobre </a></li>
 						<li><a href="index.html" class="text-muted">Fundadores </a></li>
-						<li><a href="index.html" class="text-muted">Contato </a></li>
+						<li><a href="${s:mvcUrl('CC#contact').build() }" class="text-muted">Contato </a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 mt-5 mb-lg-0">

@@ -38,7 +38,7 @@ public class InterestController {
 	@PostMapping("donate/interest")
 	public String donateInterest(@ModelAttribute("interest") Interest interest) {
 		donateService.add(interest, interest.getUser(), interest.getDonate());
-		return "donate/donate";
+		return "redirect:/";
 	}
 
 }

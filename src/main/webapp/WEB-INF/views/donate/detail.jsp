@@ -119,6 +119,8 @@
 
 							<h5>Descrição:</h5>
 							<p class="ml-4">${donateDetail.description}</p>
+							<h5>Informações Adicionais:</h5>
+							<p class="ml-4">${donateDetail.informations}</p>
 							<h5>Nome do Doador:</h5>
 							<p class="ml-4">${donateDetail.user.firstName}
 								${donateDetail.user.lastName}</p>
