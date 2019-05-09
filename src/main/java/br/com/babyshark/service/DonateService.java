@@ -35,7 +35,7 @@ public interface DonateService {
 
 	public Donate getDonateById(User user, Integer id);
 	
-	public List<Donate> getDonatesInterest(User user);
+	public List<Interest> getDonatesInterest(User user);
 	
 	public List<String> getPathPhotos(Donate donate);
 	
@@ -43,7 +43,7 @@ public interface DonateService {
 	
 	public Donate getDonateDetail(Integer id);
 	
-	public void add(Interest interest);
+	public void add(Interest interest, User user, Donate donate);
 
 	public void delete(Integer id);
 

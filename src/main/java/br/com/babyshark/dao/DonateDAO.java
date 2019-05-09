@@ -3,6 +3,7 @@ package br.com.babyshark.dao;
 import java.util.List;
 
 import br.com.babyshark.entity.Donate;
+import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.User;
 
 public interface DonateDAO {
@@ -26,7 +27,7 @@ public interface DonateDAO {
 
 	public Donate getDonateById(User user, Integer id);
 
-	public List<Donate> getDonatesInterest(User user);
+	public List<Interest> getDonatesInterest(User user);
 
 	public Donate getDonateDetail(Integer id);
 

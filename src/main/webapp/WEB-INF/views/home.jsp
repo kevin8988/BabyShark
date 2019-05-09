@@ -124,7 +124,7 @@
 												<h3 class="card-title">${lastDonate.title }</h3>
 												<p class="card-text">${lastDonate.description }</p>
 												<a
-													href="${s:mvcUrl('DC#donateDetail').arg(0, lastDonate.id).build() }"
+													href="${s:mvcUrl('IC#donateDetail').arg(0, lastDonate.id).build() }"
 													class="btn btn-primary">Ver mais</a>
 											</div>
 										</div>

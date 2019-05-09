@@ -112,6 +112,15 @@ footer {
 	background-color: #fa6c96;
 	color: white;
 }
+
+.img-detail-2 {
+	max-width: 350px;
+	max-height: 290px;
+	min-width: 350px;
+	min-height: 290px;
+	width: auto;
+	height: auto;
+}
 /*------------MEDIA-----------------*/
 @media only screen and (max-width: 600px) {
 	body {

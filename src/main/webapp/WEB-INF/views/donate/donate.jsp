@@ -259,7 +259,7 @@
 									</div>
 									<div class="card-footer">
 										<a
-											href="${s:mvcUrl('DC#donateDetail').arg(0, donate.id).build() }"
+											href="${s:mvcUrl('IC#donateDetail').arg(0, donate.id).build() }"
 											class="btn btn-primary">Ver mais</a>
 									</div>
 								</div>

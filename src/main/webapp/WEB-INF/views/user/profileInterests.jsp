@@ -116,7 +116,25 @@
 						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
 							<c:if test="${interests.isEmpty() }">
 								<p>Nenhum interesse.</p>
-							</c:if>							
+							</c:if>
+
+							<c:if test="${!interests.isEmpty() }">
+								<c:forEach items="${interests }" var = "interest">
+									<c:forEach items="${interest.donate.photos }" var="photo"
+										begin="0" end="0">
+										<a
+											href="${s:mvcUrl('IC#donateDetail').arg(0, interest.donate.id).build() }"><img
+											class="card-img-top img-detail-2" src="${photo.path }"
+											alt="Imagem de capa do card"></a>
+									</c:forEach>
+									<div class="card-body">
+										<h4 class="card-title">Título: ${interest.donate.title }</h4>
+										<p class="card-text">Descrição: ${interest.donate.description }</p>
+										<p class="card-text">Doador: ${interest.user.firstName }</p>
+										<p class="card-text">Status: ${interest.status }</p>
+									</div>
+								</c:forEach>
+							</c:if>
 						</div>
 					</div>
 				</div>

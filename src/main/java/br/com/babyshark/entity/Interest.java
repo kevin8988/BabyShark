@@ -51,6 +51,14 @@ public class Interest implements Serializable {
 		donate.getInterests().add(this);
 	}
 
+	public InterestId getId() {
+		return id;
+	}
+
+	public void setId(InterestId id) {
+		this.id = id;
+	}
+
 	public User getUser() {
 		return user;
 	}

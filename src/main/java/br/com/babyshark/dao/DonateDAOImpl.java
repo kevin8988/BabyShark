@@ -18,6 +18,7 @@ import br.com.babyshark.entity.Category;
 import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
+import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.entity.UserAddress;
 
@@ -151,6 +152,7 @@ public class DonateDAOImpl implements DonateDAO {
 
 	@Override
 	public void delete(User user, Integer id) {
+		em.createQuery("delete from Interest i where i.donate.id = :pId").setParameter("pId", id).executeUpdate();
 		em.createQuery("delete from Photo p where p.donate.id = :pId").setParameter("pId", id).executeUpdate();
 		em.createQuery("delete from Donate d where d.id = :pId and d.user = :pUser").setParameter("pId", id)
 				.setParameter("pUser", user).executeUpdate();
@@ -164,9 +166,10 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	@Override
-	public List<Donate> getDonatesInterest(User user) {
-		return em.createQuery("from Donate d join fetch d.interests i join fetch i.user u where u = :pUser",
-				Donate.class).setParameter("pUser", user).getResultList();
+	public List<Interest> getDonatesInterest(User user) {
+		return em.createQuery(
+				"from Interest i join fetch i.donate d join fetch d.photos p join fetch i.user u where i.user = :pUser",
+				Interest.class).setParameter("pUser", user).getResultList();
 	}
 
 	@Override

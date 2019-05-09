@@ -21,6 +21,7 @@ import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.InterestId;
 import br.com.babyshark.entity.Photo;
 import br.com.babyshark.entity.Status;
 import br.com.babyshark.entity.User;
@@ -132,7 +133,7 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public List<Donate> getDonatesInterest(User user) {
+	public List<Interest> getDonatesInterest(User user) {
 		return donateDAO.getDonatesInterest(user);
 	}
 
@@ -157,13 +158,6 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public void add(Interest interest) {
-		interest.setStatus(Status.PENDENTE);
-		interestDAO.add(interest);
-	}
-
-	@Override
-	@Transactional
 	public void delete(Integer id) {
 		interestDAO.delete(id);
 	}
@@ -176,6 +170,17 @@ public class DonateServiceImpl implements DonateService {
 			path.add(newPath);
 		}
 		return path;
+	}
+
+	@Override
+	@Transactional
+	public void add(Interest interest, User user, Donate donate) {
+		InterestId id = new InterestId(interest.getUser().getId(), interest.getDonate().getId());
+		interest.setId(id);
+		interest.setUser(user);
+		interest.setDonate(donate);
+		interest.setStatus(Status.PENDENTE);
+		interestDAO.add(interest);
 	}
 
 }
