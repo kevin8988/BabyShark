@@ -3,8 +3,11 @@ package br.com.babyshark.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,12 @@ public class InterestController {
 	@Autowired
 	private HttpSession session;
 
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
+		dataBinder.registerCustomEditor(String.class, trimmerEditor);
+	}
+
 	@PostMapping("/{id}")
 	public String donateInterest(@PathVariable("id") Integer id, Model model) {
 		Donate donate = donateService.getDonateById(id);
@@ -40,11 +49,21 @@ public class InterestController {
 			model.addAttribute("donateId", donate.getId());
 			model.addAttribute("error", "Não pode se interessar pela própria doação!");
 			return "donate/interest";
+		} else if (message.length() > 300) {
+			model.addAttribute("donateId", donate.getId());
+			model.addAttribute("error", "Deve apresentar no máximo 300 caractéres!");
+			return "donate/interest";
 		}
 
-		Interest interest = new Interest();
-		interest.setMessage(message.replace(",", ""));
-		donateService.add(interest, user, donate);
-		return "redirect:/";
+		try {
+			Interest interest = new Interest();
+			interest.setMessage(message.replace(",", ""));
+			donateService.add(interest, user, donate);
+			return "redirect:/";
+
+		} catch (Exception e) {
+			return "redirect:/";
+		}
+
 	}
 }

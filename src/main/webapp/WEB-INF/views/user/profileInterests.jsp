@@ -130,7 +130,7 @@
 									<div class="card-body">
 										<h4 class="card-title">Título: ${interest.donate.title }</h4>
 										<p class="card-text">Descrição: ${interest.donate.description }</p>
-										<p class="card-text">Doador: ${interest.user.firstName }</p>
+										<p class="card-text">Doador: ${interest.donate.user.firstName } ${interest.donate.user.lastName }</p>
 										<p class="card-text">Status: ${interest.status }</p>
 									</div>
 								</c:forEach>
