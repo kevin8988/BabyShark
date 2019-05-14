@@ -33,7 +33,7 @@
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('HC#home').build() }">Home</a></li>
 					<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('DC#search').build() }">Doações<span
 							class="sr-only">(página atual)</span></a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Eventos</a>
+					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('EC#events').build() }">Eventos</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('CC#colabore').build() }">Colabore</a>
 					</li>					

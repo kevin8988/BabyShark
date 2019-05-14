@@ -9,6 +9,8 @@ public interface EventDAO {
 	
 	public List<Event> getAllEvents();
 	
+	public List<Event> getEventsByFilter(String city, String state, String text)
+	
 	public List<Event> getEventsByTitle(String title);
 	
 	public List<Event> getEventsByUser(User user);

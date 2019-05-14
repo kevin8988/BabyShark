@@ -84,85 +84,83 @@
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
 
-	<div class="container fundo mt-lg-3 mt-md-5" style="height: 60%;">
-		<h1 class="slogan">"Como dizer não</h1>
-		<h2 class="slogan">para uma carinha dessas?"</h2>
-		<nav class="navbar navbar-light bg-light mb-lg-5 mb-md-3 ">
-			<form class="form-inline my-2 my-lg-0" method="get"
-				action="${s:mvcUrl('DC#search').build() }">
-				<input class="form-control mr-sm-2 " type="search"
-					placeholder="Pesquisar" aria-label="Pesquisar" name="search">
-				<button class="btn my-2 my-sm-0" type="submit">
-					<i class="fas fa-search mr-1"></i> Pesquisar
-				</button>
-			</form>
-		</nav>
-	</div>
-	<div class="container shadow rounded mb-5"
-		style="background-color: white; padding: 0px;">
-		<div class="container-fluid p-5">
-			<h1 class="mb-3">Últimas doações</h1>
-			<div class="swiper-container">
-				<div class="swiper-wrapper"
-					style="transition-duration: 0ms; transform: translate3d(-520.75px, 0px, 0px);">
-					<c:if test="${lastDonates.isEmpty() }">
-						<p>Nenhuma doação</p>
-					</c:if>
-					<c:if test="${!lastDonates.isEmpty() }">
-						<c:forEach items="${lastDonates }" var="lastDonate" begin="0"
-							end="2">
-							<div class="swiper-slide h-auto px-2 swiper-slide-next p-3 ">
-								<div class="row">
-									<div class="col">
-										<div class="card shadow" style="width: 18rem;">
-											<c:forEach items="${lastDonate.photos }" var="photo"
-												begin="0" end="0">
-												<img class="card-img-top img-detail" src="${photo.path }"
-													alt="Imagem de capa do card">
-											</c:forEach>
-											<div class="card-body">
-												<h3 class="card-title">${lastDonate.title }</h3>
-												<p class="card-text">${lastDonate.description }</p>
-												<a
-													href="${s:mvcUrl('DC#donateDetail').arg(0, lastDonate.id).build() }"
-													class="btn btn-primary">Ver mais</a>
-											</div>
-										</div>
-									</div>
-								</div>
+	<div class="container-fluid " style="margin-top: 10%;">
+		<form:form method="GET" action="${s:mvcUrl('EC#events').build() }">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card text-center m-3">
+						<div class="card-body">
+							<div class="form-group row justify-content-center"
+								style="margin-bottom: 0px;">
+
+								<label for="exampleFormControlSelect1" class="mx-2"
+									style="line-height: 2.5;">Estado:</label> <select
+									class="form-control" style="width: 9%;"
+									id="exampleFormControlSelect1" name="state">
+									<option value="">Selecione</option>
+									<option value="São Paulo">SP</option>
+									<option>RJ</option>
+									<option>BA</option>
+									<option>MG</option>
+									<option>SC</option>
+								</select> <label for="exampleFormControlSelect1" class="mx-2"
+									style="line-height: 2.5;">Cidades:</label> <select
+									class="form-control " style="width: 15%;"
+									id="exampleFormControlSelect1" name="city">
+									<option value="">Selecione</option>
+									<option value="São Paulo">São Paulo</option>
+									<option>Rio</option>
+									<option>Salvador</option>
+									<option>Jundíai</option>
+									<option>Curitiba</option>
+								</select>
+
+								<!--<label for="pesquisa" class="mx-2">Pesquisar</label>-->
+								<input type="text" class="form-control w-25 ml-2" id="pesquisa"
+									aria-describedby="pesquisa" name="text">
+
+								<button class="btn my-2 my-sm-0 m-3" type="submit">
+									<i class="fas fa-search mr-1"></i> Pesquisar
+								</button>
+
 							</div>
-						</c:forEach>
-					</c:if>
+						</div>
+					</div>
 				</div>
-				<!-- Add Pagination -->
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
 			</div>
-		</div>
-		<div class="container-fluid p-5" style="background-color: #0386A8;">
-			<h1 class="mb-3" style="color: white;">Eventos</h1>
-			<div class="row justify-content-center">
-				<c:if test="${events.isEmpty() }">
-					<p>Nenhum Evento</p>
-				</c:if>
-				<c:if test="${!events.isEmpty() }">
-					<c:forEach items="${events }" var="event" begin="0" end="2">
-						<div class="card text-center col-lg-5 col-md-12 m-2 shadow">
-							<div class="card-header">Evento</div>
+		</form:form>
+		<c:if test="${events.isEmpty() || events == null }">
+				<p>Não há eventos!</p>
+			</c:if>
+		<div class="row">
+			<c:if test="${!events.isEmpty() }">
+				<c:forEach items="${events }" var="event">
+					<div class="col-lg-4">
+						<div class="card text-center carde m-3">
 							<div class="card-body">
 								<h5 class="card-title">${event.title }</h5>
 								<p class="card-text">${event.description }</p>
-								<p class="card-text">${event.dayOfEvent }</p>
-								<a href="#" class="btn btn-primary">Visitar</a>
+								<a href="#" class="btn btn-primary">Ver Mais</a>
 							</div>
-							<div class="card-footer text-muted">2 dias atrás</div>
 						</div>
-					</c:forEach>
-				</c:if>
-
-			</div>
+					</div>
+				</c:forEach>
+			</c:if>
+			
 		</div>
+		<nav class="mt-2" aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item disabled"><a class="page-link" href="#"
+					tabindex="-1" aria-disabled="true">Anterior</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">Proximo</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
+
 
 	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
 
