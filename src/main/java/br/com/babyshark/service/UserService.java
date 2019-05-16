@@ -11,22 +11,34 @@ import br.com.babyshark.entity.UserDetail;
 
 public interface UserService {
 
+	// User
+
+	public void insertOrUpdate(User user);
+
 	public User getUserById(Integer id);
 
-	public void insert(User user);
-	
-	public void insert(UserAddress userAddress);
-	
-	public void insertOrUpdate(UserDetail userDetail);
-	
-	public void update(User user, String email, String password);
+	public void updateEmailAndPassword(User user, String email, String password);
 
 	public List<String> getUserEmails();
-	
+
+	// User Address
+
+	public void insertOrUpdate(UserAddress userAddress);
+
+	// User Detail
+
+	public void insertOrUpdate(UserDetail userDetail);
+
+	// Color
+
 	public List<Color> getAllColors();
-	
+
+	// Gender
+
 	public List<Gender> getAllGenders();
-	
+
+	// Category
+
 	public List<Category> getAllCategories();
 
 }

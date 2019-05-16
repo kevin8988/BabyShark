@@ -59,7 +59,7 @@ public class InterestController {
 		try {
 			Interest interest = new Interest();
 			interest.setMessage(message.replace(",", ""));
-			donateService.add(interest, user, donate);
+			donateService.insertOrUpdate(interest, user, donate);
 			return "redirect:/";
 
 		} catch (Exception e) {

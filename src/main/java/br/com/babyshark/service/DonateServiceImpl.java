@@ -55,93 +55,19 @@ public class DonateServiceImpl implements DonateService {
 	@Autowired
 	private FileSaver fileSaver;
 
-	@Override
-	@Transactional
-	public List<Donate> getAllDonates() {
-		return donateDAO.getAllDonates();
-	}
+	// Donate
 
 	@Override
 	@Transactional
-	public List<Category> getAllCategoriesDonate() {
-		return categoryDAO.getAllCategoriesDonate();
-	}
-
-	@Override
-	@Transactional
-	public List<Gender> getAllGendersDonate() {
-		return genderDAO.getAllGendersDonate();
-	}
-
-	@Override
-	@Transactional
-	public List<Color> getAllColorsDonate() {
-		return colorDAO.getAllColorsDonate();
-	}
-
-	@Override
-	@Transactional
-	public Set<String> getAllAddressesDonate() {
-		List<UserAddress> donate = userAddressDAO.getAllAddressDonate();
-		Set<String> state = new HashSet<>();
-		for (UserAddress address : donate) {
-			if (address.getState() != null) {
-				state.add(address.getState());
-			}
-		}
-		return state;
-	}
-
-	@Override
-	@Transactional
-	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
-			List<String> states, String search) {
-		return donateDAO.getDonatesByFilter(categories, genders, colors, states, search);
-	}
-
-	@Override
-	@Transactional
-	public void add(Donate donate) {
+	public void insertOrUpdate(Donate donate) {
 		donateDAO.insertOrUpdate(donate);
 	}
 
 	@Override
 	@Transactional
-	public List<Donate> find() {
-		return donateDAO.getAllDonatesWithoutAgregation();
-	}
-
-	@Override
-	@Transactional
-	public List<Donate> getDonatesByUser(User user) {
-		return donateDAO.getDonatesByUser(user);
-	}
-
-	@Override
-	@Transactional
-	public void delete(User user, Integer id) {
+	public void deleteDonate(User user, Integer id) {
 		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
 		donateDAO.deleteDonate(user, id);
-		fileSaver.delete(photosByDonate);
-	}
-
-	@Override
-	@Transactional
-	public Donate getDonateById(User user, Integer id) {
-		return donateDAO.getDonateByIdAndUser(user, id);
-	}
-
-	@Override
-	@Transactional
-	public List<Interest> getDonatesInterest(User user) {
-		return donateDAO.getMyInterests(user);
-	}
-
-	@Override
-	@Transactional
-	public void deletePhotoByDonate(Integer id) {
-		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
-		photoDAO.deletePhotoByDonate(id);
 		fileSaver.delete(photosByDonate);
 	}
 
@@ -158,8 +84,94 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public void delete(Integer id) {
+	public Donate getDonateByIdAndUser(User user, Integer id) {
+		return donateDAO.getDonateByIdAndUser(user, id);
+	}
+
+	@Override
+	@Transactional
+	public Donate getDonateById(Integer id) {
+		return donateDAO.getDonateById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Donate> getAllDonatesWithoutAgregation() {
+		return donateDAO.getAllDonatesWithoutAgregation();
+	}
+
+	@Override
+	@Transactional
+	public List<Donate> getAllDonates() {
+		return donateDAO.getAllDonates();
+	}
+
+	@Override
+	@Transactional
+	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
+			List<String> states, String search) {
+		return donateDAO.getDonatesByFilter(categories, genders, colors, states, search);
+	}
+
+	@Override
+	@Transactional
+	public List<Donate> getDonatesByUser(User user) {
+		return donateDAO.getDonatesByUser(user);
+	}
+
+	// Interest
+
+	@Override
+	@Transactional
+	public void insertOrUpdate(Interest interest, User user, Donate donate) {
+		InterestId id1 = new InterestId(user.getId(), donate.getId());
+		interest.setId(id1);
+		interest.setStatus(Status.PENDENTE);
+		interest.setUser(user);
+		interest.setDonate(donate);
+		interestDAO.insertOrUpdate(interest);
+	}
+
+	@Override
+	@Transactional
+	public void deleteInterest(Integer id) {
 		interestDAO.delete(id);
+	}
+
+	@Override
+	@Transactional
+	public void accept(Interest interest) {
+		interest.setStatus(Status.ACEITO);
+		interestDAO.insertOrUpdate(interest);
+	}
+
+	@Override
+	@Transactional
+	public void decline(Interest interest) {
+		interest.setStatus(Status.RECUSADO);
+		interestDAO.insertOrUpdate(interest);
+	}
+
+	@Override
+	@Transactional
+	public List<Interest> getMyInterests(User user) {
+		return interestDAO.getMyInterests(user);
+	}
+
+	@Override
+	@Transactional
+	public List<Interest> getInterestInMyDonates(User user) {
+		return interestDAO.getInterestInMyDonates(user);
+	}
+
+	// Photo
+
+	@Override
+	@Transactional
+	public void deletePhotoByDonate(Integer id) {
+		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
+		photoDAO.deletePhotoByDonate(id);
+		fileSaver.delete(photosByDonate);
 	}
 
 	@Override
@@ -172,41 +184,43 @@ public class DonateServiceImpl implements DonateService {
 		return path;
 	}
 
-	@Override
-	@Transactional
-	public void add(Interest interest, User user, Donate donate) {
-		InterestId id1 = new InterestId(user.getId(), donate.getId());
-		interest.setId(id1);
-		interest.setStatus(Status.PENDENTE);
-		interest.setUser(user);
-		interest.setDonate(donate);
-		interestDAO.insertOrUpdate(interest);
-	}
+	// Category
 
 	@Override
 	@Transactional
-	public Donate getDonateById(Integer id) {
-		return donateDAO.getDonateById(id);
+	public List<Category> getAllCategoriesDonate() {
+		return categoryDAO.getAllCategoriesDonate();
 	}
+
+	// Color
 
 	@Override
 	@Transactional
-	public List<Interest> getInterest(User user) {
-		return donateDAO.getInterestInMyDonates(user);
+	public List<Color> getAllColorsDonate() {
+		return colorDAO.getAllColorsDonate();
 	}
+
+	// Gender
 
 	@Override
 	@Transactional
-	public void accept(Interest interest) {
-		interest.setStatus(Status.ACEITO);
-		interestDAO.accept(interest);
+	public List<Gender> getAllGendersDonate() {
+		return genderDAO.getAllGendersDonate();
 	}
+
+	// UserAddress
 
 	@Override
 	@Transactional
-	public void decline(Interest interest) {
-		interest.setStatus(Status.RECUSADO);
-		interestDAO.accept(interest);
+	public Set<String> getAllAddressesDonate() {
+		List<UserAddress> donate = userAddressDAO.getAllAddressDonate();
+		Set<String> state = new HashSet<>();
+		for (UserAddress address : donate) {
+			if (address.getState() != null) {
+				state.add(address.getState());
+			}
+		}
+		return state;
 	}
 
 }

@@ -48,15 +48,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Autowired
 	private UserDetailDAO userDetailDAO;
 
-	@Transactional
-	@Override
-	public User getUserById(Integer id) {
-		return userDAO.getUserById(id);
-	}
+	// User
 
 	@Transactional
 	@Override
-	public void insert(User user) {
+	public void insertOrUpdate(User user) {
 
 		String encode = new BCryptPasswordEncoder().encode(user.getPassword());
 		Authority authority = new Authority();
@@ -80,23 +76,70 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userDAO.insertOrUpdate(user);
 	}
 
+	@Override
+	@Transactional
+	public void updateEmailAndPassword(User user, String email, String password) {
+		if (password == null) {
+			userDAO.updateEmail(user, email);
+		} else {
+			String encode = new BCryptPasswordEncoder().encode(password);
+			userDAO.updateEmailAndPassword(user, email, encode);
+		}
+	}
+
+	@Transactional
+	@Override
+	public User getUserById(Integer id) {
+		return userDAO.getUserById(id);
+	}
+
 	@Transactional
 	@Override
 	public List<String> getUserEmails() {
 		return userDAO.getUserEmails();
 	}
 
+	// User Address
+
 	@Override
 	@Transactional
-	public void insert(UserAddress userAddress) {
+	public void insertOrUpdate(UserAddress userAddress) {
 		userAddressDAO.insertOrUpdate(userAddress);
 	}
+
+	// User Detail
 
 	@Override
 	@Transactional
 	public void insertOrUpdate(UserDetail userDetail) {
 		userDetailDAO.insertOrUpdate(userDetail);
 	}
+
+	// Color
+
+	@Override
+	@Transactional
+	public List<Color> getAllColors() {
+		return colorDAO.getAllColors();
+	}
+
+	// Gender
+
+	@Override
+	@Transactional
+	public List<Gender> getAllGenders() {
+		return genderDAO.getAllGenders();
+	}
+
+	// Category
+
+	@Override
+	@Transactional
+	public List<Category> getAllCategories() {
+		return categoryDAO.getAllCategories();
+	}
+
+	// User Detail
 
 	@Transactional
 	@Override
@@ -114,35 +157,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 			throw new UsernameNotFoundException("User not found.");
 		}
 		return builder.build();
-	}
-
-	@Override
-	@Transactional
-	public void update(User user, String email, String password) {
-		if (password == null) {
-			userDAO.updateEmail(user, email);
-		} else {
-			String encode = new BCryptPasswordEncoder().encode(password);
-			userDAO.updateEmailAndPassword(user, email, encode);
-		}
-	}
-
-	@Override
-	@Transactional
-	public List<Color> getAllColors() {
-		return colorDAO.getAllColors();
-	}
-
-	@Override
-	@Transactional
-	public List<Gender> getAllGenders() {
-		return genderDAO.getAllGenders();
-	}
-
-	@Override
-	@Transactional
-	public List<Category> getAllCategories() {
-		return categoryDAO.getAllCategories();
 	}
 
 }

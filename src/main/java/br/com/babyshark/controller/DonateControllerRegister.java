@@ -81,7 +81,7 @@ public class DonateControllerRegister {
 		photo.setPath(path);
 		photo.setDonate(donate);
 		donate.add(photo);
-		donateService.add(donate);
+		donateService.insertOrUpdate(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação cadastrado com Sucesso.");
 		return "redirect:/profile/profile";
 	}
@@ -121,7 +121,7 @@ public class DonateControllerRegister {
 		}
 
 		donate.setUser((User) session.getAttribute("user"));
-		donateService.add(donate);
+		donateService.insertOrUpdate(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação atualizada com Sucesso.");
 		return "redirect:/profile/profile";
 
@@ -129,7 +129,7 @@ public class DonateControllerRegister {
 
 	@PostMapping("/update/{id}")
 	public String profileDonatesUpdate(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
-		Donate donateById = donateService.getDonateById((User) session.getAttribute("user"), id);
+		Donate donateById = donateService.getDonateByIdAndUser((User) session.getAttribute("user"), id);
 		model.addAttribute("donate", donateById);
 		model.addAttribute("colors", userService.getAllColors());
 		model.addAttribute("genders", userService.getAllGenders());

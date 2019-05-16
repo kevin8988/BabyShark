@@ -58,7 +58,7 @@ public class UserController {
 			return "user/register";
 		}
 		redirectAttrs.addFlashAttribute("message", "Cadastro realizado com sucesso.");
-		userService.insert(user);
+		userService.insertOrUpdate(user);
 		return "redirect:login";
 	}
 
@@ -86,7 +86,7 @@ public class UserController {
 			model.addAttribute("error", "Erro.");
 			return "profile/profile";
 		}
-		userService.update(user, user.getEmail(), user.getPassword());
+		userService.updateEmailAndPassword(user, user.getEmail(), user.getPassword());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
@@ -98,7 +98,7 @@ public class UserController {
 			model.addAttribute("error", "Erro.");
 			return "profile/profile";
 		}
-		userService.insert(user.getUserAddress());
+		userService.insertOrUpdate(user.getUserAddress());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}
@@ -134,7 +134,7 @@ public class UserController {
 	public String profileInterests(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
-		model.addAttribute("interests", donateService.getDonatesInterest(user));
+		model.addAttribute("interests", donateService.getMyInterests(user));
 		return "profile/interests";
 	}
 
@@ -142,7 +142,7 @@ public class UserController {
 	public String profileDonatesDelete(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
-		donateService.delete(user, id);
+		donateService.deleteDonate(user, id);
 		redirectAttrs.addFlashAttribute("success", "Doação removida com Sucesso.");
 		return "redirect:/user/profile";
 	}
@@ -151,7 +151,7 @@ public class UserController {
 	public String profileDonateInterests(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
-		model.addAttribute("interests", donateService.getInterest(user));
+		model.addAttribute("interests", donateService.getInterestInMyDonates(user));
 		return "profile/donate-interests";
 	}
 

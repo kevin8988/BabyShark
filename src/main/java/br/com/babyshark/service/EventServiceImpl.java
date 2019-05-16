@@ -24,8 +24,7 @@ public class EventServiceImpl implements EventService {
 	@Override
 	@Transactional
 	public List<Event> getEventsByFilter(String city, String state, String text) {
-		// TODO Auto-generated method stub
-		return null;
+		return eventDAO.getEventsByFilter(city, state, text);
 	}
 
 }

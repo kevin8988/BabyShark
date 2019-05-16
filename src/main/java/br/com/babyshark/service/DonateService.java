@@ -11,48 +11,62 @@ import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.User;
 
 public interface DonateService {
-	
-	public void add(Donate donate);
-	
-	public List<Donate> find();
+
+	// Donate
+
+	public void insertOrUpdate(Donate donate);
+
+	public void deleteDonate(User user, Integer id);
+
+	public Donate getDonateDetail(Integer id);
+
+	public Donate getDonateByIdAndUser(User user, Integer id);
+
+	public Donate getDonateById(Integer id);
+
+	public List<Donate> getAllDonatesWithoutAgregation();
 
 	public List<Donate> getAllDonates();
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			List<String> states, String search);
 
+	public List<Donate> getDonatesByUser(User user);
+
+	// Photo
+
+	public List<String> getPathPhotos(Donate donate);
+
+	public void deletePhotoByDonate(Integer id);
+
+	// Interest
+
+	public void insertOrUpdate(Interest interest, User user, Donate donate);
+
+	public void deleteInterest(Integer id);
+
+	public void accept(Interest interest);
+
+	public void decline(Interest interest);
+
+	public List<Interest> getMyInterests(User user);
+
+	public List<Interest> getInterestInMyDonates(User user);
+
+	// Category
+
 	public List<Category> getAllCategoriesDonate();
+
+	// Gender
 
 	public List<Gender> getAllGendersDonate();
 
+	// Color
+
 	public List<Color> getAllColorsDonate();
-	
+
+	// UserAddress
+
 	public Set<String> getAllAddressesDonate();
-	
-	public List<Donate> getDonatesByUser(User user);
-
-	public void delete(User user, Integer id);
-
-	public Donate getDonateById(User user, Integer id);
-	
-	public Donate getDonateById(Integer id);
-	
-	public List<Interest> getDonatesInterest(User user);
-	
-	public List<String> getPathPhotos(Donate donate);
-	
-	public void deletePhotoByDonate(Integer id);
-	
-	public Donate getDonateDetail(Integer id);
-	
-	public void add(Interest interest, User user, Donate donate);
-
-	public void delete(Integer id);
-	
-	public List<Interest> getInterest(User user);
-	
-	public void accept(Interest interest);
-	
-	public void decline(Interest interest);
 
 }
