@@ -111,7 +111,7 @@ public class UserController {
 			return "profile/profile";
 		}
 
-		userService.insert(user.getUserDetail());
+		userService.insertOrUpdate(user.getUserDetail());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
 		return "redirect:profile";
 	}

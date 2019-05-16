@@ -5,19 +5,23 @@ import java.util.List;
 import br.com.babyshark.entity.User;
 
 public interface UserDAO {
-
-	public User getUserById(Integer id);
-
-	public void insert(User user);
 	
-	public void update(User user, String email);
-	
+	//Leitura
+
 	public List<String> getUserEmails();
-	
+
 	public User getUserByUsername(String username);
 
 	public User getUserByEmail(String email);
 
-	public void update(User user, String email, String password);
+	public User getUserById(Integer id);
+	
+	//Inserção e Alteração
+
+	public void insertOrUpdate(User user);
+
+	public void updateEmailAndPassword(User user, String email, String password);
+
+	public void updateEmail(User user, String email);
 
 }

@@ -4,6 +4,8 @@ import br.com.babyshark.entity.UserDetail;
 
 public interface UserDetailDAO {
 	
-	public void insert(UserDetail userDetail);
+	//Inserção e Alteração
+	
+	public void insertOrUpdate(UserDetail userDetail);
 
 }

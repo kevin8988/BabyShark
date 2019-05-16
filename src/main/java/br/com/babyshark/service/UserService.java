@@ -17,7 +17,7 @@ public interface UserService {
 	
 	public void insert(UserAddress userAddress);
 	
-	public void insert(UserDetail userDetail);
+	public void insertOrUpdate(UserDetail userDetail);
 	
 	public void update(User user, String email, String password);
 

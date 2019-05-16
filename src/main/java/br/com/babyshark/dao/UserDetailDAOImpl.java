@@ -14,7 +14,7 @@ public class UserDetailDAOImpl implements UserDetailDAO {
 	private EntityManager em;
 
 	@Override
-	public void insert(UserDetail userDetail) {
+	public void insertOrUpdate(UserDetail userDetail) {
 		if (userDetail.getId() != null) {
 			em.merge(userDetail);
 		} else {

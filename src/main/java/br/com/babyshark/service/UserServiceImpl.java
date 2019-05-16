@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setConfirmPassword(encode);
 		user.setBeginDate(Calendar.getInstance());
 
-		userDAO.insert(user);
+		userDAO.insertOrUpdate(user);
 	}
 
 	@Transactional
@@ -94,8 +94,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	@Override
 	@Transactional
-	public void insert(UserDetail userDetail) {
-		userDetailDAO.insert(userDetail);
+	public void insertOrUpdate(UserDetail userDetail) {
+		userDetailDAO.insertOrUpdate(userDetail);
 	}
 
 	@Transactional
@@ -120,10 +120,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Transactional
 	public void update(User user, String email, String password) {
 		if (password == null) {
-			userDAO.update(user, email);
+			userDAO.updateEmail(user, email);
 		} else {
 			String encode = new BCryptPasswordEncoder().encode(password);
-			userDAO.update(user, email, encode);
+			userDAO.updateEmailAndPassword(user, email, encode);
 		}
 	}
 
