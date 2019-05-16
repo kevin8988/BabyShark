@@ -14,8 +14,6 @@ public class UserDAOImpl implements UserDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-	//Leitura
 
 	@Override
 	public List<String> getUserEmails() {
@@ -43,8 +41,6 @@ public class UserDAOImpl implements UserDAO {
 				User.class).setParameter("pId", id).getSingleResult();
 	}
 
-	//Inserção e Alteração
-	
 	@Override
 	public void insertOrUpdate(User user) {
 		if (user.getId() != null) {

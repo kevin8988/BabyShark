@@ -15,6 +15,7 @@ public class GenderDAOImpl implements GenderDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	public List<Gender> getAllGendersDonate() {
 		return em.createQuery("select distinct g from Gender g join fetch g.donates d where d.isDonated = false",
 				Gender.class).setHint("org.hibernate.cacheable", true).getResultList();

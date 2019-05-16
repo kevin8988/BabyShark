@@ -1,11 +1,14 @@
 package br.com.babyshark.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.User;
 
 @Repository
 public class InterestDAOImpl implements InterestDAO {
@@ -14,8 +17,12 @@ public class InterestDAOImpl implements InterestDAO {
 	private EntityManager em;
 
 	@Override
-	public void add(Interest interest) {
-		em.persist(interest);
+	public void insertOrUpdate(Interest interest) {
+		if (interest.getId() == null) {
+			em.persist(interest);
+		} else {
+			em.merge(interest);
+		}
 	}
 
 	@Override
@@ -24,8 +31,18 @@ public class InterestDAOImpl implements InterestDAO {
 	}
 
 	@Override
-	public void accept(Interest interest) {
-		em.merge(interest);
+	public List<Interest> getMyInterests(User user) {
+		return em.createQuery(
+				"from Interest i join fetch i.donate d join fetch d.photos p join fetch d.user du join fetch i.user u where i.user = :pUser",
+				Interest.class).setParameter("pUser", user).getResultList();
+	}
+
+	@Override
+	public List<Interest> getInterestInMyDonates(User user) {
+		return em.createQuery(
+				"from Interest i join fetch i.donate d join fetch i.user iu join fetch d.user u where u = :pUser",
+				Interest.class).setParameter("pUser", user).getResultList();
+
 	}
 
 }

@@ -15,6 +15,7 @@ public class ColorDAOImpl implements ColorDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	public List<Color> getAllColorsDonate() {
 		return em.createQuery("select distinct c from Color c join fetch c.donates", Color.class)
 				.setHint("org.hibernate.cacheable", true).getResultList();

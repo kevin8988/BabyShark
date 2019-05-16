@@ -3,14 +3,23 @@ package br.com.babyshark.dao;
 import java.util.List;
 
 import br.com.babyshark.entity.Donate;
-import br.com.babyshark.entity.Interest;
 import br.com.babyshark.entity.User;
 
 public interface DonateDAO {
 
-	public List<Donate> find();
+	public void insertOrUpdate(Donate donate);
 
-	public void add(Donate donate);
+	public void deleteDonate(User user, Integer id);
+	
+
+	public Donate getDonateByIdAndUser(User user, Integer id);
+
+	public Donate getDonateById(Integer id);
+
+	public Donate getDonateDetail(Integer id);
+	
+
+	public List<Donate> getAllDonatesWithoutAgregation();
 
 	public List<Donate> getAllDonates();
 
@@ -22,17 +31,5 @@ public interface DonateDAO {
 
 	public List<Donate> getDonatesByFilter(List<Integer> categories, List<Integer> genders, List<Integer> colors,
 			List<String> states, String search);
-
-	public void delete(User user, Integer id);
-
-	public Donate getDonateById(User user, Integer id);
-	
-	public Donate getDonateById(Integer id);
-
-	public List<Interest> getDonatesInterest(User user);
-
-	public Donate getDonateDetail(Integer id);
-	
-	public List<Interest> getInterest(User user);
 
 }

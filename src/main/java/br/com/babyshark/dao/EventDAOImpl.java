@@ -29,18 +29,13 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public List<Event> getEventsByTitle(String title) {
-		return null;
+	public List<Event> getThreeNearbyEvents() {
+		return em.createQuery("from Event e order by e.id desc", Event.class).getResultList();
 	}
 
 	@Override
 	public List<Event> getEventsByUser(User user) {
 		return null;
-	}
-
-	@Override
-	public List<Event> getThreeNearbyEvents() {
-		return em.createQuery("from Event e order by e.id desc", Event.class).getResultList();
 	}
 
 	@Override

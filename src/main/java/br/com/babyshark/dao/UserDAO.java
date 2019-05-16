@@ -6,7 +6,6 @@ import br.com.babyshark.entity.User;
 
 public interface UserDAO {
 	
-	//Leitura
 
 	public List<String> getUserEmails();
 
@@ -16,7 +15,6 @@ public interface UserDAO {
 
 	public User getUserById(Integer id);
 	
-	//Inserção e Alteração
 
 	public void insertOrUpdate(User user);
 

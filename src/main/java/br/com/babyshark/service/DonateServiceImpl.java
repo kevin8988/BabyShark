@@ -102,13 +102,13 @@ public class DonateServiceImpl implements DonateService {
 	@Override
 	@Transactional
 	public void add(Donate donate) {
-		donateDAO.add(donate);
+		donateDAO.insertOrUpdate(donate);
 	}
 
 	@Override
 	@Transactional
 	public List<Donate> find() {
-		return donateDAO.find();
+		return donateDAO.getAllDonatesWithoutAgregation();
 	}
 
 	@Override
@@ -121,20 +121,20 @@ public class DonateServiceImpl implements DonateService {
 	@Transactional
 	public void delete(User user, Integer id) {
 		List<Photo> photosByDonate = photoDAO.getPhotosByDonate(id);
-		donateDAO.delete(user, id);
+		donateDAO.deleteDonate(user, id);
 		fileSaver.delete(photosByDonate);
 	}
 
 	@Override
 	@Transactional
 	public Donate getDonateById(User user, Integer id) {
-		return donateDAO.getDonateById(user, id);
+		return donateDAO.getDonateByIdAndUser(user, id);
 	}
 
 	@Override
 	@Transactional
 	public List<Interest> getDonatesInterest(User user) {
-		return donateDAO.getDonatesInterest(user);
+		return donateDAO.getMyInterests(user);
 	}
 
 	@Override
@@ -180,7 +180,7 @@ public class DonateServiceImpl implements DonateService {
 		interest.setStatus(Status.PENDENTE);
 		interest.setUser(user);
 		interest.setDonate(donate);
-		interestDAO.add(interest);
+		interestDAO.insertOrUpdate(interest);
 	}
 
 	@Override
@@ -192,7 +192,7 @@ public class DonateServiceImpl implements DonateService {
 	@Override
 	@Transactional
 	public List<Interest> getInterest(User user) {
-		return donateDAO.getInterest(user);
+		return donateDAO.getInterestInMyDonates(user);
 	}
 
 	@Override

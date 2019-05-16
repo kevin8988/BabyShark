@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	@Transactional
 	public void insert(UserAddress userAddress) {
-		userAddressDAO.insert(userAddress);
+		userAddressDAO.insertOrUpdate(userAddress);
 	}
 
 	@Override

@@ -15,18 +15,22 @@ public class UserAddressDAOImpl implements UserAddressDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public void insert(UserAddress userAddress) {
-		if (userAddress.getId() != null) {
-			em.merge(userAddress);
-		} else {
-			em.persist(userAddress);
-		}
-	}
+	// Leitura
 
 	public List<UserAddress> getAllAddressDonate() {
 		return em.createQuery(
 				"select distinct a from UserAddress a join fetch a.user u join fetch u.donates d where d.isDonated = false",
 				UserAddress.class).getResultList();
+	}
+
+	// Inserção e Alteração
+
+	public void insertOrUpdate(UserAddress userAddress) {
+		if (userAddress.getId() != null) {
+			em.merge(userAddress);
+		} else {
+			em.persist(userAddress);
+		}
 	}
 
 }
