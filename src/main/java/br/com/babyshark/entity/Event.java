@@ -150,4 +150,10 @@ public class Event implements Serializable {
 		this.participants.add(user);
 	}
 
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", initialHour=" + initialHour
+				+ ", endHour=" + endHour + ", dayOfEvent=" + dayOfEvent + "]";
+	}
+
 }

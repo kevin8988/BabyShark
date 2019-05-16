@@ -26,8 +26,7 @@ public class Photo implements Serializable {
 	@Column(nullable = false)
 	private String path;
 
-	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH })
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	private Donate donate;
 
 	public String getPath() {
@@ -52,6 +51,11 @@ public class Photo implements Serializable {
 
 	public void setDonate(Donate donate) {
 		this.donate = donate;
+	}
+
+	@Override
+	public String toString() {
+		return "Photo [id=" + id + ", path=" + path + "]";
 	}
 
 }

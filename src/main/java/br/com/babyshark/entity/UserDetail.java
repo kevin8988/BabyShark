@@ -92,4 +92,10 @@ public class UserDetail implements Serializable {
 		this.user = user;
 	}
 
+	@Override
+	public String toString() {
+		return "UserDetail [id=" + id + ", dayOfBirth=" + dayOfBirth + ", fone=" + fone + ", cpf=" + cpf + ", gender="
+				+ gender + "]";
+	}
+
 }

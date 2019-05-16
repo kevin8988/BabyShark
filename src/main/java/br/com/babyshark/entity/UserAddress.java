@@ -86,4 +86,11 @@ public class UserAddress implements Serializable {
 		return user;
 	}
 
+	@Override
+	public String toString() {
+		return "UserAddress [id=" + id + ", city=" + city + ", state=" + state + ", country=" + country + "]";
+	}
+	
+	
+
 }

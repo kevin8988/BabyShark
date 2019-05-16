@@ -91,4 +91,9 @@ public class Interest implements Serializable {
 		this.message = message;
 	}
 
+	@Override
+	public String toString() {
+		return "Interest [id=" + id + ", status=" + status + ", message=" + message + "]";
+	}
+
 }

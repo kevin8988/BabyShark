@@ -147,4 +147,11 @@ public class EventAddress implements Serializable {
 		this.event = event;
 	}
 
+	@Override
+	public String toString() {
+		return "EventAddress [id=" + id + ", city=" + city + ", state=" + state + ", country=" + country + ", number="
+				+ number + ", street=" + street + ", district=" + district + ", postalCode=" + postalCode
+				+ ", complement=" + complement + "]";
+	}
+
 }
