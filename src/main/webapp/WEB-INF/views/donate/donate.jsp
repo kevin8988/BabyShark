@@ -9,6 +9,10 @@
 <head>
 <title>Doações</title>
 
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
@@ -16,13 +20,9 @@
 <s:url value="/resources/css/donate/donatelayout.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -36,34 +36,8 @@
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
 
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 500);
-	});
-	//Fim do Loader
-</script>
-
 </head>
 <body>
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
-
 
 	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
@@ -71,7 +45,6 @@
 	<c:if test="${user != null }">
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
-
 
 	<div class="container-fluid " style="margin-top: 10%;">
 		<div class="row">

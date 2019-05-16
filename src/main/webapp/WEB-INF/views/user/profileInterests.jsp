@@ -10,14 +10,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<title>Perfil - Meus Interesses</title>
+
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 <s:url value="/resources/css/profile/layoutProfile.css" var="layout"></s:url>
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -29,57 +30,24 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<link href="${bootstrap }" rel="stylesheet" />
-<link href="${layout }" rel="stylesheet" />
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${layout }" />
 
-<title>Profile</title>
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 500);
-	});
-
-	var ultimovalor = document.getElementId("#inputEmail").value;
-
-	function verifica_valor(element) {
-		if (ultimovalor != element.value) {
-			document.getElementById("Alterar").disabled = false;
-		}
-	}
-
-	//Fim do Loader
-</script>
 </head>
 <body>
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
 
 	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
-			
+
 			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
-			
+
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName } ${user.lastName }</h1>
+						<h1>${user.firstName }${user.lastName }</h1>
 					</div>
 					<div class="card-body">
 						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
@@ -88,7 +56,7 @@
 							</c:if>
 
 							<c:if test="${!interests.isEmpty() }">
-								<c:forEach items="${interests }" var = "interest">
+								<c:forEach items="${interests }" var="interest">
 									<c:forEach items="${interest.donate.photos }" var="photo"
 										begin="0" end="0">
 										<a
@@ -98,8 +66,11 @@
 									</c:forEach>
 									<div class="card-body">
 										<h4 class="card-title">Título: ${interest.donate.title }</h4>
-										<p class="card-text">Descrição: ${interest.donate.description }</p>
-										<p class="card-text">Doador: ${interest.donate.user.firstName } ${interest.donate.user.lastName }</p>
+										<p class="card-text">Descrição:
+											${interest.donate.description }</p>
+										<p class="card-text">Doador:
+											${interest.donate.user.firstName }
+											${interest.donate.user.lastName }</p>
 										<p class="card-text">Status: ${interest.status }</p>
 									</div>
 								</c:forEach>
@@ -121,11 +92,9 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		crossorigin="anonymous"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

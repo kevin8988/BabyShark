@@ -18,6 +18,7 @@
 <s:url value="/resources/css/donate/donatelayout.css" var="layout"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
+
 <s:url value="/resources/img/home/home.jpg" var="home"></s:url>
 <s:url value="/resources/img/home/produto.png" var="produto"></s:url>
 <s:url value="/resources/img/home/footer.jpg" var="footer"></s:url>
@@ -25,11 +26,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet">
-
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
 <link rel="stylesheet"
@@ -65,18 +66,7 @@
 
 </head>
 <body>
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
+
 	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 	</c:if>
@@ -92,17 +82,36 @@
 						<div class="card-body">
 							<div class="form-group row justify-content-center"
 								style="margin-bottom: 0px;">
-
 								<label for="exampleFormControlSelect1" class="mx-2"
 									style="line-height: 2.5;">Estado:</label> <select
 									class="form-control" style="width: 9%;"
 									id="exampleFormControlSelect1" name="state">
-									<option value="">Selecione</option>
-									<option value="São Paulo">SP</option>
-									<option>RJ</option>
-									<option>BA</option>
-									<option>MG</option>
-									<option>SC</option>
+									<option value="" label="Selecione" />
+									<option value="Acre" label="Acre" />
+									<option value="Alagoas" label="Alagoas" />
+									<option value="Amapá" label="Amapá" />
+									<option value="Amazonas" label="Amazonas" />
+									<option value="Bahia" label="Bahia" />
+									<option value="Ceará" label="Ceará" />
+									<option value="Espírito Santo" label="Espírito Santo" />
+									<option value="Goiás" label="Goiás" />
+									<option value="Maranhão" label="Maranhão" />
+									<option value="Mato Grosso" label="Mato Grosso" />
+									<option value="Mato Grosso do Sul" label="Mato Grosso do Sul" />
+									<option value="Minas Gerais" label="Minas Gerais" />
+									<option value="Pará" label="Pará" />
+									<option value="Paraíba" label="Paraíba" />
+									<option value="Paraná" label="Paraná" />
+									<option value="Pernambuco" label="Pernambuco" />
+									<option value="Rio de Janeiro" label="Rio de Janeiro" />
+									<option value="Rio Grande do Norte" label="Rio Grande do Norte" />
+									<option value="Rio Grander do Sul" label="Rio Grander do Sul" />
+									<option value="Rondônia" label="Rondônia" />
+									<option value="Roraima" label="Roraima" />
+									<option value="Santa Catarina" label="Santa Catarina" />
+									<option value="São Paulo" label="São Paulo" />
+									<option value="Sergipe" label="Sergipe" />
+									<option value="Tocantins" label="Tocantins" />
 								</select> <label for="exampleFormControlSelect1" class="mx-2"
 									style="line-height: 2.5;">Cidades:</label> <select
 									class="form-control " style="width: 15%;"
@@ -130,8 +139,8 @@
 			</div>
 		</form:form>
 		<c:if test="${events.isEmpty() || events == null }">
-				<p>Não há eventos!</p>
-			</c:if>
+			<p>Não há eventos!</p>
+		</c:if>
 		<div class="row">
 			<c:if test="${!events.isEmpty() }">
 				<c:forEach items="${events }" var="event">
@@ -146,7 +155,7 @@
 					</div>
 				</c:forEach>
 			</c:if>
-			
+
 		</div>
 		<nav class="mt-2" aria-label="Page navigation example">
 			<ul class="pagination justify-content-center">
@@ -173,21 +182,6 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-	<script>
-		//Loader
-		window.addEventListener('DOMContentLoaded', function() {
-			setTimeout(function() {
-				$('#loading').fadeOut('slow', function() {
-					$(window).scrollTop(0);
-					$(this).remove();
-				});
-			}, 1000);
-		});
-		//Fim do Loader
-	</script>
-
-
 
 	<script>
 		var swiper = new Swiper('.swiper-container', {

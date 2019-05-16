@@ -8,16 +8,18 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+<title>Perfil</title>
+
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
 	var="bootstrap"></s:url>
 <s:url value="/resources/css/profile/layoutProfile.css" var="layout"></s:url>
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -29,58 +31,25 @@
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<link href="${bootstrap }" rel="stylesheet" />
-<link href="${layout }" rel="stylesheet" />
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${layout }" />
 
-<title>Profile</title>
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 500);
-	});
 
-	var ultimovalor = document.getElementId("#inputEmail").value;
-
-	function verifica_valor(element) {
-		if (ultimovalor != element.value) {
-			document.getElementById("Alterar").disabled = false;
-		}
-	}
-
-	//Fim do Loader
-</script>
 </head>
 <body>
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
 
 	<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
-		
-		<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
-		
-			
+
+			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName } ${user.lastName }</h1>
+						<h1>${user.firstName }${user.lastName }</h1>
 					</div>
 					<c:if test="${error != null }">
 						<i class="alert-danger">${error}</i>
@@ -105,7 +74,8 @@
 						<div class="tab-content container" id="myTabContent">
 							<div class="tab-pane fade show active" id="Principal"
 								role="tabpanel" aria-labelledby="Principal-tab">
-								<form:form modelAttribute="user" method="POST" acceptCharset="utf-8"
+								<form:form modelAttribute="user" method="POST"
+									acceptCharset="utf-8"
 									action="${s:mvcUrl('UC#updateProcess').build() }">
 									<div class="form-group">
 										<label for="inputEmail">Email:</label>
@@ -120,12 +90,12 @@
 
 										<form:input class="form-control" id="inputEmail4" path="email" />
 										<form:errors class="form-control" path="email"
-											cssClass="alert-danger" /><br/>
-										<label for="inputEmail">Senha:</label>
+											cssClass="alert-danger" />
+										<br /> <label for="inputEmail">Senha:</label>
 										<form:password class="form-control" path="password" value="" />
 										<form:errors class="form-control" path="password"
-											cssClass="alert-danger" /><br/>
-										<label for="inputEmail">Confirme a senha:</label>
+											cssClass="alert-danger" />
+										<br /> <label for="inputEmail">Confirme a senha:</label>
 										<form:password class="form-control" path="confirmPassword"
 											value="" />
 										<form:errors class="form-control" path="confirmPassword"
@@ -193,34 +163,37 @@
 									</div>
 									-->
 									<div class="form-group">
-										<label for="inputCPF">Estado:</label>										
+										<label for="inputCPF">Estado:</label>
 										<form:select path="userAddress.state" class="custom-select">
-											<form:option value="" label="Selecione"/>
-											<form:option value="Acre" label="Acre"/>
-											<form:option value="Alagoas" label="Alagoas"/>
-											<form:option value="Amapá" label="Amapá"/>
-											<form:option value="Amazonas" label="Amazonas"/>
-											<form:option value="Bahia" label="Bahia"/>
-											<form:option value="Ceará" label="Ceará"/>
-											<form:option value="Espírito Santo" label="Espírito Santo"/>
-											<form:option value="Goiás" label="Goiás"/>
-											<form:option value="Maranhão" label="Maranhão"/>
-											<form:option value="Mato Grosso" label="Mato Grosso"/>
-											<form:option value="Mato Grosso do Sul" label="Mato Grosso do Sul"/>
-											<form:option value="Minas Gerais" label="Minas Gerais"/>
-											<form:option value="Pará" label="Pará"/>
-											<form:option value="Paraíba" label="Paraíba"/>
-											<form:option value="Paraná" label="Paraná"/>
-											<form:option value="Pernambuco" label="Pernambuco"/>
-											<form:option value="Rio de Janeiro" label="Rio de Janeiro"/>
-											<form:option value="Rio Grande do Norte" label="Rio Grande do Norte"/>
-											<form:option value="Rio Grander do Sul" label="Rio Grander do Sul"/>
-											<form:option value="Rondônia" label="Rondônia"/>
-											<form:option value="Roraima" label="Roraima"/>
-											<form:option value="Santa Catarina" label="Santa Catarina"/>
-											<form:option value="São Paulo" label="São Paulo"/>
-											<form:option value="Sergipe" label="Sergipe"/>
-											<form:option value="Tocantins" label="Tocantins"/>
+											<form:option value="" label="Selecione" />
+											<form:option value="Acre" label="Acre" />
+											<form:option value="Alagoas" label="Alagoas" />
+											<form:option value="Amapá" label="Amapá" />
+											<form:option value="Amazonas" label="Amazonas" />
+											<form:option value="Bahia" label="Bahia" />
+											<form:option value="Ceará" label="Ceará" />
+											<form:option value="Espírito Santo" label="Espírito Santo" />
+											<form:option value="Goiás" label="Goiás" />
+											<form:option value="Maranhão" label="Maranhão" />
+											<form:option value="Mato Grosso" label="Mato Grosso" />
+											<form:option value="Mato Grosso do Sul"
+												label="Mato Grosso do Sul" />
+											<form:option value="Minas Gerais" label="Minas Gerais" />
+											<form:option value="Pará" label="Pará" />
+											<form:option value="Paraíba" label="Paraíba" />
+											<form:option value="Paraná" label="Paraná" />
+											<form:option value="Pernambuco" label="Pernambuco" />
+											<form:option value="Rio de Janeiro" label="Rio de Janeiro" />
+											<form:option value="Rio Grande do Norte"
+												label="Rio Grande do Norte" />
+											<form:option value="Rio Grander do Sul"
+												label="Rio Grander do Sul" />
+											<form:option value="Rondônia" label="Rondônia" />
+											<form:option value="Roraima" label="Roraima" />
+											<form:option value="Santa Catarina" label="Santa Catarina" />
+											<form:option value="São Paulo" label="São Paulo" />
+											<form:option value="Sergipe" label="Sergipe" />
+											<form:option value="Tocantins" label="Tocantins" />
 										</form:select>
 										<form:errors class="form-control" path="userAddress.state"
 											cssClass="alert-danger" />
@@ -246,11 +219,9 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		crossorigin="anonymous"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

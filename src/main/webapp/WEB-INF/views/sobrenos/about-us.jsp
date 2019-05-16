@@ -19,14 +19,13 @@
 <s:url value="/resources/css/sobrenos/style.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+a
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet">
-
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
 <link rel="stylesheet"

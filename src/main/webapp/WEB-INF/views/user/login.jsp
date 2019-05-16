@@ -18,14 +18,15 @@
 <s:url value="/resources/css/login/login.css" var="style"></s:url>
 <s:url value="/resources/img/login/LogoBabyShark.png" var="logo"></s:url>
 
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Capriola|Montserrat"
 	rel="stylesheet">
 
-<link href="${bootstrap }" rel="stylesheet" />
-<link href="${style }" rel="stylesheet" />
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${style }" />
+
 
 <title>Login</title>
 </head>

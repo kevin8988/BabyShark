@@ -19,9 +19,9 @@
 <s:url value="/resources/css/contato/contato.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"

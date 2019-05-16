@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Baby Shark</title>
+<title>Cadastro - Usuário</title>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -22,9 +22,6 @@
 <s:url value="/resources/img/home/produto.png" var="produto"></s:url>
 <s:url value="/resources/img/home/footer.jpg" var="footer"></s:url>
 
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
-<link rel="stylesheet" type="text/css" href="${bootstrap }" />
-<link rel="stylesheet" type="text/css" href="${layout }" />
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -36,6 +33,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${layout }" />
 
 <style type="register/css">
 .swiper-container {
@@ -64,24 +65,13 @@
 </style>
 
 </head>
-<body class="content-body">
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
+<body class="content-body">	
 
 	<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
 
 	<form:form action="${s:mvcUrl('UC#registerProcess').build() }"
-		class="form-cadastro" method="POST" modelAttribute="user" acceptCharset="utf-8">
+		class="form-cadastro" method="POST" modelAttribute="user"
+		acceptCharset="utf-8">
 		<h1 class="">Faça seu cadastro</h1>
 		<h3 class="">Preencha os campos abaixo</h3>
 		<div class="form-group">
@@ -127,22 +117,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-	<script>
-		//Loader
-		window.addEventListener('DOMContentLoaded', function() {
-			setTimeout(function() {
-				$('#loading').fadeOut('slow', function() {
-					$(window).scrollTop(0);
-					$(this).remove();
-				});
-			}, 1000);
-		});
-		//Fim do Loader
-	</script>
-
-
-
+	
 	<script>
 		var swiper = new Swiper('.swiper-container', {
 			slidesPerView : 3,

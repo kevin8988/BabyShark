@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-<title>Cadastro Doação</title>
+<title>Cadastro - Doação</title>
 
 <s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
@@ -18,21 +18,21 @@
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/donate/layoutCadastro.css" var="layout"></s:url>
 
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
-<link rel="stylesheet" type="text/css" href="${bootstrap }" />
-<link rel="stylesheet" type="text/css" href="${layout }" />
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
 	rel="stylesheet">
-
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
+<link rel="stylesheet" type="text/css" href="${bootstrap }" />
+<link rel="stylesheet" type="text/css" href="${layout }" />
 
 </head>
 <body>

@@ -10,64 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
-<s:url value="/resources/css/bootstrap/bootstrap.min.css"
-	var="bootstrap"></s:url>
-<s:url value="/resources/css/profile/layoutProfile.css" var="layout"></s:url>
-<s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
-
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
-<link href="https://fonts.googleapis.com/css?family=Capriola"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-
-<link href="${bootstrap }" rel="stylesheet" />
-<link href="${layout }" rel="stylesheet" />
-
-<title>Profile</title>
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 500);
-	});
-
-	var ultimovalor = document.getElementId("#inputEmail").value;
-
-	function verifica_valor(element) {
-		if (ultimovalor != element.value) {
-			document.getElementById("Alterar").disabled = false;
-		}
-	}
-
-	//Fim do Loader
-</script>
 </head>
 <body>
-	<!--  
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
--->
 
 	<div class="col-lg-3">
 		<div class="card shadow" style="text-align: center;">
@@ -107,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 
 	<script src="${jquery }" type="text/javascript"></script>
 	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
@@ -116,11 +60,9 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		crossorigin="anonymous"></script>
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
