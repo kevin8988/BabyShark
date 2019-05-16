@@ -57,7 +57,7 @@ public class DonateControllerRegister {
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
 
-		return "user/registerDonate";
+		return "donate/register-donate";
 	}
 
 	@PostMapping("/registerProcessDonate")
@@ -72,7 +72,7 @@ public class DonateControllerRegister {
 			model.addAttribute("categories", userService.getAllCategories());
 			model.addAttribute("erroPhoto", "Por favor, insira uma imagem.");
 
-			return "user/registerDonate";
+			return "donate/register-donate";
 		}
 
 		String path = fileSaver.write(foto);
@@ -83,7 +83,7 @@ public class DonateControllerRegister {
 		donate.add(photo);
 		donateService.add(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação cadastrado com Sucesso.");
-		return "redirect:/user/profile";
+		return "redirect:/profile/profile";
 	}
 
 	@PostMapping("/registerProcessDonate/update")
@@ -94,7 +94,7 @@ public class DonateControllerRegister {
 			model.addAttribute("genders", userService.getAllGenders());
 			model.addAttribute("categories", userService.getAllCategories());
 			model.addAttribute("path", path);
-			return "user/profileDonatesUpdate";
+			return "profile/donates-update";
 		}
 
 		String content = foto.getContentType();
@@ -117,13 +117,13 @@ public class DonateControllerRegister {
 			model.addAttribute("categories", userService.getAllCategories());
 			model.addAttribute("path", path);
 			model.addAttribute("invalida", "Opção inválida");
-			return "user/profileDonatesUpdate";
+			return "profile/donates-update";
 		}
 
 		donate.setUser((User) session.getAttribute("user"));
 		donateService.add(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação atualizada com Sucesso.");
-		return "redirect:/user/profile";
+		return "redirect:/profile/profile";
 
 	}
 
@@ -135,6 +135,6 @@ public class DonateControllerRegister {
 		model.addAttribute("genders", userService.getAllGenders());
 		model.addAttribute("categories", userService.getAllCategories());
 		model.addAttribute("path", donateService.getPathPhotos(donateById));
-		return "user/profileDonatesUpdate";
+		return "profile/donates-update";
 	}
 }

@@ -76,7 +76,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("message", model.asMap().get("message"));
-		return "user/profile";
+		return "profile/profile";
 	}
 
 	@PostMapping("/updateProcess")
@@ -84,7 +84,7 @@ public class UserController {
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			model.addAttribute("error", "Erro.");
-			return "user/profile";
+			return "profile/profile";
 		}
 		userService.update(user, user.getEmail(), user.getPassword());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
@@ -96,7 +96,7 @@ public class UserController {
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			model.addAttribute("error", "Erro.");
-			return "user/profile";
+			return "profile/profile";
 		}
 		userService.insert(user.getUserAddress());
 		redirectAttrs.addFlashAttribute("success", "Dado Atualizado com Sucesso.");
@@ -108,7 +108,7 @@ public class UserController {
 			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			model.addAttribute("error", "Erro.");
-			return "user/profile";
+			return "profile/profile";
 		}
 
 		userService.insert(user.getUserDetail());
@@ -127,7 +127,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("donates", donateService.getDonatesByUser(user));
-		return "user/profileDonates";
+		return "profile/donates";
 	}
 
 	@GetMapping("/profile/interests")
@@ -135,7 +135,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("interests", donateService.getDonatesInterest(user));
-		return "user/profileInterests";
+		return "profile/interests";
 	}
 
 	@PostMapping("/profile/donates/delete/{id}")
@@ -152,7 +152,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("interests", donateService.getInterest(user));
-		return "user/profileDonateInterests";
+		return "profile/donate-interests";
 	}
 
 }
