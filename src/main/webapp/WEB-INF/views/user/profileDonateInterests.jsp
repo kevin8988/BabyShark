@@ -73,7 +73,11 @@
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
+
+
 			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+
+
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
@@ -81,25 +85,27 @@
 					</div>
 					<div class="card-body">
 						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
-							<c:if test="${donates.isEmpty() }">
-								<p>Nenhuma doação.</p>
+							<c:if test="${interests.isEmpty() }">
+								<p>Nenhum interesse em suas doações.</p>
 							</c:if>
-							<c:if test="${!donates.isEmpty() }">
-								<c:forEach items="${donates }" var="donate">
+							<c:if test="${!interests.isEmpty() }">
+								<c:forEach items="${interests }" var="interest">
 
 									<div class="card-body">
-										<h5 class="card-title">${donate.title }</h5>
-										<p class="card-text">${donate.description }</p>
+										<h5 class="card-title">Título: ${interest.donate.title }</h5>
+										<p class="card-text">Interessado:
+											${interest.user.firstName }</p>
+										<p class="card-text">Mensagem: ${interest.message }</p>
 										<div class="row">
 											<form:form
-												action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
+												action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
 												method="POST" class="mr-2">
-												<button class="btn btn-outline-segundary">Editar</button>
+												<button class="btn btn-outline-segundary">Aceitar</button>
 											</form:form>
 											<form:form
-												action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
-												method="POST" class="mr-2">
-												<button class="btn btn-outline-segundary">Excluir</button>
+												action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
+												method="POST" class="mr-2" modelAttribute="${ interest}">
+												<button class="btn btn-outline-segundary">Recusar</button>
 											</form:form>
 										</div>
 									</div>

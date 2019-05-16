@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.InterestId;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.service.DonateService;
 
@@ -65,5 +66,23 @@ public class InterestController {
 			return "redirect:/";
 		}
 
+	}
+
+	@PostMapping("/profile/donate/accept/{id}/{donateId}")
+	public String acceptDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2) {
+		InterestId interestId = new InterestId(id, id2);
+		Interest interest = new Interest();
+		interest.setId(interestId);
+		donateService.accept(interest);
+		return "redirect:/";
+	}
+
+	@PostMapping("/profile/donate/decline/{id}/{donateId}")
+	public String declineDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2) {
+		InterestId interestId = new InterestId(id, id2);
+		Interest interest = new Interest();
+		interest.setId(interestId);
+		donateService.decline(interest);
+		return "redirect:/";
 	}
 }

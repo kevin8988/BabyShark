@@ -23,4 +23,9 @@ public class InterestDAOImpl implements InterestDAO {
 		em.createQuery("delete from Interest i where i.id = :pId").setParameter("pId", id).executeUpdate();
 	}
 
+	@Override
+	public void accept(Interest interest) {
+		em.merge(interest);
+	}
+
 }

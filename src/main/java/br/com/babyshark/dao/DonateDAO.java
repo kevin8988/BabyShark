@@ -32,5 +32,7 @@ public interface DonateDAO {
 	public List<Interest> getDonatesInterest(User user);
 
 	public Donate getDonateDetail(Integer id);
+	
+	public List<Interest> getInterest(User user);
 
 }

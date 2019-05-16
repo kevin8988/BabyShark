@@ -55,4 +55,20 @@ public class InterestId implements Serializable {
 		return true;
 	}
 
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getDonateId() {
+		return donateId;
+	}
+
+	public void setDonateId(Integer donateId) {
+		this.donateId = donateId;
+	}
+
 }

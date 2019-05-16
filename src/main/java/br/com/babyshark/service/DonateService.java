@@ -48,5 +48,11 @@ public interface DonateService {
 	public void add(Interest interest, User user, Donate donate);
 
 	public void delete(Integer id);
+	
+	public List<Interest> getInterest(User user);
+	
+	public void accept(Interest interest);
+	
+	public void decline(Interest interest);
 
 }

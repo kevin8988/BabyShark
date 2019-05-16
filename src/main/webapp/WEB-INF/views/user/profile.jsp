@@ -73,40 +73,10 @@
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
-			<div class="col-lg-3">
-				<div class="card shadow" style="text-align: center;">
-					<div class="card-head">
-						<img class="img-fluid rounded-circle center m-3"
-							src="https://kcl-mrcdtp.com/wp-content/uploads/sites/201/2017/05/person_icongray-300x300.png"
-							width="250" height="250" alt="First slide">
-					</div>
-					<div class="card-body m-3">
-						<div class="row">
-							<a href="${s:mvcUrl('UC#profile').build() }"><h4>
-									<i class="fas fa-database"></i>Dados
-								</h4></a>
-						</div>
-						<div class="row">
-							<a href="${s:mvcUrl('UC#profileDonates').build() }"><h4>
-									<i class="fas fa-gifts"></i>Doações
-								</h4></a>
-						</div>
-						<div class="row">
-							<a href="${s:mvcUrl('UC#profileInterests').build() }"><h4>
-									<i class="fas fa-heart"></i>Interesses
-								</h4></a>
-						</div>
-						<div class="row mt-3">
-							<button class="btn">
-								<h4 style="margin-bottom: 0px;">
-								<a href="${s:mvcUrl('DCR#registerDonate').build() }">Quero Doar</a>
-									 <i class="fas fa-gifts"></i>
-								</h4>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
+		
+		<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+		
+			
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">

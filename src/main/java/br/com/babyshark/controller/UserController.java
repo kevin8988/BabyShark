@@ -129,7 +129,7 @@ public class UserController {
 		model.addAttribute("donates", donateService.getDonatesByUser(user));
 		return "user/profileDonates";
 	}
-	
+
 	@GetMapping("/profile/interests")
 	public String profileInterests(Model model) {
 		User user = (User) session.getAttribute("user");
@@ -147,5 +147,12 @@ public class UserController {
 		return "redirect:/user/profile";
 	}
 
-	
+	@GetMapping("/profile/donate-interests")
+	public String profileDonateInterests(Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("interests", donateService.getInterest(user));
+		return "user/profileDonateInterests";
+	}
+
 }

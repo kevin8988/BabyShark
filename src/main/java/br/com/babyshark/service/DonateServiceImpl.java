@@ -189,4 +189,24 @@ public class DonateServiceImpl implements DonateService {
 		return donateDAO.getDonateById(id);
 	}
 
+	@Override
+	@Transactional
+	public List<Interest> getInterest(User user) {
+		return donateDAO.getInterest(user);
+	}
+
+	@Override
+	@Transactional
+	public void accept(Interest interest) {
+		interest.setStatus(Status.ACEITO);
+		interestDAO.accept(interest);
+	}
+
+	@Override
+	@Transactional
+	public void decline(Interest interest) {
+		interest.setStatus(Status.RECUSADO);
+		interestDAO.accept(interest);
+	}
+
 }

@@ -7,5 +7,7 @@ public interface InterestDAO {
 	public void add(Interest interest);
 
 	public void delete(Integer id);
+	
+	public void accept(Interest interest);
 
 }

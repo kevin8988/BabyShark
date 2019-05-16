@@ -171,6 +171,13 @@ public class DonateDAOImpl implements DonateDAO {
 				"from Interest i join fetch i.donate d join fetch d.photos p join fetch d.user du join fetch i.user u where i.user = :pUser",
 				Interest.class).setParameter("pUser", user).getResultList();
 	}
+	
+	@Override
+	public List<Interest> getInterest(User user) {
+		return em.createQuery(
+				"from Interest i join fetch i.donate d join fetch i.user iu join fetch d.user u where u = :pUser",
+				Interest.class).setParameter("pUser", user).getResultList();
+	}
 
 	@Override
 	public Donate getDonateDetail(Integer id) {
