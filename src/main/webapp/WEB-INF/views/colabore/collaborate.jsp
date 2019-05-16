@@ -23,7 +23,6 @@
 <s:url value="/resources/css/colabore/new_colabore.css" var="layout"></s:url>
 
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
 <link href="https://fonts.googleapis.com/css?family=Capriola"
@@ -49,48 +48,47 @@
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
 
+	<div class="content-main">
+		<div class="title">
+			<h1>Colabore conosco</h1>
+			<h3>Isso nos serve de incentivo</h3>
+		</div>
 
-	<main class="content-main">
-	<div class="title">
-		<h1>Colabore conosco</h1>
-		<h3>Isso nos serve de incentivo</h3>
+		<div class="donate-description">
+			<h5>Participe! Essa é uma forma de você contribuir para o
+				desenvolvimento do projeto. Uma forma rápida, simples e segura de
+				ser um colaborador do BabyShark</h5>
+
+			<img src="${img1 }" class="img-pass" alt="primeiro passo">
+
+			<p>Para ajudar, você primeiro precisa clicar no botãozinho azul,
+				ele vai te redirecionar direto para a nossa página do paypal,
+				fazendo que seja uma colaboração segura.</p>
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+				target="_blank">
+				<input type="hidden" name="cmd" value="_s-xclick" /> <input
+					type="hidden" name="hosted_button_id" value="45TNWY2WP66VQ" /> <input
+					type="image" src="${btn }" name="submit"
+					title="PayPal - The safer, easier way to pay online!"
+					alt="Donate with PayPal button" /> <img alt="" border="0"
+					src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1"
+					height="1" />
+			</form>
+
+			<img src="${img2 }" class="img-pass" alt="segundo passo">
+			<p>Depois é simples, basta escolher o valor que deseja doar, a
+				forma de pagamento e realizar a doação para o projeto.</p>
+
+			<img src="${img3 }" class="img-pass" alt="terceiro passo">
+			<p>Pronto, viu como foi fácil? Isso faz com que você nos ajude e
+				nos incentive de uma maneira enorme. OBRIGADO!!</p>
+
+
+
+
+		</div>
+
 	</div>
-
-	<div class="donate-description">
-		<h5>Participe! Essa é uma forma de você contribuir para o
-			desenvolvimento do projeto. Uma forma rápida, simples e segura de ser
-			um colaborador do BabyShark</h5>
-
-		<img src="${img1 }" class="img-pass" alt="primeiro passo">
-
-		<p>Para ajudar, você primeiro precisa clicar no botãozinho azul,
-			ele vai te redirecionar direto para a nossa página do paypal, fazendo
-			que seja uma colaboração segura.</p>
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
-			target="_blank">
-			<input type="hidden" name="cmd" value="_s-xclick" /> <input
-				type="hidden" name="hosted_button_id" value="45TNWY2WP66VQ" /> <input
-				type="image" src="${btn }" border="0" name="submit"
-				title="PayPal - The safer, easier way to pay online!"
-				alt="Donate with PayPal button" /> <img alt="" border="0"
-				src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1"
-				height="1" />
-		</form>
-
-		<img src="${img2 }" class="img-pass" alt="segundo passo">
-		<p>Depois é simples, basta escolher o valor que deseja doar, a
-			forma de pagamento e realizar a doação para o projeto.</p>
-
-		<img src="${img3 }" class="img-pass" alt="terceiro passo">
-		<p>Pronto, viu como foi fácil? Isso faz com que você nos ajude e
-			nos incentive de uma maneira enorme. OBRIGADO!!</p>
-
-
-
-
-	</div>
-
-	</main>
 
 
 	<c:import url="/WEB-INF/views/footer/footer.jsp"></c:import>
