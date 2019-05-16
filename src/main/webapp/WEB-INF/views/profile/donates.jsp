@@ -46,7 +46,7 @@
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName }${user.lastName }</h1>
+						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<div class="card-body">
 						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
