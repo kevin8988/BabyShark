@@ -42,7 +42,7 @@
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
-			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+			<c:import url="/WEB-INF/views/profile/menu.jsp"></c:import>
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
@@ -60,16 +60,21 @@
 										<h5 class="card-title">${donate.title }</h5>
 										<p class="card-text">${donate.description }</p>
 										<div class="row">
-											<form:form
-												action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
-												method="POST" class="mr-2">
-												<button class="btn btn-outline-segundary">Editar</button>
-											</form:form>
+											<c:if test="${donate.interests.isEmpty() }">
+												<form:form
+													action="${s:mvcUrl('DCR#profileDonatesUpdate').arg(0, donate.id).build() }"
+													method="POST" class="mr-2">
+													<button class="btn btn-outline-segundary">Editar</button>
+												</form:form>
+											</c:if>											
+											
 											<form:form
 												action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
 												method="POST" class="mr-2">
 												<button class="btn btn-outline-segundary">Excluir</button>
 											</form:form>
+
+
 										</div>
 									</div>
 

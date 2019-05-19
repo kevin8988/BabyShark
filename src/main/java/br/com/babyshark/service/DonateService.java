@@ -45,7 +45,7 @@ public interface DonateService {
 
 	public void deleteInterest(Integer id);
 
-	public void accept(Interest interest);
+	public void accept(Interest interest, Integer donateId);
 
 	public void decline(Interest interest);
 

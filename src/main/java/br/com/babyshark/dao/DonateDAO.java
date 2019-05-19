@@ -11,6 +11,8 @@ public interface DonateDAO {
 
 	public void deleteDonate(User user, Integer id);
 	
+	public void donateDonated(Integer id);
+	
 
 	public Donate getDonateByIdAndUser(User user, Integer id);
 

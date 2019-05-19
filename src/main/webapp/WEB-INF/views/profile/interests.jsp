@@ -42,7 +42,7 @@
 	<div class="container-fluid container-perfil">
 		<div class="row">
 
-			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+			<c:import url="/WEB-INF/views/profile/menu.jsp"></c:import>
 
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
@@ -71,6 +71,10 @@
 										<p class="card-text">Doador:
 											${interest.donate.user.firstName }
 											${interest.donate.user.lastName }</p>
+										<c:if test="${interest.status == ACEITO }">
+											<p class="card-text">Entre em contato:
+											${interest.donate.user.email }</p>
+										</c:if>
 										<p class="card-text">Status: ${interest.status }</p>
 									</div>
 								</c:forEach>

@@ -1,5 +1,7 @@
 package br.com.babyshark.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.service.DonateService;
 import br.com.babyshark.service.UserService;
@@ -126,7 +129,8 @@ public class UserController {
 	public String profileDonates(Model model) {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
-		model.addAttribute("donates", donateService.getDonatesByUser(user));
+		List<Donate> donatesByUser = donateService.getDonatesByUser(user);
+		model.addAttribute("donates", donatesByUser);
 		return "profile/donates";
 	}
 

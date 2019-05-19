@@ -43,7 +43,7 @@
 
 	<div class="container-fluid container-perfil">
 		<div class="row">
-			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+			<c:import url="/WEB-INF/views/profile/menu.jsp"></c:import>
 			<div class="col-lg-9" id="doacoes">
 				<div class="card shadow">
 					<div class="card-head p-3">
@@ -61,18 +61,22 @@
 										<h5 class="card-title">Título: ${interest.donate.title }</h5>
 										<p class="card-text">Interessado:
 											${interest.user.firstName }</p>
-										<p class="card-text">Mensagem: ${interest.message }</p>
+										<p class="card-text">E-mail: ${interest.user.email }</p>
+										<p class="card-text">Mensagem: ${interest.message }</p>										
+										<p class="card-text">Status: ${interest.status }</p>
 										<div class="row">
-											<form:form
-												action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-												method="POST" class="mr-2">
-												<button class="btn btn-outline-segundary">Aceitar</button>
-											</form:form>
-											<form:form
-												action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-												method="POST" class="mr-2" modelAttribute="${ interest}">
-												<button class="btn btn-outline-segundary">Recusar</button>
-											</form:form>
+											<c:if test="${interest.status == PENDENTE }">
+												<form:form
+													action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
+													method="POST" class="mr-2">
+													<button class="btn btn-outline-segundary">Aceitar</button>
+												</form:form>
+												<form:form
+													action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
+													method="POST" class="mr-2" modelAttribute="${ interest}">
+													<button class="btn btn-outline-segundary">Recusar</button>
+												</form:form>
+											</c:if>
 										</div>
 									</div>
 

@@ -73,7 +73,7 @@ public class InterestController {
 		InterestId interestId = new InterestId(id, id2);
 		Interest interest = new Interest();
 		interest.setId(interestId);
-		donateService.accept(interest);
+		donateService.accept(interest, id2);
 		return "redirect:/";
 	}
 

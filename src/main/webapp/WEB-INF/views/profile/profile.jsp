@@ -44,7 +44,7 @@
 	<div class="container-fluid container-perfil">
 		<div class="row">
 
-			<c:import url="/WEB-INF/views/user/profileMenu.jsp"></c:import>
+			<c:import url="/WEB-INF/views/profile/menu.jsp"></c:import>
 
 			<div class="col-lg-9">
 				<div class="card shadow">

@@ -62,6 +62,12 @@ public class DonateDAOImpl implements DonateDAO {
 	}
 
 	@Override
+	public void donateDonated(Integer id) {
+		em.createQuery("update Donate d set d.isDonated = true where d.id = :pId").setParameter("pId", id)
+				.executeUpdate();
+	}
+
+	@Override
 	public Donate getDonateByIdAndUser(User user, Integer id) {
 		return em.createQuery(
 				"from Donate d join fetch d.photos join fetch d.color join fetch d.gender join fetch d.categories where d.isDonated = false and d.id = :pId and d.user = :pUser",
@@ -94,7 +100,8 @@ public class DonateDAOImpl implements DonateDAO {
 
 	@Override
 	public List<Donate> getDonatesByUser(User user) {
-		return em.createQuery("from Donate d join fetch d.photos where d.user = :pUser and d.isDonated = false",
+		return em.createQuery(
+				"select distinct d from Donate d join fetch d.photos join fetch d.interests where d.user = :pUser",
 				Donate.class).setParameter("pUser", user).getResultList();
 	}
 
@@ -105,7 +112,7 @@ public class DonateDAOImpl implements DonateDAO {
 
 	@Override
 	public List<Donate> getLastThreeDonates() {
-		return em.createQuery("from Donate d join fetch d.photos order by d.id desc", Donate.class).getResultList();
+		return em.createQuery("from Donate d join fetch d.photos where d.isDonated = false order by d.id desc", Donate.class).getResultList();
 	}
 
 	@Override

@@ -140,9 +140,11 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public void accept(Interest interest) {
-		interest.setStatus(Status.ACEITO);
+	public void accept(Interest interest, Integer donateId) {
+		interest.setStatus(Status.ACEITO);		
 		interestDAO.insertOrUpdate(interest);
+		interestDAO.declineInterests(interest, donateId);
+		donateDAO.donateDonated(donateId);
 	}
 
 	@Override

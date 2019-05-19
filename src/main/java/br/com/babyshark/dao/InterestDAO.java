@@ -11,6 +11,8 @@ public interface InterestDAO {
 
 	public void delete(Integer id);
 
+	public void declineInterests(Interest interest, Integer id);
+
 	public List<Interest> getMyInterests(User user);
 
 	public List<Interest> getInterestInMyDonates(User user);
