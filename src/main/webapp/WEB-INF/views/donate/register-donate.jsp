@@ -33,7 +33,44 @@
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+<script> 
+		window.onload = function() {
+	
+		    var navListItems = $('ul.setup-panel li a'),
+		        allWells = $('.setup-content');
 
+		    allWells.hide();
+
+		    navListItems.click(function(e)
+		    {
+		        e.preventDefault();
+		        var $target = $($(this).attr('href')),
+		            $item = $(this).closest('li');
+		        
+		        if (!$item.hasClass('disabled')) {
+		            navListItems.closest('li').removeClass('active');
+		            $item.addClass('active');
+		            allWells.hide();
+		            $target.show();
+		        }
+		    });
+		    
+		    $('ul.setup-panel li.active a').trigger('click');
+		    
+		    // DEMO ONLY //
+		    $('#activate-step-2').on('click', function(e) {
+		        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+		        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+		        $(this).remove();
+		    })   
+		    $('#activate-step-3').on('click', function(e) {
+		        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+		        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+		        $(this).remove();
+		    })  
+		};
+
+</script> 
 </head>
 <body>
 
@@ -70,29 +107,13 @@
 					<p>Lorem ipsum dolor sit amet.</p>
 					<div class="row my-3">
 						<div class="col-lg-6">
-							<div class="card">
-								<img class="card-img-top" width="350" height="400"
-									src="img/enxoval.jpg">
-								<div class="card-body">
-									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio1" name="customRadio"
-											class="custom-control-input"> <label
-											class="custom-control-label" for="customRadio1">Enxoval</label>
-									</div>
-								</div>
+							<div class="card p-5">
+								<h1>Enxoval</h1>
 							</div>
 						</div>
 						<div class="col-lg-6">
-							<div class="card">
-								<img class="card-img-top" width="350" height="400"
-									src="img/evento.jpg">
-								<div class="card-body">
-									<div class="custom-control custom-radio">
-										<input type="radio" id="customRadio2" name="customRadio"
-											class="custom-control-input"> <label
-											class="custom-control-label" for="customRadio2">Evento</label>
-									</div>
-								</div>
+							<div class="card p-5">
+								<h1>Evento</h1>
 							</div>
 						</div>
 					</div>
@@ -188,6 +209,51 @@
 				</div>
 			</div>
 		</div>
+		<!--EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+		<div class="row setup-content p-4" id="step-2">
+		    <div class="col-xs-12">
+		        <div class="col-md-12 well">
+		          	<h2>Descreva tudo quem você gostaria de doar</h2>
+			        <p>Lorem ipsum dolor sit amet.</p>
+		            <form class="was-validated">
+					  <div class="form-group">
+					    <label for="inputTitulo">Titulo</label>
+					    <input type="text" class="form-control" id="inputTitulo">
+					  </div>
+					  <div class="mb-3">
+					    <label for="validationTextarea">Textarea</label>
+					    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+					    <div class="invalid-feedback">
+					      Please enter a message in the textarea.
+					    </div>
+					  </div>
+			          <div class="form-group">
+			                <label for="data">Escolha a data do evento:</label>
+   							<input type="date" id="data" name="data" class="form-control">
+			          </div>
+			          
+					  <div class="form-row">
+					    <div class="form-group col-md-6">
+					      <label for="inputCidade">Cidade</label>
+					      <input type="text" class="form-control" id="inputCidade">
+					    </div>
+					    <div class="form-group col-md-4">
+					      <label for="inputEstado">Estado</label>
+					      <select id="inputEstado" class="form-control">
+					        <option selected>Choose...</option>
+					        <option>...</option>
+					      </select>
+					    </div>
+					    <div class="form-group col-md-2">
+					      <label for="inputCEP">CEP</label>
+					      <input type="text" class="form-control" id="inputCEP">
+					    </div>
+					  </div>
+						</form>
+	                <button id="activate-step-3" class="btn btn-primary btn-lg">Activate Step 3</button>
+	            </div>
+	        </div>
+	    </div>
 		<div class="row setup-content p-4" id="step-3">
 			<div class="col-12">
 				<div class="col-md-12 well">
