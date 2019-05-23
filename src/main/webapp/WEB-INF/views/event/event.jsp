@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Baby Shark</title>
+<title>Eventos</title>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -83,15 +83,15 @@
 							<div class="form-group row justify-content-center"
 								style="margin-bottom: 0px;">
 								<div class="col-lg-3 col-md-12 ">
-									<label for="pesquisa" class="mx-2">Buscar</label>
-									<input type="text" class="form-control" id="pesquisa"
-										aria-describedby="pesquisa" name="text" placeholder="Buscar Evento">
+									<label for="pesquisa" class="mx-2">Buscar</label> <input
+										type="text" class="form-control" id="pesquisa"
+										aria-describedby="pesquisa" name="text"
+										placeholder="Buscar Evento">
 								</div>
 								<div class="col-lg-3 col-md-12">
-									<label for="exampleFormControlSelect1" class="mx-2"
-									>Estado:</label> <select
-										class="form-control" 
-										id="exampleFormControlSelect1" name="state">
+									<label for="exampleFormControlSelect1" class="mx-2">Estado:</label>
+									<select class="form-control" id="exampleFormControlSelect1"
+										name="state">
 										<option value="" label="Selecione" />
 										<option value="Acre" label="Acre" />
 										<option value="Alagoas" label="Alagoas" />
@@ -110,7 +110,8 @@
 										<option value="Paraná" label="Paraná" />
 										<option value="Pernambuco" label="Pernambuco" />
 										<option value="Rio de Janeiro" label="Rio de Janeiro" />
-										<option value="Rio Grande do Norte" label="Rio Grande do Norte" />
+										<option value="Rio Grande do Norte"
+											label="Rio Grande do Norte" />
 										<option value="Rio Grander do Sul" label="Rio Grander do Sul" />
 										<option value="Rondônia" label="Rondônia" />
 										<option value="Roraima" label="Roraima" />
@@ -118,13 +119,12 @@
 										<option value="São Paulo" label="São Paulo" />
 										<option value="Sergipe" label="Sergipe" />
 										<option value="Tocantins" label="Tocantins" />
-									</select> 
+									</select>
 								</div>
 								<div class="col-lg-3 col-md-12">
-									<label for="exampleFormControlSelect1" class="mx-2"
-										>Cidades:</label> <select
-										class="form-control "
-										id="exampleFormControlSelect1" name="city">
+									<label for="exampleFormControlSelect1" class="mx-2">Cidades:</label>
+									<select class="form-control " id="exampleFormControlSelect1"
+										name="city">
 										<option value="">Selecione</option>
 										<option value="São Paulo">São Paulo</option>
 										<option>Rio</option>
@@ -155,7 +155,10 @@
 							<div class="card-body">
 								<h5 class="card-title">${event.title }</h5>
 								<p class="card-text">${event.description }</p>
-								<a href="#" class="btn btn-primary">Ver Mais</a>
+								<form:form method="POST"
+									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
+									<button class="btn btn-primary">Visitar</button>
+								</form:form>
 							</div>
 						</div>
 					</div>

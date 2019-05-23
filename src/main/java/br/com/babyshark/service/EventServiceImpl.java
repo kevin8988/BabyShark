@@ -37,4 +37,10 @@ public class EventServiceImpl implements EventService {
 		eventDAO.insertOrUpdate(event);
 	}
 
+	@Override
+	@Transactional
+	public Event getEventById(Integer id) {
+		return eventDAO.getEventById(id);
+	}
+
 }

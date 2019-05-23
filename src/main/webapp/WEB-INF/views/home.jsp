@@ -153,7 +153,10 @@
 								<h5 class="card-title">${event.title }</h5>
 								<p class="card-text">${event.description }</p>
 								<p class="card-text">${event.dayOfEvent }</p>
-								<a href="#" class="btn btn-primary">Visitar</a>
+								<form:form method="POST"
+									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
+									<button class="btn btn-primary">Visitar</button>
+								</form:form>
 							</div>
 							<div class="card-footer text-muted">2 dias atrás</div>
 						</div>

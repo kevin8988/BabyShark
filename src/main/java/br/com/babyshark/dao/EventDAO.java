@@ -12,6 +12,8 @@ public interface EventDAO {
 	public List<Event> getAllEvents();
 
 	public List<Event> getThreeNearbyEvents();
+	
+	public Event getEventById(Integer id);
 
 	public List<Event> getEventsByUser(User user);
 

@@ -49,7 +49,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-10 shadow" style="background-color: white;">
 					<div class="text-center my-3">
-						<h1>Doação não encontrada!</h1>
+						<h1>Doação doada ou não encontrada!</h1>
 					</div>
 				</div>
 			</div>

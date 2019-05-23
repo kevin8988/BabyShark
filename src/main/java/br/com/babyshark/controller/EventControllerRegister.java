@@ -1,5 +1,6 @@
 package br.com.babyshark.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.User;
 import br.com.babyshark.service.EventService;
 import br.com.babyshark.validation.EventValidation;
 
@@ -24,6 +26,9 @@ public class EventControllerRegister {
 
 	@Autowired
 	private EventService eventService;
+	
+	@Autowired
+	private HttpSession session;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -43,8 +48,8 @@ public class EventControllerRegister {
 		if (result.hasErrors()) {
 			return "event/register-event";
 		}
-		System.out.println(event.getDayOfEvent());
-		//eventService.insertOrUpdate(event);
+		event.setUser((User) session.getAttribute("user"));
+		eventService.insertOrUpdate(event);
 		return "redirect:/";
 	}
 
