@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,15 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	public List<Event> getEventsByFilter(String city, String state, String text) {
 		return eventDAO.getEventsByFilter(city, state, text);
+	}
+
+	@Override
+	@Transactional
+	public void insertOrUpdate(Event event) {
+		event.setInitialHour(new Date());
+		event.setEndHour(new Date());
+		event.getEventAddress().setCountry("Brasil");
+		eventDAO.insertOrUpdate(event);
 	}
 
 }

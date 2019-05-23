@@ -48,6 +48,15 @@
 								Doar</a> <i class="fas fa-gifts"></i>
 						</h4>
 					</button>
+
+				</div>
+				<div class="row mt-3">
+					<button class="btn">
+						<h4 style="margin-bottom: 0px;">
+							<a href="${s:mvcUrl('ECR#register').build() }">Criar Evento</a> <i
+								class="fas fa-gifts"></i>
+						</h4>
+					</button>
 				</div>
 			</div>
 		</div>

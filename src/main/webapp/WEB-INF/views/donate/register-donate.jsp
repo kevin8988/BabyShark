@@ -33,6 +33,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+
+<!--  
 <script> 
 		window.onload = function() {
 	
@@ -71,6 +73,7 @@
 		};
 
 </script> 
+-->
 </head>
 <body>
 
@@ -208,52 +211,7 @@
 
 				</div>
 			</div>
-		</div>
-		<!--EVENTOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
-		<div class="row setup-content p-4" id="step-2">
-		    <div class="col-xs-12">
-		        <div class="col-md-12 well">
-		          	<h2>Descreva tudo quem você gostaria de doar</h2>
-			        <p>Lorem ipsum dolor sit amet.</p>
-		            <form class="was-validated">
-					  <div class="form-group">
-					    <label for="inputTitulo">Titulo</label>
-					    <input type="text" class="form-control" id="inputTitulo">
-					  </div>
-					  <div class="mb-3">
-					    <label for="validationTextarea">Textarea</label>
-					    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-					    <div class="invalid-feedback">
-					      Please enter a message in the textarea.
-					    </div>
-					  </div>
-			          <div class="form-group">
-			                <label for="data">Escolha a data do evento:</label>
-   							<input type="date" id="data" name="data" class="form-control">
-			          </div>
-			          
-					  <div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputCidade">Cidade</label>
-					      <input type="text" class="form-control" id="inputCidade">
-					    </div>
-					    <div class="form-group col-md-4">
-					      <label for="inputEstado">Estado</label>
-					      <select id="inputEstado" class="form-control">
-					        <option selected>Choose...</option>
-					        <option>...</option>
-					      </select>
-					    </div>
-					    <div class="form-group col-md-2">
-					      <label for="inputCEP">CEP</label>
-					      <input type="text" class="form-control" id="inputCEP">
-					    </div>
-					  </div>
-						</form>
-	                <button id="activate-step-3" class="btn btn-primary btn-lg">Activate Step 3</button>
-	            </div>
-	        </div>
-	    </div>
+		</div>		
 		<div class="row setup-content p-4" id="step-3">
 			<div class="col-12">
 				<div class="col-md-12 well">

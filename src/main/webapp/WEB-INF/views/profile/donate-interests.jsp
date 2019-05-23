@@ -65,7 +65,7 @@
 										<p class="card-text">Mensagem: ${interest.message }</p>										
 										<p class="card-text">Status: ${interest.status }</p>
 										<div class="row">
-											<c:if test="${interest.status == PENDENTE }">
+											<c:if test="${interest.status == 'PENDENTE'}">
 												<form:form
 													action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
 													method="POST" class="mr-2">

@@ -19,9 +19,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "event")
@@ -33,21 +35,27 @@ public class Event implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
+	@NotNull(message = "Título não pode ser nulo.")
 	private String title;
 
 	@Column(nullable = false)
+	@NotNull(message = "Descrição não pode ser nula.")
 	private String description;
 
 	@Column(nullable = false, name = "initial_hour")
 	@Temporal(TemporalType.TIME)
+	//@NotNull(message = "Hora inicial não pode ser nula.")
 	private Date initialHour;
 
 	@Column(nullable = false, name = "end_hour")
 	@Temporal(TemporalType.TIME)
+	//@NotNull(message = "Hora final não pode ser nula.")
 	private Date endHour;
 
 	@Column(nullable = false, name = "day_of_event")
+	@DateTimeFormat
 	@Temporal(TemporalType.DATE)
+	@NotNull(message = "Dia não pode ser nulo.")
 	private Date dayOfEvent;
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,

@@ -7,12 +7,14 @@ import br.com.babyshark.entity.User;
 
 public interface EventDAO {
 
+	public void insertOrUpdate(Event event);
+
 	public List<Event> getAllEvents();
 
 	public List<Event> getThreeNearbyEvents();
 
 	public List<Event> getEventsByUser(User user);
-	
+
 	public List<Event> getEventsByFilter(String city, String state, String text);
 
 }

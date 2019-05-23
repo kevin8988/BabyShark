@@ -14,14 +14,23 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.User;
-import br.com.babyshark.entity.UserAddress;
 
 @Repository
 public class EventDAOImpl implements EventDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+
+	@Override
+	public void insertOrUpdate(Event event) {
+		if (event.getId() == null) {
+			em.persist(event);
+		} else {
+			em.merge(event);
+		}
+	}
 
 	@Override
 	public List<Event> getAllEvents() {
@@ -48,8 +57,8 @@ public class EventDAOImpl implements EventDAO {
 
 		Root<Event> root = query.from(Event.class);
 
-		Path<String> pathCity = root.<UserAddress>get("userAddress").<String>get("city");
-		Path<String> pathState = root.<UserAddress>get("userAddress").<String>get("state");
+		Path<String> pathCity = root.<EventAddress>get("eventAddress").<String>get("city");
+		Path<String> pathState = root.<EventAddress>get("eventAddress").<String>get("state");
 		Path<String> pathText = root.<String>get("title");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
