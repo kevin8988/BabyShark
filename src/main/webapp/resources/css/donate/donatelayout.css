@@ -79,7 +79,9 @@ footer {
 	background-repeat: no-repeat;
 	background-position: bottom;
 }
-
+.container-fluid {
+	margin-top: 10%;
+}
 .btn {
 	background-color: #0386A8;
 	color: white;
@@ -166,6 +168,9 @@ footer {
 		width: auto;
 		padding-bottom: 20px;
 		float: inherit;
+	}
+	.container-fluid {
+		margin-top: 20%;
 	}
 }
 

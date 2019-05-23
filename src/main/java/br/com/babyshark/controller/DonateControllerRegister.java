@@ -83,7 +83,7 @@ public class DonateControllerRegister {
 		donate.add(photo);
 		donateService.insertOrUpdate(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação cadastrado com Sucesso.");
-		return "redirect:/profile/profile";
+		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/registerProcessDonate/update")
@@ -123,7 +123,7 @@ public class DonateControllerRegister {
 		donate.setUser((User) session.getAttribute("user"));
 		donateService.insertOrUpdate(donate);
 		redirectAttrs.addFlashAttribute("success", "Doação atualizada com Sucesso.");
-		return "redirect:/profile/profile";
+		return "redirect:/user/profile";
 
 	}
 

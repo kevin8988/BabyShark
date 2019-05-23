@@ -43,7 +43,8 @@ public class EventControllerRegister {
 		if (result.hasErrors()) {
 			return "event/register-event";
 		}
-		eventService.insertOrUpdate(event);
+		System.out.println(event.getDayOfEvent());
+		//eventService.insertOrUpdate(event);
 		return "redirect:/";
 	}
 

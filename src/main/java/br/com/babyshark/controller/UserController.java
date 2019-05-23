@@ -130,6 +130,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		List<Donate> donatesByUser = donateService.getDonatesByUser(user);
+		System.out.println(donatesByUser);
 		model.addAttribute("donates", donatesByUser);
 		return "profile/donates";
 	}

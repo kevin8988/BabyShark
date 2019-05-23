@@ -71,7 +71,7 @@
 										<p class="card-text">Doador:
 											${interest.donate.user.firstName }
 											${interest.donate.user.lastName }</p>
-										<c:if test="${interest.status == ACEITO }">
+										<c:if test="${interest.status == 'ACEITO' }">
 											<p class="card-text">Entre em contato:
 											${interest.donate.user.email }</p>
 										</c:if>

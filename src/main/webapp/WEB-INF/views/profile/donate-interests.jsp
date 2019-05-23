@@ -73,7 +73,7 @@
 												</form:form>
 												<form:form
 													action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-													method="POST" class="mr-2" modelAttribute="${ interest}">
+													method="POST" class="mr-2" >
 													<button class="btn btn-outline-segundary">Recusar</button>
 												</form:form>
 											</c:if>

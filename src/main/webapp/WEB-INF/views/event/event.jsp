@@ -74,7 +74,7 @@
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
 
-	<div class="container-fluid " style="margin-top: 10%;">
+	<div class="container-fluid ">
 		<form:form method="GET" action="${s:mvcUrl('EC#events').build() }">
 			<div class="row">
 				<div class="col-lg-12">
@@ -82,56 +82,62 @@
 						<div class="card-body">
 							<div class="form-group row justify-content-center"
 								style="margin-bottom: 0px;">
-								<label for="exampleFormControlSelect1" class="mx-2"
-									style="line-height: 2.5;">Estado:</label> <select
-									class="form-control" style="width: 9%;"
-									id="exampleFormControlSelect1" name="state">
-									<option value="" label="Selecione" />
-									<option value="Acre" label="Acre" />
-									<option value="Alagoas" label="Alagoas" />
-									<option value="Amapá" label="Amapá" />
-									<option value="Amazonas" label="Amazonas" />
-									<option value="Bahia" label="Bahia" />
-									<option value="Ceará" label="Ceará" />
-									<option value="Espírito Santo" label="Espírito Santo" />
-									<option value="Goiás" label="Goiás" />
-									<option value="Maranhão" label="Maranhão" />
-									<option value="Mato Grosso" label="Mato Grosso" />
-									<option value="Mato Grosso do Sul" label="Mato Grosso do Sul" />
-									<option value="Minas Gerais" label="Minas Gerais" />
-									<option value="Pará" label="Pará" />
-									<option value="Paraíba" label="Paraíba" />
-									<option value="Paraná" label="Paraná" />
-									<option value="Pernambuco" label="Pernambuco" />
-									<option value="Rio de Janeiro" label="Rio de Janeiro" />
-									<option value="Rio Grande do Norte" label="Rio Grande do Norte" />
-									<option value="Rio Grander do Sul" label="Rio Grander do Sul" />
-									<option value="Rondônia" label="Rondônia" />
-									<option value="Roraima" label="Roraima" />
-									<option value="Santa Catarina" label="Santa Catarina" />
-									<option value="São Paulo" label="São Paulo" />
-									<option value="Sergipe" label="Sergipe" />
-									<option value="Tocantins" label="Tocantins" />
-								</select> <label for="exampleFormControlSelect1" class="mx-2"
-									style="line-height: 2.5;">Cidades:</label> <select
-									class="form-control " style="width: 15%;"
-									id="exampleFormControlSelect1" name="city">
-									<option value="">Selecione</option>
-									<option value="São Paulo">São Paulo</option>
-									<option>Rio</option>
-									<option>Salvador</option>
-									<option>Jundíai</option>
-									<option>Curitiba</option>
-								</select>
-
-								<!--<label for="pesquisa" class="mx-2">Pesquisar</label>-->
-								<input type="text" class="form-control w-25 ml-2" id="pesquisa"
-									aria-describedby="pesquisa" name="text">
-
-								<button class="btn my-2 my-sm-0 m-3" type="submit">
-									<i class="fas fa-search mr-1"></i> Pesquisar
-								</button>
-
+								<div class="col-lg-3 col-md-12 ">
+									<label for="pesquisa" class="mx-2">Buscar</label>
+									<input type="text" class="form-control" id="pesquisa"
+										aria-describedby="pesquisa" name="text" placeholder="Buscar Evento">
+								</div>
+								<div class="col-lg-3 col-md-12">
+									<label for="exampleFormControlSelect1" class="mx-2"
+									>Estado:</label> <select
+										class="form-control" 
+										id="exampleFormControlSelect1" name="state">
+										<option value="" label="Selecione" />
+										<option value="Acre" label="Acre" />
+										<option value="Alagoas" label="Alagoas" />
+										<option value="Amapá" label="Amapá" />
+										<option value="Amazonas" label="Amazonas" />
+										<option value="Bahia" label="Bahia" />
+										<option value="Ceará" label="Ceará" />
+										<option value="Espírito Santo" label="Espírito Santo" />
+										<option value="Goiás" label="Goiás" />
+										<option value="Maranhão" label="Maranhão" />
+										<option value="Mato Grosso" label="Mato Grosso" />
+										<option value="Mato Grosso do Sul" label="Mato Grosso do Sul" />
+										<option value="Minas Gerais" label="Minas Gerais" />
+										<option value="Pará" label="Pará" />
+										<option value="Paraíba" label="Paraíba" />
+										<option value="Paraná" label="Paraná" />
+										<option value="Pernambuco" label="Pernambuco" />
+										<option value="Rio de Janeiro" label="Rio de Janeiro" />
+										<option value="Rio Grande do Norte" label="Rio Grande do Norte" />
+										<option value="Rio Grander do Sul" label="Rio Grander do Sul" />
+										<option value="Rondônia" label="Rondônia" />
+										<option value="Roraima" label="Roraima" />
+										<option value="Santa Catarina" label="Santa Catarina" />
+										<option value="São Paulo" label="São Paulo" />
+										<option value="Sergipe" label="Sergipe" />
+										<option value="Tocantins" label="Tocantins" />
+									</select> 
+								</div>
+								<div class="col-lg-3 col-md-12">
+									<label for="exampleFormControlSelect1" class="mx-2"
+										>Cidades:</label> <select
+										class="form-control "
+										id="exampleFormControlSelect1" name="city">
+										<option value="">Selecione</option>
+										<option value="São Paulo">São Paulo</option>
+										<option>Rio</option>
+										<option>Salvador</option>
+										<option>Jundiaí</option>
+										<option>Curitiba</option>
+									</select>
+								</div>
+								<div class="col-lg-3 col-md-12 my-4">
+									<button class="btn my-2 my-sm-0 m-3" type="submit">
+										<i class="fas fa-search mr-1"></i> Pesquisar
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
