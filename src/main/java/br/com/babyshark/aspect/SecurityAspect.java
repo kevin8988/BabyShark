@@ -45,12 +45,7 @@ public class SecurityAspect {
 			} else {
 				user = userService.getUserById(userS.getId());
 			}
-
-			if (user.getUserDetail() != null && user.getUserDetail().getDayOfBirth() != null) {
-				Calendar dayOfBirth = user.getUserDetail().getDayOfBirth();
-				dayOfBirth.add(Calendar.DATE, 1);
-				user.getUserDetail().setDayOfBirth(dayOfBirth);
-			}
+			
 			session.setAttribute("user", user);
 		}
 	}

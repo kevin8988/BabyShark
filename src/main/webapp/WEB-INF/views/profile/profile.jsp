@@ -186,8 +186,8 @@
 											<form:option value="Rio de Janeiro" label="Rio de Janeiro" />
 											<form:option value="Rio Grande do Norte"
 												label="Rio Grande do Norte" />
-											<form:option value="Rio Grander do Sul"
-												label="Rio Grander do Sul" />
+											<form:option value="Rio Grande do Sul"
+												label="Rio Grande do Sul" />
 											<form:option value="Rondônia" label="Rondônia" />
 											<form:option value="Roraima" label="Roraima" />
 											<form:option value="Santa Catarina" label="Santa Catarina" />
