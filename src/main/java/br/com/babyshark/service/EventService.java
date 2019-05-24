@@ -6,7 +6,7 @@ import br.com.babyshark.entity.Event;
 
 public interface EventService {
 
-	public void insertOrUpdate(Event event);
+	public void insertOrUpdate(Event event, String initialHour, String endHour);
 
 	public Event getEventById(Integer id);
 

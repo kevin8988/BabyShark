@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.babyshark.entity.Event;
-import br.com.babyshark.entity.User;
 import br.com.babyshark.service.EventService;
 import br.com.babyshark.validation.EventValidation;
 
@@ -26,7 +26,7 @@ public class EventControllerRegister {
 
 	@Autowired
 	private EventService eventService;
-	
+
 	@Autowired
 	private HttpSession session;
 
@@ -44,12 +44,22 @@ public class EventControllerRegister {
 	}
 
 	@PostMapping("/registerProcessEvent")
-	public String registerProcess(@Valid @ModelAttribute("event") Event event, BindingResult result) {
+	public String registerProcess(@Valid @ModelAttribute("event") Event event, BindingResult result,
+			@RequestParam(value = "initial", defaultValue = "") String initial,
+			@RequestParam(value = "end", defaultValue = "") String end, Model model) {
+
 		if (result.hasErrors()) {
 			return "event/register-event";
+		} else if (initial == null) {
+			model.addAttribute("erro", "Por favor, informe uma hora de início.");
+			return "event/register-event";
+		} else if (end == null) {
+			model.addAttribute("erro", "Por favor, informe uma hora final.");
+			return "event/register-event";
 		}
+
 		event.setUser((User) session.getAttribute("user"));
-		eventService.insertOrUpdate(event);
+		eventService.insertOrUpdate(event, initial, end);
 		return "redirect:/";
 	}
 

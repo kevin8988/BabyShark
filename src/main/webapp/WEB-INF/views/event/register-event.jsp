@@ -89,20 +89,19 @@
 								<form:input path="dayOfEvent" id="data" cssClass="form-control" />
 								<form:errors path="dayOfEvent" cssClass="alert-danger" />
 							</div>
-							<!--  
+
 							<div class="form-group col-md-4">
 								<label for="initialHour">Escolha a hora de início do
-									evento:</label>
-								<form:input path="initialHour" id="initialHour"
-									cssClass="form-control" />
-								<form:errors path="initialHour" cssClass="alert-danger" />
+									evento:</label> <input type="time" name="initial" id="initialHour"
+									class="form-control"> <label class="alert-danger">${erro }</label>
 							</div>
+
 							<div class="form-group col-md-4">
-								<label for="endHour">Escolha a hora de fim do evento:</label>
-								<form:input path="endHour" id="endHour" cssClass="form-control" />
-								<form:errors path="endHour" cssClass="alert-danger" />
+								<label for="endHour">Escolha a hora de fim do evento:</label> <input
+									type="time" name="end" id="endHour" class="form-control">
+								<label class="alert-danger">${erro }</label>
 							</div>
-							-->
+
 						</div>
 
 						<div class="form-row">
@@ -173,7 +172,8 @@
 								<label for="inputBairro">Bairro</label>
 								<form:input path="eventAddress.district" id="inputBairro"
 									cssClass="form-control" />
-								<form:errors path="eventAddress.district" cssClass="alert-danger" />
+								<form:errors path="eventAddress.district"
+									cssClass="alert-danger" />
 							</div>
 							<div class="form-group col-md-1">
 								<label for="inputNumero">Número</label>

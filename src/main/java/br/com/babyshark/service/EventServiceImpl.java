@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -30,17 +31,37 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	@Transactional
-	public void insertOrUpdate(Event event) {
-		event.setInitialHour(new Date());
-		event.setEndHour(new Date());
+	public void insertOrUpdate(Event event, String initialHour, String endHour) {
+
 		event.getEventAddress().setCountry("Brasil");
-		eventDAO.insertOrUpdate(event);
+		event.setInitialHour(hour(event.getDayOfEvent(), initialHour));
+		event.setEndHour(hour(event.getDayOfEvent(), endHour));
+
+		// eventDAO.insertOrUpdate(event);
 	}
 
 	@Override
 	@Transactional
 	public Event getEventById(Integer id) {
 		return eventDAO.getEventById(id);
+	}
+
+	private String[] replaceAndSplit(String split) {
+		String var = split.replace(",", "");
+		return var.split(":");
+	}
+
+	private Date hour(Date date, String hour) {
+		Calendar calendar = Calendar.getInstance();
+
+		calendar.setTime(date);
+
+		String[] split = replaceAndSplit(hour);
+
+		calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH),
+				Integer.valueOf(split[0]), Integer.valueOf(split[1]));
+
+		return calendar.getTime();
 	}
 
 }
