@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.User;
 import br.com.babyshark.service.EventService;
 import br.com.babyshark.validation.EventValidation;
 
