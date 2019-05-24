@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.babyshark.entity.Event;
 import br.com.babyshark.entity.User;
@@ -45,17 +44,23 @@ public class EventControllerRegister {
 	}
 
 	@PostMapping("/registerProcessEvent")
-	public String registerProcess(@Valid @ModelAttribute("event") Event event, BindingResult result,
-			@RequestParam(value = "initial", defaultValue = "") String initial,
-			@RequestParam(value = "end", defaultValue = "") String end, Model model) {
+	public String registerProcess(@Valid @ModelAttribute("event") Event event, BindingResult result, String initial,
+			String end, Model model) {
+
+		boolean error = false;
 
 		if (result.hasErrors()) {
-			return "event/register-event";
-		} else if (initial == null) {
+			error = true;
+		}
+		if (initial.equals(",")) {
 			model.addAttribute("erro", "Por favor, informe uma hora de início.");
-			return "event/register-event";
-		} else if (end == null) {
-			model.addAttribute("erro", "Por favor, informe uma hora final.");
+			error = true;
+		}
+		if (end.equals(",")) {
+			model.addAttribute("erro2", "Por favor, informe uma hora final.");
+			error = true;
+		}
+		if (error) {
 			return "event/register-event";
 		}
 

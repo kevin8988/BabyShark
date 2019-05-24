@@ -93,13 +93,13 @@
 							<div class="form-group col-md-4">
 								<label for="initialHour">Escolha a hora de início do
 									evento:</label> <input type="time" name="initial" id="initialHour"
-									class="form-control"> <label class="alert-danger">${erro }</label>
+									class="form-control"> <p class="alert-danger">${erro }</p>
 							</div>
 
 							<div class="form-group col-md-4">
 								<label for="endHour">Escolha a hora de fim do evento:</label> <input
 									type="time" name="end" id="endHour" class="form-control">
-								<label class="alert-danger">${erro }</label>
+								<p class="alert-danger">${erro2 }</p>
 							</div>
 
 						</div>
