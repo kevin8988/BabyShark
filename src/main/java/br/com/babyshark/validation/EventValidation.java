@@ -1,5 +1,8 @@
 package br.com.babyshark.validation;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -27,6 +30,15 @@ public class EventValidation implements Validator {
 			if (event.getDescription().length() > 240) {
 				errors.rejectValue("description", "field.description");
 			}
+		}
+		if(event.getDayOfEvent() != null) {
+			Date dayOfEvent = event.getDayOfEvent();
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(dayOfEvent);
+			if(calendar.compareTo(Calendar.getInstance()) < 0) {
+				errors.rejectValue("dayOfEvent", "field.date");
+			}
+			
 		}
 
 		if (event.getEventAddress() != null) {
