@@ -49,7 +49,7 @@
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName } ${user.lastName }</h1>
+						<h1>${user.firstName }${user.lastName }</h1>
 					</div>
 					<c:if test="${error != null }">
 						<i class="alert-danger">${error}</i>
@@ -222,6 +222,8 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	
 </body>
 
 </html>
