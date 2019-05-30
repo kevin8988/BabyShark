@@ -47,8 +47,10 @@ public class SecurityAppConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/user/profile/**").authenticated().antMatchers("/interest/**").authenticated().and()
 				.authorizeRequests().antMatchers("/user/event/**").authenticated().and().authorizeRequests().and()
 				.formLogin().loginPage("/user/login").loginProcessingUrl("/loginProcess").defaultSuccessUrl("/")
-				.permitAll().and().logout().permitAll().and().rememberMe().key("uniqueAndSecret")
-				.userDetailsService(userDetailsService).tokenValiditySeconds(86400);
+				.permitAll().and().logout().permitAll();
+				
+				//and().rememberMe().key("uniqueAndSecret")
+				//.userDetailsService(userDetailsService).tokenValiditySeconds(86400);
 
 	}
 

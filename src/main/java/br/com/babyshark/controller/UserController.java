@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.User;
 import br.com.babyshark.service.DonateService;
+import br.com.babyshark.service.EventService;
 import br.com.babyshark.service.UserService;
 import br.com.babyshark.validation.UserValidation;
 
@@ -34,6 +35,9 @@ public class UserController {
 
 	@Autowired
 	private DonateService donateService;
+
+	@Autowired
+	private EventService eventService;
 
 	@Autowired
 	private HttpSession session;
@@ -158,6 +162,13 @@ public class UserController {
 		model.addAttribute("user", user);
 		model.addAttribute("interests", donateService.getInterestInMyDonates(user));
 		return "profile/donate-interests";
+	}
+
+	@GetMapping("/profile/my-events")
+	public String profileEvents(Model model) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("events", eventService.getEventsByUser(user));
+		return "profile/events";
 	}
 
 }

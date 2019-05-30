@@ -12,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +22,7 @@ import br.com.babyshark.service.EventService;
 import br.com.babyshark.validation.EventValidation;
 
 @Controller
-@RequestMapping("/user/event")
+@RequestMapping("/user/profile/events")
 public class EventControllerRegister {
 
 	@Autowired
@@ -74,8 +75,16 @@ public class EventControllerRegister {
 		}
 
 		event.setUser((User) session.getAttribute("user"));
-		// eventService.insertOrUpdate(event, initial, end);
+		eventService.insertOrUpdate(event, initial, end);
 		return "redirect:/";
+	}
+
+	@PostMapping("/updateEvent/{id}")
+	public String update(@PathVariable("id") Integer id, Model model) {
+		User user = (User) session.getAttribute("user");
+		Event eventByIdAndUser = eventService.getEventByIdAndUser(user, id);
+		model.addAttribute("event", eventByIdAndUser);
+		return "event/register-event";
 	}
 
 	private String[] replaceAndSplit(String split) {

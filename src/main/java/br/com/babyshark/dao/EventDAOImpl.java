@@ -49,8 +49,16 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
+	public Event getEventByIdAndUser(User user, Integer id) {
+		return em.createQuery(
+				"from Event e join fetch e.eventAddress a join fetch e.user u where e.id = :pId and e.user = :pUser",
+				Event.class).setParameter("pId", id).setParameter("pUser", user).getSingleResult();
+	}
+
+	@Override
 	public List<Event> getEventsByUser(User user) {
-		return null;
+		return em.createQuery("from Event e join fetch e.user u where u = :pUser", Event.class)
+				.setParameter("pUser", user).getResultList();
 	}
 
 	@Override

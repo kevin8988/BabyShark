@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.babyshark.dao.EventDAO;
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.User;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -31,6 +32,12 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	@Transactional
+	public List<Event> getEventsByUser(User user) {
+		return eventDAO.getEventsByUser(user);
+	}
+
+	@Override
+	@Transactional
 	public void insertOrUpdate(Event event, String initialHour, String endHour) {
 
 		event.getEventAddress().setCountry("Brasil");
@@ -44,6 +51,12 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	public Event getEventById(Integer id) {
 		return eventDAO.getEventById(id);
+	}
+
+	@Override
+	@Transactional
+	public Event getEventByIdAndUser(User user, Integer id) {
+		return eventDAO.getEventByIdAndUser(user, id);
 	}
 
 	private String[] replaceAndSplit(String split) {
