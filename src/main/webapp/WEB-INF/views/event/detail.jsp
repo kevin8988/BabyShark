@@ -118,6 +118,8 @@
 
 							<h5>Data do Evento:</h5>
 							<p class="ml-4">${event.dayOfEvent }</p>
+							<p class="ml-4">Início: ${event.initialHour }</p>
+							<p class="ml-4">Término: ${event.endHour }</p>
 
 							<h5>Local do Evento:</h5>
 							<p class="ml-4">${event.eventAddress.state } - ${event.eventAddress.city }</p>

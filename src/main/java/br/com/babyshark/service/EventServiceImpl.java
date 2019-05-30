@@ -37,7 +37,7 @@ public class EventServiceImpl implements EventService {
 		event.setInitialHour(hour(event.getDayOfEvent(), initialHour));
 		event.setEndHour(hour(event.getDayOfEvent(), endHour));
 
-		// eventDAO.insertOrUpdate(event);
+		eventDAO.insertOrUpdate(event);
 	}
 
 	@Override

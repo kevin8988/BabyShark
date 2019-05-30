@@ -1,7 +1,5 @@
 package br.com.babyshark.aspect;
 
-import java.util.Calendar;
-
 import javax.servlet.http.HttpSession;
 
 import org.aspectj.lang.annotation.Aspect;

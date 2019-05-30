@@ -49,6 +49,9 @@ public class EventControllerRegister {
 
 		boolean error = false;
 
+		String data[] = replaceAndSplit(initial);
+		String data2[] = replaceAndSplit(end);
+
 		if (result.hasErrors()) {
 			error = true;
 		}
@@ -60,13 +63,24 @@ public class EventControllerRegister {
 			model.addAttribute("erro2", "Por favor, informe uma hora final.");
 			error = true;
 		}
+		if ((!initial.equals(",") && !end.equals(",")) && (Integer.valueOf(data[0]) > Integer.valueOf(data2[0])
+				|| Integer.valueOf(data[0]) == Integer.valueOf(data2[0])
+						&& Integer.valueOf(data[1]) > Integer.valueOf(data2[1]))) {
+			model.addAttribute("erro", "Por favor, informe uma hora correta");
+			error = true;
+		}
 		if (error) {
 			return "event/register-event";
 		}
 
 		event.setUser((User) session.getAttribute("user"));
-		eventService.insertOrUpdate(event, initial, end);
+		// eventService.insertOrUpdate(event, initial, end);
 		return "redirect:/";
+	}
+
+	private String[] replaceAndSplit(String split) {
+		String var = split.replace(",", "");
+		return var.split(":");
 	}
 
 }
