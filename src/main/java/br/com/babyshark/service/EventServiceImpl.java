@@ -58,6 +58,12 @@ public class EventServiceImpl implements EventService {
 	public Event getEventByIdAndUser(User user, Integer id) {
 		return eventDAO.getEventByIdAndUser(user, id);
 	}
+	
+	@Override
+	@Transactional
+	public void deleteEvent(User user, Integer id) {
+		eventDAO.deleteEvent(user, id);
+	}
 
 	private String[] replaceAndSplit(String split) {
 		String var = split.replace(",", "");
@@ -76,5 +82,6 @@ public class EventServiceImpl implements EventService {
 
 		return calendar.getTime();
 	}
+
 
 }

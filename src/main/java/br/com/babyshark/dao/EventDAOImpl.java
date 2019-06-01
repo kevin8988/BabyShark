@@ -62,6 +62,17 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
+	public void deleteEvent(User user, Integer id) {
+		EventAddress singleResult = em.createQuery("from EventAddress e where e.event.id = :pId", EventAddress.class)
+				.setParameter("pId", id).getSingleResult();
+		em.createQuery("delete from Event e where e.id = :pId and e.user = :pUser").setParameter("pId", id)
+				.setParameter("pUser", user).executeUpdate();
+		em.createQuery("delete from EventAddress e where e = :pEventAddress")
+				.setParameter("pEventAddress", singleResult).executeUpdate();
+
+	}
+
+	@Override
 	public List<Event> getEventsByFilter(String city, String state, String text) {
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 

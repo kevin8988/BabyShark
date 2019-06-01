@@ -68,13 +68,13 @@
 												<button class="btn btn-outline-segundary">Editar</button>
 											</form:form>
 
-<!-- 
+
 											<form:form
-												action="${s:mvcUrl('UC#profileDonatesDelete').arg(0, donate.id).build() }"
+												action="${s:mvcUrl('ECR#delete').arg(0, event.id).build() }"
 												method="POST" class="mr-2">
 												<button class="btn btn-outline-segundary">Excluir</button>
 											</form:form>
--->
+
 
 										</div>
 									</div>

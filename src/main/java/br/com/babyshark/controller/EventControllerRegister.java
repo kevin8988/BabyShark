@@ -86,6 +86,13 @@ public class EventControllerRegister {
 		model.addAttribute("event", eventByIdAndUser);
 		return "event/register-event";
 	}
+	
+	@PostMapping("/deleteEvent/{id}")
+	public String delete(@PathVariable("id") Integer id, Model model) {
+		User user = (User) session.getAttribute("user");
+		eventService.deleteEvent(user, id);
+		return "redirect:/";
+	}
 
 	private String[] replaceAndSplit(String split) {
 		String var = split.replace(",", "");

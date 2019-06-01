@@ -21,4 +21,6 @@ public interface EventDAO {
 
 	public List<Event> getEventsByFilter(String city, String state, String text);
 
+	public void deleteEvent(User user, Integer id);
+
 }
