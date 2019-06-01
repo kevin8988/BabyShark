@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.User;
 import br.com.babyshark.infra.MailSender;
@@ -28,7 +29,7 @@ public class ContactController {
 
 	@Autowired
 	private HttpSession session;
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor trimmerEditor = new StringTrimmerEditor(true);
@@ -46,13 +47,14 @@ public class ContactController {
 	}
 
 	@PostMapping
-	public String sendEmail(@Valid @ModelAttribute("emailTemplate") EmailMessageTemplate template,
-			BindingResult result) {
+	public String sendEmail(@Valid @ModelAttribute("emailTemplate") EmailMessageTemplate template, BindingResult result,
+			RedirectAttributes redirectAttrs) {
 		if (result.hasErrors()) {
 			return "contact/contact";
 		}
 		mailSender.sendSimpleMessage(template);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Mensagem de contato enviada com sucesso.");
+		return "redirect:/user/profile";
 	}
 
 }

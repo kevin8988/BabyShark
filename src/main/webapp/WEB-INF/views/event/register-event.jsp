@@ -71,6 +71,7 @@
 					<form:form method="POST"
 						action="${s:mvcUrl('ECR#registerProcess').build() }"
 						modelAttribute="event">
+						<form:hidden path="id"/>
 						<div class="form-group">
 							<label for="inputTitulo">Título</label>
 							<form:input path="title" id="inputTitulo" cssClass="form-control" />

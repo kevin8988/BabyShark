@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.Event;
 import br.com.babyshark.entity.User;
@@ -46,7 +47,7 @@ public class EventControllerRegister {
 
 	@PostMapping("/registerProcessEvent")
 	public String registerProcess(@Valid @ModelAttribute("event") Event event, BindingResult result, String initial,
-			String end, Model model) {
+			String end, Model model, RedirectAttributes redirectAttrs) {
 
 		boolean error = false;
 
@@ -76,7 +77,8 @@ public class EventControllerRegister {
 
 		event.setUser((User) session.getAttribute("user"));
 		eventService.insertOrUpdate(event, initial, end);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Evento registrado com sucesso.");
+		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/updateEvent/{id}")
@@ -86,12 +88,13 @@ public class EventControllerRegister {
 		model.addAttribute("event", eventByIdAndUser);
 		return "event/register-event";
 	}
-	
+
 	@PostMapping("/deleteEvent/{id}")
-	public String delete(@PathVariable("id") Integer id, Model model) {
+	public String delete(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttrs) {
 		User user = (User) session.getAttribute("user");
 		eventService.deleteEvent(user, id);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Evento deletado com sucesso.");
+		return "redirect:/user/profile";
 	}
 
 	private String[] replaceAndSplit(String split) {

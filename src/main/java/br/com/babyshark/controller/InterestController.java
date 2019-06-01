@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Interest;
@@ -42,7 +43,7 @@ public class InterestController {
 	}
 
 	@PostMapping("/interestProcess/{id}")
-	public String donateInterestProcess(@PathVariable("id") Integer id, Model model, String message) {
+	public String donateInterestProcess(@PathVariable("id") Integer id, Model model, String message, RedirectAttributes redirectAttrs) {
 		Donate donate = donateService.getDonateById(id);
 		User user = (User) session.getAttribute("user");
 
@@ -60,29 +61,33 @@ public class InterestController {
 			Interest interest = new Interest();
 			interest.setMessage(message.replace(",", ""));
 			donateService.insertOrUpdate(interest, user, donate);
-			return "redirect:/";
+			redirectAttrs.addFlashAttribute("success", "Interesse realizado com sucesso.");
+			return "redirect:/user/profile";
 
 		} catch (Exception e) {
-			return "redirect:/";
+			redirectAttrs.addFlashAttribute("error", "Erro ao realizar o interesse.");
+			return "redirect:/user/profile";
 		}
 
 	}
 
 	@PostMapping("/profile/donate/accept/{id}/{donateId}")
-	public String acceptDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2) {
+	public String acceptDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2, RedirectAttributes redirectAttrs) {
 		InterestId interestId = new InterestId(id, id2);
 		Interest interest = new Interest();
 		interest.setId(interestId);
 		donateService.accept(interest, id2);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Doação aceita com sucesso.");
+		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/profile/donate/decline/{id}/{donateId}")
-	public String declineDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2) {
+	public String declineDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2, RedirectAttributes redirectAttrs) {
 		InterestId interestId = new InterestId(id, id2);
 		Interest interest = new Interest();
 		interest.setId(interestId);
 		donateService.decline(interest);
-		return "redirect:/";
+		redirectAttrs.addFlashAttribute("success", "Doação recusada com sucesso.");
+		return "redirect:/user/profile";
 	}
 }

@@ -41,6 +41,11 @@
 							<i class="fas fa-thumbs-up"></i>Interessados
 						</h4></a>
 				</div>
+				<div class="row">
+					<a href="${s:mvcUrl('UC#profileEvents').build() }"><h4>
+							<i class="fas fa-thumbs-up"></i>Eventos
+						</h4></a>
+				</div>
 				<div class="row mt-3">
 					<button class="btn">
 						<h4 style="margin-bottom: 0px;">
