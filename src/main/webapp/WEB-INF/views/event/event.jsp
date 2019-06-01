@@ -93,32 +93,34 @@
 									<select class="form-control" id="exampleFormControlSelect1"
 										name="state">
 										<option value="" label="Selecione" />
-										<option value="Acre" label="Acre" />
-										<option value="Alagoas" label="Alagoas" />
-										<option value="Amapá" label="Amapá" />
-										<option value="Amazonas" label="Amazonas" />
-										<option value="Bahia" label="Bahia" />
-										<option value="Ceará" label="Ceará" />
-										<option value="Espírito Santo" label="Espírito Santo" />
-										<option value="Goiás" label="Goiás" />
-										<option value="Maranhão" label="Maranhão" />
-										<option value="Mato Grosso" label="Mato Grosso" />
-										<option value="Mato Grosso do Sul" label="Mato Grosso do Sul" />
-										<option value="Minas Gerais" label="Minas Gerais" />
-										<option value="Pará" label="Pará" />
-										<option value="Paraíba" label="Paraíba" />
-										<option value="Paraná" label="Paraná" />
-										<option value="Pernambuco" label="Pernambuco" />
-										<option value="Rio de Janeiro" label="Rio de Janeiro" />
-										<option value="Rio Grande do Norte"
+										<option value="AC" label="Acre" />
+										<option value="AL" label="Alagoas" />
+										<option value="AP" label="Amapá" />
+										<option value="AM" label="Amazonas" />
+										<option value="BA" label="Bahia" />
+										<option value="CE" label="Ceará" />
+										<option value="DF" label="Distrito Federal" />
+										<option value="ES" label="Espírito Santo" />										
+										<option value="GO" label="Goiás" />
+										<option value="MA" label="Maranhão" />
+										<option value="MT" label="Mato Grosso" />
+										<option value="MS" label="Mato Grosso do Sul" />
+										<option value="MG" label="Minas Gerais" />
+										<option value="PA" label="Pará" />
+										<option value="PB" label="Paraíba" />
+										<option value="PR" label="Paraná" />
+										<option value="PE" label="Pernambuco" />
+										<option value="PI" label="Piauí" />
+										<option value="RJ" label="Rio de Janeiro" />
+										<option value="RN"
 											label="Rio Grande do Norte" />
-										<option value="Rio Grander do Sul" label="Rio Grander do Sul" />
-										<option value="Rondônia" label="Rondônia" />
-										<option value="Roraima" label="Roraima" />
-										<option value="Santa Catarina" label="Santa Catarina" />
-										<option value="São Paulo" label="São Paulo" />
-										<option value="Sergipe" label="Sergipe" />
-										<option value="Tocantins" label="Tocantins" />
+										<option value="RS" label="Rio Grande do Sul" />
+										<option value="RO" label="Rondônia" />
+										<option value="RR" label="Roraima" />
+										<option value="SC" label="Santa Catarina" />
+										<option value="SP" label="São Paulo" />
+										<option value="SE" label="Sergipe" />
+										<option value="TO" label="Tocantins" />
 									</select>
 								</div>
 								<div class="col-lg-3 col-md-12">

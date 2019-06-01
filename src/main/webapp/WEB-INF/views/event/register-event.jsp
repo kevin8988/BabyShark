@@ -93,7 +93,8 @@
 							<div class="form-group col-md-4">
 								<label for="initialHour">Escolha a hora de início do
 									evento:</label> <input type="time" name="initial" id="initialHour"
-									class="form-control"> <p class="alert-danger">${erro }</p>
+									class="form-control">
+								<p class="alert-danger">${erro }</p>
 							</div>
 
 							<div class="form-group col-md-4">
@@ -105,74 +106,11 @@
 						</div>
 
 						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEstado">Estado</label>
-								<form:select path="eventAddress.state" class="custom-select"
-									id="inputEstado">
-									<form:option value="" label="Selecione" />
-									<form:option value="Acre" label="Acre" />
-									<form:option value="Alagoas" label="Alagoas" />
-									<form:option value="Amapá" label="Amapá" />
-									<form:option value="Amazonas" label="Amazonas" />
-									<form:option value="Bahia" label="Bahia" />
-									<form:option value="Ceará" label="Ceará" />
-									<form:option value="Espírito Santo" label="Espírito Santo" />
-									<form:option value="Goiás" label="Goiás" />
-									<form:option value="Maranhão" label="Maranhão" />
-									<form:option value="Mato Grosso" label="Mato Grosso" />
-									<form:option value="Mato Grosso do Sul"
-										label="Mato Grosso do Sul" />
-									<form:option value="Minas Gerais" label="Minas Gerais" />
-									<form:option value="Pará" label="Pará" />
-									<form:option value="Paraíba" label="Paraíba" />
-									<form:option value="Paraná" label="Paraná" />
-									<form:option value="Pernambuco" label="Pernambuco" />
-									<form:option value="Rio de Janeiro" label="Rio de Janeiro" />
-									<form:option value="Rio Grande do Norte"
-										label="Rio Grande do Norte" />
-									<form:option value="Rio Grander do Sul"
-										label="Rio Grander do Sul" />
-									<form:option value="Rondônia" label="Rondônia" />
-									<form:option value="Roraima" label="Roraima" />
-									<form:option value="Santa Catarina" label="Santa Catarina" />
-									<form:option value="São Paulo" label="São Paulo" />
-									<form:option value="Sergipe" label="Sergipe" />
-									<form:option value="Tocantins" label="Tocantins" />
-								</form:select>
-								<form:errors class="form-control" path="eventAddress.state"
-									cssClass="alert-danger" />
-							</div>
-							<div class="form-group col-md-4">
-								<label for="inputCidade">Cidade</label>
-								<form:select path="eventAddress.city" class="custom-select"
-									id="inputEstado">
-									<form:option value="" label="Selecione" />
-									<form:option value="São Paulo" label="São Paulo" />
-								</form:select>
-								<form:errors class="form-control" path="eventAddress.city"
-									cssClass="alert-danger" />
-							</div>
 							<div class="form-group col-md-2">
 								<label for="inputCEP">CEP</label>
 								<form:input path="eventAddress.postalCode" id="inputCEP"
 									cssClass="form-control" />
 								<form:errors path="eventAddress.postalCode"
-									cssClass="alert-danger" />
-							</div>
-
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEndereco">Endereço</label>
-								<form:input path="eventAddress.street" id="inputEndereco"
-									cssClass="form-control" />
-								<form:errors path="eventAddress.street" cssClass="alert-danger" />
-							</div>
-							<div class="form-group col-md-5">
-								<label for="inputBairro">Bairro</label>
-								<form:input path="eventAddress.district" id="inputBairro"
-									cssClass="form-control" />
-								<form:errors path="eventAddress.district"
 									cssClass="alert-danger" />
 							</div>
 							<div class="form-group col-md-1">

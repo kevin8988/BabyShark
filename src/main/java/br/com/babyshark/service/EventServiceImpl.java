@@ -7,10 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
 import br.com.babyshark.dao.EventDAO;
 import br.com.babyshark.entity.Event;
+import br.com.babyshark.entity.EventAddress;
 import br.com.babyshark.entity.User;
+import br.com.babyshark.template.EventAddressTemplate;
 
 @Service
 public class EventServiceImpl implements EventService {
@@ -40,9 +43,16 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	public void insertOrUpdate(Event event, String initialHour, String endHour) {
 
-		event.getEventAddress().setCountry("Brasil");
 		event.setInitialHour(hour(event.getDayOfEvent(), initialHour));
 		event.setEndHour(hour(event.getDayOfEvent(), endHour));
+
+		RestTemplate rest = new RestTemplate();
+		String url = "https://viacep.com.br/ws/" + event.getEventAddress().getPostalCode() + "/json/";
+		EventAddressTemplate eventAddress = rest.getForObject(url, EventAddressTemplate.class);
+		EventAddress eventAd = new EventAddress(eventAddress.getLocalidade(), eventAddress.getUf(), "Brasil",
+				event.getEventAddress().getNumber(), eventAddress.getLogradouro(), eventAddress.getBairro(),
+				event.getEventAddress().getPostalCode());
+		event.setEventAddress(eventAd);
 
 		eventDAO.insertOrUpdate(event);
 	}
@@ -58,7 +68,7 @@ public class EventServiceImpl implements EventService {
 	public Event getEventByIdAndUser(User user, Integer id) {
 		return eventDAO.getEventByIdAndUser(user, id);
 	}
-	
+
 	@Override
 	@Transactional
 	public void deleteEvent(User user, Integer id) {
@@ -82,6 +92,5 @@ public class EventServiceImpl implements EventService {
 
 		return calendar.getTime();
 	}
-
 
 }

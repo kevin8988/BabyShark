@@ -33,7 +33,7 @@ public class JPAConfiguration {
 		dataSource.setPassword("12345");
 		dataSource.setJdbcUrl("jdbc:mysql://localhost/babyshark?serverTimezone=UTC");
 
-		dataSource.setMinPoolSize(0);
+		dataSource.setMinPoolSize(3);
 		dataSource.setMaxPoolSize(25);
 		dataSource.setIdleConnectionTestPeriod(10);
 
