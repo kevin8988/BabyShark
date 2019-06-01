@@ -43,7 +43,7 @@
 				</div>
 				<div class="row">
 					<a href="${s:mvcUrl('UC#profileEvents').build() }"><h4>
-							<i class="fas fa-thumbs-up"></i>Eventos
+							 <i class="fas fa-address-book"></i>Eventos
 						</h4></a>
 				</div>
 				<div class="row mt-3">

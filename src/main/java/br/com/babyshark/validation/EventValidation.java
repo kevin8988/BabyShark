@@ -7,6 +7,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import br.com.babyshark.entity.Event;
+import br.com.safeguard.check.SafeguardCheck;
+import br.com.safeguard.interfaces.Check;
+import br.com.safeguard.types.ParametroTipo;
 
 public class EventValidation implements Validator {
 
@@ -20,7 +23,7 @@ public class EventValidation implements Validator {
 
 		Event event = (Event) target;
 
-		// Check check = new SafeguardCheck();
+		Check check = new SafeguardCheck();
 
 		if (event.getTitle() != null) {
 			if (event.getTitle().length() > 30) {
@@ -43,23 +46,21 @@ public class EventValidation implements Validator {
 
 		}
 
-//		if (event.getEventAddress() != null) {
-//		
-//			if (event.getEventAddress().getNumber() == null) {
-//				errors.rejectValue("eventAddress.number", "field.numberNull");
-//			} else if (event.getEventAddress().getNumber().length() > 10) {
-//				errors.rejectValue("eventAddress.number", "field.number");
-//			}
-//			
-////			if (event.getEventAddress().getPostalCode() == null) {
-////				errors.rejectValue("eventAddress.postalCode", "field.postalCodeNull");
-////			} else if (check.elementOf(event.getEventAddress().getPostalCode(), ParametroTipo.CEP).validate()
-////					.hasError()) {
-////				errors.rejectValue("eventAddress.postalCode", "field.postalCode");
-////			}
-//			
-//
-//		}
+		if (event.getEventAddress() != null) {
+
+			if (event.getEventAddress().getNumber() == null) {
+				errors.rejectValue("eventAddress.number", "field.numberNull");
+			} else if (event.getEventAddress().getNumber().length() > 7) {
+				errors.rejectValue("eventAddress.number", "field.number");
+			}
+			if (event.getEventAddress().getPostalCode() == null) {
+				errors.rejectValue("eventAddress.postalCode", "field.postalCodeNull");
+			} else if (check.elementOf(event.getEventAddress().getPostalCode(), ParametroTipo.CEP).validate()
+					.hasError()) {
+				errors.rejectValue("eventAddress.postalCode", "field.postalCode");
+			}
+
+		}
 
 	}
 

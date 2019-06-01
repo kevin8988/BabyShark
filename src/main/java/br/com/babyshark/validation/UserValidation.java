@@ -9,6 +9,9 @@ import org.springframework.validation.Validator;
 
 import br.com.babyshark.entity.User;
 import br.com.caelum.stella.validation.CPFValidator;
+import br.com.safeguard.check.SafeguardCheck;
+import br.com.safeguard.interfaces.Check;
+import br.com.safeguard.types.ParametroTipo;
 
 public class UserValidation implements Validator {
 
@@ -31,7 +34,7 @@ public class UserValidation implements Validator {
 
 		User user = (User) target;
 		User userSession = (User) session.getAttribute("user");
-		//Check check = new SafeguardCheck();
+		Check check = new SafeguardCheck();
 
 		if (user.getPassword() == null) {
 			if (userSession == null) {
@@ -73,18 +76,18 @@ public class UserValidation implements Validator {
 				CPFValidator cpfValidator = new CPFValidator();
 				try {
 					cpfValidator.assertValid(user.getUserDetail().getCpf());
-				} catch (Exception e) {
+				} catch (Exception e) {	
 					errors.rejectValue("userDetail.cpf", "field.cpfError");
 				}
 
 			}
-//			if (user.getUserDetail().getFone() != null) {
-//				if (check.elementOf(user.getUserDetail().getFone(), ParametroTipo.TELEFONE).validate()
-//						.hasError()) {
-//					errors.rejectValue("userDetail.fone", "field.foneError");
-//				}
-//
-//			}
+			if (user.getUserDetail().getFone() != null) {
+				if (check.elementOf(user.getUserDetail().getFone(), ParametroTipo.TELEFONE).validate()
+						.hasError()) {
+					errors.rejectValue("userDetail.fone", "field.foneError");
+				}
+
+			}
 		}
 
 	}
