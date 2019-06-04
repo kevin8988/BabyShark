@@ -12,9 +12,9 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 @Configuration
 public class AmazonConfiguration {
 
-	private static final String ACCESS_KEY = "AKIA2YJ7CXOSPHPN4UHC";
+	private static final String ACCESS_KEY = "AKIA2YJ7CXOSKDQHTJXY";
 
-	private static final String SECRET_KEY = "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";
+	private static final String SECRET_KEY = "tzs+6n92ow9SVP4ZBMDGxaJAWLhlPRRz5coKQEYB";
 
 	private static final String REGION = "us-east-1";
 
