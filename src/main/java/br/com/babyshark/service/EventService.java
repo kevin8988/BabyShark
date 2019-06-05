@@ -9,6 +9,8 @@ public interface EventService {
 
 	public void insertOrUpdate(Event event, String initialHour, String endHour);
 
+	public void interest(User user, Integer id);
+
 	public Event getEventById(Integer id);
 
 	public Event getEventByIdAndUser(User user, Integer id);
@@ -20,4 +22,5 @@ public interface EventService {
 	public List<Event> getEventsByFilter(String city, String state, String text);
 
 	public void deleteEvent(User user, Integer id);
+
 }

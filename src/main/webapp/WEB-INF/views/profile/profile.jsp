@@ -49,7 +49,7 @@
 			<div class="col-lg-9">
 				<div class="card shadow">
 					<div class="card-head p-3">
-						<h1>${user.firstName }${user.lastName }</h1>
+						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<c:if test="${error != null }">
 						<i class="alert-danger">${error}</i>

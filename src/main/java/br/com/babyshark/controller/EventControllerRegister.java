@@ -97,6 +97,13 @@ public class EventControllerRegister {
 		return "redirect:/user/profile";
 	}
 
+	@PostMapping("/interest/{id}")
+	public String interest(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		User user = (User) session.getAttribute("user");
+		eventService.interest(user, id);
+		return "redirect:/user/profile";
+	}
+
 	private String[] replaceAndSplit(String split) {
 		String var = split.replace(",", "");
 		return var.split(":");

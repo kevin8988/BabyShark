@@ -122,15 +122,21 @@
 							<p class="ml-4">Término: ${event.endHour }</p>
 
 							<h5>Local do Evento:</h5>
-							<p class="ml-4">${event.eventAddress.state } - ${event.eventAddress.city }</p>
-							<p class="ml-4">${event.eventAddress.street }, ${event.eventAddress.number } - ${event.eventAddress.district }</p>
+							<p class="ml-4">${event.eventAddress.state }-
+								${event.eventAddress.city }</p>
+							<p class="ml-4">${event.eventAddress.street },
+								${event.eventAddress.number } - ${event.eventAddress.district }</p>
 							<p class="ml-4">CEP: ${event.eventAddress.postalCode }</p>
-							
+
 							<h5>Organizado por:</h5>
-							<p class="ml-4">${event.user.firstName } ${event.user.lastName }</p>
+							<p class="ml-4">${event.user.firstName }
+								${event.user.lastName }</p>
 							<p class="ml-4">${event.user.email }</p>
-							
-							<button class="btn btn-outline-segundary">Me interesso</button>
+							<form:form method="POST"
+								action="${s:mvcUrl('ECR#interest').arg(0, event.id).build() }">
+								<button class="btn btn-outline-segundary">Me interesso</button>
+							</form:form>
+
 						</div>
 					</div>
 				</div>
