@@ -44,12 +44,10 @@ public class Event implements Serializable {
 
 	@Column(nullable = false, name = "initial_hour")
 	@Temporal(TemporalType.TIME)
-	//@NotNull(message = "Hora inicial não pode ser nula.")
 	private Date initialHour;
 
 	@Column(nullable = false, name = "end_hour")
 	@Temporal(TemporalType.TIME)
-	//@NotNull(message = "Hora final não pode ser nula.")
 	private Date endHour;
 
 	@Column(nullable = false, name = "day_of_event")
@@ -57,6 +55,9 @@ public class Event implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@NotNull(message = "Dia não pode ser nulo.")
 	private Date dayOfEvent;
+
+	@Column(nullable = false)
+	private boolean isAvailable;
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
@@ -67,7 +68,7 @@ public class Event implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<User> participants = new HashSet<User>();
 
@@ -130,6 +131,14 @@ public class Event implements Serializable {
 		this.dayOfEvent = dayOfEvent;
 	}
 
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -161,7 +170,7 @@ public class Event implements Serializable {
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", initialHour=" + initialHour
-				+ ", endHour=" + endHour + ", dayOfEvent=" + dayOfEvent + "]";
+				+ ", endHour=" + endHour + ", dayOfEvent=" + dayOfEvent + ", isAvailable=" + isAvailable + "]";
 	}
 
 }

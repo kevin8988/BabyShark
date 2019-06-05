@@ -45,6 +45,7 @@ public class EventServiceImpl implements EventService {
 
 		event.setInitialHour(hour(event.getDayOfEvent(), initialHour));
 		event.setEndHour(hour(event.getDayOfEvent(), endHour));
+		event.setAvailable(true);
 
 		RestTemplate rest = new RestTemplate();
 		String url = "https://viacep.com.br/ws/" + event.getEventAddress().getPostalCode() + "/json/";
