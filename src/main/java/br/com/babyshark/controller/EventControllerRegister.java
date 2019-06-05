@@ -98,9 +98,10 @@ public class EventControllerRegister {
 	}
 
 	@PostMapping("/interest/{id}")
-	public String interest(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+	public String interest(@PathVariable("id") Integer id, RedirectAttributes redirectAttrs) {
 		User user = (User) session.getAttribute("user");
 		eventService.interest(user, id);
+		redirectAttrs.addFlashAttribute("success", "Interesse em evento realizado com sucesso.");
 		return "redirect:/user/profile";
 	}
 

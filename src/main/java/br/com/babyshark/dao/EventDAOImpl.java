@@ -34,17 +34,19 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public List<Event> getAllEvents() {
-		return em.createQuery("from Event e", Event.class).getResultList();
+		return em.createQuery("from Event e where e.isAvailable = true", Event.class).getResultList();
 	}
 
 	@Override
 	public List<Event> getThreeNearbyEvents() {
-		return em.createQuery("from Event e order by e.id desc", Event.class).getResultList();
+		return em.createQuery("from Event e where e.isAvailable = true order by e.id desc", Event.class)
+				.getResultList();
 	}
 
 	@Override
 	public Event getEventById(Integer id) {
-		return em.createQuery("from Event e join fetch e.eventAddress a join fetch e.user u where e.id = :pId",
+		return em.createQuery(
+				"from Event e join fetch e.eventAddress a join fetch e.user u where e.id = :pId and e.isAvailable = true",
 				Event.class).setParameter("pId", id).getSingleResult();
 	}
 
@@ -85,8 +87,11 @@ public class EventDAOImpl implements EventDAO {
 		Path<String> pathCity = root.<EventAddress>get("eventAddress").<String>get("city");
 		Path<String> pathState = root.<EventAddress>get("eventAddress").<String>get("state");
 		Path<String> pathText = root.<String>get("title");
+		Path<Boolean> pathAvailable = root.<Boolean>get("isAvailable");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
+		Predicate pAvailable = builder.equal(pathAvailable, "true");
+		final1.add(pAvailable);
 
 		if (!text.equals("")) {
 			Predicate pText = builder.like(pathText, "%" + text + "%");
