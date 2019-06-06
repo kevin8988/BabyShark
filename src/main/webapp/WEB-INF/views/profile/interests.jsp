@@ -55,19 +55,20 @@
 								id="Interesses-tab" data-toggle="tab" href="#Interesses"
 								role="tab" aria-controls="Interesses" aria-selected="true">Doações</a>
 							</li>
-							<li class="nav-item"><a class="nav-link" id="Interessados-tab"
-								data-toggle="tab" href="#Interessados" role="tab"
-								aria-controls="Interessados" aria-selected="false">Eventos</a>
+							<li class="nav-item"><a class="nav-link"
+								id="Interessados-tab" data-toggle="tab" href="#Interessados"
+								role="tab" aria-controls="Interessados" aria-selected="false">Eventos</a>
 							</li>
 						</ul>
 						<div class="tab-content container" id="myTabContent">
 							<div class="tab-pane fade show active" id="Interesses"
 								role="tabpanel" aria-labelledby="Interesses-tab">
-								<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
+								<div class="card w-100"
+									style="border-bottom: 1px solid #dee2e6;">
 									<c:if test="${interests.isEmpty() }">
 										<p>Nenhum interesse.</p>
 									</c:if>
-		
+
 									<c:if test="${!interests.isEmpty() }">
 										<c:forEach items="${interests }" var="interest">
 											<c:forEach items="${interest.donate.photos }" var="photo"
@@ -86,7 +87,7 @@
 													${interest.donate.user.lastName }</p>
 												<c:if test="${interest.status == 'ACEITO' }">
 													<p class="card-text">Entre em contato:
-													${interest.donate.user.email }</p>
+														${interest.donate.user.email }</p>
 												</c:if>
 												<p class="card-text">Status: ${interest.status }</p>
 											</div>
@@ -94,9 +95,23 @@
 									</c:if>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="Interessados"
-								role="tabpanel" aria-labelledby="Interessados-tab">
-								
+							<div class="tab-pane fade" id="Interessados" role="tabpanel"
+								aria-labelledby="Interessados-tab">
+								<div class="card w-100"
+									style="border-bottom: 1px solid #dee2e6;">
+									<c:if test="${events.isEmpty() }">
+										<p>Nenhum interesse em eventos.</p>
+									</c:if>
+									<c:if test="${!events.isEmpty() }">
+										<c:forEach items="${events }" var="event">
+											<div class="card-body">
+												<h5 class="card-title">Título: ${event.title }</h5>
+												<p class="card-text">Descrição: ${event.description }</p>
+												<p class="card-text">Data: ${event.dayOfEvent }</p>
+											</div>
+										</c:forEach>
+									</c:if>
+								</div>
 							</div>
 						</div>
 					</div>

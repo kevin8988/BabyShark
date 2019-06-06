@@ -18,6 +18,8 @@ public interface EventService {
 	public List<Event> getAllEvents();
 
 	public List<Event> getEventsByUser(User user);
+	
+	public List<Event> getEventsThatIApply(User user);
 
 	public List<Event> getEventsByFilter(String city, String state, String text);
 
