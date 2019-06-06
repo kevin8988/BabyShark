@@ -50,38 +50,57 @@
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<div class="card-body">
-						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
-							<c:if test="${interests.isEmpty() }">
-								<p>Nenhum interesse em suas doações.</p>
-							</c:if>
-							<c:if test="${!interests.isEmpty() }">
-								<c:forEach items="${interests }" var="interest">
-
-									<div class="card-body">
-										<h5 class="card-title">Título: ${interest.donate.title }</h5>
-										<p class="card-text">Interessado:
-											${interest.user.firstName }</p>
-										<p class="card-text">E-mail: ${interest.user.email }</p>
-										<p class="card-text">Mensagem: ${interest.message }</p>										
-										<p class="card-text">Status: ${interest.status }</p>
-										<div class="row">
-											<c:if test="${interest.status == 'PENDENTE'}">
-												<form:form
-													action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-													method="POST" class="mr-2">
-													<button class="btn btn-outline-segundary">Aceitar</button>
-												</form:form>
-												<form:form
-													action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-													method="POST" class="mr-2" >
-													<button class="btn btn-outline-segundary">Recusar</button>
-												</form:form>
-											</c:if>
-										</div>
-									</div>
-
-								</c:forEach>
-							</c:if>
+						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+							<li class="nav-item"><a class="nav-link active"
+								id="Doacoes-tab" data-toggle="tab" href="#Doacoes"
+								role="tab" aria-controls="Doacoes" aria-selected="true">Doações</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" id="Eventos-tab"
+								data-toggle="tab" href="#Eventos" role="tab"
+								aria-controls="Eventos" aria-selected="false">Eventos</a>
+							</li>
+						</ul>
+						<div class="tab-content container" id="myTabContent">
+							<div class="tab-pane fade show active" id="Doacoes"
+								role="tabpanel" aria-labelledby="Doacoes-tab">
+								<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
+									<c:if test="${interests.isEmpty() }">
+										<p>Nenhum interesse em suas doações.</p>
+									</c:if>
+									<c:if test="${!interests.isEmpty() }">
+										<c:forEach items="${interests }" var="interest">
+		
+											<div class="card-body">
+												<h5 class="card-title">Título: ${interest.donate.title }</h5>
+												<p class="card-text">Interessado:
+													${interest.user.firstName }</p>
+												<p class="card-text">E-mail: ${interest.user.email }</p>
+												<p class="card-text">Mensagem: ${interest.message }</p>										
+												<p class="card-text">Status: ${interest.status }</p>
+												<div class="row">
+													<c:if test="${interest.status == 'PENDENTE'}">
+														<form:form
+															action="${s:mvcUrl('IC#acceptDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
+															method="POST" class="mr-2">
+															<button class="btn btn-outline-segundary">Aceitar</button>
+														</form:form>
+														<form:form
+															action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
+															method="POST" class="mr-2" >
+															<button class="btn btn-outline-segundary">Recusar</button>
+														</form:form>
+													</c:if>
+												</div>
+											</div>
+		
+										</c:forEach>
+									</c:if>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="Eventos"
+								role="tabpanel" aria-labelledby="Eventos-tab">
+								
+							</div>
 						</div>
 					</div>
 				</div>

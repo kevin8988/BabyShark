@@ -50,35 +50,54 @@
 						<h1>${user.firstName } ${user.lastName }</h1>
 					</div>
 					<div class="card-body">
-						<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
-							<c:if test="${interests.isEmpty() }">
-								<p>Nenhum interesse.</p>
-							</c:if>
-
-							<c:if test="${!interests.isEmpty() }">
-								<c:forEach items="${interests }" var="interest">
-									<c:forEach items="${interest.donate.photos }" var="photo"
-										begin="0" end="0">
-										<a
-											href="${s:mvcUrl('DC#donateDetail').arg(0, interest.donate.id).build() }"><img
-											class="card-img-top img-detail-2" src="${photo.path }"
-											alt="Imagem de capa do card"></a>
-									</c:forEach>
-									<div class="card-body">
-										<h4 class="card-title">Título: ${interest.donate.title }</h4>
-										<p class="card-text">Descrição:
-											${interest.donate.description }</p>
-										<p class="card-text">Doador:
-											${interest.donate.user.firstName }
-											${interest.donate.user.lastName }</p>
-										<c:if test="${interest.status == 'ACEITO' }">
-											<p class="card-text">Entre em contato:
-											${interest.donate.user.email }</p>
-										</c:if>
-										<p class="card-text">Status: ${interest.status }</p>
-									</div>
-								</c:forEach>
-							</c:if>
+						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+							<li class="nav-item"><a class="nav-link active"
+								id="Interesses-tab" data-toggle="tab" href="#Interesses"
+								role="tab" aria-controls="Interesses" aria-selected="true">Doações</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" id="Interessados-tab"
+								data-toggle="tab" href="#Interessados" role="tab"
+								aria-controls="Interessados" aria-selected="false">Eventos</a>
+							</li>
+						</ul>
+						<div class="tab-content container" id="myTabContent">
+							<div class="tab-pane fade show active" id="Interesses"
+								role="tabpanel" aria-labelledby="Interesses-tab">
+								<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
+									<c:if test="${interests.isEmpty() }">
+										<p>Nenhum interesse.</p>
+									</c:if>
+		
+									<c:if test="${!interests.isEmpty() }">
+										<c:forEach items="${interests }" var="interest">
+											<c:forEach items="${interest.donate.photos }" var="photo"
+												begin="0" end="0">
+												<a
+													href="${s:mvcUrl('DC#donateDetail').arg(0, interest.donate.id).build() }"><img
+													class="card-img-top img-detail-2" src="${photo.path }"
+													alt="Imagem de capa do card"></a>
+											</c:forEach>
+											<div class="card-body">
+												<h4 class="card-title">Título: ${interest.donate.title }</h4>
+												<p class="card-text">Descrição:
+													${interest.donate.description }</p>
+												<p class="card-text">Doador:
+													${interest.donate.user.firstName }
+													${interest.donate.user.lastName }</p>
+												<c:if test="${interest.status == 'ACEITO' }">
+													<p class="card-text">Entre em contato:
+													${interest.donate.user.email }</p>
+												</c:if>
+												<p class="card-text">Status: ${interest.status }</p>
+											</div>
+										</c:forEach>
+									</c:if>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="Interessados"
+								role="tabpanel" aria-labelledby="Interessados-tab">
+								
+							</div>
 						</div>
 					</div>
 				</div>
