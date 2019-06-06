@@ -59,7 +59,7 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public List<Event> getEventsByUser(User user) {
-		return em.createQuery("from Event e join fetch e.user u where u = :pUser", Event.class)
+		return em.createQuery("from Event e join fetch e.user u left join fetch e.participants p where u = :pUser", Event.class)
 				.setParameter("pUser", user).getResultList();
 	}
 

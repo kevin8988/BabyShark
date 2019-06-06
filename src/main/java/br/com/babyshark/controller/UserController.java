@@ -161,6 +161,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("user", user);
 		model.addAttribute("interests", donateService.getInterestInMyDonates(user));
+		model.addAttribute("events", eventService.getEventsByUser(user));
 		return "profile/donate-interests";
 	}
 

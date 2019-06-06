@@ -57,8 +57,9 @@
 								<c:forEach items="${donates }" var="donate">
 
 									<div class="card-body">
-										<h5 class="card-title">${donate.title }</h5>
-										<p class="card-text">${donate.description }</p>
+										<h5 class="card-title">Título: ${donate.title }</h5>
+										<p class="card-text">Descrição: ${donate.description }</p>
+										<p class="card-text">Informações Adicionais: ${donate.informations }</p>
 										<div class="row">
 											<c:if test="${donate.interests.isEmpty() }">
 												<form:form

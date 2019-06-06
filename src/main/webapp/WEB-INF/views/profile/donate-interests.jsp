@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Perfil - Doações Interessadas</title>
+<title>Perfil - Interessados</title>
 
 <s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
 <s:url value="/resources/css/bootstrap/bootstrap.min.css"
@@ -52,30 +52,29 @@
 					<div class="card-body">
 						<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
 							<li class="nav-item"><a class="nav-link active"
-								id="Doacoes-tab" data-toggle="tab" href="#Doacoes"
-								role="tab" aria-controls="Doacoes" aria-selected="true">Doações</a>
-							</li>
+								id="Doacoes-tab" data-toggle="tab" href="#Doacoes" role="tab"
+								aria-controls="Doacoes" aria-selected="true">Doações</a></li>
 							<li class="nav-item"><a class="nav-link" id="Eventos-tab"
 								data-toggle="tab" href="#Eventos" role="tab"
-								aria-controls="Eventos" aria-selected="false">Eventos</a>
-							</li>
+								aria-controls="Eventos" aria-selected="false">Eventos</a></li>
 						</ul>
 						<div class="tab-content container" id="myTabContent">
 							<div class="tab-pane fade show active" id="Doacoes"
 								role="tabpanel" aria-labelledby="Doacoes-tab">
-								<div class="card w-100" style="border-bottom: 1px solid #dee2e6;">
+								<div class="card w-100"
+									style="border-bottom: 1px solid #dee2e6;">
 									<c:if test="${interests.isEmpty() }">
 										<p>Nenhum interesse em suas doações.</p>
 									</c:if>
 									<c:if test="${!interests.isEmpty() }">
 										<c:forEach items="${interests }" var="interest">
-		
+
 											<div class="card-body">
 												<h5 class="card-title">Título: ${interest.donate.title }</h5>
 												<p class="card-text">Interessado:
 													${interest.user.firstName }</p>
 												<p class="card-text">E-mail: ${interest.user.email }</p>
-												<p class="card-text">Mensagem: ${interest.message }</p>										
+												<p class="card-text">Mensagem: ${interest.message }</p>
 												<p class="card-text">Status: ${interest.status }</p>
 												<div class="row">
 													<c:if test="${interest.status == 'PENDENTE'}">
@@ -86,20 +85,37 @@
 														</form:form>
 														<form:form
 															action="${s:mvcUrl('IC#declineDonate').arg(0, interest.id.userId).arg(1,interest.id.donateId).build() }"
-															method="POST" class="mr-2" >
+															method="POST" class="mr-2">
 															<button class="btn btn-outline-segundary">Recusar</button>
 														</form:form>
 													</c:if>
 												</div>
 											</div>
-		
+
 										</c:forEach>
 									</c:if>
 								</div>
 							</div>
-							<div class="tab-pane fade" id="Eventos"
-								role="tabpanel" aria-labelledby="Eventos-tab">
-								
+							<div class="tab-pane fade" id="Eventos" role="tabpanel"
+								aria-labelledby="Eventos-tab">
+								<div class="card w-100"
+									style="border-bottom: 1px solid #dee2e6;">
+									<c:if test="${events.isEmpty() }">
+										<p>Nenhum evento.</p>
+									</c:if>
+									<c:if test="${!events.isEmpty() }">
+										<c:forEach items="${events }" var="event">
+
+											<div class="card-body">
+												<h5 class="card-title">Título: ${event.title }</h5>
+												<p class="card-text">Descrição: ${event.description }</p>
+												<p class="card-text">Data: ${event.dayOfEvent }</p>
+												<p class="card-text">Número de Participantes: ${event.participants.size() }</p>
+											</div>
+
+										</c:forEach>
+									</c:if>
+								</div>
 							</div>
 						</div>
 					</div>

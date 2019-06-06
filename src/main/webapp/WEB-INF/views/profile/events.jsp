@@ -57,8 +57,9 @@
 								<c:forEach items="${events }" var="event">
 
 									<div class="card-body">
-										<h5 class="card-title">${event.title }</h5>
-										<p class="card-text">${event.description }</p>
+										<h5 class="card-title">Título: ${event.title }</h5>
+										<p class="card-text">Descrição: ${event.description }</p>
+										<p class="card-text">Data: ${event.dayOfEvent }</p>
 										<div class="row">
 
 											 
