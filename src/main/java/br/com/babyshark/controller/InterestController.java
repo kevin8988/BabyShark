@@ -73,20 +73,16 @@ public class InterestController {
 
 	@PostMapping("/profile/donate/accept/{id}/{donateId}")
 	public String acceptDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2, RedirectAttributes redirectAttrs) {
-		InterestId interestId = new InterestId(id, id2);
-		Interest interest = new Interest();
-		interest.setId(interestId);
-		donateService.accept(interest, id2);
+		InterestId interestId = new InterestId(id, id2);		
+		donateService.accept(interestId, id2);
 		redirectAttrs.addFlashAttribute("success", "Doação aceita com sucesso.");
 		return "redirect:/user/profile";
 	}
 
 	@PostMapping("/profile/donate/decline/{id}/{donateId}")
 	public String declineDonate(@PathVariable("id") Integer id, @PathVariable("donateId") Integer id2, RedirectAttributes redirectAttrs) {
-		InterestId interestId = new InterestId(id, id2);
-		Interest interest = new Interest();
-		interest.setId(interestId);
-		donateService.decline(interest);
+		InterestId interestId = new InterestId(id, id2);		
+		donateService.decline(interestId);
 		redirectAttrs.addFlashAttribute("success", "Doação recusada com sucesso.");
 		return "redirect:/user/profile";
 	}

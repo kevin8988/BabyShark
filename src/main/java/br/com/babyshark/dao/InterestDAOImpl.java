@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.InterestId;
 import br.com.babyshark.entity.Status;
 import br.com.babyshark.entity.User;
 
@@ -35,7 +36,13 @@ public class InterestDAOImpl implements InterestDAO {
 	public void declineInterests(Interest interest, Integer id) {
 		Status status = Status.RECUSADO;
 		em.createQuery("update Interest i set i.status = :pStatus where i.donate.id = :pId and i != :pInterest")
-				.setParameter("pId", id).setParameter("pInterest", interest).setParameter("pStatus", status).executeUpdate();
+				.setParameter("pId", id).setParameter("pInterest", interest).setParameter("pStatus", status)
+				.executeUpdate();
+	}
+
+	public Interest interestById(InterestId id) {
+		return em.createQuery("from Interest i where i.id = :pId", Interest.class).setParameter("pId", id)
+				.getSingleResult();
 	}
 
 	@Override

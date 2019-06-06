@@ -140,7 +140,8 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public void accept(Interest interest, Integer donateId) {
+	public void accept(InterestId interestId, Integer donateId) {
+		Interest interest = interestDAO.interestById(interestId);
 		interest.setStatus(Status.ACEITO);		
 		interestDAO.insertOrUpdate(interest);
 		interestDAO.declineInterests(interest, donateId);
@@ -149,7 +150,8 @@ public class DonateServiceImpl implements DonateService {
 
 	@Override
 	@Transactional
-	public void decline(Interest interest) {
+	public void decline(InterestId interestId) {
+		Interest interest = interestDAO.interestById(interestId);
 		interest.setStatus(Status.RECUSADO);
 		interestDAO.insertOrUpdate(interest);
 	}

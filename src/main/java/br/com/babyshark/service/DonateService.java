@@ -8,6 +8,7 @@ import br.com.babyshark.entity.Color;
 import br.com.babyshark.entity.Donate;
 import br.com.babyshark.entity.Gender;
 import br.com.babyshark.entity.Interest;
+import br.com.babyshark.entity.InterestId;
 import br.com.babyshark.entity.User;
 
 public interface DonateService {
@@ -45,9 +46,9 @@ public interface DonateService {
 
 	public void deleteInterest(Integer id);
 
-	public void accept(Interest interest, Integer donateId);
+	public void accept(InterestId interestId, Integer donateId);
 
-	public void decline(Interest interest);
+	public void decline(InterestId interestId);
 
 	public List<Interest> getMyInterests(User user);
 
