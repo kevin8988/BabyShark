@@ -15,26 +15,35 @@ import br.com.babyshark.entity.User;
 
 @Service
 public class HomeServiceImpl implements HomeService {
-	
+
 	@Autowired
 	private DonateDAO donateDAO;
-	
+
 	@Autowired
 	private EventDAO eventDAO;
-	
+
 	@Autowired
 	private UserDAO userDAO;
-	
+
+	// Event
+
+	@Override
 	@Transactional
 	public List<Event> getThreeNearbyEvents() {
 		return eventDAO.getThreeNearbyEvents();
 	}
 
+	// Donate
+
+	@Override
 	@Transactional
 	public List<Donate> getLastThreeDonates() {
 		return donateDAO.getLastThreeDonates();
 	}
 
+	// User
+
+	@Override
 	@Transactional
 	public User getUserByEmail(String email) {
 		return userDAO.getUserByEmail(email);

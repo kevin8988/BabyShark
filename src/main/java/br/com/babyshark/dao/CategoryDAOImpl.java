@@ -15,8 +15,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@PersistenceContext
 	private EntityManager em;
 
+	@Override
 	public List<Category> getAllCategoriesDonate() {
 		return em.createQuery("select distinct c from Category c join fetch c.donates d where d.isDonated = false", Category.class).setHint("org.hibernate.cacheable", true).getResultList();
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		return em.createQuery("from Category c", Category.class).getResultList();
 	}
 
 }

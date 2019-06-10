@@ -9,20 +9,20 @@
 <head>
 <title>Doações</title>
 
-<s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
-<s:url value="/resources/css/bootstrap/bootstrap.min.css"
-	var="bootstrap"></s:url>
-<s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
-<s:url value="/resources/css/donate/layoutDoacao.css" var="layout"></s:url>
-
-<link rel="shortcut icon" type="image/x-icon" href="${icon }">
-
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
+<s:url value="/resources/js/home/jquery-3.3.1.min.js" var="jquery"></s:url>
+<s:url value="/resources/css/bootstrap/bootstrap.min.css"
+	var="bootstrap"></s:url>
+<s:url value="/resources/img/icon/favicon.ico" var="icon"></s:url>
+<s:url value="/resources/css/donate/donatelayout.css" var="layout"></s:url>
+
+<link rel="shortcut icon" type="image/x-icon" href="${icon }">
 <link rel="stylesheet" type="text/css" href="${bootstrap }" />
 <link rel="stylesheet" type="text/css" href="${layout }" />
+
 <link href="https://fonts.googleapis.com/css?family=Capriola"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -36,34 +36,8 @@
 	href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
 
-<script>
-	//Loader
-	window.addEventListener('DOMContentLoaded', function() {
-		setTimeout(function() {
-			$('#loading').fadeOut('slow', function() {
-				$(window).scrollTop(0);
-				$(this).remove();
-			});
-		}, 500);
-	});
-	//Fim do Loader
-</script>
-
 </head>
 <body>
-	<!-- Pre-Loader -->
-	<div class="pre-loader" id="loading">
-		<div id="loading-center">
-			<div id="loading-center-absolute">
-				<div class="object" id="object_four"></div>
-				<!-- nome do gif -->
-				<div class="object" id="object_three"></div>
-				<div class="object" id="object_two"></div>
-				<div class="object" id="object_one"></div>
-			</div>
-		</div>
-	</div>
-
 
 	<c:if test="${user == null }">
 		<c:import url="/WEB-INF/views/header/header.jsp"></c:import>
@@ -71,7 +45,6 @@
 	<c:if test="${user != null }">
 		<c:import url="/WEB-INF/views/header/header-login.jsp"></c:import>
 	</c:if>
-
 
 	<div class="container-fluid " style="margin-top: 10%;">
 		<div class="row">
@@ -170,22 +143,26 @@
 										<span>► Localização</span>
 									</h5>
 								</div>
-								<div aria-labelledby="headingFour"
-									data-parent="#containerAcordeon">
-									<div class="card-body">
-										<c:forEach items="${addresses }" var="address">
-											<div class="col mt-1">
-												<div class="custom-control custom-checkbox">
-													<input type="checkbox" class="custom-control-input"
-														id="${address.state }" value="${address.state }"
-														name="state"> <label class="custom-control-label"
-														style="display: inline-flex;" for="${address.state }">
-														${address.state } </label>
+								<c:if test="${!addresses.isEmpty() }">
+									<div aria-labelledby="headingFour"
+										data-parent="#containerAcordeon">
+										<div class="card-body">
+
+											<c:forEach items="${addresses }" var="address">
+												<div class="col mt-1">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="custom-control-input"
+															id="${address}" value="${address}" name="state">
+														<label class="custom-control-label"
+															style="display: inline-flex;" for="${address}">
+															${address} </label>
+													</div>
 												</div>
-											</div>
-										</c:forEach>
+											</c:forEach>
+
+										</div>
 									</div>
-								</div>
+								</c:if>
 							</div>
 							<button class="btn my-2 my-sm-0 m-3" type="submit">
 								<i class="fas fa-search mr-1"></i> Pesquisar
@@ -198,6 +175,7 @@
 			</div>
 			<div class="col-lg-9 col-md-12">
 				<div class="row">
+					<!--  
 					<div class="col-lg-12 col-md-12">
 						<div id="carouselExampleIndicators" class="carousel slide my-4"
 							data-ride="carousel">
@@ -232,7 +210,7 @@
 							</a>
 						</div>
 					</div>
-
+-->
 					<c:if test="${donates.isEmpty() }">
 						<div class="col-lg-4 col-md-12 mb-4">
 							<p>Nenhuma doação</p>
@@ -243,9 +221,9 @@
 						<c:forEach items="${donates }" var="donate">
 							<div class="col-lg-4 col-md-12 mb-4">
 								<div class="card h-100">
-									<c:forEach items="${donate.photos }" var="photo" begin="0" end="1">
-										<img class="card-img-top"
-											src="${photo.path }"
+									<c:forEach items="${donate.photos }" var="photo" begin="0"
+										end="0">
+										<img class="card-img-top img-detail" src="${photo.path }"
 											alt="Imagem de capa do card">
 									</c:forEach>
 									<div class="card-body">
@@ -253,7 +231,9 @@
 										<p class="card-text">${donate.description }</p>
 									</div>
 									<div class="card-footer">
-										<button class="btn btn-outline-segundary">Ver mais</button>
+										<a
+											href="${s:mvcUrl('DC#donateDetail').arg(0, donate.id).build() }"
+											class="btn btn-primary">Ver mais</a>
 									</div>
 								</div>
 							</div>

@@ -17,10 +17,14 @@ p {
   line-height: 1.4;
   margin-bottom: 15px;
 }
-h1,h2,h3,h5,h6{
+h1,h2,h3,h4,h5,h6{
   font-family: 'Capriola', sans-serif;
 }
 h1{
+  color: #0386A8;
+}
+label{
+  font-family: 'Capriola', sans-serif;
   color: #0386A8;
 }
 a {
@@ -88,8 +92,11 @@ footer{
 }
 
 .card{
-
+  width: 90%;
+  height: 90%;
   border: 0px;
+  -webkit-transition: width 1s, height 1s; /* Safari */
+  transition: width 1s, height 1s;
 }
 .card-header{
   background-color: white;
@@ -100,10 +107,14 @@ footer{
   padding-bottom: 5px;
   width: 200px;
 
-
 }
 .card-footer{
   background-color: white;
+}
+.card:hover {
+  width: 100%;
+  height: 100%;
+  box-shadow: all;
 }
 .menu-pesquisa{
   background-color: white;
@@ -112,8 +123,24 @@ footer{
   padding-bottom: 20px;
   
 }
+
+.container-fluid img {
+	max-width: 350px;
+	max-height: 290px;
+	width: auto;
+	height: auto;
+}
+
+.img-detail {
+	max-width: 350px;
+	max-height: 290px;
+	min-height: 290px;
+	width: auto;
+	height: auto;
+}
+
 /*------------MEDIA-----------------*/
-@media only screen and (max-width: 600px)  {
+@media only screen and (max-width: 600px)  {  
   body{
     background-color: #C8D0D8;
   }

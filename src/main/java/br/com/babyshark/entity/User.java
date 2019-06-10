@@ -1,6 +1,7 @@
 package br.com.babyshark.entity;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,12 +18,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "users")
@@ -35,38 +37,35 @@ public class User implements Serializable {
 	private Integer id;
 
 	@NotNull(message = "Por favor, informe um nome.")
-	@Pattern(regexp = "[a-zA-Z]{3,}", message = "Por favor, informe um nome válido com mais de 2 caracteres.")
+	@Pattern(regexp = "^[[ ]|\\p{L}*]+$", message = "Por favor, informe um nome vÃ¡lido com mais de 2 caracteres.")
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
 
 	@NotNull(message = "Por favor, informe um sobrenome.")
-	@Pattern(regexp = "[a-z A-Z]*|[a-zA-Z]*", message = "Por favor, informe um sobrenome.")
+	@Pattern(regexp = "^[[ ]|\\p{L}*]+$", message = "Por favor, informe um sobrenome.")
 	@Column(nullable = false, name = "last_name")
 	private String lastName;
 
 	@NotNull(message = "Por favor, informe um e-mail.")
-	@Pattern(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", message = "Por favor, informe um e-mail válido.")
+	@Pattern(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", message = "Por favor, informe um e-mail vï¿½lido.")
 	@Column(nullable = false, unique = true)
 	private String email;
 
 	@Column
 	private String username;
 
-	@NotNull(message = "Por favor, informe uma senha.")
 	@Column(nullable = false)
 	private String password;
 
-	@NotNull(message = "Por favor, confirme sua senha.")
 	@Column(nullable = false, name = "confirm_password")
 	private String confirmPassword;
 
-	@NotNull(message = "Por favor, informe um cpf.")
-	@CPF(message = "Por favor, informe um cpf válido.")
-	@Column(nullable = false)
-	private String cpf;
-
 	@Column(nullable = false, columnDefinition = "boolean default true")
 	private boolean enabled;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)
+	private Calendar beginDate;
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_address_id")
@@ -95,13 +94,12 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(String firstName, String lastName, String email, String password, String confirmPassword, String cpf) {
+	public User(String firstName, String lastName, String email, String password, String confirmPassword) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
-		this.cpf = cpf;
 	}
 
 	public Integer getId() {
@@ -184,12 +182,12 @@ public class User implements Serializable {
 		this.confirmPassword = confirmPassword;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public Calendar getBeginDate() {
+		return beginDate;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setBeginDate(Calendar beginDate) {
+		this.beginDate = beginDate;
 	}
 
 	public UserAddress getUserAddress() {
@@ -231,7 +229,7 @@ public class User implements Serializable {
 	public void setAuthorities(Set<Authority> authorities) {
 		this.authorities = authorities;
 	}
-	
+
 	public void add(Event event) {
 		this.events.add(event);
 		event.setUser(this);
@@ -241,7 +239,7 @@ public class User implements Serializable {
 		this.donates.add(donate);
 		donate.setUser(this);
 	}
-	
+
 	public void add(Authority role) {
 		this.authorities.add(role);
 	}
@@ -249,7 +247,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password=" + password
-				+ ", confirmPassword=" + confirmPassword + ", cpf=" + cpf + "]";
+				+ ", confirmPassword=" + confirmPassword + "]";
 	}
 
 }

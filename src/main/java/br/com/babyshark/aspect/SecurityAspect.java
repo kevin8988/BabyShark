@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.babyshark.entity.User;
 import br.com.babyshark.service.HomeService;
+import br.com.babyshark.service.UserService;
 
 @Aspect
 @Component
@@ -22,6 +23,9 @@ public class SecurityAspect {
 	@Autowired
 	private HomeService homeService;
 
+	@Autowired
+	private UserService userService;
+
 	@Pointcut("execution(* br.com.babyshark.controller.*.*(..))")
 	public void pointcutHomeMethod() {
 	}
@@ -30,9 +34,16 @@ public class SecurityAspect {
 	public void beforeHomeMethod() {
 
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		User userS = (User) session.getAttribute("user");
+		User user = null;
 
-		if (session.getAttribute("user") == null && !email.equals("anonymousUser")) {
-			User user = homeService.getUserByEmail(email);
+		if (!email.equals("anonymousUser")) {
+			if (userS == null) {
+				user = homeService.getUserByEmail(email);
+			} else {
+				user = userService.getUserById(userS.getId());
+			}
+			
 			session.setAttribute("user", user);
 		}
 	}

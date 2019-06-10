@@ -7,6 +7,22 @@ import br.com.babyshark.entity.User;
 
 public interface DonateDAO {
 
+	public void insertOrUpdate(Donate donate);
+
+	public void deleteDonate(User user, Integer id);
+	
+	public void donateDonated(Integer id);
+	
+
+	public Donate getDonateByIdAndUser(User user, Integer id);
+
+	public Donate getDonateById(Integer id);
+
+	public Donate getDonateDetail(Integer id);
+	
+
+	public List<Donate> getAllDonatesWithoutAgregation();
+
 	public List<Donate> getAllDonates();
 
 	public List<Donate> getDonatesByUser(User user);

@@ -4,22 +4,20 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "color")
 public class Color implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,22 +26,16 @@ public class Color implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private ColorName name;
+	private String name;
 
 	@Column(nullable = false)
 	private String nameHexa;
 
-	@ManyToMany
-	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "color_id"), inverseJoinColumns = @JoinColumn(name = "donate_id"))
+	@OneToMany(mappedBy = "color", fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	private Set<Donate> donates = new HashSet<Donate>();
 
 	public Color() {
-	}
-
-	public Color(ColorName name, String nameHexa) {
-		this.name = name;
-		this.nameHexa = nameHexa;
 	}
 
 	public Integer getId() {
@@ -54,11 +46,11 @@ public class Color implements Serializable {
 		this.id = id;
 	}
 
-	public ColorName getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(ColorName name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -76,6 +68,11 @@ public class Color implements Serializable {
 
 	public void setDonates(Set<Donate> donates) {
 		this.donates = donates;
+	}
+
+	@Override
+	public String toString() {
+		return "Color [id=" + id + ", name=" + name + ", nameHexa=" + nameHexa + "]";
 	}
 
 }

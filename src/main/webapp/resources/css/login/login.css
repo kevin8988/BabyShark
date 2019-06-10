@@ -3,13 +3,18 @@ html, body{
 }
 
 body{
-    background-color: aliceblue;    
+  	background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);  
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
     padding-bottom: 60px;
     font-family: 'montserrat', sans-serif;
+}
+
+.icon{
+     transition: 1.4s;
+     transform: rotate(360deg);
 }
 
 .form-login {
@@ -23,6 +28,30 @@ body{
     font-family: 'Capriola', sans-serif;
     font-size: 30px;
     margin-bottom: 15px;
+    color: #dae0e6;
+}
+
+.form-login .btn{
+  background-color: #2980B9;
+  color: white;
+  transition: .3s;
+}
+
+.form-login .btn:hover{
+  background-color: #6DD5FA;
+  box-shadow: 2px 2px 6px #7a7878cb;
+  border: 1px #6DD5FA solid;
+}
+
+.form-login .btn:active{
+  background-color: #3d86a0;
+  box-shadow: none;
+}
+
+.form-control{
+  border: none;
+  box-shadow: 4px 4px #8686867c;
+  border-radius: 3px;
 }
 
 .form-login .form-control {
@@ -60,5 +89,5 @@ body{
 .form-login button{
     width: 100%;
     margin: auto;
-    max-width: 200px;  
- }   
+    max-width: 200px;   
+}   

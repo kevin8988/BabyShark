@@ -51,6 +51,14 @@ public class Interest implements Serializable {
 		donate.getInterests().add(this);
 	}
 
+	public InterestId getId() {
+		return id;
+	}
+
+	public void setId(InterestId id) {
+		this.id = id;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -81,6 +89,11 @@ public class Interest implements Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	@Override
+	public String toString() {
+		return "Interest [id=" + id + ", status=" + status + ", message=" + message + "]";
 	}
 
 }

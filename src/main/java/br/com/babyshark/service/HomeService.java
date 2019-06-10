@@ -8,9 +8,15 @@ import br.com.babyshark.entity.User;
 
 public interface HomeService {
 
+	// Event
+
 	public List<Event> getThreeNearbyEvents();
 
+	// Donate
+
 	public List<Donate> getLastThreeDonates();
+
+	// User
 
 	public User getUserByEmail(String email);
 

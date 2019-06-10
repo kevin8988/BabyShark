@@ -5,8 +5,6 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user_detail")
@@ -29,15 +28,18 @@ public class UserDetail implements Serializable {
 	private Integer id;
 
 	@Column(name = "day_of_birth")
+	@DateTimeFormat
 	@Temporal(TemporalType.DATE)
 	private Calendar dayOfBirth;
 
 	@Column
 	private String fone;
 
-	@Enumerated(EnumType.STRING)
 	@Column
-	private GenderName gender;
+	private String cpf;
+
+	@Column
+	private String gender;
 
 	@OneToOne(mappedBy = "userDetail")
 	private User user;
@@ -58,11 +60,11 @@ public class UserDetail implements Serializable {
 		this.dayOfBirth = dayOfBirth;
 	}
 
-	public GenderName getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(GenderName gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
@@ -74,12 +76,26 @@ public class UserDetail implements Serializable {
 		this.fone = fone;
 	}
 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetail [id=" + id + ", dayOfBirth=" + dayOfBirth + ", fone=" + fone + ", cpf=" + cpf + ", gender="
+				+ gender + "]";
 	}
 
 }

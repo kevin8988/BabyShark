@@ -17,9 +17,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Table(name = "authorities",  
-	uniqueConstraints = @UniqueConstraint(
-		columnNames = { "authority", "username" }))
+@Table(name = "authorities", uniqueConstraints = @UniqueConstraint(columnNames = { "authority", "username" }))
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Authority implements Serializable {
 
@@ -58,6 +56,11 @@ public class Authority implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Authority [id=" + id + ", authority=" + authority + "]";
 	}
 
 }

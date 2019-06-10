@@ -1,7 +1,9 @@
 package br.com.babyshark.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -16,12 +18,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "donate")
 public class Donate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,12 +34,15 @@ public class Donate implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
+	@NotNull(message = "Por favor, informe um título.")
 	private String title;
 
 	@Column(nullable = false)
+	@NotNull(message = "Por favor, faça uma pequena descrição.")
 	private String description;
 
 	@Column(nullable = false)
+	@NotNull(message = "Por favor, dê informações.")
 	private String informations;
 
 	@Column(nullable = false, columnDefinition = "boolean default false")
@@ -46,24 +52,28 @@ public class Donate implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	@JoinColumn(name = "color_id")
+	private Color color;
+
+	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	@JoinColumn(name = "gender_id")
+	private Gender gender;
+
 	@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "donate")
+	@OneToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, mappedBy = "donate", fetch = FetchType.LAZY)
 	private Set<Photo> photos = new HashSet<Photo>();
 
 	@OneToMany(mappedBy = "donate", fetch = FetchType.LAZY)
 	private Set<Interest> interests = new HashSet<Interest>();
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	@JoinTable(name = "donate_category", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private Set<Category> categories = new HashSet<Category>();
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "donate_color", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "color_id"))
-	private Set<Color> colors = new HashSet<Color>();
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "donate_gender", joinColumns = @JoinColumn(name = "donate_id"), inverseJoinColumns = @JoinColumn(name = "gender_id"))
-	private Set<Gender> genders = new HashSet<Gender>();
+	private List<Category> categories = new ArrayList<Category>();
 
 	public Donate() {
 	}
@@ -139,28 +149,28 @@ public class Donate implements Serializable {
 		this.user = user;
 	}
 
-	public Set<Category> getCategories() {
+	public List<Category> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(Set<Category> categories) {
+	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
 
-	public Set<Color> getColors() {
-		return colors;
+	public Color getColor() {
+		return color;
 	}
 
-	public void setColors(Set<Color> colors) {
-		this.colors = colors;
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
-	public Set<Gender> getGenders() {
-		return genders;
+	public Gender getGender() {
+		return gender;
 	}
 
-	public void setGenders(Set<Gender> genders) {
-		this.genders = genders;
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public void add(Category category) {
@@ -171,12 +181,10 @@ public class Donate implements Serializable {
 		this.photos.add(photo);
 	}
 
-	public void add(Color color) {
-		this.colors.add(color);
-	}
-
-	public void add(Gender gender) {
-		this.genders.add(gender);
+	@Override
+	public String toString() {
+		return "Donate [id=" + id + ", title=" + title + ", description=" + description + ", informations="
+				+ informations + ", isDonated=" + isDonated + "]";
 	}
 
 }

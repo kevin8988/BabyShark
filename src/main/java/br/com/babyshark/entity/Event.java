@@ -19,12 +19,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region = "event")
 public class Event implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -33,9 +35,11 @@ public class Event implements Serializable {
 	private Integer id;
 
 	@Column(nullable = false)
+	@NotNull(message = "Título não pode ser nulo.")
 	private String title;
 
 	@Column(nullable = false)
+	@NotNull(message = "Descrição não pode ser nula.")
 	private String description;
 
 	@Column(nullable = false, name = "initial_hour")
@@ -47,8 +51,13 @@ public class Event implements Serializable {
 	private Date endHour;
 
 	@Column(nullable = false, name = "day_of_event")
+	@DateTimeFormat
 	@Temporal(TemporalType.DATE)
+	@NotNull(message = "Dia não pode ser nulo.")
 	private Date dayOfEvent;
+
+	@Column(nullable = false)
+	private boolean isAvailable;
 
 	@OneToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
@@ -59,7 +68,7 @@ public class Event implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_event", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<User> participants = new HashSet<User>();
 
@@ -122,6 +131,14 @@ public class Event implements Serializable {
 		this.dayOfEvent = dayOfEvent;
 	}
 
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -148,6 +165,12 @@ public class Event implements Serializable {
 
 	public void add(User user) {
 		this.participants.add(user);
+	}
+
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", initialHour=" + initialHour
+				+ ", endHour=" + endHour + ", dayOfEvent=" + dayOfEvent + ", isAvailable=" + isAvailable + "]";
 	}
 
 }
