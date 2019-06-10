@@ -72,8 +72,19 @@ footer{
 
 }
 .btn{
-  background-color: #0386A8;
+  background-color: #2980B9;
   color: white;
+  transition: .3s;
+}
+
+.btn:hover{
+  background-color: #6DD5FA;
+  box-shadow: 2px 2px 6px #7a7878cb;
+}
+
+.btn:active{
+  background-color: #3d86a0;
+  box-shadow: none;
 }
 
 .card{
