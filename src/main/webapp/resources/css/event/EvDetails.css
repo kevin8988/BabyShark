@@ -59,7 +59,8 @@
     font-family: 'capriola', sans-serif;
 }
 
-.content-event h1, h5 {
+.content-event h1,
+h5 {
     color: #0386A8;
 }
 

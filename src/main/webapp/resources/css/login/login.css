@@ -1,9 +1,11 @@
-html, body{
-    height: 100%;;
+html,
+body {
+    height: 100%;
+    ;
 }
 
-body{
-  	background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);  
+body {
+    background-image: linear-gradient(to bottom right, #2980B9, #6DD5FA, #FFFFFF);
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -12,9 +14,9 @@ body{
     font-family: 'montserrat', sans-serif;
 }
 
-.icon{
-     transition: 1.4s;
-     transform: rotate(360deg);
+.icon {
+    transition: 1.4s;
+    transform: rotate(360deg);
 }
 
 .form-login {
@@ -24,34 +26,34 @@ body{
     margin: auto;
 }
 
-.form-login h1{
+.form-login h1 {
     font-family: 'Capriola', sans-serif;
     font-size: 30px;
     margin-bottom: 15px;
     color: #dae0e6;
 }
 
-.form-login .btn{
-  background-color: #2980B9;
-  color: white;
-  transition: .3s;
+.form-login .btn {
+    background-color: #2980B9;
+    color: white;
+    transition: .3s;
 }
 
-.form-login .btn:hover{
-  background-color: #6DD5FA;
-  box-shadow: 2px 2px 6px #7a7878cb;
-  border: 1px #6DD5FA solid;
+.form-login .btn:hover {
+    background-color: #6DD5FA;
+    box-shadow: 2px 2px 6px #7a7878cb;
+    border: 1px #6DD5FA solid;
 }
 
-.form-login .btn:active{
-  background-color: #3d86a0;
-  box-shadow: none;
+.form-login .btn:active {
+    background-color: #3d86a0;
+    box-shadow: none;
 }
 
-.form-control{
-  border: none;
-  box-shadow: 4px 4px #8686867c;
-  border-radius: 3px;
+.form-control {
+    border: none;
+    box-shadow: 4px 4px #8686867c;
+    border-radius: 3px;
 }
 
 .form-login .form-control {
@@ -65,10 +67,10 @@ body{
 .form-login input[type="email"] {
     margin-bottom: 2px;
     border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;  
+    border-bottom-left-radius: 0;
 }
 
-.form-login input[type="email"]:hover{
+.form-login input[type="email"]:hover {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom: 1px rgb(50, 127, 214) solid;
@@ -81,13 +83,105 @@ body{
     border-top-right-radius: 0;
 }
 
-.form-login input[type="password"]:hover{
+.form-login input[type="password"]:hover {
     border-bottom: 1px rgb(50, 127, 214) solid;
     box-sizing: border-box;
 }
 
-.form-login button{
+.form-login button {
     width: 100%;
     margin: auto;
-    max-width: 200px;   
-}   
+    max-width: 200px;
+}
+
+#loading {
+    background-color: #0386A8;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    margin-top: 0px;
+    top: 0px;
+}
+
+#loading-center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.object {
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    border-top: 5px solid #FFF;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #FFF;
+    border-right: 5px solid transparent;
+    -webkit-animation: animate 2s infinite;
+    animation: animate 2s infinite;
+}
+
+#object_one {
+    left: 75px;
+    top: 75px;
+    width: 50px;
+    height: 50px;
+}
+
+#object_two {
+    left: 65px;
+    top: 65px;
+    width: 70px;
+    height: 70px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+#object_three {
+    left: 55px;
+    top: 55px;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+#object_four {
+    left: 45px;
+    top: 45px;
+    width: 110px;
+    height: 110px;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@-webkit-keyframes animate {
+    50% {
+        -ms-transform: rotate(360deg) scale(0.8);
+        -webkit-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+    }
+}
+
+@keyframes animate {
+    50% {
+        -ms-transform: rotate(360deg) scale(0.8);
+        -webkit-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+    }
+}
