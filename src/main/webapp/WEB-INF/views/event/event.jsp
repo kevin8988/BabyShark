@@ -128,11 +128,7 @@
 									<select class="form-control " id="exampleFormControlSelect1"
 										name="city">
 										<option value="">Selecione</option>
-										<option value="São Paulo">São Paulo</option>
-										<option>Rio</option>
-										<option>Salvador</option>
-										<option>Jundiaí</option>
-										<option>Curitiba</option>
+										<option value="São Paulo">São Paulo</option>										
 									</select>
 								</div>
 								<div class="col-lg-3 col-md-12 my-4">

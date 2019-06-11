@@ -28,8 +28,7 @@
 					<h5 class="mb-3">Site</h5>
 					<ul class="list-unstyled">
 						<li><a href="${s:mvcUrl('AUC#aboutUs').build() }"
-							class="text-muted">Sobre </a></li>
-						<li><a href="index.html" class="text-muted">Fundadores </a></li>
+							class="text-muted">Sobre </a></li>						
 						<li><a href="${s:mvcUrl('CC#contact').build() }" class="text-muted">Contato </a></li>
 					</ul>
 				</div>
