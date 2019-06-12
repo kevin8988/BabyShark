@@ -31,7 +31,7 @@
 			<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
 				<ul class="navbar-nav ml-auto mr-3 justify-content-end">
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('HC#home').build() }">Home</a></li>
-					<li class="nav-item active"><a class="nav-link" href="${s:mvcUrl('DC#search').build() }">Doações<span
+					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('DC#search').build() }">Doações<span
 							class="sr-only">(página atual)</span></a></li>
 					<li class="nav-item"><a class="nav-link" href="${s:mvcUrl('EC#events').build() }">Eventos</a>
 					</li>
@@ -52,8 +52,7 @@
 					</button>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="dropdownMenuButton" style="border: 0;">
-						<a class="dropdown-item" href="${s:mvcUrl('UC#profile').build() }">Perfil</a> <a
-							class="dropdown-item" href="#">Configurações</a> 
+						<a class="dropdown-item" href="${s:mvcUrl('UC#profile').build() }">Perfil</a> 
 							<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 								<input type="submit" class="dropdown-item" value = "Logout">
 							</form:form>

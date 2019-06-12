@@ -55,7 +55,7 @@ public class InterestDAOImpl implements InterestDAO {
 	@Override
 	public List<Interest> getInterestInMyDonates(User user) {
 		return em.createQuery(
-				"from Interest i join fetch i.donate d join fetch i.user iu join fetch d.user u where u = :pUser",
+				"from Interest i join fetch i.donate d join fetch i.user iu join fetch d.user u join fetch iu.userDetail ud where u = :pUser",
 				Interest.class).setParameter("pUser", user).getResultList();
 
 	}

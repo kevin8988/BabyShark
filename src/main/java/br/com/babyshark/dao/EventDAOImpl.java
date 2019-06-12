@@ -96,7 +96,7 @@ public class EventDAOImpl implements EventDAO {
 		Path<Boolean> pathAvailable = root.<Boolean>get("isAvailable");
 
 		List<Predicate> final1 = new ArrayList<Predicate>();
-		Predicate pAvailable = builder.equal(pathAvailable, "true");
+		Predicate pAvailable = builder.equal(pathAvailable, true);
 		final1.add(pAvailable);
 
 		if (!text.equals("")) {

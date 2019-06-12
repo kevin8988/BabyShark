@@ -168,7 +168,7 @@
 							</div>
 						</div>
 						<div class="mb-3">
-							<label for="validationCor">Cor:</label>
+							<label for="validationCor">Cor Principal:</label>
 							<div class="form-group">
 								<form:select class="custom-select" path="color.id">
 									<form:option value="">Selecione</form:option>
@@ -199,6 +199,7 @@
 						    <div class="invalid-feedback">Fotos do enxoval</div>
 						  </div>-->
 						<div class="input-default-wrapper ">
+							<label for="validationImage">Insira uma imagem:</label>
 							<input name="foto" type="file">
 							<c:if test="${erroPhoto != null }">
 								<br/>

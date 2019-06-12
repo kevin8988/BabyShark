@@ -128,11 +128,7 @@
 									<select class="form-control " id="exampleFormControlSelect1"
 										name="city">
 										<option value="">Selecione</option>
-										<option value="São Paulo">São Paulo</option>
-										<option>Rio</option>
-										<option>Salvador</option>
-										<option>Jundiaí</option>
-										<option>Curitiba</option>
+										<option value="São Paulo">São Paulo</option>										
 									</select>
 								</div>
 								<div class="col-lg-3 col-md-12 my-4">
@@ -159,7 +155,7 @@
 								<p class="card-text">${event.description }</p>
 								<form:form method="POST"
 									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
-									<button class="btn btn-primary">Visitar</button>
+									<button class="btn btn-outline-segundary">Visitar</button>
 								</form:form>
 							</div>
 						</div>

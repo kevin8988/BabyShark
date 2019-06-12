@@ -1,5 +1,6 @@
 package br.com.babyshark.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -23,7 +24,7 @@ public class HomeController {
 	private HttpSession session;
 
 	@RequestMapping("/")
-	public String home(Model model) {
+	public String home(Model model) throws ParseException {
 		List<Donate> lastThreeDonates = homeService.getLastThreeDonates();
 		List<Event> threeNearbyEvents = homeService.getThreeNearbyEvents();
 		model.addAttribute("lastDonates", lastThreeDonates);

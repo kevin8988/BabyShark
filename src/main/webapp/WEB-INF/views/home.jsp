@@ -123,9 +123,12 @@
 											<div class="card-body">
 												<h3 class="card-title">${lastDonate.title }</h3>
 												<p class="card-text">${lastDonate.description }</p>
-												<a
-													href="${s:mvcUrl('DC#donateDetail').arg(0, lastDonate.id).build() }"
-													class="btn btn-primary">Ver mais</a>
+
+												<form:form
+													action="${s:mvcUrl('DC#donateDetail').arg(0, lastDonate.id).build() }"
+													method="GET">
+													<button class="btn btn-outline-segundary">Ver mais</button>
+												</form:form>												
 											</div>
 										</div>
 									</div>
@@ -155,7 +158,7 @@
 								<p class="card-text">${event.dayOfEvent }</p>
 								<form:form method="POST"
 									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
-									<button class="btn btn-primary">Visitar</button>
+									<button class="btn btn-outline-segundary">Visitar</button>
 								</form:form>
 							</div>
 							<div class="card-footer text-muted">2 dias atrás</div>
