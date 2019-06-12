@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import br.com.babyshark.entity.Donate;
@@ -10,7 +11,7 @@ public interface HomeService {
 
 	// Event
 
-	public List<Event> getThreeNearbyEvents();
+	public List<Event> getThreeNearbyEvents() throws ParseException;
 
 	// Donate
 

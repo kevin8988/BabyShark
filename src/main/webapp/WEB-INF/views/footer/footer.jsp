@@ -20,16 +20,17 @@
 					<div class="mb-3">
 						<h5>Directory</h5>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing. sit
-						amet, consectetur Lorem ipsum dolor sit amet, conse</p>
+					<p>Participe do BabyShark, sua ajuda é extremamente importante.
+					</p>
 
 				</div>
 				<div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
 					<h5 class="mb-3">Site</h5>
 					<ul class="list-unstyled">
 						<li><a href="${s:mvcUrl('AUC#aboutUs').build() }"
-							class="text-muted">Sobre </a></li>						
-						<li><a href="${s:mvcUrl('CC#contact').build() }" class="text-muted">Contato </a></li>
+							class="text-muted">Sobre </a></li>
+						<li><a href="${s:mvcUrl('CC#contact').build() }"
+							class="text-muted">Contato </a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6 mt-5 mb-lg-0">
@@ -59,7 +60,7 @@
 		</div>
 		<div class="container-fluid p-1 text-center"
 			style="background-color: #0386A8; color: white;">
-			<p style="margin-bottom: 0px;">Â© 2019 Baby Shark. Todos os
+			<p style="margin-bottom: 0px;">© 2019 Baby Shark. Todos os
 				direitos reservados</p>
 		</div>
 	</footer>

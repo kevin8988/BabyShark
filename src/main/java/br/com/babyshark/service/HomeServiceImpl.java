@@ -1,5 +1,6 @@
 package br.com.babyshark.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class HomeServiceImpl implements HomeService {
 
 	@Override
 	@Transactional
-	public List<Event> getThreeNearbyEvents() {
+	public List<Event> getThreeNearbyEvents() throws ParseException {
 		return eventDAO.getThreeNearbyEvents();
 	}
 

@@ -155,7 +155,7 @@
 								<p class="card-text">${event.description }</p>
 								<form:form method="POST"
 									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
-									<button class="btn btn-primary">Visitar</button>
+									<button class="btn btn-outline-segundary">Visitar</button>
 								</form:form>
 							</div>
 						</div>
