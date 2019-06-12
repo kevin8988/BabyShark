@@ -158,7 +158,7 @@
 								<p class="card-text">${event.dayOfEvent }</p>
 								<form:form method="POST"
 									action="${s:mvcUrl('EC#detail').arg(0, event.id).build() }">
-									<button class="btn btn-primary">Visitar</button>
+									<button class="btn btn-outline-segundary">Visitar</button>
 								</form:form>
 							</div>
 							<div class="card-footer text-muted">2 dias atrás</div>

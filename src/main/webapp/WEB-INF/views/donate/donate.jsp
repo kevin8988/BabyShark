@@ -115,7 +115,7 @@
 							<div class="card m-3">
 								<div class="card-header" id="headingThree">
 									<h5>
-										<span>► Cor</span>
+										<span>► Cor Principal</span>
 									</h5>
 								</div>
 								<div aria-labelledby="headingThree"

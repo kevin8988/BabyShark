@@ -74,6 +74,7 @@
 												<p class="card-text">Interessado:
 													${interest.user.firstName }</p>
 												<p class="card-text">E-mail: ${interest.user.email }</p>
+												<p class="card-text">Telefone: ${interest.user.userDetail.fone }</p>
 												<p class="card-text">Mensagem: ${interest.message }</p>
 												<p class="card-text">Status: ${interest.status }</p>
 												<div class="row">
