@@ -29,19 +29,19 @@ public class DonateValidation implements Validator {
 		}
 
 		if (donate.getDescription() != null) {
-			if (donate.getDescription().length() > 240) {
+			if (donate.getDescription().length() > 180) {
 				errors.rejectValue("description", "field.description");
 			}
 		}
 		
 		if (donate.getInformations() != null) {
-			if (donate.getInformations().length() > 240) {
+			if (donate.getInformations().length() > 180) {
 				errors.rejectValue("informations", "field.informations");
 			}
 		}
 		
 		if (donate.getTitle() != null) {
-			if (donate.getTitle().length() > 30) {
+			if (donate.getTitle().length() > 21) {
 				errors.rejectValue("title", "field.title");
 			}
 		}

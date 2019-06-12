@@ -138,8 +138,8 @@
 					</c:if>
 				</div>
 				<!-- Add Pagination -->
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
+<!-- 				<div class="swiper-button-next"></div> -->
+<!-- 				<div class="swiper-button-prev"></div> -->
 			</div>
 		</div>
 		<div class="container-fluid p-5" style="background-color: #0386A8;">

@@ -55,7 +55,7 @@
                                 <img src="${img1 }" class="img-pass" alt="primeiro passo">
 
                                 <p>Para ajudar, você primeiro precisa clicar no botãozinho azul, ele vai te redirecionar direto para a nossa página do paypal, fazendo que seja uma colaboração segura.</p>
-                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                                     <input type="hidden" name="cmd" value="_s-xclick" />
                                     <input type="hidden" name="hosted_button_id" value="F4MHGMBUGA7U8" />
                                     <!-- INSERIR A NOSSA IMAGEM DO BOTAO -->
